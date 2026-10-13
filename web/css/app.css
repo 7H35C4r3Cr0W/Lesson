@@ -1342,9 +1342,16 @@ textarea.input { min-height: 90px; resize: vertical; }
 .lesson-emoji { font-size: 34px; line-height: 1; }
 .lesson-steps, .lesson-examples { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; }
 .lesson-links { font-size: 14px; }
+.toc-subject summary { cursor: pointer; font-weight: 900; font-size: 18px; padding: 6px 0; }
+.toc-group { margin: 6px 0 8px 14px; }
+.toc-levels { list-style: none; margin: 2px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0 12px; }
+.toc-link { background: none; border: 0; padding: 4px 0; min-height: 32px; font: inherit; font-weight: 700; color: var(--blue-edge); cursor: pointer; text-align: left; }
+.toc-link.small { font-size: 13px; text-transform: none; letter-spacing: 0; }
+.toc-link:hover { text-decoration: underline; }
 @media print {
   body, .app, .screen.grown, .grown-body { background: #fff !important; color: #000 !important; position: static !important; overflow: visible !important; height: auto !important; }
-  .grown-bar, .page-head .btn, .page-head select, .lesson-links, .offline-pill { display: none !important; }
+  .grown-bar, .page-head .btn, .page-head select, .lesson-links, .offline-pill, .toc-link { display: none !important; }
+  .toc-subject > *:not(summary) { display: block; }
   .panel, .lesson-card { border-color: #bbb; box-shadow: none; background: #fff; }
   .lessons .lesson-subject { break-before: page; }
 }
