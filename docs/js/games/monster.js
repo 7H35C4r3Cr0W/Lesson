@@ -30,11 +30,11 @@ export function start(game) {
     monster.className = 'monster';
     while (prompt.firstChild) prompt.removeChild(prompt.firstChild);
     while (plates.firstChild) plates.removeChild(plates.firstChild);
-    bubble.textContent = q.listen ? 'I want the word you hear!' : 'Feed me the answer!';
+    bubble.textContent = q.listen ? 'Feed me this word!' : 'Feed me the answer!';
     if (q.listen) {
       const btn = h('button', { class: 'listen listen-big small', type: 'button', 'aria-label': 'Hear the word' }, '🔊');
       btn.addEventListener('click', () => game.hear(q, false));
-      prompt.append(btn);
+      prompt.append(btn, h('span', { class: 'game-prompt-text' }, q.prompt));   // shown and said
     } else {
       prompt.append(h('span', { class: 'game-prompt-text' }, q.prompt),
         h('button', { class: 'round speaker', type: 'button', 'aria-label': 'Hear it again', onclick: () => game.hear(q) }, '🔊'));

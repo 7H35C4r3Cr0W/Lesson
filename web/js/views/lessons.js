@@ -15,7 +15,7 @@ import { go } from '../ui.js';
 const PASS_PCT = Math.round(PASS_MARK * 100);
 
 const KIND = {
-  read: { label: 'Reading cards', blurb: 'words or sentences the child reads; the quiz says one and the child finds it' },
+  read: { label: 'Reading cards', blurb: 'words or sentences the child reads; the quiz shows and says one and the child finds it among look-alikes' },
   qa: { label: 'Question cards', blurb: 'a question with one right answer among three choices' },
 };
 
@@ -25,7 +25,7 @@ function steps(deck) {
   if (deck.kind === 'read') {
     return [
       'Look: flip through the cards together. Point to the coloured sound-spellings, say each sound, then blend the word. Flip to hear it and sort it: Got it or Not yet (Not yet cards come back a few cards later).',
-      `Play: the tablet says a word and the child taps it among look-alikes from this level. ${need} right out of ${Math.min(store.prefs().sessionSize, deck.cards.length)} (${PASS_PCT}%) passes the level and opens the next one; a miss shows the right word and asks it again at the end of the round.`,
+      `Play: the tablet shows and says a word and the child finds it among look-alikes from this level. ${need} right out of ${Math.min(store.prefs().sessionSize, deck.cards.length)} (${PASS_PCT}%) passes the level and opens the next one; a miss shows the right word and asks it again at the end of the round.`,
       'Reteach: cards missed two of the last three times go first in the next round and sit in Grown-ups → Needs practice. Each card is "mastered" after three right answers in a row across days.',
       'Extend: Word Builder (build the word from letter tiles), Slingshot and Bubble Pop pull words from this level once it is open.',
     ];

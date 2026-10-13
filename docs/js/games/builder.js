@@ -98,9 +98,9 @@ export function start(game) {
     if (q.listen) {
       const btn = h('button', { class: 'listen listen-big small', type: 'button', 'aria-label': 'Hear the word' }, '🔊');
       btn.addEventListener('click', () => game.hear(q, false));
-      // The word is only ever heard, never shown; the one exception is a tablet with
-      // no voice at all, where a hidden word would make the game impossible.
-      prompt.append(btn, h('span', { class: 'game-prompt-text' }, game.canSpeak ? 'Build the word you hear!' : q.prompt));
+      // The word is shown as well as said: a tablet that stays silent (mute switch, no voice)
+      // must never leave the child guessing what to build.
+      prompt.append(btn, h('span', { class: 'game-prompt-text' }, q.prompt));
     } else {
       prompt.append(h('span', { class: 'game-prompt-text' }, q.prompt),
         h('button', { class: 'round speaker', type: 'button', 'aria-label': 'Hear it again', onclick: () => game.hear(q) }, '🔊'));

@@ -99,7 +99,7 @@ export function start(game) {
     if (q.listen) {
       const btn = h('button', { class: 'listen listen-big small', type: 'button', 'aria-label': 'Hear the word' }, '🔊');
       btn.addEventListener('click', () => game.hear(q, false));
-      promptBox.append(btn, h('span', { class: 'game-prompt-text' }, 'Find the word you hear!'));
+      promptBox.append(btn, h('span', { class: 'game-prompt-text' }, q.prompt));      // the word is shown AND said: a silent tablet must never hide it
     } else {
       promptBox.append(h('span', { class: 'game-prompt-text' }, q.prompt),
         h('button', { class: 'round speaker', type: 'button', 'aria-label': 'Hear it again', onclick: () => game.hear(q) }, '🔊'));

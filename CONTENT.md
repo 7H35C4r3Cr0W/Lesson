@@ -50,7 +50,7 @@ Edit a file, save, reload the page on the tablet. No restart. Run `python tools/
   "say": "cat" }                     // optional: what the voice says if it differs from text
 ```
 
-In a quiz the child **hears** the word and taps it among look-alike words from the same deck, so every read deck
+In a quiz the child **sees and hears** the word and taps it among look-alike words from the same deck, so every read deck
 needs at least 3 different words. Sentences are read decks too (no `parts`); keep them under 90 characters,
 8 words or fewer.
 

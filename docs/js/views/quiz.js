@@ -81,7 +81,9 @@ export function runQuiz(root, scope, opts) {
     const item = queue[index];
     const { card, deck } = item;
     const question = buildQuestion(card, deck, Math.random, 3);
-    const listen = deck.kind === 'read' && canSpeak;      // hear the word, find it
+    // A reading card is said out loud (when there is a voice) AND shown: a tablet with the mute
+    // switch on, or no voice, must never leave the child guessing which word is wanted.
+    const listen = deck.kind === 'read' && canSpeak;      // say the word, replay it after a miss
     const promptSay = sayPrompt(card, deck.kind);
     let locked = true;
     let firstTry = true;
@@ -103,8 +105,8 @@ export function runQuiz(root, scope, opts) {
 
     let lastWrong = null;
     const hint = h('div', { class: 'hint-bubble', hidden: true });
-    const prompt = h('div', { class: `prompt-card ${listen ? 'is-listen' : ''}` },
-      listen ? hearBtn : [frontFace(card, deck), canSpeak ? hearBtn : null],
+    const prompt = h('div', { class: 'prompt-card' },
+      frontFace(card, deck), canSpeak ? hearBtn : null,
       // The 🙋 button (practice only): a spoken hint from the family's local model, if one is set up.
       !isTest && prefs.helper ? help.helpButton(store.state.profile.id,
         () => ({ card: card.id, choices: question.choices, chosen: lastWrong, revealed: misses >= 2 }),
@@ -233,11 +235,6 @@ export function runQuiz(root, scope, opts) {
       buttons.forEach((b) => { b.disabled = true; });
       rightBtn.disabled = false;             // the child can tap the glowing answer to go on
       rightBtn.classList.add('reveal');
-      if (listen) {
-        clear(prompt);
-        prompt.classList.remove('is-listen');
-        prompt.append(frontFace(card, deck));
-      }
       if (canSpeak) speech.speak(sayAnswer(card, deck.kind));
       const nextBtn = h('button', { class: 'btn primary big next-btn', type: 'button', onclick: tap(() => live() && next()) },
         'Next', icon('next'));

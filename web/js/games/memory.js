@@ -86,14 +86,15 @@ export function start(game) {
 
   function faceContent(card) {
     const { pair, side } = card;
-    if (side === 'prompt' && pair.listen) return h('span', { class: 'mem-ear', 'aria-hidden': 'true' }, '🔊');
     const text = side === 'prompt' ? pair.prompt : pair.answer;
-    return h('span', { class: `mem-text ${sizeClass(text)}` }, text);
+    // A listening pair's prompt side shows the word too (with its 🔊), so a silent tablet still works.
+    return h('span', { class: `mem-text ${sizeClass(text)}` },
+      side === 'prompt' && pair.listen ? h('span', { class: 'mem-ear', 'aria-hidden': 'true' }, '🔊 ') : null, text);
   }
 
   function labelOf(card) {
     if (!card.up && !card.found) return 'Face-down card';
-    if (card.side === 'prompt') return card.pair.listen ? 'Listen card' : card.pair.prompt;
+    if (card.side === 'prompt') return card.pair.prompt;
     return card.pair.answer;
   }
 
