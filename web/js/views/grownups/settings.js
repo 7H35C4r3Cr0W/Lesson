@@ -116,6 +116,8 @@ export function draw(body, scope, arg, redraw) {
       'Cards and words always stay dark-on-light for reading.')),
 
     h('div', { class: 'panel' }, h('h2', null, 'Levels'),
+      row('Allow testing out', toggle('testOut', prefs),
+        'On: tapping a locked level offers one round drawn from every level up to it; 85% opens them all at once, and the Levels page marks them “tested out”. Off: levels open one at a time only.'),
       row('Open every level', toggle('freeRoam', prefs),
         'Off: a level opens when the one before it is passed: three stars, which is a Play round at 85% or better (9 of 10), like a video game. On: any level can be played, handy to jump to what the class is doing; passing still needs 85%. Hiding decks on the Cards page also skips them on the path.')),
 

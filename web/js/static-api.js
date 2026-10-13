@@ -9,7 +9,7 @@ import { applyResult, dayString } from './logic.js';
 
 const KEY = 'starcards.static.v1';
 const APP = 'Star Cards';
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 const PASS_MARK = 0.85;
 const MAX_PROFILES = 8;
 const MAX_ATTEMPTS = 6000;          // oldest answers fall off; stars are kept in a counter
@@ -183,7 +183,7 @@ function record(pid, d, item, touched, testId = null) {
 
 function roundSummary(d, deckId = null) {
   const out = {};
-  const rounds = d.rounds.filter((r) => r.mode === 'practice' && (deckId === null || r.deck === deckId))
+  const rounds = d.rounds.filter((r) => (r.mode === 'practice' || r.mode === 'testout') && (deckId === null || r.deck === deckId))
     .sort((a, b) => a.at - b.at);
   for (const r of rounds) {
     const score = r.total ? Math.round((r.correct / r.total) * 10000) / 10000 : 0;
@@ -333,7 +333,7 @@ function postRound(body) {
   const correct = wantInt(body, 'correct', 0, 100);
   if (correct > total) throw new StaticError(400, 'correct cannot be more than total');
   const mode = body.mode === undefined ? 'practice' : body.mode;
-  if (!['practice', 'learn'].includes(mode)) throw new StaticError(400, 'Bad round mode');
+  if (!['practice', 'testout', 'learn'].includes(mode)) throw new StaticError(400, 'Bad round mode');
   const at = cleanAt(body.at);
   if (!d.rounds.some((r) => r.uid === body.uid)) {
     d.rounds.push({ uid: body.uid, deck: body.deck, mode, total, correct, day: cleanDay(body.day, at), at });
@@ -463,7 +463,7 @@ function cleanPrefs(raw) {
   const out = {};
   if ('sessionSize' in raw) out.sessionSize = wantInt(raw, 'sessionSize', 3, 30);
   if ('newPerSession' in raw) out.newPerSession = wantInt(raw, 'newPerSession', 1, 15);
-  for (const key of ['sound', 'speech', 'readChoices', 'gamesNeedPractice', 'freeRoam', 'helper']) {
+  for (const key of ['sound', 'speech', 'readChoices', 'gamesNeedPractice', 'freeRoam', 'helper', 'testOut']) {
     if (key in raw) {
       if (typeof raw[key] !== 'boolean') throw new StaticError(400, `'${key}' must be true or false`);
       out[key] = raw[key];

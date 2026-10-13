@@ -199,6 +199,21 @@ export function pickSession(cards, stats, opts) {
   return shuffle(picked, rng);
 }
 
+// Pick the cards for a test-out round: `pools` = [{ deck, cards }] for every level being skipped,
+// in path order. Questions are dealt one level at a time so each level gets a fair share, then
+// shuffled. Returns at most `size` cards (fewer when the levels are small).
+export function pickTestOut(pools, size, rng) {
+  const piles = pools.map((p) => shuffle(p.cards, rng)).filter((c) => c.length);
+  const picked = [];
+  while (picked.length < size && piles.some((c) => c.length)) {
+    for (const pile of piles) {
+      if (picked.length >= size) break;
+      if (pile.length) picked.push(pile.pop());
+    }
+  }
+  return shuffle(picked, rng);
+}
+
 // Pick the cards for a test a grown-up is setting up.
 //   config.decks  deck ids to draw from
 //   config.count  how many questions

@@ -15,6 +15,7 @@ export const DEFAULT_PREFS = Object.freeze({
   readChoices: true,      // in 'full' mode: read answer choices aloud outside the reading subjects
   gamesNeedPractice: false,
   freeRoam: false,        // true = every level open; false = finish a level to open the next
+  testOut: true,          // tapping a locked level offers one round that can open every level up to it
   helper: true,           // show the 🙋 button when the Pi has a local model set up
   theme: 'night',         // 'night' (calm dark) or 'day' (soft cream)
   hiddenDecks: [],
@@ -204,13 +205,14 @@ api.onConnection((online) => {
 // A finished Play round on a level: the score that decides whether the level is passed.
 // The screen updates at once from our own copy of the rule; the round goes to the Pi from a
 // queue in the tablet's storage, so a Wi-Fi blip cannot lose it.
-export function recordRound({ deck, total, correct }) {
+//   mode: 'practice' (a round on the level) or 'testout' (one round that covers several levels)
+export function recordRound({ deck, total, correct, mode = 'practice' }) {
   const now = Date.now();
   state.rounds[deck] = addRound(state.rounds[deck], correct, total, now);
   const waiting = api.storage.get(ROUNDS_KEY, []);
   const list = Array.isArray(waiting) ? waiting : [];
   list.push({ profile: state.profile.id, round: {
-    uid: api.newUid(), deck, total, correct, at: now, day: dayString(new Date(now)),
+    uid: api.newUid(), deck, total, correct, mode, at: now, day: dayString(new Date(now)),
   } });
   api.storage.set(ROUNDS_KEY, list.slice(-200));
   emit('stats');

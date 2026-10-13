@@ -234,6 +234,15 @@ test('deckProgress counts seen, mastered and trouble cards', () => {
   eq([p.total, p.seen, p.mastered, p.trouble], [2, 2, 1, 1]);
   eq(L.deckProgress(decks[0], {}).seen, 0);
 });
+test('pickTestOut deals a fair share from every level, then shuffles', () => {
+  const pools = decks.map((d) => ({ deck: d, cards: d.cards }));          // 4 levels x 2 cards
+  const picked = L.pickTestOut(pools, 6, rng());
+  eq(picked.length, 6);
+  eq(new Set(picked.map((c) => c.id)).size, 6, 'no repeats');
+  for (const d of decks) ok(picked.some((c) => c.id.startsWith(d.id + '.')), `${d.id} represented`);
+  eq(L.pickTestOut(pools, 20, rng()).length, 8, 'capped by what the levels hold');
+  eq(L.pickTestOut([], 10, rng()).length, 0);
+});
 test('nextDeck is the frontier', () => {
   eq(L.nextDeck(decks, {}, { rounds: { L1: passRound } }).id, 'L2');
   eq(L.nextDeck(decks, { 'L1.a': mastered, 'L1.b': mastered }).id, 'L1');

@@ -334,6 +334,19 @@ class Rounds(ServerCase):
         self.assertEqual(rep["passMark"], 0.85)
         self.assertEqual(len([r for r in rep["rounds"] if r["deck"] == "w1"]), 3)
 
+    def test_test_out_rounds_count_toward_passing(self):
+        _, out = self.call("POST", "/api/profiles", body={"name": "Skipper"})
+        pid = out["profile"]["id"]
+        resp, out = self.call("POST", "/api/rounds", body={"profile": pid, "uid": "round-to-00001", "deck": "m1",
+                                                           "total": 10, "correct": 9, "mode": "testout", "at": server.now_ms()})
+        self.assertEqual(resp.status, 200, out)
+        self.assertTrue(out["rounds"]["m1"]["passed"])
+        _, rep = self.call("GET", f"/api/decks/m1/report?profile={pid}")
+        self.assertEqual(rep["rounds"][0]["mode"], "testout")
+        resp, out = self.call("PUT", f"/api/profiles/{pid}", body={"prefs": {"testOut": False}})
+        self.assertEqual((resp.status, out["profile"]["prefs"]["testOut"]), (200, False))
+        self.call("DELETE", f"/api/profiles/{pid}")
+
     def test_round_validation(self):
         for body in ({"profile": 1, "uid": "round-bad-01", "deck": "nope", "total": 10, "correct": 5},
                      {"profile": 1, "uid": "round-bad-02", "deck": "w1", "total": 10, "correct": 11},

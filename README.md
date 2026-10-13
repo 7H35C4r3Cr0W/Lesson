@@ -132,7 +132,7 @@ PIN in Settings and the Pi itself will refuse grown-up changes without it.
 - **Cards**: every deck with a show/hide switch (hide what the class has not reached yet; hidden decks are skipped
   on the path), progress per card, and **Card is wrong** to hide a bad card and leave yourself a note.
 - **Settings**: child's name and buddies, the look (Night: calm dark blue, the default; Day: soft cream),
-  open-every-level switch, round length, sound, **when the voice speaks** (Only when needed: the word in a
+  allow-testing-out and open-every-level switches, round length, sound, **when the voice speaks** (Only when needed: the word in a
   listen-and-find question, a replay after a miss, the answer after two misses, and the 🔊/🙋 buttons; Read
   everything; Never), which voice, the Help button, PIN, export, erase.
 
@@ -149,6 +149,11 @@ end-of-round screen says exactly what it takes ("Get 9 out of 10 for 3 stars") a
 levels (no Play button) are passed by flipping and sorting every card in the flashcards. "Mix it up", "Try again",
 tests and games never pass a level; only a round on the level itself does. A level once passed stays open even if
 the one before it is not (passed under *Open every level*, or while a deck was hidden).
+
+**Testing out.** A child who already knows a subject taps a locked level on the map and is offered a test-out: one
+round drawn evenly from every level between the first unpassed one and that level. 85% opens them all at once (the
+Levels page marks those rounds "test-out"); less opens none, and the child can try again or play the levels in
+order. Grown-ups → Settings → *Allow testing out* turns the offer off.
 
 Separately, each card is *mastered* after three right answers in a row across sessions; a miss drops it back;
 missed cards come back later in the same round and first in the next one. Mastery drives what the next round

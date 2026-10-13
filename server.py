@@ -41,7 +41,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlsplit
 
 APP_NAME = "Star Cards"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 ROOT = Path(__file__).resolve().parent
 
 MAX_BODY = 1_000_000          # bytes accepted in one request body
@@ -743,10 +743,11 @@ class App:
             "SELECT COUNT(*) FROM attempts WHERE profile_id=? AND correct=1", (profile_id,))[0][0]
 
     PASS_MARK = 0.85     # a level is passed with 85% or better on a practice round (mirrored in logic.js)
+    ROUND_MODES = ("practice", "testout", "learn")   # testout = one round that covers several levels
 
     def round_summary(self, profile_id: int, deck_id: str | None = None) -> dict:
         """Per deck: the best and latest practice-round scores, so the app can tell a passed level."""
-        sql = "SELECT deck_id, total, correct, at FROM rounds WHERE profile_id=? AND mode='practice'"
+        sql = "SELECT deck_id, total, correct, at FROM rounds WHERE profile_id=? AND mode IN ('practice', 'testout')"
         args: list = [profile_id]
         if deck_id is not None:
             sql += " AND deck_id=?"
@@ -995,7 +996,7 @@ class App:
         if correct > total:
             raise ApiError(400, "correct cannot be more than total")
         mode = req.body.get("mode", "practice")
-        if mode not in ("practice", "learn"):          # a game round must never count toward passing a level
+        if mode not in self.ROUND_MODES:                # a game round must never count toward passing a level
             raise ApiError(400, "Bad round mode")
         at = self.clean_at(req.body.get("at"))
         day = self.clean_day(req.body.get("day"), at)
@@ -1244,7 +1245,7 @@ class App:
             out["sessionSize"] = want_int(raw, "sessionSize", 3, 30)
         if "newPerSession" in raw:
             out["newPerSession"] = want_int(raw, "newPerSession", 1, 15)
-        for key in ("sound", "speech", "readChoices", "gamesNeedPractice", "freeRoam", "helper"):
+        for key in ("sound", "speech", "readChoices", "gamesNeedPractice", "freeRoam", "helper", "testOut"):
             if key in raw:
                 out[key] = want_bool(raw, key)
         if "theme" in raw:
