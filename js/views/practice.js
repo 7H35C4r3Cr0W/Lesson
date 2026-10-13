@@ -1,11 +1,13 @@
 // A practice round: pick the cards, run the quiz, celebrate.
 //
 //   #/practice/deck/<deckId>   one deck: a LEVEL. The round is scored; 85% or better passes it.
+//   #/practice/testout/<deckId> TEST OUT: one round drawn from every level between the child's
+//                              frontier and this (locked) level; 85% passes them all at once.
 //   #/practice/today           keep going with every deck already started
 //   #/practice/again           the "try again" pile (cards that need more practice)
 
 import { h, clear } from '../dom.js';
-import { canQuiz, levelPath, needToPass, pickSession, roundStars, stickersEarned } from '../logic.js';
+import { PASS_MARK, canQuiz, levelPath, needToPass, pickSession, pickTestOut, roundStars, stickersEarned } from '../logic.js';
 import * as store from '../store.js';
 import * as sfx from '../sfx.js';
 import * as speech from '../speech.js';
@@ -39,7 +41,30 @@ function poolFor(kind, id) {
     };
   }
   if (kind === 'today') return { title: 'Today', emoji: '☀️', exit: '/', pool: todayPool() };
+  if (kind === 'testout') return testOutPlan(id);
   return null;
+}
+
+// Test out: every level from the first one not yet passed up to the tapped level, as one pool
+// per level so the round can give each level a fair share of questions.
+function testOutPlan(id) {
+  const deck = store.state.deckById.get(id);
+  if (!deck || !store.prefs().testOut) return null;
+  const hidden = store.hiddenCards();
+  const levels = levelPath(store.decksOf(deck.subject), store.state.stats, store.levelOpts());
+  const target = levels.findIndex((l) => l.deck.id === deck.id);
+  if (target < 0) return null;
+  let from = levels.findIndex((l) => !l.passed);
+  if (from < 0 || from > target) from = target;
+  const span = levels.slice(from, target + 1).filter((l) => l.deck.quiz !== false && !l.passed);
+  const pools = span.map((l) => ({ deck: l.deck, cards: l.deck.cards.filter((c) => canQuiz(c, l.deck) && !hidden.has(c.id)) }))
+    .filter((p) => p.cards.length);
+  if (!pools.length) return null;
+  return {
+    title: 'Test out', emoji: '⚡', exit: `/subject/${deck.subject}`,
+    pool: pools.flatMap((p) => p.cards.map((card) => ({ card, deck: p.deck }))),
+    testOut: { pools, target: deck, first: span[0].index + 1, last: span[span.length - 1].index + 1 },
+  };
 }
 
 export function mount(root, scope, kind, id) {
@@ -51,10 +76,12 @@ export function mount(root, scope, kind, id) {
   }
   const prefs = store.prefs();
   const byId = new Map(plan.pool.map((entry) => [entry.card.id, entry]));
-  const picked = pickSession(plan.pool.map((e) => e.card), store.state.stats, {
-    size: prefs.sessionSize, maxNew: prefs.newPerSession, now: Date.now(), rng: Math.random,
-    practiceFlags: store.practiceFlags(),
-  });
+  const picked = plan.testOut
+    ? pickTestOut(plan.testOut.pools, prefs.sessionSize, Math.random)
+    : pickSession(plan.pool.map((e) => e.card), store.state.stats, {
+      size: prefs.sessionSize, maxNew: prefs.newPerSession, now: Date.now(), rng: Math.random,
+      practiceFlags: store.practiceFlags(),
+    });
   const starsBefore = store.state.stars;
   runQuiz(root, scope, {
     items: picked.map((card) => byId.get(card.id)),
@@ -68,6 +95,10 @@ export function mount(root, scope, kind, id) {
         // A round on a level is scored: 85% or better passes the level and opens the next one.
         store.recordRound({ deck: id, total, correct: right });
         where = afterLevel(store.state.deckById.get(id), { exit: plan.exit, total });
+      } else if (kind === 'testout') {
+        // One score for every level covered: 85% passes them all, less passes none.
+        for (const p of plan.testOut.pools) store.recordRound({ deck: p.deck.id, total, correct: right, mode: 'testout' });
+        where = afterTestOut(plan.testOut, total > 0 && right / total >= PASS_MARK, total);
       }
       clear(root);
       showDone(root, scope, {
@@ -102,6 +133,19 @@ export function afterLevel(deck, { exit, total = 0 } = {}) {
   if (deck.quiz === false) note = `Flip and sort every card${after ? ' to open the next level' : ''}.`;
   else if (total) note = `Get ${needToPass(total)} out of ${total} for 3 stars${more}.`;
   return { exit: map, heading: 'Good try!', note, retry: true };
+}
+
+// After a test-out round: passed opens every level covered and points at the one the child
+// tapped; not passed says what it takes and offers another go.
+function afterTestOut({ target, first, last }, passed, total) {
+  const map = `/subject/${target.subject}`;
+  const span = first === last ? `Level ${first}` : `Levels ${first} to ${last}`;
+  if (passed) {
+    return { exit: map, heading: 'You tested out!', note: `${span} ${first === last ? 'is' : 'are'} open!`,
+      next: { label: `Level ${last}`, emoji: target.emoji || '⭐', path: `/deck/${target.id}` } };
+  }
+  return { exit: map, heading: 'Good try!', retry: true,
+    note: `Get ${needToPass(total)} out of ${total} to test out of ${span.toLowerCase()}.` };
 }
 
 // The end-of-round screen, also used after flashcards and tests.

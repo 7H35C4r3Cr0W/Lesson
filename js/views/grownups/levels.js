@@ -174,7 +174,8 @@ export function detail(body, scope, deckId, redraw) {
             h('td', null, dateTime(r.at)),
             h('td', null, `${r.correct} / ${r.total}`),
             h('td', { class: ok ? 'score-pass' : 'score-fail' }, percent(share)),
-            h('td', null, h('span', { class: `lvl ${ok ? 'lvl-passed' : 'lvl-notyet'}` }, ok ? '✓ passed' : `under ${PASS_PCT}%`)));
+            h('td', null, h('span', { class: `lvl ${ok ? 'lvl-passed' : 'lvl-notyet'}` },
+              `${r.mode === 'testout' ? '⚡ test-out: ' : ''}${ok ? (r.mode === 'testout' ? 'passed' : '✓ passed') : `under ${PASS_PCT}%`}`)));
         }))));
     }
 

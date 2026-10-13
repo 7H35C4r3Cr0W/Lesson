@@ -26,7 +26,7 @@ const ROUTES = [
   [/^\/deck\/([\w.-]+)$/, deck],
   [/^\/cards\/([\w.-]+)$/, cards],
   [/^\/practice\/(today|again)$/, practice],
-  [/^\/practice\/(deck)\/([\w.-]+)$/, practice],
+  [/^\/practice\/(deck|testout)\/([\w.-]+)$/, practice],
   [/^\/test\/(\d+)$/, test],
   [/^\/stickers$/, stickers],
   [/^\/games(?:\/([\w-]+))?(?:\/([\w.-]+))?$/, games],

@@ -6,11 +6,11 @@
 // Groups become signposts along the way.
 
 import { h, s } from '../dom.js';
-import { levelPath } from '../logic.js';
+import { levelPath, needToPass } from '../logic.js';
 import * as store from '../store.js';
 import * as speech from '../speech.js';
 import * as sfx from '../sfx.js';
-import { go, starRow, tap, topBar, wake } from '../ui.js';
+import { confirmDialog, go, starRow, tap, topBar, wake } from '../ui.js';
 
 const STEP = 164;          // vertical distance between levels (CSS px)
 const TOP = 120;           // room above the first level (the buddy and the first signpost sit there)
@@ -23,8 +23,20 @@ export function mount(root, scope, subjectId) {
   const sub = store.subjectById(subjectId);
   const decks = sub ? store.decksOf(subjectId) : [];
   if (!sub || !decks.length) return go('/');
+  const prefs = store.prefs();
   const levels = levelPath(decks, store.state.stats, store.levelOpts());
   const done = levels.filter((l) => l.passed).length;
+
+  // A locked level can be tested out of: one round drawn from every level up to it.
+  function offerTestOut(level, i) {
+    let from = levels.findIndex((l) => !l.passed);
+    if (from < 0 || from > i) from = i;
+    const span = from === i ? `level ${i + 1}` : `levels ${from + 1} to ${i + 1}`;
+    const size = prefs.sessionSize;
+    speech.speak(`Already know this? Test out of ${span}!`);
+    confirmDialog('⚡ Test out?', `Answer ${size} questions from ${span}. Get ${needToPass(size)} right and they all open!`,
+      "Let's go!", () => go(`/practice/testout/${level.deck.id}`));
+  }
   const groups = sub.groups || [];
   const groupTitle = (id) => (groups.find((g) => g.id === id) || {}).title || '';
 
@@ -80,6 +92,7 @@ export function mount(root, scope, subjectId) {
       level.current ? h('span', { class: 'level-buddy', 'aria-hidden': 'true' }, store.state.profile.avatar) : null);
       node.addEventListener('click', tap(() => {
         if (!level.unlocked) {
+          if (prefs.testOut && deck.quiz !== false) return offerTestOut(level, i);
           node.classList.remove('shake');
           void node.offsetWidth;
           node.classList.add('shake');
