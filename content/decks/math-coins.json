@@ -1,0 +1,243 @@
+{
+  "id": "math.coins",
+  "subject": "math",
+  "group": "time",
+  "order": 270,
+  "title": "Coins",
+  "emoji": "💰",
+  "kind": "qa",
+  "standards": [
+    "NC.1.MD.5"
+  ],
+  "about": "Naming the penny, nickel, dime and quarter and knowing each one's value in pennies (1, 5, 10, 25). NC first grade stops here: adding up a handful of coins is a second-grade skill, so this deck has no totals.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Point out that the dime is the smallest coin but worth more than the bigger nickel.",
+  "cards": [
+    {
+      "id": "math.coins.c01",
+      "q": "What coin is this?",
+      "a": "penny",
+      "wrong": [
+        "nickel",
+        "dime"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "penny"
+        ],
+        "label": "none"
+      }
+    },
+    {
+      "id": "math.coins.c02",
+      "q": "What coin is this?",
+      "a": "nickel",
+      "wrong": [
+        "penny",
+        "quarter"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "nickel"
+        ],
+        "label": "none"
+      }
+    },
+    {
+      "id": "math.coins.c03",
+      "q": "What coin is this?",
+      "a": "dime",
+      "wrong": [
+        "nickel",
+        "penny"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime"
+        ],
+        "label": "none"
+      }
+    },
+    {
+      "id": "math.coins.c04",
+      "q": "What coin is this?",
+      "a": "quarter",
+      "wrong": [
+        "dime",
+        "nickel"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "quarter"
+        ],
+        "label": "none"
+      }
+    },
+    {
+      "id": "math.coins.c05",
+      "q": "How many pennies is a nickel worth?",
+      "a": "5",
+      "wrong": [
+        "10",
+        "25"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "nickel"
+        ],
+        "label": "name"
+      }
+    },
+    {
+      "id": "math.coins.c06",
+      "q": "How many pennies is a dime worth?",
+      "a": "10",
+      "wrong": [
+        "5",
+        "25"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime"
+        ],
+        "label": "name"
+      }
+    },
+    {
+      "id": "math.coins.c07",
+      "q": "How many pennies is a quarter worth?",
+      "a": "25",
+      "wrong": [
+        "10",
+        "5"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "quarter"
+        ],
+        "label": "name"
+      }
+    },
+    {
+      "id": "math.coins.c08",
+      "q": "How many pennies is a penny worth?",
+      "a": "1",
+      "wrong": [
+        "5",
+        "10"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "penny"
+        ],
+        "label": "name"
+      }
+    },
+    {
+      "id": "math.coins.c09",
+      "q": "Which coin is worth 10 pennies?",
+      "a": "dime",
+      "wrong": [
+        "nickel",
+        "quarter"
+      ]
+    },
+    {
+      "id": "math.coins.c10",
+      "q": "Which coin is worth 25 pennies?",
+      "a": "quarter",
+      "wrong": [
+        "dime",
+        "nickel"
+      ]
+    },
+    {
+      "id": "math.coins.c11",
+      "q": "Which coin is worth 5 pennies?",
+      "a": "nickel",
+      "wrong": [
+        "dime",
+        "penny"
+      ]
+    },
+    {
+      "id": "math.coins.c12",
+      "q": "Which coin is worth the most?",
+      "a": "quarter",
+      "wrong": [
+        "dime",
+        "nickel"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "quarter",
+          "dime",
+          "nickel"
+        ],
+        "label": "none"
+      }
+    },
+    {
+      "id": "math.coins.c13",
+      "q": "Which coin is worth the least?",
+      "a": "penny",
+      "wrong": [
+        "nickel",
+        "dime"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "penny",
+          "nickel",
+          "dime"
+        ],
+        "label": "none"
+      }
+    },
+    {
+      "id": "math.coins.c14",
+      "q": "Which coin is bigger in size, the dime or the nickel?",
+      "a": "nickel",
+      "wrong": [
+        "dime",
+        "the same"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime",
+          "nickel"
+        ],
+        "label": "none"
+      }
+    },
+    {
+      "id": "math.coins.c15",
+      "q": "Which coin is worth more, the dime or the nickel?",
+      "a": "dime",
+      "wrong": [
+        "nickel",
+        "the same"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime",
+          "nickel"
+        ],
+        "label": "none"
+      }
+    }
+  ]
+}

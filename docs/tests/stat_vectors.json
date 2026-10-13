@@ -1,0 +1,25 @@
+{
+  "about": "Shared truth for how answers change a card's stats. Checked by tests/test_server.py (Python apply_result) and web/tests (JavaScript applyResult, levelOf, isTrouble). Change the two implementations and this file together.",
+  "vectors": [
+    {"name": "never seen", "results": [],
+     "expect": {"seen": 0, "correct": 0, "wrong": 0, "streak": 0, "box": 0, "recent": ""}, "level": "new", "trouble": false},
+    {"name": "first answer right jumps to box 2", "results": [true],
+     "expect": {"seen": 1, "correct": 1, "wrong": 0, "streak": 1, "box": 2, "recent": "1"}, "level": "learning", "trouble": false},
+    {"name": "three right in a row is mastered", "results": [true, true, true],
+     "expect": {"seen": 3, "correct": 3, "wrong": 0, "streak": 3, "box": 4, "recent": "111"}, "level": "mastered", "trouble": false},
+    {"name": "one miss is not trouble yet", "results": [false],
+     "expect": {"seen": 1, "correct": 0, "wrong": 1, "streak": 0, "box": 1, "recent": "0"}, "level": "learning", "trouble": false},
+    {"name": "two misses is trouble", "results": [false, false],
+     "expect": {"seen": 2, "correct": 0, "wrong": 2, "streak": 0, "box": 1, "recent": "00"}, "level": "learning", "trouble": true},
+    {"name": "one right after two misses is still trouble", "results": [false, false, true],
+     "expect": {"seen": 3, "correct": 1, "wrong": 2, "streak": 1, "box": 2, "recent": "001"}, "level": "learning", "trouble": true},
+    {"name": "two right in a row clears trouble", "results": [false, false, true, true],
+     "expect": {"seen": 4, "correct": 2, "wrong": 2, "streak": 2, "box": 3, "recent": "0011"}, "level": "learning", "trouble": false},
+    {"name": "box stops at 5 and recent keeps six", "results": [true, true, true, true, true, true, true],
+     "expect": {"seen": 7, "correct": 7, "wrong": 0, "streak": 7, "box": 5, "recent": "111111"}, "level": "mastered", "trouble": false},
+    {"name": "a miss drops a mastered card to box 1", "results": [true, true, true, false],
+     "expect": {"seen": 4, "correct": 3, "wrong": 1, "streak": 0, "box": 1, "recent": "1110"}, "level": "learning", "trouble": false},
+    {"name": "alternating right and wrong is trouble", "results": [true, false, true, false],
+     "expect": {"seen": 4, "correct": 2, "wrong": 2, "streak": 0, "box": 1, "recent": "1010"}, "level": "learning", "trouble": true}
+  ]
+}

@@ -1,0 +1,13 @@
+# progress databases: never publish a child's data
+data/
+data-dev/
+*.db
+*.db-wal
+*.db-shm
+
+__pycache__/
+*.pyc
+.claude/
+*.log
+Thumbs.db
+.DS_Store

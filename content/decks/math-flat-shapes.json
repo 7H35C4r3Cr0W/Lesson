@@ -1,0 +1,316 @@
+{
+  "id": "math.flat-shapes",
+  "subject": "math",
+  "group": "shapes",
+  "order": 280,
+  "title": "Flat Shapes",
+  "emoji": "🔺",
+  "kind": "qa",
+  "standards": [
+    "NC.1.G.1"
+  ],
+  "about": "Naming triangles, squares, rectangles, trapezoids, hexagons and circles in any colour, and counting their sides and corners. NC wants him to know that sides and corners define a shape, while colour and size do not.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Trace the edges with a finger and count sides out loud; colour never changes the name.",
+  "cards": [
+    {
+      "id": "math.flat-shapes.c01",
+      "q": "What shape is this?",
+      "a": "triangle",
+      "wrong": [
+        "square",
+        "circle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "triangle",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c02",
+      "q": "What shape is this?",
+      "a": "square",
+      "wrong": [
+        "triangle",
+        "circle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "square",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c03",
+      "q": "What shape is this?",
+      "a": "rectangle",
+      "wrong": [
+        "triangle",
+        "circle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangle",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c04",
+      "q": "What shape is this?",
+      "a": "circle",
+      "wrong": [
+        "triangle",
+        "square"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "circle",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c05",
+      "q": "What shape is this?",
+      "a": "hexagon",
+      "wrong": [
+        "triangle",
+        "square"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "hexagon",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c06",
+      "q": "What shape is this?",
+      "a": "trapezoid",
+      "wrong": [
+        "hexagon",
+        "circle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "trapezoid",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c07",
+      "q": "What shape is this?",
+      "a": "triangle",
+      "wrong": [
+        "hexagon",
+        "trapezoid"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "triangle",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c08",
+      "q": "What shape is this?",
+      "a": "hexagon",
+      "wrong": [
+        "trapezoid",
+        "rectangle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "hexagon",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c09",
+      "q": "What shape is this?",
+      "a": "square",
+      "wrong": [
+        "hexagon",
+        "circle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "square",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c10",
+      "q": "What shape is this?",
+      "a": "trapezoid",
+      "wrong": [
+        "triangle",
+        "square"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "trapezoid",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c11",
+      "q": "How many sides does a triangle have?",
+      "a": "3",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "triangle",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c12",
+      "q": "How many corners does a triangle have?",
+      "a": "3",
+      "wrong": [
+        "4",
+        "0"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "triangle",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c13",
+      "q": "How many sides does a square have?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "6"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "square",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c14",
+      "q": "How many sides does a rectangle have?",
+      "a": "4",
+      "wrong": [
+        "2",
+        "6"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangle",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c15",
+      "q": "How many sides does a hexagon have?",
+      "a": "6",
+      "wrong": [
+        "5",
+        "8"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "hexagon",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c16",
+      "q": "How many corners does a hexagon have?",
+      "a": "6",
+      "wrong": [
+        "4",
+        "8"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "hexagon",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c17",
+      "q": "How many sides does a trapezoid have?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "trapezoid",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c18",
+      "q": "How many corners does a rectangle have?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "6"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangle",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c19",
+      "q": "What makes a triangle a triangle?",
+      "a": "3 sides",
+      "wrong": [
+        "it is blue",
+        "it is big"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "triangle",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c20",
+      "q": "What makes a square a square?",
+      "a": "4 equal sides",
+      "wrong": [
+        "it is red",
+        "it is small"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "square",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.flat-shapes.c21",
+      "q": "Which shape has 4 sides?",
+      "a": "square",
+      "wrong": [
+        "triangle",
+        "circle"
+      ]
+    },
+    {
+      "id": "math.flat-shapes.c22",
+      "q": "Which shape has no corners?",
+      "a": "circle",
+      "wrong": [
+        "square",
+        "triangle"
+      ]
+    }
+  ]
+}

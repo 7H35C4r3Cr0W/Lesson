@@ -1,0 +1,41 @@
+{
+  "id": "words.endings",
+  "subject": "words",
+  "group": "more",
+  "order": 280,
+  "title": "Add an ending",
+  "emoji": "🏃",
+  "kind": "read",
+  "standards": ["RF.1.4.f"],
+  "about": "Words with the endings -s, -es, -ing and -ed, which NC RF.1.4.f names. The -ed ending has three sounds (t in jumped, d in filled, ed in planted); CKLA teaches -ed in Unit 4 and plurals plus doubling the last letter before -ing or -ed (running) in Unit 5.",
+  "tip": "Cover the ending with a finger, read the base word, then uncover and add the ending.",
+  "cards": [
+    { "id": "words.endings.cups", "text": "cups", "parts": ["c", "u", "p", "s"], "emoji": "☕", "note": "The ending s says /s/ here: one cup, many cups." },
+    { "id": "words.endings.hens", "text": "hens", "parts": ["h", "e", "n", "s"], "emoji": "🐔", "note": "The ending s says /z/ here: one hen, many hens." },
+    { "id": "words.endings.pigs", "text": "pigs", "parts": ["p", "i", "g", "s"], "emoji": "🐷", "note": "The ending s says /z/ here: one pig, many pigs." },
+    { "id": "words.endings.dogs", "text": "dogs", "parts": ["d", "o", "g", "s"], "emoji": "🐶", "note": "The ending s says /z/ here: one dog, many dogs." },
+
+    { "id": "words.endings.wishes", "text": "wishes", "parts": ["w", "i", "sh", "es"], "note": "The ending es says /iz/, an extra beat: one wish, many wishes." },
+    { "id": "words.endings.boxes", "text": "boxes", "parts": ["b", "o", "x", "es"], "emoji": "📦", "note": "The ending es says /iz/, an extra beat: one box, many boxes." },
+    { "id": "words.endings.dishes", "text": "dishes", "parts": ["d", "i", "sh", "es"], "emoji": "🍽️", "note": "The ending es says /iz/, an extra beat: one dish, many dishes." },
+    { "id": "words.endings.foxes", "text": "foxes", "parts": ["f", "o", "x", "es"], "emoji": "🦊", "note": "The ending es says /iz/, an extra beat: one fox, many foxes." },
+    { "id": "words.endings.benches", "text": "benches", "parts": ["b", "e", "n", "ch", "es"], "note": "The ending es says /iz/, an extra beat: one bench, many benches." },
+
+    { "id": "words.endings.jumping", "text": "jumping", "parts": ["j", "u", "m", "p", "ing"], "emoji": "🤸", "note": "The ending ing says /ing/: jump, then add ing." },
+    { "id": "words.endings.singing", "text": "singing", "parts": ["s", "i", "ng", "ing"], "emoji": "🎤", "note": "The ending ing says /ing/: sing, then add ing. The ng in sing is one sound." },
+    { "id": "words.endings.fishing", "text": "fishing", "parts": ["f", "i", "sh", "ing"], "emoji": "🎣", "note": "The ending ing says /ing/: fish, then add ing." },
+    { "id": "words.endings.helping", "text": "helping", "parts": ["h", "e", "l", "p", "ing"], "emoji": "🤝", "note": "The ending ing says /ing/: help, then add ing." },
+    { "id": "words.endings.running", "text": "running", "parts": ["r", "u", "nn", "ing"], "emoji": "🏃", "note": "Double the n, then add ing. The ending ing says /ing/: run, running." },
+    { "id": "words.endings.hopping", "text": "hopping", "parts": ["h", "o", "pp", "ing"], "emoji": "🐇", "note": "Double the p, then add ing. The ending ing says /ing/: hop, hopping." },
+    { "id": "words.endings.sitting", "text": "sitting", "parts": ["s", "i", "tt", "ing"], "emoji": "🪑", "note": "Double the t, then add ing. The ending ing says /ing/: sit, sitting." },
+
+    { "id": "words.endings.jumped", "text": "jumped", "parts": ["j", "u", "m", "p", "ed"], "emoji": "🤸", "note": "The ending ed says /t/ here: jump, then jumped." },
+    { "id": "words.endings.wished", "text": "wished", "parts": ["w", "i", "sh", "ed"], "note": "The ending ed says /t/ here: wish, then wished." },
+    { "id": "words.endings.kicked", "text": "kicked", "parts": ["k", "i", "ck", "ed"], "emoji": "⚽", "note": "The ending ed says /t/ here: kick, then kicked." },
+    { "id": "words.endings.filled", "text": "filled", "parts": ["f", "i", "ll", "ed"], "note": "The ending ed says /d/ here: fill, then filled." },
+    { "id": "words.endings.hugged", "text": "hugged", "parts": ["h", "u", "gg", "ed"], "emoji": "🤗", "note": "Double the g, then add ed. The ending ed says /d/ here: hug, hugged." },
+    { "id": "words.endings.planted", "text": "planted", "parts": ["p", "l", "a", "n", "t", "ed"], "emoji": "🌱", "note": "The ending ed says /ed/, an extra beat: plant, then planted." },
+    { "id": "words.endings.lifted", "text": "lifted", "parts": ["l", "i", "f", "t", "ed"], "emoji": "🏋️", "note": "The ending ed says /ed/, an extra beat: lift, then lifted." },
+    { "id": "words.endings.melted", "text": "melted", "parts": ["m", "e", "l", "t", "ed"], "emoji": "🍦", "note": "The ending ed says /ed/, an extra beat: melt, then melted." }
+  ]
+}

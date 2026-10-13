@@ -1,0 +1,224 @@
+{
+  "id": "math.teen-numbers",
+  "subject": "math",
+  "group": "place",
+  "order": 170,
+  "title": "Teen Numbers",
+  "emoji": "🧱",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.2"
+  ],
+  "about": "Every number from 11 to 19 is one ten and some ones. Seeing the ten-rod plus loose cubes stops \"fourteen\" from being written as 41.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Point to the rod and say \"that is one ten\", then count the loose cubes.",
+  "cards": [
+    {
+      "id": "math.teen-numbers.c01",
+      "q": "1 ten and 4 ones is what number?",
+      "a": "14",
+      "wrong": [
+        "41",
+        "5"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 4
+      }
+    },
+    {
+      "id": "math.teen-numbers.c02",
+      "q": "1 ten and 7 ones is what number?",
+      "a": "17",
+      "wrong": [
+        "71",
+        "8"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 7
+      }
+    },
+    {
+      "id": "math.teen-numbers.c03",
+      "q": "1 ten and 2 ones is what number?",
+      "a": "12",
+      "wrong": [
+        "21",
+        "3"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 2
+      }
+    },
+    {
+      "id": "math.teen-numbers.c04",
+      "q": "1 ten and 9 ones is what number?",
+      "a": "19",
+      "wrong": [
+        "91",
+        "10"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 9
+      }
+    },
+    {
+      "id": "math.teen-numbers.c05",
+      "q": "1 ten and 5 ones is what number?",
+      "a": "15",
+      "wrong": [
+        "51",
+        "6"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 5
+      }
+    },
+    {
+      "id": "math.teen-numbers.c06",
+      "q": "13 is 1 ten and how many ones?",
+      "a": "3",
+      "wrong": [
+        "13",
+        "4"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.teen-numbers.c07",
+      "q": "16 is 1 ten and how many ones?",
+      "a": "6",
+      "wrong": [
+        "16",
+        "7"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 6
+      }
+    },
+    {
+      "id": "math.teen-numbers.c08",
+      "q": "18 is 1 ten and how many ones?",
+      "a": "8",
+      "wrong": [
+        "18",
+        "9"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 8
+      }
+    },
+    {
+      "id": "math.teen-numbers.c09",
+      "q": "11 is 1 ten and how many ones?",
+      "a": "1",
+      "wrong": [
+        "11",
+        "2"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 1
+      }
+    },
+    {
+      "id": "math.teen-numbers.c10",
+      "q": "How many tens are in 14?",
+      "a": "1",
+      "wrong": [
+        "4",
+        "14"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 4
+      }
+    },
+    {
+      "id": "math.teen-numbers.c11",
+      "q": "What number is 10 and 5 more?",
+      "a": "15",
+      "wrong": [
+        "51",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 15
+      }
+    },
+    {
+      "id": "math.teen-numbers.c12",
+      "q": "What number is 10 and 8 more?",
+      "a": "18",
+      "wrong": [
+        "81",
+        "9"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 18
+      }
+    },
+    {
+      "id": "math.teen-numbers.c13",
+      "q": "What number is 10 and 2 more?",
+      "a": "12",
+      "wrong": [
+        "21",
+        "3"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 12
+      }
+    },
+    {
+      "id": "math.teen-numbers.c14",
+      "q": "Count the blocks. What number is it?",
+      "a": "16",
+      "wrong": [
+        "61",
+        "7"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 6
+      }
+    },
+    {
+      "id": "math.teen-numbers.c15",
+      "q": "How many ones make 1 ten?",
+      "a": "10",
+      "wrong": [
+        "1",
+        "100"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    }
+  ]
+}

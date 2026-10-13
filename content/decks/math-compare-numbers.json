@@ -1,0 +1,188 @@
+{
+  "id": "math.compare-numbers",
+  "subject": "math",
+  "group": "place",
+  "order": 190,
+  "title": "Bigger or Smaller?",
+  "emoji": "🐘",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.3"
+  ],
+  "about": "Comparing two-digit numbers by looking at the tens first, then the ones, and writing it with >, = and <. Reversal pairs like 34 and 43 are used on purpose.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Say \"the open mouth eats the bigger number\" and check the tens digit first.",
+  "cards": [
+    {
+      "id": "math.compare-numbers.c01",
+      "q": "Which is bigger, 58 or 52?",
+      "a": "58",
+      "wrong": [
+        "52",
+        "5"
+      ]
+    },
+    {
+      "id": "math.compare-numbers.c02",
+      "q": "Which is bigger, 34 or 43?",
+      "a": "43",
+      "wrong": [
+        "34",
+        "3"
+      ]
+    },
+    {
+      "id": "math.compare-numbers.c03",
+      "q": "Which is smaller, 71 or 17?",
+      "a": "17",
+      "wrong": [
+        "71",
+        "70"
+      ]
+    },
+    {
+      "id": "math.compare-numbers.c04",
+      "q": "Which is bigger, 29 or 92?",
+      "a": "92",
+      "wrong": [
+        "29",
+        "9"
+      ]
+    },
+    {
+      "id": "math.compare-numbers.c05",
+      "q": "Which is smaller, 66 or 60?",
+      "a": "60",
+      "wrong": [
+        "66",
+        "6"
+      ]
+    },
+    {
+      "id": "math.compare-numbers.c06",
+      "q": "Which is bigger, 80 or 79?",
+      "a": "80",
+      "wrong": [
+        "79",
+        "8"
+      ]
+    },
+    {
+      "id": "math.compare-numbers.c07",
+      "q": "Which is smaller, 45 or 54?",
+      "a": "45",
+      "wrong": [
+        "54",
+        "4"
+      ]
+    },
+    {
+      "id": "math.compare-numbers.c08",
+      "q": "Which is bigger, 89 or 98?",
+      "a": "98",
+      "wrong": [
+        "89",
+        "9"
+      ]
+    },
+    {
+      "id": "math.compare-numbers.c09",
+      "q": "34 ? 43. Which sign goes in the box?",
+      "a": "<",
+      "wrong": [
+        ">",
+        "="
+      ],
+      "sayQ": "34 box 43. Which sign goes in the box?"
+    },
+    {
+      "id": "math.compare-numbers.c10",
+      "q": "58 ? 52. Which sign goes in the box?",
+      "a": ">",
+      "wrong": [
+        "<",
+        "="
+      ],
+      "sayQ": "58 box 52. Which sign goes in the box?"
+    },
+    {
+      "id": "math.compare-numbers.c11",
+      "q": "70 ? 70. Which sign goes in the box?",
+      "a": "=",
+      "wrong": [
+        ">",
+        "<"
+      ],
+      "sayQ": "70 box 70. Which sign goes in the box?"
+    },
+    {
+      "id": "math.compare-numbers.c12",
+      "q": "25 ? 52. Which sign goes in the box?",
+      "a": "<",
+      "wrong": [
+        ">",
+        "="
+      ],
+      "sayQ": "25 box 52. Which sign goes in the box?"
+    },
+    {
+      "id": "math.compare-numbers.c13",
+      "q": "91 ? 19. Which sign goes in the box?",
+      "a": ">",
+      "wrong": [
+        "<",
+        "="
+      ],
+      "sayQ": "91 box 19. Which sign goes in the box?"
+    },
+    {
+      "id": "math.compare-numbers.c14",
+      "q": "36 ? 36. Which sign goes in the box?",
+      "a": "=",
+      "wrong": [
+        "<",
+        ">"
+      ],
+      "sayQ": "36 box 36. Which sign goes in the box?"
+    },
+    {
+      "id": "math.compare-numbers.c15",
+      "q": "40 ? 48. Which sign goes in the box?",
+      "a": "<",
+      "wrong": [
+        ">",
+        "="
+      ],
+      "sayQ": "40 box 48. Which sign goes in the box?"
+    },
+    {
+      "id": "math.compare-numbers.c16",
+      "q": "83 ? 38. Which sign goes in the box?",
+      "a": ">",
+      "wrong": [
+        "<",
+        "="
+      ],
+      "sayQ": "83 box 38. Which sign goes in the box?"
+    },
+    {
+      "id": "math.compare-numbers.c17",
+      "q": "Which is the biggest: 23, 32 or 13?",
+      "a": "32",
+      "wrong": [
+        "23",
+        "13"
+      ]
+    },
+    {
+      "id": "math.compare-numbers.c18",
+      "q": "Which is the smallest: 61, 16 or 66?",
+      "a": "16",
+      "wrong": [
+        "61",
+        "66"
+      ]
+    }
+  ]
+}

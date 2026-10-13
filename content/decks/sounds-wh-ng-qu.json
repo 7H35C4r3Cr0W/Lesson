@@ -1,0 +1,32 @@
+{
+  "id": "sounds.wh-ng-qu",
+  "subject": "sounds",
+  "group": "teams",
+  "order": 120,
+  "title": "wh, ng and qu",
+  "emoji": "👑",
+  "kind": "qa",
+  "standards": ["RF.1.4.a", "RF.1.4", "L.1.2"],
+  "about": "Three more letter teams: wh at the start of whale, ng at the end of ring, and qu at the start of queen. CKLA Unit 1 teaches ng and qu in lesson 20; wh is in the Unit 1 tricky words and is taught as a spelling in Unit 6.",
+  "tip": "For qu, remind him that q always brings u along and together they say the start of queen.",
+  "quiz": true,
+  "readChoices": false,
+  "speakFront": true,
+  "cards": [
+    { "id": "sounds.wh-ng-qu.queen", "q": "Which letters make the first sound in queen?", "a": "qu", "wrong": ["wh", "ch"], "emoji": "👑", "sayA": "the letters q u", "note": "q always brings u along. qu says the start of queen." },
+    { "id": "sounds.wh-ng-qu.quilt", "q": "Which letters make the first sound in quilt?", "a": "qu", "wrong": ["wh", "sh"], "sayA": "the letters q u", "note": "q always brings u along. qu says the start of queen." },
+    { "id": "sounds.wh-ng-qu.quack", "q": "Which letters make the first sound in quack?", "a": "qu", "wrong": ["wh", "th"], "emoji": "🦆", "sayA": "the letters q u", "note": "q always brings u along. qu says the start of queen." },
+    { "id": "sounds.wh-ng-qu.quick", "q": "Which letters make the first sound in quick?", "a": "qu", "wrong": ["sh", "ch"], "sayA": "the letters q u", "note": "q always brings u along. qu says the start of queen." },
+    { "id": "sounds.wh-ng-qu.quiz", "q": "Which letters make the first sound in quiz?", "a": "qu", "wrong": ["wh", "th"], "sayA": "the letters q u", "note": "q always brings u along. qu says the start of queen." },
+    { "id": "sounds.wh-ng-qu.whale", "q": "Which letters make the first sound in whale?", "a": "wh", "wrong": ["sh", "th"], "emoji": "🐳", "sayA": "the letters w h", "note": "wh says the sound at the start of whale, the same sound as w." },
+    { "id": "sounds.wh-ng-qu.wheel", "q": "Which letters make the first sound in wheel?", "a": "wh", "wrong": ["sh", "ch"], "sayA": "the letters w h", "note": "wh says the sound at the start of whale, the same sound as w." },
+    { "id": "sounds.wh-ng-qu.whisper", "q": "Which letters make the first sound in whisper?", "a": "wh", "wrong": ["th", "ch"], "emoji": "🤫", "sayA": "the letters w h", "note": "wh says the sound at the start of whale, the same sound as w." },
+    { "id": "sounds.wh-ng-qu.when", "q": "Which letters make the first sound in the word when?", "a": "wh", "wrong": ["sh", "th"], "sayA": "the letters w h", "note": "wh says the sound at the start of whale, the same sound as w." },
+    { "id": "sounds.wh-ng-qu.white", "q": "Which letters make the first sound in white?", "a": "wh", "wrong": ["ch", "sh"], "emoji": "⚪", "sayA": "the letters w h", "note": "wh says the sound at the start of whale, the same sound as w." },
+    { "id": "sounds.wh-ng-qu.ring", "q": "Which letters make the last sound in ring?", "a": "ng", "wrong": ["sh", "ch"], "emoji": "💍", "sayA": "the letters n g", "note": "n and g together make one sound at the end of ring." },
+    { "id": "sounds.wh-ng-qu.king", "q": "Which letters make the last sound in king?", "a": "ng", "wrong": ["th", "sh"], "emoji": "🤴", "sayA": "the letters n g", "note": "n and g together make one sound at the end of ring." },
+    { "id": "sounds.wh-ng-qu.sing", "q": "Which letters make the last sound in sing?", "a": "ng", "wrong": ["ch", "sh"], "emoji": "🎤", "sayA": "the letters n g", "note": "n and g together make one sound at the end of ring." },
+    { "id": "sounds.wh-ng-qu.song", "q": "Which letters make the last sound in song?", "a": "ng", "wrong": ["sh", "th"], "emoji": "🎵", "sayA": "the letters n g", "note": "n and g together make one sound at the end of ring." },
+    { "id": "sounds.wh-ng-qu.wing", "q": "Which letters make the last sound in wing?", "a": "ng", "wrong": ["ch", "th"], "sayA": "the letters n g", "note": "n and g together make one sound at the end of ring." }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "sentences.unit3-4",
+  "subject": "sentences",
+  "group": "read",
+  "order": 80,
+  "title": "Moon and farm sentences",
+  "emoji": "🌙",
+  "kind": "read",
+  "standards": ["RF.1.5.a", "RF.1.5.b", "RF.1.5.c", "RF.1.4.c", "RF.1.4.e", "RF.1.4.f", "RF.1.4.g"],
+  "about": "Fifteen sentences adding CKLA Unit 3 (oo as in moon and look, ou, oi, aw) and Unit 4 (er, ar, or, two-syllable words, past-tense -ed) plus their tricky words, including days of the week and today, yesterday, tomorrow. Expected December to January.",
+  "tip": "For a two-syllable word like sister or butter, have him cover the second half, read the first half, then read the whole word.",
+  "quiz": true,
+  "cards": [
+    { "id": "sentences.unit3-4.moon", "text": "Look at the big round moon.", "emoji": "🌙", "note": "oo in look is the short oo, oo in moon is the long oo; ou in round says /ou/" },
+    { "id": "sentences.unit3-4.cook-food", "text": "We cook food in a pot.", "emoji": "🍲", "note": "cook has the short oo, food has the long oo" },
+    { "id": "sentences.unit3-4.farm-dog", "text": "The farm dog ran down the hill.", "emoji": "🐕", "note": "ar says /ar/ in farm; down is a tricky word" },
+    { "id": "sentences.unit3-4.shark", "text": "I saw a shark at the zoo.", "emoji": "🦈", "note": "aw says /aw/ in saw; ar says /ar/ in shark; oo in zoo is the long oo" },
+    { "id": "sentences.unit3-4.fork-spoon", "text": "Mark has a fork and a spoon.", "emoji": "🍴", "note": "Mark is a name, capital M; or says /or/ in fork; oo in spoon is the long oo" },
+    { "id": "sentences.unit3-4.sister-car", "text": "Her sister has a red car.", "emoji": "🚗", "note": "er says /er/ in her; sister has two parts: sis + ter; ar says /ar/ in car" },
+    { "id": "sentences.unit3-4.pool", "text": "Should we jump in the pool?", "emoji": "🏊", "note": "should: ould says ood; oo in pool is the long oo" },
+    { "id": "sentences.unit3-4.coin", "text": "Dad found a coin in the sand.", "emoji": "💰", "note": "ou in found says /ou/ as in ouch; oi in coin says /oi/" },
+    { "id": "sentences.unit3-4.porch", "text": "The cat jumped on the porch.", "emoji": "🐱", "note": "jumped: ed says /t/; or says /or/ in porch" },
+    { "id": "sentences.unit3-4.corn-monday", "text": "We had corn on Monday.", "emoji": "🌽", "note": "or says /or/ in corn; Monday: a day of the week, capital M" },
+    { "id": "sentences.unit3-4.storm", "text": "Today the storm is loud.", "emoji": "⛈️", "note": "today is a tricky word; or says /or/ in storm; ou in loud says /ou/" },
+    { "id": "sentences.unit3-4.fish-tomorrow", "text": "Mom will cook fish tomorrow.", "emoji": "🐟", "note": "tomorrow is a tricky word; cook has the short oo" },
+    { "id": "sentences.unit3-4.yawned", "text": "The kids yawned because it was late.", "emoji": "😴", "note": "yawned: ed says /d/; because: starts like bee, ends like cause" },
+    { "id": "sentences.unit3-4.ducks-yesterday", "text": "Yesterday we fed the ducks.", "emoji": "🦆", "note": "yesterday is a tricky word; ducks ends with ck and s" },
+    { "id": "sentences.unit3-4.butter", "text": "Could you pass the butter?", "emoji": "🧈", "note": "could: ould says ood; butter has two parts: but + ter" }
+  ]
+}

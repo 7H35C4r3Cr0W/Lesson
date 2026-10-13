@@ -1,0 +1,153 @@
+{
+  "id": "math.which-is-true",
+  "subject": "math",
+  "group": "subtract",
+  "order": 150,
+  "title": "Which Is True?",
+  "emoji": "⚖️",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.7"
+  ],
+  "about": "The equal sign means \"the same amount on both sides\", not \"the answer comes next\". He picks the one true equation out of three, in all the shapes NC uses: 13 = 5 + 8, 6 = 6, 5 + 1 = 9 − 3.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Say \"equals means both sides are the same; check each side like a balance scale.\"",
+  "cards": [
+    {
+      "id": "math.which-is-true.c01",
+      "q": "Which one is true?",
+      "a": "5 + 8 = 13",
+      "wrong": [
+        "5 + 8 = 12",
+        "5 + 8 = 14"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c02",
+      "q": "Which one is true?",
+      "a": "13 = 5 + 8",
+      "wrong": [
+        "13 = 5 + 7",
+        "13 = 6 + 8"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c03",
+      "q": "Which one is true?",
+      "a": "6 = 6",
+      "wrong": [
+        "6 = 7",
+        "6 = 5"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c04",
+      "q": "Which one is true?",
+      "a": "5 + 1 = 9 − 3",
+      "wrong": [
+        "5 + 1 = 9 − 2",
+        "5 + 1 = 9 − 4"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c05",
+      "q": "Which one is true?",
+      "a": "10 = 4 + 6",
+      "wrong": [
+        "10 = 4 + 5",
+        "10 = 4 + 7"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c06",
+      "q": "Which one is true?",
+      "a": "7 − 2 = 5",
+      "wrong": [
+        "7 − 2 = 4",
+        "7 − 2 = 6"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c07",
+      "q": "Which one is true?",
+      "a": "9 = 9 + 0",
+      "wrong": [
+        "9 = 9 + 1",
+        "9 = 8 + 0"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c08",
+      "q": "Which one is true?",
+      "a": "2 + 3 = 3 + 2",
+      "wrong": [
+        "2 + 3 = 3 + 3",
+        "2 + 3 = 2 + 2"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c09",
+      "q": "Which one is true?",
+      "a": "12 = 10 + 2",
+      "wrong": [
+        "12 = 10 + 1",
+        "12 = 10 + 3"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c10",
+      "q": "Which one is true?",
+      "a": "8 − 4 = 2 + 2",
+      "wrong": [
+        "8 − 4 = 2 + 3",
+        "8 − 4 = 2 + 1"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c11",
+      "q": "Which one is true?",
+      "a": "6 + 4 = 10",
+      "wrong": [
+        "6 + 4 = 9",
+        "6 + 4 = 11"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c12",
+      "q": "Which one is true?",
+      "a": "15 = 7 + 8",
+      "wrong": [
+        "15 = 7 + 7",
+        "15 = 7 + 9"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c13",
+      "q": "Which one is true?",
+      "a": "11 − 1 = 10",
+      "wrong": [
+        "11 − 1 = 11",
+        "11 − 1 = 9"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c14",
+      "q": "Which one is true?",
+      "a": "4 + 5 = 10 − 1",
+      "wrong": [
+        "4 + 5 = 10 − 2",
+        "4 + 5 = 10 + 1"
+      ]
+    },
+    {
+      "id": "math.which-is-true.c15",
+      "q": "Which one is true?",
+      "a": "20 = 20",
+      "wrong": [
+        "20 = 12",
+        "20 = 2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "id": "math.take-away-10",
+  "subject": "math",
+  "group": "subtract",
+  "order": 120,
+  "title": "Taking Away to 10",
+  "emoji": "➖",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.9",
+    "NC.1.OA.4"
+  ],
+  "about": "Subtraction facts within 5, then within 10, with a ten-frame to cross off. NC expects these fluent by year end, and wants him to see 8 − 5 as \"5 and what makes 8\".",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Say \"think addition: 5 and how many more make 8?\"",
+  "cards": [
+    {
+      "id": "math.take-away-10.c01",
+      "q": "2 − 1 = ?",
+      "a": "1",
+      "wrong": [
+        "2",
+        "0"
+      ],
+      "sayQ": "2 minus 1 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 2
+      }
+    },
+    {
+      "id": "math.take-away-10.c02",
+      "q": "3 − 1 = ?",
+      "a": "2",
+      "wrong": [
+        "3",
+        "1"
+      ],
+      "sayQ": "3 minus 1 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 3
+      }
+    },
+    {
+      "id": "math.take-away-10.c03",
+      "q": "3 − 2 = ?",
+      "a": "1",
+      "wrong": [
+        "2",
+        "0"
+      ],
+      "sayQ": "3 minus 2 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 3
+      }
+    },
+    {
+      "id": "math.take-away-10.c04",
+      "q": "4 − 1 = ?",
+      "a": "3",
+      "wrong": [
+        "4",
+        "2"
+      ],
+      "sayQ": "4 minus 1 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 4
+      }
+    },
+    {
+      "id": "math.take-away-10.c05",
+      "q": "4 − 2 = ?",
+      "a": "2",
+      "wrong": [
+        "3",
+        "1"
+      ],
+      "sayQ": "4 minus 2 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 4
+      }
+    },
+    {
+      "id": "math.take-away-10.c06",
+      "q": "5 − 1 = ?",
+      "a": "4",
+      "wrong": [
+        "5",
+        "3"
+      ],
+      "sayQ": "5 minus 1 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 5
+      }
+    },
+    {
+      "id": "math.take-away-10.c07",
+      "q": "5 − 3 = ?",
+      "a": "2",
+      "wrong": [
+        "3",
+        "1"
+      ],
+      "sayQ": "5 minus 3 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 5
+      }
+    },
+    {
+      "id": "math.take-away-10.c08",
+      "q": "5 − 5 = ?",
+      "a": "0",
+      "wrong": [
+        "5",
+        "1"
+      ],
+      "sayQ": "5 minus 5 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 5
+      }
+    },
+    {
+      "id": "math.take-away-10.c09",
+      "q": "6 − 2 = ?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "sayQ": "6 minus 2 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.take-away-10.c10",
+      "q": "6 − 4 = ?",
+      "a": "2",
+      "wrong": [
+        "1",
+        "3"
+      ],
+      "sayQ": "6 minus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.take-away-10.c11",
+      "q": "7 − 3 = ?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "sayQ": "7 minus 3 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.take-away-10.c12",
+      "q": "7 − 5 = ?",
+      "a": "2",
+      "wrong": [
+        "1",
+        "3"
+      ],
+      "sayQ": "7 minus 5 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.take-away-10.c13",
+      "q": "8 − 1 = ?",
+      "a": "7",
+      "wrong": [
+        "6",
+        "8"
+      ],
+      "sayQ": "8 minus 1 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.take-away-10.c14",
+      "q": "8 − 4 = ?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "sayQ": "8 minus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.take-away-10.c15",
+      "q": "8 − 6 = ?",
+      "a": "2",
+      "wrong": [
+        "1",
+        "3"
+      ],
+      "sayQ": "8 minus 6 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.take-away-10.c16",
+      "q": "9 − 2 = ?",
+      "a": "7",
+      "wrong": [
+        "6",
+        "8"
+      ],
+      "sayQ": "9 minus 2 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.take-away-10.c17",
+      "q": "9 − 4 = ?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "sayQ": "9 minus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.take-away-10.c18",
+      "q": "9 − 9 = ?",
+      "a": "0",
+      "wrong": [
+        "9",
+        "1"
+      ],
+      "sayQ": "9 minus 9 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.take-away-10.c19",
+      "q": "10 − 3 = ?",
+      "a": "7",
+      "wrong": [
+        "6",
+        "8"
+      ],
+      "sayQ": "10 minus 3 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.take-away-10.c20",
+      "q": "10 − 5 = ?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "sayQ": "10 minus 5 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.take-away-10.c21",
+      "q": "10 − 8 = ?",
+      "a": "2",
+      "wrong": [
+        "1",
+        "3"
+      ],
+      "sayQ": "10 minus 8 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.take-away-10.c22",
+      "q": "10 − 10 = ?",
+      "a": "0",
+      "wrong": [
+        "10",
+        "1"
+      ],
+      "sayQ": "10 minus 10 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.take-away-10.c23",
+      "q": "7 − 7 = ?",
+      "a": "0",
+      "wrong": [
+        "7",
+        "1"
+      ],
+      "sayQ": "7 minus 7 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.take-away-10.c24",
+      "q": "6 − 0 = ?",
+      "a": "6",
+      "wrong": [
+        "0",
+        "5"
+      ],
+      "sayQ": "6 minus 0 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    }
+  ]
+}

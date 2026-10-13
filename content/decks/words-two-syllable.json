@@ -1,0 +1,30 @@
+{
+  "id": "words.two-syllable",
+  "subject": "words",
+  "group": "more",
+  "order": 300,
+  "title": "Two-part words",
+  "emoji": "🐰",
+  "kind": "read",
+  "standards": ["RF.1.4.d", "RF.1.4.e"],
+  "about": "Two-syllable words that are not compounds, broken into chunks (rab-bit, bas-ket), as CKLA Unit 4 introduces them. Every chunk has a vowel, which is the rule NC RF.1.4.d and e build on.",
+  "tip": "Clap the two parts, read each chunk, then say them together.",
+  "cards": [
+    { "id": "words.two-syllable.rabbit", "text": "rabbit", "parts": ["rab", "bit"], "emoji": "🐰", "note": "two parts: rab + bit" },
+    { "id": "words.two-syllable.basket", "text": "basket", "parts": ["bas", "ket"], "emoji": "🧺", "note": "two parts: bas + ket" },
+    { "id": "words.two-syllable.muffin", "text": "muffin", "parts": ["muf", "fin"], "note": "two parts: muf + fin" },
+    { "id": "words.two-syllable.napkin", "text": "napkin", "parts": ["nap", "kin"], "note": "two parts: nap + kin" },
+    { "id": "words.two-syllable.kitten", "text": "kitten", "parts": ["kit", "ten"], "emoji": "🐱", "note": "two parts: kit + ten" },
+    { "id": "words.two-syllable.puppet", "text": "puppet", "parts": ["pup", "pet"], "note": "two parts: pup + pet" },
+    { "id": "words.two-syllable.button", "text": "button", "parts": ["but", "ton"], "note": "two parts: but + ton" },
+    { "id": "words.two-syllable.magnet", "text": "magnet", "parts": ["mag", "net"], "emoji": "🧲", "note": "two parts: mag + net" },
+    { "id": "words.two-syllable.insect", "text": "insect", "parts": ["in", "sect"], "emoji": "🐞", "note": "two parts: in + sect" },
+    { "id": "words.two-syllable.jacket", "text": "jacket", "parts": ["jack", "et"], "emoji": "🧥", "note": "two parts: jack + et; ck is one sound" },
+    { "id": "words.two-syllable.pocket", "text": "pocket", "parts": ["pock", "et"], "note": "two parts: pock + et; ck is one sound" },
+    { "id": "words.two-syllable.picnic", "text": "picnic", "parts": ["pic", "nic"], "note": "two parts: pic + nic" },
+    { "id": "words.two-syllable.pumpkin", "text": "pumpkin", "parts": ["pump", "kin"], "emoji": "🎃", "note": "two parts: pump + kin" },
+    { "id": "words.two-syllable.mitten", "text": "mitten", "parts": ["mit", "ten"], "emoji": "🧤", "note": "two parts: mit + ten" },
+    { "id": "words.two-syllable.cactus", "text": "cactus", "parts": ["cac", "tus"], "emoji": "🌵", "note": "two parts: cac + tus" },
+    { "id": "words.two-syllable.trumpet", "text": "trumpet", "parts": ["trum", "pet"], "emoji": "🎺", "note": "two parts: trum + pet" }
+  ]
+}

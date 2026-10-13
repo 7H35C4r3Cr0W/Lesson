@@ -1,0 +1,228 @@
+{
+  "id": "math.halves-fourths",
+  "subject": "math",
+  "group": "shapes",
+  "order": 310,
+  "title": "Halves and Fourths",
+  "emoji": "🍕",
+  "kind": "qa",
+  "standards": [
+    "NC.1.G.3"
+  ],
+  "about": "Cutting circles and rectangles into two or four equal parts, calling them halves and fourths, and seeing that more cuts make smaller pieces. NC uses \"fourths\", not \"quarters\", and no fraction symbols.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Fold a paper plate in half, then in half again, and count the equal pieces.",
+  "cards": [
+    {
+      "id": "math.halves-fourths.c01",
+      "q": "How many equal parts?",
+      "a": "2",
+      "wrong": [
+        "4",
+        "3"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "circle",
+        "parts": 2,
+        "shaded": 1
+      }
+    },
+    {
+      "id": "math.halves-fourths.c02",
+      "q": "What is each part called?",
+      "a": "a half",
+      "wrong": [
+        "a fourth",
+        "a whole"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "circle",
+        "parts": 2,
+        "shaded": 1
+      }
+    },
+    {
+      "id": "math.halves-fourths.c03",
+      "q": "How many equal parts?",
+      "a": "4",
+      "wrong": [
+        "2",
+        "3"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "rectangle",
+        "parts": 4,
+        "shaded": 1
+      }
+    },
+    {
+      "id": "math.halves-fourths.c04",
+      "q": "What is each part called?",
+      "a": "a fourth",
+      "wrong": [
+        "a half",
+        "a whole"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "rectangle",
+        "parts": 4,
+        "shaded": 1
+      }
+    },
+    {
+      "id": "math.halves-fourths.c05",
+      "q": "What part is colored?",
+      "a": "one half",
+      "wrong": [
+        "one fourth",
+        "the whole"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "square",
+        "parts": 2,
+        "shaded": 1
+      }
+    },
+    {
+      "id": "math.halves-fourths.c06",
+      "q": "What part is colored?",
+      "a": "one fourth",
+      "wrong": [
+        "one half",
+        "the whole"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "square",
+        "parts": 4,
+        "shaded": 1
+      }
+    },
+    {
+      "id": "math.halves-fourths.c07",
+      "q": "All four fourths are colored. How much is colored?",
+      "a": "the whole",
+      "wrong": [
+        "one half",
+        "one fourth"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "circle",
+        "parts": 4,
+        "shaded": 4
+      }
+    },
+    {
+      "id": "math.halves-fourths.c08",
+      "q": "How many halves make a whole?",
+      "a": "2",
+      "wrong": [
+        "4",
+        "1"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "circle",
+        "parts": 2,
+        "shaded": 2
+      }
+    },
+    {
+      "id": "math.halves-fourths.c09",
+      "q": "How many fourths make a whole?",
+      "a": "4",
+      "wrong": [
+        "2",
+        "3"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "rectangle",
+        "parts": 4,
+        "shaded": 4
+      }
+    },
+    {
+      "id": "math.halves-fourths.c10",
+      "q": "Which is bigger, half of a pizza or a fourth of the same pizza?",
+      "a": "half",
+      "wrong": [
+        "fourth",
+        "the same"
+      ]
+    },
+    {
+      "id": "math.halves-fourths.c11",
+      "q": "Cut a cookie into 2 equal parts. What is each part?",
+      "a": "a half",
+      "wrong": [
+        "a fourth",
+        "a whole"
+      ]
+    },
+    {
+      "id": "math.halves-fourths.c12",
+      "q": "Cut a sandwich into 4 equal parts. What is each part?",
+      "a": "a fourth",
+      "wrong": [
+        "a half",
+        "a whole"
+      ]
+    },
+    {
+      "id": "math.halves-fourths.c13",
+      "q": "You cut a cake into more equal pieces. What happens to the pieces?",
+      "a": "they get smaller",
+      "wrong": [
+        "they get bigger",
+        "they stay the same"
+      ]
+    },
+    {
+      "id": "math.halves-fourths.c14",
+      "q": "Is this cut into halves or fourths?",
+      "a": "halves",
+      "wrong": [
+        "fourths",
+        "one piece"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "rectangle",
+        "parts": 2,
+        "shaded": 1
+      }
+    },
+    {
+      "id": "math.halves-fourths.c15",
+      "q": "Is this cut into halves or fourths?",
+      "a": "fourths",
+      "wrong": [
+        "halves",
+        "one piece"
+      ],
+      "visual": {
+        "type": "fraction",
+        "shape": "circle",
+        "parts": 4,
+        "shaded": 1
+      }
+    },
+    {
+      "id": "math.halves-fourths.c16",
+      "q": "Two friends share a pizza equally. How much does each get?",
+      "a": "a half",
+      "wrong": [
+        "a fourth",
+        "the whole"
+      ]
+    }
+  ]
+}

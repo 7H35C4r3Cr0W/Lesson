@@ -1,0 +1,299 @@
+{
+  "id": "math.add-to-20",
+  "subject": "math",
+  "group": "add",
+  "order": 90,
+  "title": "Adding to 20",
+  "emoji": "🎯",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.6",
+    "NC.1.OA.3"
+  ],
+  "about": "Sums from 11 to 20 using the make-ten strategy: 8 + 5 is 8 + 2 + 3. NC wants strategies here, not speed, so the ten-frame stays on every card.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Ask \"how many does the big number need to make ten?\" then \"how many are left over?\"",
+  "cards": [
+    {
+      "id": "math.add-to-20.c01",
+      "q": "9 + 2 = ?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "sayQ": "9 plus 2 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.add-to-20.c02",
+      "q": "9 + 3 = ?",
+      "a": "12",
+      "wrong": [
+        "11",
+        "13"
+      ],
+      "sayQ": "9 plus 3 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.add-to-20.c03",
+      "q": "9 + 4 = ?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "sayQ": "9 plus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.add-to-20.c04",
+      "q": "9 + 5 = ?",
+      "a": "14",
+      "wrong": [
+        "13",
+        "15"
+      ],
+      "sayQ": "9 plus 5 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.add-to-20.c05",
+      "q": "9 + 6 = ?",
+      "a": "15",
+      "wrong": [
+        "14",
+        "16"
+      ],
+      "sayQ": "9 plus 6 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.add-to-20.c06",
+      "q": "9 + 7 = ?",
+      "a": "16",
+      "wrong": [
+        "15",
+        "17"
+      ],
+      "sayQ": "9 plus 7 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.add-to-20.c07",
+      "q": "8 + 3 = ?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "sayQ": "8 plus 3 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.add-to-20.c08",
+      "q": "8 + 4 = ?",
+      "a": "12",
+      "wrong": [
+        "11",
+        "13"
+      ],
+      "sayQ": "8 plus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.add-to-20.c09",
+      "q": "8 + 5 = ?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "sayQ": "8 plus 5 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.add-to-20.c10",
+      "q": "8 + 6 = ?",
+      "a": "14",
+      "wrong": [
+        "13",
+        "15"
+      ],
+      "sayQ": "8 plus 6 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.add-to-20.c11",
+      "q": "8 + 7 = ?",
+      "a": "15",
+      "wrong": [
+        "14",
+        "16"
+      ],
+      "sayQ": "8 plus 7 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.add-to-20.c12",
+      "q": "7 + 4 = ?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "sayQ": "7 plus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.add-to-20.c13",
+      "q": "7 + 5 = ?",
+      "a": "12",
+      "wrong": [
+        "11",
+        "13"
+      ],
+      "sayQ": "7 plus 5 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.add-to-20.c14",
+      "q": "7 + 6 = ?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "sayQ": "7 plus 6 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.add-to-20.c15",
+      "q": "6 + 5 = ?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "sayQ": "6 plus 5 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.add-to-20.c16",
+      "q": "2 + 9 = ?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "sayQ": "2 plus 9 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.add-to-20.c17",
+      "q": "5 + 8 = ?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "sayQ": "5 plus 8 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.add-to-20.c18",
+      "q": "4 + 7 = ?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "sayQ": "4 plus 7 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.add-to-20.c19",
+      "q": "10 + 7 = ?",
+      "a": "17",
+      "wrong": [
+        "16",
+        "18"
+      ],
+      "sayQ": "10 plus 7 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.add-to-20.c20",
+      "q": "10 + 4 = ?",
+      "a": "14",
+      "wrong": [
+        "13",
+        "15"
+      ],
+      "sayQ": "10 plus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "id": "math.number-words",
+  "subject": "math",
+  "group": "count",
+  "order": 33,
+  "title": "Number Words",
+  "emoji": "🔤",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.7"
+  ],
+  "about": "Hearing a number word and tapping its numeral, from zero to twenty and the tens up to ninety, then a few cards the other way where he reads the word for a numeral he sees. NC.1.NBT.7 covers reading numerals to 100; reading written number names is formally a Grade 2 skill (NC.2.NBT.3), so the six word-reading cards are a gentle stretch.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "For the word cards, cover the ending with a finger and sound out the start: six-teen, six-ty.",
+  "cards": [
+    {
+      "id": "math.number-words.zero",
+      "q": "Which number is zero?",
+      "a": "0",
+      "wrong": [
+        "10",
+        "1"
+      ]
+    },
+    {
+      "id": "math.number-words.two",
+      "q": "Tap the number two.",
+      "a": "2",
+      "wrong": [
+        "12",
+        "20"
+      ]
+    },
+    {
+      "id": "math.number-words.three",
+      "q": "Which number is three?",
+      "a": "3",
+      "wrong": [
+        "13",
+        "30"
+      ]
+    },
+    {
+      "id": "math.number-words.seven",
+      "q": "Find seven.",
+      "a": "7",
+      "wrong": [
+        "17",
+        "70"
+      ]
+    },
+    {
+      "id": "math.number-words.ten",
+      "q": "Tap the number ten.",
+      "a": "10",
+      "wrong": [
+        "1",
+        "100"
+      ]
+    },
+    {
+      "id": "math.number-words.eleven",
+      "q": "Which number is eleven?",
+      "a": "11",
+      "wrong": [
+        "7",
+        "12"
+      ]
+    },
+    {
+      "id": "math.number-words.thirteen",
+      "q": "Find thirteen.",
+      "a": "13",
+      "wrong": [
+        "30",
+        "31"
+      ]
+    },
+    {
+      "id": "math.number-words.sixteen",
+      "q": "Tap the number sixteen.",
+      "a": "16",
+      "wrong": [
+        "60",
+        "61"
+      ]
+    },
+    {
+      "id": "math.number-words.eighteen",
+      "q": "Which number is eighteen?",
+      "a": "18",
+      "wrong": [
+        "80",
+        "81"
+      ]
+    },
+    {
+      "id": "math.number-words.twenty",
+      "q": "Find twenty.",
+      "a": "20",
+      "wrong": [
+        "12",
+        "2"
+      ]
+    },
+    {
+      "id": "math.number-words.thirty",
+      "q": "Tap the number thirty.",
+      "a": "30",
+      "wrong": [
+        "13",
+        "3"
+      ]
+    },
+    {
+      "id": "math.number-words.fifty",
+      "q": "Which number is fifty?",
+      "a": "50",
+      "wrong": [
+        "15",
+        "5"
+      ]
+    },
+    {
+      "id": "math.number-words.eighty",
+      "q": "Find eighty.",
+      "a": "80",
+      "wrong": [
+        "18",
+        "8"
+      ]
+    },
+    {
+      "id": "math.number-words.ninety",
+      "q": "Tap the number ninety.",
+      "a": "90",
+      "wrong": [
+        "19",
+        "9"
+      ]
+    },
+    {
+      "id": "math.number-words.word-12",
+      "q": "Which word says 12?",
+      "a": "twelve",
+      "wrong": [
+        "twenty",
+        "ten"
+      ],
+      "sayQ": "Which word says this number?"
+    },
+    {
+      "id": "math.number-words.word-5",
+      "q": "Which word says 5?",
+      "a": "five",
+      "wrong": [
+        "four",
+        "fifteen"
+      ],
+      "sayQ": "Which word says this number?"
+    },
+    {
+      "id": "math.number-words.word-9",
+      "q": "Which word says 9?",
+      "a": "nine",
+      "wrong": [
+        "nineteen",
+        "six"
+      ],
+      "sayQ": "Which word says this number?"
+    },
+    {
+      "id": "math.number-words.word-14",
+      "q": "How do you say 14?",
+      "a": "fourteen",
+      "wrong": [
+        "forty",
+        "four"
+      ],
+      "sayQ": "How do you say this number?"
+    },
+    {
+      "id": "math.number-words.word-60",
+      "q": "How do you say 60?",
+      "a": "sixty",
+      "wrong": [
+        "sixteen",
+        "six"
+      ],
+      "sayQ": "How do you say this number?"
+    },
+    {
+      "id": "math.number-words.word-100",
+      "q": "How do you say 100?",
+      "a": "one hundred",
+      "wrong": [
+        "one",
+        "ten"
+      ],
+      "sayQ": "How do you say this number?"
+    }
+  ]
+}

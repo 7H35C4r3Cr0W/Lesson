@@ -1,0 +1,30 @@
+{
+  "id": "words.th",
+  "subject": "words",
+  "group": "digraph",
+  "order": 80,
+  "title": "Th words",
+  "emoji": "🛁",
+  "kind": "read",
+  "standards": ["RF.1.4.a", "RF.1.4.b"],
+  "about": "Th is a tricky spelling with two sounds: quiet th as in thin and buzzing th as in this. CKLA Unit 1 Lesson 18.",
+  "tip": "Tongue between the teeth for both; feel your throat buzz on this and that but not on thin.",
+  "cards": [
+    { "id": "words.th.thin", "text": "thin", "parts": ["th", "i", "n"], "note": "quiet th" },
+    { "id": "words.th.bath", "text": "bath", "parts": ["b", "a", "th"], "emoji": "🛁", "note": "quiet th" },
+    { "id": "words.th.math", "text": "math", "parts": ["m", "a", "th"], "emoji": "➕", "note": "quiet th" },
+    { "id": "words.th.path", "text": "path", "parts": ["p", "a", "th"], "note": "quiet th" },
+    { "id": "words.th.moth", "text": "moth", "parts": ["m", "o", "th"], "note": "quiet th. A moth is like a small brown butterfly that flies at night." },
+    { "id": "words.th.cloth", "text": "cloth", "parts": ["c", "l", "o", "th"], "note": "quiet th" },
+    { "id": "words.th.thud", "text": "thud", "parts": ["th", "u", "d"], "note": "quiet th" },
+    { "id": "words.th.tenth", "text": "tenth", "parts": ["t", "e", "n", "th"], "emoji": "🔟", "note": "quiet th" },
+    { "id": "words.th.thump", "text": "thump", "parts": ["th", "u", "m", "p"], "note": "quiet th" },
+    { "id": "words.th.sloth", "text": "sloth", "parts": ["s", "l", "o", "th"], "emoji": "🦥", "note": "quiet th" },
+    { "id": "words.th.this", "text": "this", "parts": ["th", "i", "s"], "note": "buzzing th" },
+    { "id": "words.th.that", "text": "that", "parts": ["th", "a", "t"], "note": "buzzing th" },
+    { "id": "words.th.them", "text": "them", "parts": ["th", "e", "m"], "note": "buzzing th" },
+    { "id": "words.th.then", "text": "then", "parts": ["th", "e", "n"], "note": "buzzing th" },
+    { "id": "words.th.than", "text": "than", "parts": ["th", "a", "n"], "note": "buzzing th" },
+    { "id": "words.th.with", "text": "with", "parts": ["w", "i", "th"], "note": "th in with can be quiet or buzzing; both are right" }
+  ]
+}

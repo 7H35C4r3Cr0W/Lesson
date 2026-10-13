@@ -1,0 +1,199 @@
+{
+  "id": "math.count-on-100",
+  "subject": "math",
+  "group": "count",
+  "order": 30,
+  "title": "Count On to 100",
+  "emoji": "💯",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.1",
+    "NC.1.NBT.7"
+  ],
+  "about": "Counting on from any two-digit number, crossing into the next ten, and recognising numerals to 100 when he hears them. NC asks for oral counting to 150, but written numerals stop at 100.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "For the count-to-150 part, listen while he counts aloud from 87 to 110 and from 118 to 150; the tricky spots are 109 to 110 and 119 to 120.",
+  "cards": [
+    {
+      "id": "math.count-on-100.c01",
+      "q": "23, 24, 25, what comes next?",
+      "a": "26",
+      "wrong": [
+        "25",
+        "27"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c02",
+      "q": "38, 39, what comes next?",
+      "a": "40",
+      "wrong": [
+        "30",
+        "50"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c03",
+      "q": "What comes after 49?",
+      "a": "50",
+      "wrong": [
+        "40",
+        "60"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c04",
+      "q": "What comes after 59?",
+      "a": "60",
+      "wrong": [
+        "50",
+        "70"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c05",
+      "q": "67, 68, 69, what comes next?",
+      "a": "70",
+      "wrong": [
+        "60",
+        "80"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c06",
+      "q": "What comes after 79?",
+      "a": "80",
+      "wrong": [
+        "70",
+        "90"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c07",
+      "q": "What comes after 89?",
+      "a": "90",
+      "wrong": [
+        "80",
+        "100"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c08",
+      "q": "98, 99, what comes next?",
+      "a": "100",
+      "wrong": [
+        "90",
+        "80"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c09",
+      "q": "What comes after 34?",
+      "a": "35",
+      "wrong": [
+        "33",
+        "45"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c10",
+      "q": "What comes after 71?",
+      "a": "72",
+      "wrong": [
+        "70",
+        "82"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c11",
+      "q": "55, 56, 57, what comes next?",
+      "a": "58",
+      "wrong": [
+        "57",
+        "68"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c12",
+      "q": "What comes before 50?",
+      "a": "49",
+      "wrong": [
+        "51",
+        "40"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c13",
+      "q": "What comes before 81?",
+      "a": "80",
+      "wrong": [
+        "82",
+        "71"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c14",
+      "q": "Tap sixty-seven.",
+      "a": "67",
+      "wrong": [
+        "76",
+        "57"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c15",
+      "q": "Tap forty-two.",
+      "a": "42",
+      "wrong": [
+        "24",
+        "52"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c16",
+      "q": "Tap fifteen.",
+      "a": "15",
+      "wrong": [
+        "50",
+        "51"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c17",
+      "q": "Tap ninety-one.",
+      "a": "91",
+      "wrong": [
+        "19",
+        "90"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c18",
+      "q": "Tap thirty-eight.",
+      "a": "38",
+      "wrong": [
+        "83",
+        "28"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c19",
+      "q": "Tap seventy-six.",
+      "a": "76",
+      "wrong": [
+        "67",
+        "86"
+      ]
+    },
+    {
+      "id": "math.count-on-100.c20",
+      "q": "Tap one hundred.",
+      "a": "100",
+      "wrong": [
+        "10",
+        "90"
+      ]
+    }
+  ]
+}

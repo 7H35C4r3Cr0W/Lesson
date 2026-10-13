@@ -1,0 +1,33 @@
+{
+  "id": "sounds.double-letters",
+  "subject": "sounds",
+  "group": "teams",
+  "order": 130,
+  "title": "Double letters and ck",
+  "emoji": "🦆",
+  "kind": "qa",
+  "standards": ["RF.1.4", "L.1.2"],
+  "about": "Hear a word and pick the double-letter spelling that makes its last sound: ll, ss, ff, zz, dd, gg, tt or ck. CKLA Unit 1 lessons 23-24 teach that these two-letter spellings make one sound.",
+  "tip": "Say: two letters, but you only hear one sound at the end.",
+  "quiz": true,
+  "readChoices": false,
+  "speakFront": true,
+  "cards": [
+    { "id": "sounds.double-letters.bell", "q": "Which letters make the last sound in bell?", "a": "ll", "sayA": "double L", "wrong": ["ss", "ff"], "emoji": "🔔", "note": "bell ends with ll. Two letters, one sound." },
+    { "id": "sounds.double-letters.hill", "q": "Which letters make the last sound in hill?", "a": "ll", "sayA": "double L", "wrong": ["ck", "zz"], "emoji": "⛰️", "note": "hill ends with ll. Two letters, one sound." },
+    { "id": "sounds.double-letters.doll", "q": "Which letters make the last sound in doll?", "a": "ll", "sayA": "double L", "wrong": ["ff", "gg"], "note": "doll ends with ll. Two letters, one sound." },
+    { "id": "sounds.double-letters.kiss", "q": "Which letters make the last sound in kiss?", "a": "ss", "sayA": "double S", "wrong": ["ll", "ck"], "emoji": "💋", "note": "kiss ends with ss. Two letters, one sound." },
+    { "id": "sounds.double-letters.dress", "q": "Which letters make the last sound in dress?", "a": "ss", "sayA": "double S", "wrong": ["ff", "ll"], "emoji": "👗", "note": "dress ends with ss. Two letters, one sound." },
+    { "id": "sounds.double-letters.grass", "q": "Which letters make the last sound in grass?", "a": "ss", "sayA": "double S", "wrong": ["ck", "gg"], "emoji": "🌱", "note": "grass ends with ss. Two letters, one sound." },
+    { "id": "sounds.double-letters.puff", "q": "Which letters make the last sound in puff?", "a": "ff", "sayA": "double F", "wrong": ["ll", "ss"], "note": "puff ends with ff. Two letters, one sound." },
+    { "id": "sounds.double-letters.cliff", "q": "Which letters make the last sound in cliff?", "a": "ff", "sayA": "double F", "wrong": ["ck", "zz"], "note": "cliff ends with ff. Two letters, one sound." },
+    { "id": "sounds.double-letters.buzz", "q": "Which letters make the last sound in buzz?", "a": "zz", "sayA": "double Z", "wrong": ["ll", "ck"], "emoji": "🐝", "note": "buzz ends with zz. Two letters, one sound." },
+    { "id": "sounds.double-letters.fizz", "q": "Which letters make the last sound in fizz?", "a": "zz", "sayA": "double Z", "wrong": ["ff", "gg"], "emoji": "🥤", "note": "fizz ends with zz. Two letters, one sound." },
+    { "id": "sounds.double-letters.add", "q": "Which letters make the last sound in add?", "a": "dd", "sayA": "double D", "wrong": ["ll", "ss"], "emoji": "➕", "note": "add ends with dd. Two letters, one sound." },
+    { "id": "sounds.double-letters.egg", "q": "Which letters make the last sound in egg?", "a": "gg", "sayA": "double G", "wrong": ["ff", "ll"], "emoji": "🥚", "note": "egg ends with gg. Two letters, one sound." },
+    { "id": "sounds.double-letters.mitt", "q": "Which letters make the last sound in mitt?", "a": "tt", "sayA": "double T", "wrong": ["ll", "ss"], "emoji": "🧤", "note": "mitt ends with tt. Two letters, one sound." },
+    { "id": "sounds.double-letters.duck", "q": "Which letters make the last sound in duck?", "a": "ck", "sayA": "C K", "wrong": ["ll", "ss"], "emoji": "🦆", "note": "duck ends with ck. Two letters, one sound." },
+    { "id": "sounds.double-letters.sock", "q": "Which letters make the last sound in sock?", "a": "ck", "sayA": "C K", "wrong": ["ff", "zz"], "emoji": "🧦", "note": "sock ends with ck. Two letters, one sound." },
+    { "id": "sounds.double-letters.kick", "q": "Which letters make the last sound in kick?", "a": "ck", "sayA": "C K", "wrong": ["ss", "ll"], "emoji": "⚽", "note": "kick ends with ck. Two letters, one sound." }
+  ]
+}

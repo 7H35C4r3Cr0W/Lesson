@@ -1,0 +1,276 @@
+{
+  "id": "math.sides-corners",
+  "subject": "math",
+  "group": "shapes",
+  "order": 285,
+  "title": "Sides and Corners",
+  "emoji": "📐",
+  "kind": "qa",
+  "standards": [
+    "NC.1.G.1"
+  ],
+  "about": "Counting the sides and corners of a shape he is looking at (including the rhombus), picking a shape from its number of sides, and sorting what defines a shape (sides, corners) from what does not (color, size, which way it is turned). NC.1.G.1 calls these defining and non-defining attributes.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Touch each corner as you count, then each side; then ask \"if I painted it red, would it still be a triangle?\"",
+  "cards": [
+    {
+      "id": "math.sides-corners.rhombus-sides",
+      "q": "How many sides does this shape have?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "6"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rhombus",
+        "color": "coral"
+      },
+      "note": "This shape is a rhombus. All 4 sides are the same length."
+    },
+    {
+      "id": "math.sides-corners.trapezoid-corners",
+      "q": "How many corners does this shape have?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "trapezoid",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.sides-corners.hexagon-count-sides",
+      "q": "Count the sides. How many?",
+      "a": "6",
+      "wrong": [
+        "5",
+        "8"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "hexagon",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.sides-corners.square-corners",
+      "q": "How many corners does this shape have?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "6"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "square",
+        "color": "purple"
+      },
+      "note": "A square has 4 square corners."
+    },
+    {
+      "id": "math.sides-corners.rhombus-corners",
+      "q": "Count the corners. How many?",
+      "a": "4",
+      "wrong": [
+        "2",
+        "6"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rhombus",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.sides-corners.triangle-count-sides",
+      "q": "Count the sides. How many?",
+      "a": "3",
+      "wrong": [
+        "2",
+        "4"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "triangle",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.sides-corners.which-3-sides",
+      "q": "Which shape has 3 sides?",
+      "a": "triangle",
+      "wrong": [
+        "square",
+        "hexagon"
+      ]
+    },
+    {
+      "id": "math.sides-corners.which-6-sides",
+      "q": "Which shape has 6 sides?",
+      "a": "hexagon",
+      "wrong": [
+        "trapezoid",
+        "triangle"
+      ]
+    },
+    {
+      "id": "math.sides-corners.which-square",
+      "q": "Which shape has 4 equal sides and 4 square corners?",
+      "a": "square",
+      "wrong": [
+        "trapezoid",
+        "triangle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "square",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.sides-corners.most-corners",
+      "q": "Which shape has the most corners?",
+      "a": "hexagon",
+      "wrong": [
+        "triangle",
+        "square"
+      ]
+    },
+    {
+      "id": "math.sides-corners.more-sides",
+      "q": "Which has more sides, a hexagon or a triangle?",
+      "a": "hexagon",
+      "wrong": [
+        "triangle",
+        "the same"
+      ]
+    },
+    {
+      "id": "math.sides-corners.more-corners",
+      "q": "Which has more corners, a square or a triangle?",
+      "a": "square",
+      "wrong": [
+        "triangle",
+        "the same"
+      ]
+    },
+    {
+      "id": "math.sides-corners.could-be",
+      "q": "A shape has 4 sides and 4 corners. Which could it be?",
+      "a": "trapezoid",
+      "wrong": [
+        "triangle",
+        "hexagon"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "trapezoid",
+        "color": "coral"
+      },
+      "note": "Squares, rectangles, trapezoids and rhombuses all have 4 sides and 4 corners."
+    },
+    {
+      "id": "math.sides-corners.triangle-change",
+      "q": "A triangle is still a triangle if you change its...",
+      "a": "color",
+      "wrong": [
+        "number of sides",
+        "number of corners"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "triangle",
+        "color": "purple"
+      },
+      "sayQ": "A triangle is still a triangle if you change its what?",
+      "note": "Color and size do not change a shape's name. Sides and corners do."
+    },
+    {
+      "id": "math.sides-corners.square-change",
+      "q": "A square is still a square if you change its...",
+      "a": "size",
+      "wrong": [
+        "number of sides",
+        "number of corners"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "square",
+        "color": "gold"
+      },
+      "sayQ": "A square is still a square if you change its what?"
+    },
+    {
+      "id": "math.sides-corners.makes-different",
+      "q": "Which change turns a shape into a different shape?",
+      "a": "adding a side",
+      "wrong": [
+        "painting it blue",
+        "making it bigger"
+      ]
+    },
+    {
+      "id": "math.sides-corners.same-triangles",
+      "q": "A big red triangle and a tiny blue triangle. What is the same about them?",
+      "a": "3 sides",
+      "wrong": [
+        "the size",
+        "the color"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "triangle",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.sides-corners.upside-down",
+      "q": "Turn a square upside down. What shape is it now?",
+      "a": "a square",
+      "wrong": [
+        "a triangle",
+        "a circle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "square",
+        "color": "green"
+      },
+      "note": "Turning a shape does not change its name."
+    },
+    {
+      "id": "math.sides-corners.makes-hexagon",
+      "q": "What makes a hexagon a hexagon?",
+      "a": "6 sides",
+      "wrong": [
+        "it is yellow",
+        "it is big"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "hexagon",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.sides-corners.name-rhombus",
+      "q": "What is the name of this 4-sided shape?",
+      "a": "rhombus",
+      "wrong": [
+        "triangle",
+        "hexagon"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rhombus",
+        "color": "blue"
+      },
+      "note": "A rhombus has 4 sides that are all the same length."
+    }
+  ]
+}

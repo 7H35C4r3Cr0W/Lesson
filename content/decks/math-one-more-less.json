@@ -1,0 +1,259 @@
+{
+  "id": "math.one-more-less",
+  "subject": "math",
+  "group": "count",
+  "order": 20,
+  "title": "One More, One Less",
+  "emoji": "🐾",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.1",
+    "NC.1.OA.6"
+  ],
+  "about": "The number just after and just before any number to 20, shown on a number line. Counting on and back from any number is how first graders start adding and subtracting.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Say the number, then hop one space on the line; ask \"which way is more?\"",
+  "cards": [
+    {
+      "id": "math.one-more-less.c01",
+      "q": "What is one more than 4?",
+      "a": "5",
+      "wrong": [
+        "3",
+        "6"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 4
+      }
+    },
+    {
+      "id": "math.one-more-less.c02",
+      "q": "What is one more than 7?",
+      "a": "8",
+      "wrong": [
+        "6",
+        "9"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 7
+      }
+    },
+    {
+      "id": "math.one-more-less.c03",
+      "q": "What is one more than 9?",
+      "a": "10",
+      "wrong": [
+        "8",
+        "11"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 9
+      }
+    },
+    {
+      "id": "math.one-more-less.c04",
+      "q": "What is one more than 12?",
+      "a": "13",
+      "wrong": [
+        "11",
+        "14"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 12
+      }
+    },
+    {
+      "id": "math.one-more-less.c05",
+      "q": "What is one more than 15?",
+      "a": "16",
+      "wrong": [
+        "14",
+        "17"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 15
+      }
+    },
+    {
+      "id": "math.one-more-less.c06",
+      "q": "What is one more than 19?",
+      "a": "20",
+      "wrong": [
+        "18",
+        "10"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 19
+      }
+    },
+    {
+      "id": "math.one-more-less.c07",
+      "q": "What is one less than 6?",
+      "a": "5",
+      "wrong": [
+        "7",
+        "4"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 6
+      }
+    },
+    {
+      "id": "math.one-more-less.c08",
+      "q": "What is one less than 10?",
+      "a": "9",
+      "wrong": [
+        "11",
+        "8"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 10
+      }
+    },
+    {
+      "id": "math.one-more-less.c09",
+      "q": "What is one less than 3?",
+      "a": "2",
+      "wrong": [
+        "4",
+        "1"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 3
+      }
+    },
+    {
+      "id": "math.one-more-less.c10",
+      "q": "What is one less than 14?",
+      "a": "13",
+      "wrong": [
+        "15",
+        "12"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 14
+      }
+    },
+    {
+      "id": "math.one-more-less.c11",
+      "q": "What is one less than 17?",
+      "a": "16",
+      "wrong": [
+        "18",
+        "15"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 17
+      }
+    },
+    {
+      "id": "math.one-more-less.c12",
+      "q": "What is one less than 20?",
+      "a": "19",
+      "wrong": [
+        "18",
+        "10"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 20
+      }
+    },
+    {
+      "id": "math.one-more-less.c13",
+      "q": "5, 6, 7, what comes next?",
+      "a": "8",
+      "wrong": [
+        "7",
+        "9"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 7
+      }
+    },
+    {
+      "id": "math.one-more-less.c14",
+      "q": "11, 12, 13, what comes next?",
+      "a": "14",
+      "wrong": [
+        "13",
+        "15"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 13
+      }
+    },
+    {
+      "id": "math.one-more-less.c15",
+      "q": "What comes just before 9?",
+      "a": "8",
+      "wrong": [
+        "10",
+        "7"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 9
+      }
+    },
+    {
+      "id": "math.one-more-less.c16",
+      "q": "What comes just before 16?",
+      "a": "15",
+      "wrong": [
+        "17",
+        "14"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 16
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "sounds.count-sounds",
+  "subject": "sounds",
+  "group": "hear",
+  "order": 100,
+  "title": "Count the sounds",
+  "emoji": "👂",
+  "kind": "qa",
+  "standards": ["RF.1.3.d"],
+  "about": "Hear a word, say each sound, and tap how many sounds it has (two to five). This is NC RF.1.3.d, segmenting a word into all its sounds, which is exactly what the DIBELS PSF test measures.",
+  "tip": "Have him say the sounds out loud and hold up one finger per sound before he taps the number.",
+  "quiz": true,
+  "readChoices": false,
+  "speakFront": true,
+  "cards": [
+    { "id": "sounds.count-sounds.up", "q": "How many sounds do you hear in up?", "sayQ": "How many sounds do you hear in up? up.", "a": "2", "wrong": ["1", "3"], "emoji": "⬆️", "note": "u - p. 2 sounds." },
+    { "id": "sounds.count-sounds.bee", "q": "How many sounds do you hear in bee?", "sayQ": "How many sounds do you hear in bee? bee.", "a": "2", "wrong": ["1", "3"], "emoji": "🐝", "note": "b - ee. 2 sounds. ee is one sound." },
+    { "id": "sounds.count-sounds.zoo", "q": "How many sounds do you hear in zoo?", "sayQ": "How many sounds do you hear in zoo? zoo.", "a": "2", "wrong": ["1", "3"], "note": "z - oo. 2 sounds. oo is one sound." },
+    { "id": "sounds.count-sounds.bus", "q": "How many sounds do you hear in bus?", "sayQ": "How many sounds do you hear in bus? bus.", "a": "3", "wrong": ["2", "4"], "emoji": "🚌", "note": "b - u - s. 3 sounds." },
+    { "id": "sounds.count-sounds.dog", "q": "How many sounds do you hear in dog?", "sayQ": "How many sounds do you hear in dog? dog.", "a": "3", "wrong": ["2", "4"], "emoji": "🐶", "note": "d - o - g. 3 sounds." },
+    { "id": "sounds.count-sounds.ship", "q": "How many sounds do you hear in ship?", "sayQ": "How many sounds do you hear in ship? ship.", "a": "3", "wrong": ["4", "2"], "emoji": "🚢", "note": "sh - i - p. 3 sounds. sh is one sound." },
+    { "id": "sounds.count-sounds.fish", "q": "How many sounds do you hear in fish?", "sayQ": "How many sounds do you hear in fish? fish.", "a": "3", "wrong": ["4", "2"], "emoji": "🐟", "note": "f - i - sh. 3 sounds. sh is one sound." },
+    { "id": "sounds.count-sounds.moon", "q": "How many sounds do you hear in moon?", "sayQ": "How many sounds do you hear in moon? moon.", "a": "3", "wrong": ["4", "2"], "emoji": "🌙", "note": "m - oo - n. 3 sounds. oo is one sound." },
+    { "id": "sounds.count-sounds.lock", "q": "How many sounds do you hear in lock?", "sayQ": "How many sounds do you hear in lock? lock.", "a": "3", "wrong": ["4", "2"], "emoji": "🔒", "note": "l - o - ck. 3 sounds. ck is one sound." },
+    { "id": "sounds.count-sounds.frog", "q": "How many sounds do you hear in frog?", "sayQ": "How many sounds do you hear in frog? frog.", "a": "4", "wrong": ["3", "5"], "emoji": "🐸", "note": "f - r - o - g. 4 sounds. f and r are two sounds." },
+    { "id": "sounds.count-sounds.stop", "q": "How many sounds do you hear in stop?", "sayQ": "How many sounds do you hear in stop? stop.", "a": "4", "wrong": ["3", "5"], "emoji": "🛑", "note": "s - t - o - p. 4 sounds. s and t are two sounds." },
+    { "id": "sounds.count-sounds.hand", "q": "How many sounds do you hear in hand?", "sayQ": "How many sounds do you hear in hand? hand.", "a": "4", "wrong": ["3", "5"], "emoji": "✋", "note": "h - a - n - d. 4 sounds. n and d are two sounds." },
+    { "id": "sounds.count-sounds.tent", "q": "How many sounds do you hear in tent?", "sayQ": "How many sounds do you hear in tent? tent.", "a": "4", "wrong": ["3", "5"], "emoji": "⛺", "note": "t - e - n - t. 4 sounds. n and t are two sounds." },
+    { "id": "sounds.count-sounds.milk", "q": "How many sounds do you hear in milk?", "sayQ": "How many sounds do you hear in milk? milk.", "a": "4", "wrong": ["3", "5"], "emoji": "🥛", "note": "m - i - l - k. 4 sounds. l and k are two sounds." },
+    { "id": "sounds.count-sounds.plant", "q": "How many sounds do you hear in plant?", "sayQ": "How many sounds do you hear in plant? plant.", "a": "5", "wrong": ["4", "3"], "emoji": "🌱", "note": "p - l - a - n - t. 5 sounds. p and l are two sounds, and so are n and t." },
+    { "id": "sounds.count-sounds.stamp", "q": "How many sounds do you hear in stamp?", "sayQ": "How many sounds do you hear in stamp? stamp.", "a": "5", "wrong": ["4", "3"], "note": "s - t - a - m - p. 5 sounds. s and t are two sounds, and so are m and p." }
+  ]
+}

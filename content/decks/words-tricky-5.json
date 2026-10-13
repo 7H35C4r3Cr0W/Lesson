@@ -1,0 +1,24 @@
+{
+  "id": "words.tricky-5",
+  "subject": "words",
+  "group": "tricky",
+  "order": 360,
+  "title": "Tricky words 5",
+  "emoji": "🐮",
+  "kind": "read",
+  "standards": ["RF.1.4.g"],
+  "about": "The everyday tricky words from CKLA Units 5, 6 and 7: how, stagecoach and picture (Unit 5), cow (Unit 6) and talk (Unit 7), plus 5 phrases that use them. Unit 7's other five tricky words (Mexico, Hidalgo, Carlos, Gomez, gracias) are names and a Spanish word from its reader, so they are left out.",
+  "tip": "For talk, show him the quiet l and say the word slowly: tawk.",
+  "cards": [
+    { "id": "words.tricky-5.how", "text": "how", "parts": ["h", "ow"], "tricky": [1], "note": "ow says ou as in out" },
+    { "id": "words.tricky-5.stagecoach", "text": "stagecoach", "parts": ["s", "t", "a", "ge", "c", "oa", "ch"], "tricky": [5], "note": "oa says long o (oa is not taught until Unit 7); the a says its name and ge says j" },
+    { "id": "words.tricky-5.picture", "text": "picture", "parts": ["p", "i", "c", "ture"], "tricky": [3], "emoji": "🖼️", "note": "ture says cher: pik-cher" },
+    { "id": "words.tricky-5.cow", "text": "cow", "parts": ["c", "ow"], "tricky": [1], "emoji": "🐮", "note": "ow says ou as in out" },
+    { "id": "words.tricky-5.talk", "text": "talk", "parts": ["t", "a", "l", "k"], "tricky": [1, 2], "emoji": "💬", "note": "a says aw and the l makes no sound: tawk" },
+    { "id": "words.tricky-5.how-are-you", "text": "how are you", "emoji": "👋", "note": "three tricky words: how, are, you" },
+    { "id": "words.tricky-5.cow-is-big", "text": "the cow is big", "emoji": "🐮", "note": "tricky words: the, cow, is" },
+    { "id": "words.tricky-5.picture-of-cat", "text": "a picture of a cat", "emoji": "🐱", "note": "tricky words: a, picture, of" },
+    { "id": "words.tricky-5.i-can-talk", "text": "I can talk", "emoji": "💬", "note": "tricky words: I, talk" },
+    { "id": "words.tricky-5.cow-can-run", "text": "the cow can run", "emoji": "🐄", "note": "tricky words: the, cow" }
+  ]
+}

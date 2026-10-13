@@ -1,0 +1,30 @@
+{
+  "id": "words.oa",
+  "subject": "words",
+  "group": "more",
+  "order": 270,
+  "title": "Oa words",
+  "emoji": "⛵",
+  "kind": "read",
+  "standards": ["RF.1.4.b", "RF.1.4.c"],
+  "about": "The last new spelling of CKLA Grade 1 (Unit 7): oa says long o, as in boat and goat. This is the end of the first-grade code.",
+  "tip": "Two vowels walking: the first one says its name, the a is quiet.",
+  "cards": [
+    { "id": "words.oa.boat", "text": "boat", "parts": ["b", "oa", "t"], "emoji": "⛵", "note": "oa says long o" },
+    { "id": "words.oa.coat", "text": "coat", "parts": ["c", "oa", "t"], "emoji": "🧥", "note": "oa says long o" },
+    { "id": "words.oa.road", "text": "road", "parts": ["r", "oa", "d"], "emoji": "🛣️", "note": "oa says long o" },
+    { "id": "words.oa.soap", "text": "soap", "parts": ["s", "oa", "p"], "emoji": "🧼", "note": "oa says long o" },
+    { "id": "words.oa.toast", "text": "toast", "parts": ["t", "oa", "s", "t"], "note": "oa says long o" },
+    { "id": "words.oa.goat", "text": "goat", "parts": ["g", "oa", "t"], "emoji": "🐐", "note": "oa says long o" },
+    { "id": "words.oa.oak", "text": "oak", "parts": ["oa", "k"], "emoji": "🌳", "note": "oa says long o" },
+    { "id": "words.oa.load", "text": "load", "parts": ["l", "oa", "d"], "note": "oa says long o" },
+    { "id": "words.oa.loaf", "text": "loaf", "parts": ["l", "oa", "f"], "emoji": "🍞", "note": "oa says long o" },
+    { "id": "words.oa.foam", "text": "foam", "parts": ["f", "oa", "m"], "note": "oa says long o" },
+    { "id": "words.oa.soak", "text": "soak", "parts": ["s", "oa", "k"], "note": "oa says long o" },
+    { "id": "words.oa.groan", "text": "groan", "parts": ["g", "r", "oa", "n"], "note": "oa says long o" },
+    { "id": "words.oa.float", "text": "float", "parts": ["f", "l", "oa", "t"], "note": "oa says long o" },
+    { "id": "words.oa.coach", "text": "coach", "parts": ["c", "oa", "ch"], "note": "oa says long o" },
+    { "id": "words.oa.toad", "text": "toad", "parts": ["t", "oa", "d"], "emoji": "🐸", "note": "oa says long o" },
+    { "id": "words.oa.roast", "text": "roast", "parts": ["r", "oa", "s", "t"], "emoji": "🍗", "note": "oa says long o" }
+  ]
+}

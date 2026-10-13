@@ -1,0 +1,190 @@
+{
+  "id": "math.fact-families",
+  "subject": "math",
+  "group": "subtract",
+  "order": 145,
+  "title": "Fact Families",
+  "emoji": "🏠",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.4",
+    "NC.1.OA.3",
+    "NC.1.OA.6"
+  ],
+  "about": "Three numbers, four facts: 3 + 5 = 8, 5 + 3 = 8, 8 − 5 = 3 and 8 − 3 = 5 belong together, so a known addition fact solves a subtraction. NC.1.OA.4 asks him to see subtraction as an unknown-addend problem, and NC.1.OA.6 names the relationship between addition and subtraction as a strategy within 20.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Say \"same three numbers, just moved around\" and ask which number is the biggest; it always starts the take-away facts.",
+  "cards": [
+    {
+      "id": "math.fact-families.sub-3-5",
+      "q": "3 + 5 = 8. So 8 − 5 = ?",
+      "a": "3",
+      "wrong": [
+        "5",
+        "13"
+      ],
+      "sayQ": "3 plus 5 equals 8. So 8 minus 5 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.fact-families.sub-4-6",
+      "q": "4 + 6 = 10. So 10 − 4 = ?",
+      "a": "6",
+      "wrong": [
+        "4",
+        "14"
+      ],
+      "sayQ": "4 plus 6 equals 10. So 10 minus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.fact-families.sub-9-2",
+      "q": "9 + 2 = 11. So 11 − 2 = ?",
+      "a": "9",
+      "wrong": [
+        "2",
+        "13"
+      ],
+      "sayQ": "9 plus 2 equals 11. So 11 minus 2 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 11
+      }
+    },
+    {
+      "id": "math.fact-families.sub-7-6",
+      "q": "7 + 6 = 13. So 13 − 7 = ?",
+      "a": "6",
+      "wrong": [
+        "7",
+        "20"
+      ],
+      "sayQ": "7 plus 6 equals 13. So 13 minus 7 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 13
+      }
+    },
+    {
+      "id": "math.fact-families.sub-8-5",
+      "q": "8 + 5 = 13. So 13 − 5 = ?",
+      "a": "8",
+      "wrong": [
+        "5",
+        "18"
+      ],
+      "sayQ": "8 plus 5 equals 13. So 13 minus 5 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 13
+      }
+    },
+    {
+      "id": "math.fact-families.add-12-4",
+      "q": "12 − 4 = 8. So 8 + 4 = ?",
+      "a": "12",
+      "wrong": [
+        "4",
+        "16"
+      ],
+      "sayQ": "12 minus 4 equals 8. So 8 plus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.fact-families.add-15-9",
+      "q": "15 − 9 = 6. So 6 + 9 = ?",
+      "a": "15",
+      "wrong": [
+        "9",
+        "14"
+      ],
+      "sayQ": "15 minus 9 equals 6. So 6 plus 9 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.fact-families.fam-4-6",
+      "q": "Which fact is in the same family as 4 + 6 = 10?",
+      "a": "10 − 6 = 4",
+      "wrong": [
+        "10 − 5 = 5",
+        "4 + 4 = 8"
+      ]
+    },
+    {
+      "id": "math.fact-families.fam-7-2",
+      "q": "Which fact is in the same family as 7 + 2 = 9?",
+      "a": "9 − 7 = 2",
+      "wrong": [
+        "9 − 3 = 6",
+        "7 + 7 = 14"
+      ]
+    },
+    {
+      "id": "math.fact-families.fam-12-5",
+      "q": "Which fact is in the same family as 12 − 5 = 7?",
+      "a": "5 + 7 = 12",
+      "wrong": [
+        "5 + 5 = 10",
+        "12 − 2 = 10"
+      ]
+    },
+    {
+      "id": "math.fact-families.fam-3-8",
+      "q": "Which fact is in the same family as 3 + 8 = 11?",
+      "a": "11 − 3 = 8",
+      "wrong": [
+        "11 − 1 = 10",
+        "8 − 3 = 5"
+      ]
+    },
+    {
+      "id": "math.fact-families.fam-14-6",
+      "q": "Which fact is in the same family as 14 − 6 = 8?",
+      "a": "8 + 6 = 14",
+      "wrong": [
+        "8 + 8 = 16",
+        "14 − 4 = 10"
+      ]
+    },
+    {
+      "id": "math.fact-families.fam-9-7",
+      "q": "9 + 7 = 16. Which fact belongs with it?",
+      "a": "16 − 9 = 7",
+      "wrong": [
+        "16 − 6 = 10",
+        "9 + 9 = 18"
+      ]
+    },
+    {
+      "id": "math.fact-families.three-2-7-9",
+      "q": "Which three numbers make a fact family?",
+      "a": "2, 7 and 9",
+      "wrong": [
+        "2, 7 and 8",
+        "2, 6 and 9"
+      ]
+    },
+    {
+      "id": "math.fact-families.three-5-8-13",
+      "q": "Which three numbers belong together in a fact family?",
+      "a": "5, 8 and 13",
+      "wrong": [
+        "5, 8 and 12",
+        "5, 9 and 13"
+      ]
+    }
+  ]
+}

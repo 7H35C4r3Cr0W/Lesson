@@ -1,0 +1,199 @@
+{
+  "id": "math.solid-shapes",
+  "subject": "math",
+  "group": "shapes",
+  "order": 290,
+  "title": "Solid Shapes",
+  "emoji": "🧊",
+  "kind": "qa",
+  "standards": [
+    "NC.1.G.1"
+  ],
+  "about": "The five solid shapes NC names: cube, rectangular prism, cone, sphere and cylinder, matched to everyday objects and their flat faces. Counting faces is expected; counting edges is not.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Hunt for the shapes at home: a ball, a can, a box, a party hat.",
+  "cards": [
+    {
+      "id": "math.solid-shapes.c01",
+      "q": "What shape is this?",
+      "a": "cube",
+      "wrong": [
+        "sphere",
+        "cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cube",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c02",
+      "q": "What shape is this?",
+      "a": "sphere",
+      "wrong": [
+        "cube",
+        "cylinder"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "sphere",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c03",
+      "q": "What shape is this?",
+      "a": "cone",
+      "wrong": [
+        "cylinder",
+        "cube"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cone",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c04",
+      "q": "What shape is this?",
+      "a": "cylinder",
+      "wrong": [
+        "cone",
+        "sphere"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c05",
+      "q": "What shape is this?",
+      "a": "rectangular prism",
+      "wrong": [
+        "sphere",
+        "cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangular-prism",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c06",
+      "q": "Which shape can roll?",
+      "a": "sphere",
+      "wrong": [
+        "cube",
+        "rectangular prism"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "sphere",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c07",
+      "q": "Which shape is like a ball?",
+      "a": "sphere",
+      "wrong": [
+        "cube",
+        "cone"
+      ]
+    },
+    {
+      "id": "math.solid-shapes.c08",
+      "q": "Which shape is like a can?",
+      "a": "cylinder",
+      "wrong": [
+        "cube",
+        "sphere"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c09",
+      "q": "Which shape is like a party hat?",
+      "a": "cone",
+      "wrong": [
+        "cube",
+        "sphere"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cone",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c10",
+      "q": "Which shape has 6 square faces?",
+      "a": "cube",
+      "wrong": [
+        "sphere",
+        "cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cube",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c11",
+      "q": "How many flat faces does a cube have?",
+      "a": "6",
+      "wrong": [
+        "4",
+        "8"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cube",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c12",
+      "q": "Which shape has a point on top and a round bottom?",
+      "a": "cone",
+      "wrong": [
+        "cube",
+        "sphere"
+      ]
+    },
+    {
+      "id": "math.solid-shapes.c13",
+      "q": "Which shape is like a cereal box?",
+      "a": "rectangular prism",
+      "wrong": [
+        "sphere",
+        "cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangular-prism",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.solid-shapes.c14",
+      "q": "Which shape has no flat faces?",
+      "a": "sphere",
+      "wrong": [
+        "cube",
+        "cylinder"
+      ]
+    }
+  ]
+}

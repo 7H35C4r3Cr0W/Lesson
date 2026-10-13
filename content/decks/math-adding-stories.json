@@ -1,0 +1,213 @@
+{
+  "id": "math.adding-stories",
+  "subject": "math",
+  "group": "add",
+  "order": 110,
+  "title": "Adding Stories",
+  "emoji": "📚",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.1"
+  ],
+  "about": "Adding word problems within 20: some more came (total unknown), some more came and now there are 11 (how many came?), and 9 apples where 4 are red (how many green?). The last two kinds are the new first-grade problem types in NC.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Act it out with blocks: start pile, what changed, what is there now.",
+  "cards": [
+    {
+      "id": "math.adding-stories.c01",
+      "q": "Ben had 6 cars and got 5 more. How many cars now?",
+      "a": "11",
+      "wrong": [
+        "1",
+        "10"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.adding-stories.c02",
+      "q": "Lia saw 8 birds and then 4 more. How many birds in all?",
+      "a": "12",
+      "wrong": [
+        "4",
+        "11"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.adding-stories.c03",
+      "q": "Tom has 7 red and 7 blue blocks. How many blocks?",
+      "a": "14",
+      "wrong": [
+        "7",
+        "13"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.adding-stories.c04",
+      "q": "Ava has 9 shells and finds 6 more. How many shells?",
+      "a": "15",
+      "wrong": [
+        "3",
+        "14"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.adding-stories.c05",
+      "q": "There are 5 big dogs and 9 small dogs. How many dogs?",
+      "a": "14",
+      "wrong": [
+        "4",
+        "13"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 5
+      }
+    },
+    {
+      "id": "math.adding-stories.c06",
+      "q": "Ben had 6 cars and got some more, now 11. How many did he get?",
+      "a": "5",
+      "wrong": [
+        "11",
+        "17"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.adding-stories.c07",
+      "q": "Lia had 8 stickers and got more, now 12. How many more did she get?",
+      "a": "4",
+      "wrong": [
+        "12",
+        "20"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.adding-stories.c08",
+      "q": "Tom had 10 fish and got more, now 16. How many more?",
+      "a": "6",
+      "wrong": [
+        "16",
+        "10"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.adding-stories.c09",
+      "q": "Ava had 3 books and got more, now 9. How many more?",
+      "a": "6",
+      "wrong": [
+        "9",
+        "12"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 3
+      }
+    },
+    {
+      "id": "math.adding-stories.c10",
+      "q": "Max had 12 cards and got more, now 15. How many more?",
+      "a": "3",
+      "wrong": [
+        "15",
+        "13"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 12
+      }
+    },
+    {
+      "id": "math.adding-stories.c11",
+      "q": "Mia has 9 apples, 4 are red and the rest green. How many green?",
+      "a": "5",
+      "wrong": [
+        "13",
+        "4"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.adding-stories.c12",
+      "q": "There are 10 pets, 6 are cats and the rest dogs. How many dogs?",
+      "a": "4",
+      "wrong": [
+        "16",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.adding-stories.c13",
+      "q": "Eli has 14 blocks, 8 are big and the rest small. How many small?",
+      "a": "6",
+      "wrong": [
+        "8",
+        "14"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 14
+      }
+    },
+    {
+      "id": "math.adding-stories.c14",
+      "q": "Zoe has 12 pens, 5 are blue and the rest red. How many red?",
+      "a": "7",
+      "wrong": [
+        "5",
+        "17"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 12
+      }
+    },
+    {
+      "id": "math.adding-stories.c15",
+      "q": "Sam has 15 cubes, 10 are red and the rest blue. How many blue?",
+      "a": "5",
+      "wrong": [
+        "10",
+        "15"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 15
+      }
+    }
+  ]
+}

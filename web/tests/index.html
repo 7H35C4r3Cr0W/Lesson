@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Star Cards self-check</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/tests/tests.css">
+</head>
+<body class="grownup-mode">
+  <main class="selfcheck">
+    <h1>⭐ Star Cards self-check</h1>
+    <p class="muted">Runs the learning rules and the card content through their tests, right here in this browser. Green means good.</p>
+    <p><a class="btn small" href="/">Back to the app</a> <button class="btn small primary" id="rerun" type="button">Run again</button></p>
+    <div id="summary" class="summary">Running…</div>
+    <div id="results"></div>
+  </main>
+  <script type="module" src="/tests/tests.js"></script>
+</body>
+</html>

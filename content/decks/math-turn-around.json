@@ -1,0 +1,186 @@
+{
+  "id": "math.turn-around",
+  "subject": "math",
+  "group": "add",
+  "order": 60,
+  "title": "Turn It Around",
+  "emoji": "🔄",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.3"
+  ],
+  "about": "If 8 + 3 is 11, then 3 + 8 is 11 too, and in 2 + 6 + 4 you may add the 6 and 4 first. NC.1.OA.3 asks him to use these turn-around and grouping ideas as strategies (he does not need the words commutative or associative).",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Say \"you already know this one, just flip it\" and let him answer without counting.",
+  "cards": [
+    {
+      "id": "math.turn-around.c01",
+      "q": "8 + 3 = 11. What is 3 + 8?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "sayQ": "8 plus 3 equals 11. What is 3 plus 8?",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.turn-around.c02",
+      "q": "2 + 7 = 9. What is 7 + 2?",
+      "a": "9",
+      "wrong": [
+        "8",
+        "10"
+      ],
+      "sayQ": "2 plus 7 equals 9. What is 7 plus 2?",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.turn-around.c03",
+      "q": "6 + 4 = 10. What is 4 + 6?",
+      "a": "10",
+      "wrong": [
+        "9",
+        "11"
+      ],
+      "sayQ": "6 plus 4 equals 10. What is 4 plus 6?",
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.turn-around.c04",
+      "q": "9 + 4 = 13. What is 4 + 9?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "sayQ": "9 plus 4 equals 13. What is 4 plus 9?",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.turn-around.c05",
+      "q": "7 + 5 = 12. What is 5 + 7?",
+      "a": "12",
+      "wrong": [
+        "11",
+        "13"
+      ],
+      "sayQ": "7 plus 5 equals 12. What is 5 plus 7?",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.turn-around.c06",
+      "q": "5 + 9 = 9 + ?",
+      "a": "5",
+      "wrong": [
+        "9",
+        "14"
+      ],
+      "sayQ": "5 plus 9 equals 9 plus ?",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.turn-around.c07",
+      "q": "3 + 8 = 8 + ?",
+      "a": "3",
+      "wrong": [
+        "8",
+        "11"
+      ],
+      "sayQ": "3 plus 8 equals 8 plus ?",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.turn-around.c08",
+      "q": "4 + 7 = 7 + ?",
+      "a": "4",
+      "wrong": [
+        "7",
+        "11"
+      ],
+      "sayQ": "4 plus 7 equals 7 plus ?",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.turn-around.c09",
+      "q": "6 + 2 = 2 + ?",
+      "a": "6",
+      "wrong": [
+        "2",
+        "8"
+      ],
+      "sayQ": "6 plus 2 equals 2 plus ?",
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.turn-around.c10",
+      "q": "In 2 + 6 + 4, which number goes with 6 to make 10?",
+      "a": "4",
+      "wrong": [
+        "2",
+        "6"
+      ],
+      "sayQ": "In 2 plus 6 plus 4, which number goes with 6 to make 10?",
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.turn-around.c11",
+      "q": "In 3 + 5 + 7, which number goes with 3 to make 10?",
+      "a": "7",
+      "wrong": [
+        "5",
+        "3"
+      ],
+      "sayQ": "In 3 plus 5 plus 7, which number goes with 3 to make 10?",
+      "visual": {
+        "type": "tenframe",
+        "n": 3
+      }
+    },
+    {
+      "id": "math.turn-around.c12",
+      "q": "In 8 + 5 + 2, which number goes with 8 to make 10?",
+      "a": "2",
+      "wrong": [
+        "5",
+        "8"
+      ],
+      "sayQ": "In 8 plus 5 plus 2, which number goes with 8 to make 10?",
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    }
+  ]
+}

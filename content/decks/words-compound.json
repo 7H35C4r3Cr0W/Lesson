@@ -1,0 +1,30 @@
+{
+  "id": "words.compound",
+  "subject": "words",
+  "group": "more",
+  "order": 290,
+  "title": "Two little words",
+  "emoji": "🎒",
+  "kind": "read",
+  "standards": ["RF.1.4.d", "RF.1.4.e"],
+  "about": "Compound words made of two little words he can already read (sun + set, back + pack). Each little word is one syllable, so this is the gentlest way into two-syllable reading (NC RF.1.4.e), which CKLA starts in Unit 4.",
+  "tip": "Cover the second half, read the first word, then uncover and read the whole thing.",
+  "cards": [
+    { "id": "words.compound.sunset", "text": "sunset", "parts": ["sun", "set"], "emoji": "🌇", "note": "two words: sun + set" },
+    { "id": "words.compound.bathtub", "text": "bathtub", "parts": ["bath", "tub"], "emoji": "🛁", "note": "two words: bath + tub" },
+    { "id": "words.compound.catfish", "text": "catfish", "parts": ["cat", "fish"], "emoji": "🐟", "note": "two words: cat + fish" },
+    { "id": "words.compound.laptop", "text": "laptop", "parts": ["lap", "top"], "emoji": "💻", "note": "two words: lap + top" },
+    { "id": "words.compound.bobcat", "text": "bobcat", "parts": ["bob", "cat"], "emoji": "🐈", "note": "two words: bob + cat" },
+    { "id": "words.compound.cobweb", "text": "cobweb", "parts": ["cob", "web"], "emoji": "🕸️", "note": "two words: cob + web" },
+    { "id": "words.compound.backpack", "text": "backpack", "parts": ["back", "pack"], "emoji": "🎒", "note": "two words: back + pack" },
+    { "id": "words.compound.cupcake", "text": "cupcake", "parts": ["cup", "cake"], "emoji": "🧁", "note": "two words: cup + cake" },
+    { "id": "words.compound.pancake", "text": "pancake", "parts": ["pan", "cake"], "emoji": "🥞", "note": "two words: pan + cake" },
+    { "id": "words.compound.bedtime", "text": "bedtime", "parts": ["bed", "time"], "emoji": "🛏️", "note": "two words: bed + time" },
+    { "id": "words.compound.sandbox", "text": "sandbox", "parts": ["sand", "box"], "note": "two words: sand + box" },
+    { "id": "words.compound.dustpan", "text": "dustpan", "parts": ["dust", "pan"], "note": "two words: dust + pan" },
+    { "id": "words.compound.mailbox", "text": "mailbox", "parts": ["mail", "box"], "emoji": "📬", "note": "two words: mail + box; ai says long a" },
+    { "id": "words.compound.sunshine", "text": "sunshine", "parts": ["sun", "shine"], "emoji": "☀️", "note": "two words: sun + shine" },
+    { "id": "words.compound.starfish", "text": "starfish", "parts": ["star", "fish"], "emoji": "⭐", "note": "two words: star + fish" },
+    { "id": "words.compound.popcorn", "text": "popcorn", "parts": ["pop", "corn"], "emoji": "🍿", "note": "two words: pop + corn" }
+  ]
+}

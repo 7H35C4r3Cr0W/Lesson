@@ -1,0 +1,261 @@
+{
+  "id": "math.measuring-length",
+  "subject": "math",
+  "group": "measure",
+  "order": 230,
+  "title": "Measuring Length",
+  "emoji": "📏",
+  "kind": "qa",
+  "standards": [
+    "NC.1.MD.1",
+    "NC.1.MD.2"
+  ],
+  "about": "How many blocks long something is (units laid end to end, no gaps) and putting three things in order by length. First grade uses blocks and clips, not rulers.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Check that the blocks start at the very end of the object and touch each other.",
+  "cards": [
+    {
+      "id": "math.measuring-length.c01",
+      "q": "How many blocks long is the pencil?",
+      "a": "6",
+      "wrong": [
+        "5",
+        "7"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 6,
+        "emoji": "✏️"
+      }
+    },
+    {
+      "id": "math.measuring-length.c02",
+      "q": "How many blocks long is the crayon?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 4,
+        "emoji": "🖍"
+      }
+    },
+    {
+      "id": "math.measuring-length.c03",
+      "q": "How many blocks long is the fish?",
+      "a": "3",
+      "wrong": [
+        "2",
+        "4"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 3,
+        "emoji": "🐟"
+      }
+    },
+    {
+      "id": "math.measuring-length.c04",
+      "q": "How many blocks long is the carrot?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 5,
+        "emoji": "🥕"
+      }
+    },
+    {
+      "id": "math.measuring-length.c05",
+      "q": "How many blocks long is the bus?",
+      "a": "9",
+      "wrong": [
+        "8",
+        "10"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 9,
+        "emoji": "🚌"
+      }
+    },
+    {
+      "id": "math.measuring-length.c06",
+      "q": "How many blocks long is the key?",
+      "a": "2",
+      "wrong": [
+        "1",
+        "3"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 2,
+        "emoji": "🔑"
+      }
+    },
+    {
+      "id": "math.measuring-length.c07",
+      "q": "How many blocks long is the snake?",
+      "a": "12",
+      "wrong": [
+        "11",
+        "10"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 12,
+        "emoji": "🐍"
+      }
+    },
+    {
+      "id": "math.measuring-length.c08",
+      "q": "How many blocks long is the leaf?",
+      "a": "7",
+      "wrong": [
+        "6",
+        "8"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 7,
+        "emoji": "🍃"
+      }
+    },
+    {
+      "id": "math.measuring-length.c09",
+      "q": "How many blocks long is the spoon?",
+      "a": "8",
+      "wrong": [
+        "7",
+        "9"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 8,
+        "emoji": "🥄"
+      }
+    },
+    {
+      "id": "math.measuring-length.c10",
+      "q": "How many blocks long is the train?",
+      "a": "10",
+      "wrong": [
+        "9",
+        "11"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 10,
+        "emoji": "🚂"
+      }
+    },
+    {
+      "id": "math.measuring-length.c11",
+      "q": "A bus is 9 blocks, a car is 4 and a bike is 6. Which is longest?",
+      "a": "bus",
+      "wrong": [
+        "car",
+        "bike"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 9,
+        "emoji": "🚌"
+      }
+    },
+    {
+      "id": "math.measuring-length.c12",
+      "q": "A bus is 9 blocks, a car is 4 and a bike is 6. Which is shortest?",
+      "a": "car",
+      "wrong": [
+        "bus",
+        "bike"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 4,
+        "emoji": "🚗"
+      }
+    },
+    {
+      "id": "math.measuring-length.c13",
+      "q": "A snake is 12 blocks, a worm is 3 and a lizard is 7. Which is longest?",
+      "a": "snake",
+      "wrong": [
+        "worm",
+        "lizard"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 12,
+        "emoji": "🐍"
+      }
+    },
+    {
+      "id": "math.measuring-length.c14",
+      "q": "A snake is 12 blocks, a worm is 3 and a lizard is 7. Which is shortest?",
+      "a": "worm",
+      "wrong": [
+        "snake",
+        "lizard"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 3,
+        "emoji": "🐛"
+      }
+    },
+    {
+      "id": "math.measuring-length.c15",
+      "q": "Red is longer than blue, and blue is longer than green. Which is longest?",
+      "a": "red",
+      "wrong": [
+        "blue",
+        "green"
+      ]
+    },
+    {
+      "id": "math.measuring-length.c16",
+      "q": "Red is longer than blue, and blue is longer than green. Which is shortest?",
+      "a": "green",
+      "wrong": [
+        "red",
+        "blue"
+      ]
+    },
+    {
+      "id": "math.measuring-length.c17",
+      "q": "A spoon is 8 blocks long. A fork is 8 blocks long. Which is longer?",
+      "a": "the same",
+      "wrong": [
+        "spoon",
+        "fork"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 8,
+        "emoji": "🥄"
+      }
+    },
+    {
+      "id": "math.measuring-length.c18",
+      "q": "A ribbon is 6 blocks long. A stick is 4 blocks long. Which is longer?",
+      "a": "ribbon",
+      "wrong": [
+        "stick",
+        "the same"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 6,
+        "emoji": "🎀"
+      }
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "id": "math.count-past-100",
+  "subject": "math",
+  "group": "count",
+  "order": 36,
+  "title": "Count Past 100",
+  "emoji": "🏃",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.1"
+  ],
+  "about": "Counting on through the hundreds to 150: what comes next after 109, 119 and 129, what comes just before, and recognising a number like 132 when he hears it. NC.1.NBT.1 asks him to count aloud to 150 from any number; NC only requires reading and writing numerals to 100 (NC.1.NBT.7), so the three-digit numerals here support the oral count rather than test writing them.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Say the hundred part, then the rest: \"one hundred... nineteen, one hundred... twenty.\" The tricky spots are 109 to 110 and 119 to 120.",
+  "cards": [
+    {
+      "id": "math.count-past-100.after-100",
+      "q": "99, 100, what comes next?",
+      "a": "101",
+      "wrong": [
+        "110",
+        "102"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 95,
+        "to": 105,
+        "mark": 100
+      }
+    },
+    {
+      "id": "math.count-past-100.after-109",
+      "q": "What number comes after 109?",
+      "a": "110",
+      "wrong": [
+        "101",
+        "111"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 100,
+        "to": 110,
+        "mark": 109
+      }
+    },
+    {
+      "id": "math.count-past-100.next-107",
+      "q": "104, 105, 106, what comes next?",
+      "a": "107",
+      "wrong": [
+        "106",
+        "108"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 100,
+        "to": 110,
+        "mark": 106
+      }
+    },
+    {
+      "id": "math.count-past-100.before-110",
+      "q": "What comes just before 110?",
+      "a": "109",
+      "wrong": [
+        "111",
+        "100"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 100,
+        "to": 110,
+        "mark": 110
+      }
+    },
+    {
+      "id": "math.count-past-100.next-115",
+      "q": "112, 113, 114, what comes next?",
+      "a": "115",
+      "wrong": [
+        "114",
+        "116"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 110,
+        "to": 120,
+        "mark": 114
+      }
+    },
+    {
+      "id": "math.count-past-100.next-120",
+      "q": "118, 119, what comes next?",
+      "a": "120",
+      "wrong": [
+        "110",
+        "130"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 110,
+        "to": 120,
+        "mark": 119
+      }
+    },
+    {
+      "id": "math.count-past-100.before-120",
+      "q": "What comes just before 120?",
+      "a": "119",
+      "wrong": [
+        "121",
+        "109"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 110,
+        "to": 120,
+        "mark": 120
+      }
+    },
+    {
+      "id": "math.count-past-100.after-125",
+      "q": "What number comes after 125?",
+      "a": "126",
+      "wrong": [
+        "124",
+        "136"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 120,
+        "to": 130,
+        "mark": 125
+      }
+    },
+    {
+      "id": "math.count-past-100.after-129",
+      "q": "What number comes after 129?",
+      "a": "130",
+      "wrong": [
+        "120",
+        "139"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 120,
+        "to": 130,
+        "mark": 129
+      }
+    },
+    {
+      "id": "math.count-past-100.before-131",
+      "q": "What comes just before 131?",
+      "a": "130",
+      "wrong": [
+        "132",
+        "121"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 130,
+        "to": 140,
+        "mark": 131
+      }
+    },
+    {
+      "id": "math.count-past-100.after-139",
+      "q": "What number comes after 139?",
+      "a": "140",
+      "wrong": [
+        "130",
+        "141"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 130,
+        "to": 140,
+        "mark": 139
+      }
+    },
+    {
+      "id": "math.count-past-100.next-146",
+      "q": "143, 144, 145, what comes next?",
+      "a": "146",
+      "wrong": [
+        "145",
+        "147"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 140,
+        "to": 150,
+        "mark": 145
+      }
+    },
+    {
+      "id": "math.count-past-100.next-150",
+      "q": "147, 148, 149, what comes next?",
+      "a": "150",
+      "wrong": [
+        "149",
+        "140"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 140,
+        "to": 150,
+        "mark": 149
+      }
+    },
+    {
+      "id": "math.count-past-100.tap-108",
+      "q": "Tap one hundred eight.",
+      "a": "108",
+      "wrong": [
+        "118",
+        "100"
+      ]
+    },
+    {
+      "id": "math.count-past-100.tap-115",
+      "q": "Tap one hundred fifteen.",
+      "a": "115",
+      "wrong": [
+        "150",
+        "105"
+      ]
+    },
+    {
+      "id": "math.count-past-100.which-132",
+      "q": "Which is one hundred thirty-two?",
+      "a": "132",
+      "wrong": [
+        "123",
+        "142"
+      ]
+    },
+    {
+      "id": "math.count-past-100.which-121",
+      "q": "Which is one hundred twenty-one?",
+      "a": "121",
+      "wrong": [
+        "112",
+        "131"
+      ]
+    },
+    {
+      "id": "math.count-past-100.tap-140",
+      "q": "Tap one hundred forty.",
+      "a": "140",
+      "wrong": [
+        "114",
+        "104"
+      ]
+    }
+  ]
+}

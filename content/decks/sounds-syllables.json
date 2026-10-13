@@ -1,0 +1,33 @@
+{
+  "id": "sounds.syllables",
+  "subject": "sounds",
+  "group": "hear",
+  "order": 50,
+  "title": "Clap the syllables",
+  "emoji": "👏",
+  "kind": "qa",
+  "standards": ["RF.1.3", "RF.1.4.d"],
+  "about": "Clap a word and tap how many syllables it has, from one to four. NC RF.1.4.d asks him to use the rule that every syllable has a vowel sound to count syllables in a printed word.",
+  "tip": "Clap it together, or put a hand under his chin: it drops once per syllable.",
+  "quiz": true,
+  "readChoices": false,
+  "speakFront": true,
+  "cards": [
+    { "id": "sounds.syllables.cat", "q": "How many syllables are in cat? Clap it.", "sayQ": "How many syllables are in cat? cat. Clap it.", "a": "1", "wrong": ["2", "3"], "emoji": "🐱", "note": "cat. 1 clap. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.frog", "q": "How many syllables are in frog? Clap it.", "sayQ": "How many syllables are in frog? frog. Clap it.", "a": "1", "wrong": ["2", "3"], "emoji": "🐸", "note": "frog. 1 clap. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.sun", "q": "How many syllables are in sun? Clap it.", "sayQ": "How many syllables are in sun? sun. Clap it.", "a": "1", "wrong": ["2", "3"], "emoji": "☀️", "note": "sun. 1 clap. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.rabbit", "q": "How many syllables are in rabbit? Clap it.", "sayQ": "How many syllables are in rabbit? rabbit. Clap it.", "a": "2", "wrong": ["1", "3"], "emoji": "🐰", "note": "rab-bit. 2 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.apple", "q": "How many syllables are in apple? Clap it.", "sayQ": "How many syllables are in apple? apple. Clap it.", "a": "2", "wrong": ["1", "3"], "emoji": "🍎", "note": "ap-ple. 2 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.tiger", "q": "How many syllables are in tiger? Clap it.", "sayQ": "How many syllables are in tiger? tiger. Clap it.", "a": "2", "wrong": ["1", "3"], "emoji": "🐯", "note": "ti-ger. 2 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.pencil", "q": "How many syllables are in pencil? Clap it.", "sayQ": "How many syllables are in pencil? pencil. Clap it.", "a": "2", "wrong": ["3", "1"], "emoji": "✏️", "note": "pen-cil. 2 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.cookie", "q": "How many syllables are in cookie? Clap it.", "sayQ": "How many syllables are in cookie? cookie. Clap it.", "a": "2", "wrong": ["1", "3"], "emoji": "🍪", "note": "cook-ie. 2 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.butterfly", "q": "How many syllables are in butterfly? Clap it.", "sayQ": "How many syllables are in butterfly? butterfly. Clap it.", "a": "3", "wrong": ["2", "4"], "emoji": "🦋", "note": "but-ter-fly. 3 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.banana", "q": "How many syllables are in banana? Clap it.", "sayQ": "How many syllables are in banana? banana. Clap it.", "a": "3", "wrong": ["2", "4"], "emoji": "🍌", "note": "ba-na-na. 3 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.elephant", "q": "How many syllables are in elephant? Clap it.", "sayQ": "How many syllables are in elephant? elephant. Clap it.", "a": "3", "wrong": ["2", "4"], "emoji": "🐘", "note": "el-e-phant. 3 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.umbrella", "q": "How many syllables are in umbrella? Clap it.", "sayQ": "How many syllables are in umbrella? umbrella. Clap it.", "a": "3", "wrong": ["2", "4"], "emoji": "☂️", "note": "um-brel-la. 3 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.hamburger", "q": "How many syllables are in hamburger? Clap it.", "sayQ": "How many syllables are in hamburger? hamburger. Clap it.", "a": "3", "wrong": ["2", "4"], "emoji": "🍔", "note": "ham-bur-ger. 3 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.watermelon", "q": "How many syllables are in watermelon? Clap it.", "sayQ": "How many syllables are in watermelon? watermelon. Clap it.", "a": "4", "wrong": ["3", "2"], "emoji": "🍉", "note": "wa-ter-mel-on. 4 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.alligator", "q": "How many syllables are in alligator? Clap it.", "sayQ": "How many syllables are in alligator? alligator. Clap it.", "a": "4", "wrong": ["3", "2"], "emoji": "🐊", "note": "al-li-ga-tor. 4 claps. Every syllable has a vowel sound." },
+    { "id": "sounds.syllables.caterpillar", "q": "How many syllables are in caterpillar? Clap it.", "sayQ": "How many syllables are in caterpillar? caterpillar. Clap it.", "a": "4", "wrong": ["3", "2"], "emoji": "🐛", "note": "cat-er-pil-lar. 4 claps. Every syllable has a vowel sound." }
+  ]
+}

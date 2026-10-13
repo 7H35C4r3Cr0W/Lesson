@@ -1,0 +1,29 @@
+{
+  "id": "sentences.unit1",
+  "subject": "sentences",
+  "group": "read",
+  "order": 10,
+  "title": "Short vowel sentences",
+  "emoji": "🐱",
+  "kind": "read",
+  "standards": ["RF.1.5.a", "RF.1.5.b", "RF.1.5.c", "RF.1.4.b", "RF.1.4.g"],
+  "about": "Fourteen short sentences built only from short-vowel words and the CKLA Unit 1 tricky words, so every word is readable in September. Reading whole sentences smoothly is the bridge from sounding out words to understanding.",
+  "tip": "Have him read it once slowly, then again like he is talking, and ask what the picture has to do with it.",
+  "quiz": true,
+  "cards": [
+    { "id": "sentences.unit1.cat-mat", "text": "The cat sat on the mat.", "emoji": "🐱", "note": "tricky word the: the e says /u/" },
+    { "id": "sentences.unit1.red-hat", "text": "Sam has a red hat.", "emoji": "🎩", "note": "tricky word a: it says /u/. In has, the s says /z/" },
+    { "id": "sentences.unit1.dog-run", "text": "The dog can run and jump.", "emoji": "🐶", "note": "tricky word the: the e says /u/. Blend nd in and, mp in jump" },
+    { "id": "sentences.unit1.red-bus", "text": "I have a big red bus.", "emoji": "🚌", "note": "tricky words I: says its name, always a capital; have: the e makes no sound" },
+    { "id": "sentences.unit1.hen-pen", "text": "The hen is in the pen.", "emoji": "🐔", "note": "tricky words the: the e says /u/; is: the s says /z/" },
+    { "id": "sentences.unit1.hid-box", "text": "Pam hid in the box.", "emoji": "📦", "note": "tricky word the: the e says /u/. In box, x says /ks/" },
+    { "id": "sentences.unit1.fish-pond", "text": "The fish swims in the pond.", "emoji": "🐟", "note": "tricky word the: the e says /u/. In fish, sh is one sound; in swims, the last s says /z/" },
+    { "id": "sentences.unit1.sun-hot", "text": "The sun is hot.", "emoji": "☀️", "note": "tricky words the: the e says /u/; is: the s says /z/" },
+    { "id": "sentences.unit1.box-chicks", "text": "Max has a box of chicks.", "emoji": "🐣", "note": "tricky word of: o says /u/, f says /v/. In chicks, ch is one sound and ck makes one /k/" },
+    { "id": "sentences.unit1.up-hill", "text": "Tim ran up the hill.", "emoji": "⛰️", "note": "tricky word the: the e says /u/. In hill, ll makes one /l/" },
+    { "id": "sentences.unit1.ten-socks", "text": "Beth has ten red socks.", "emoji": "🧦", "note": "no tricky word. In Beth, th is one sound; in socks, ck makes one /k/" },
+    { "id": "sentences.unit1.who-shop", "text": "Who is at the shop?", "emoji": "🏪", "note": "tricky word who: wh says /h/, o says /oo/. A question: let his voice go up" },
+    { "id": "sentences.unit1.frog-log", "text": "The frog can hop on a log.", "emoji": "🐸", "note": "tricky words the: the e says /u/; a: it says /u/. Blend fr in frog" },
+    { "id": "sentences.unit1.what-bag", "text": "What is in the bag?", "emoji": "🎒", "note": "tricky word what: wh says /w/, a says /u/. A question: let his voice go up" }
+  ]
+}

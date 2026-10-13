@@ -1,0 +1,35 @@
+{
+  "id": "words.un-re",
+  "subject": "words",
+  "group": "more",
+  "order": 285,
+  "title": "Un- and re-",
+  "emoji": "🔓",
+  "kind": "read",
+  "standards": ["L.1.4", "RF.1.4.d"],
+  "about": "Words built from a base word he can read plus a prefix that carries a meaning: un- means not (unhappy) and re- means again (redo). NC L.1.4 asks him to use word parts to work out new words and names re- as its example; CKLA Grade 1 has no prefix lessons, so open this level once he reads two-part words comfortably (after Unit 4).",
+  "tip": "Cover the prefix with a finger, read the base word, then uncover it and ask: so what does the whole word mean?",
+  "cards": [
+    { "id": "words.un-re.unhappy", "text": "unhappy", "parts": ["un", "happy"], "emoji": "😢", "note": "un- means not: unhappy is not happy. The y at the end says long e." },
+    { "id": "words.un-re.unlock", "text": "unlock", "parts": ["un", "lock"], "emoji": "🔓", "note": "un- means not or undo it: unlock is to open the lock." },
+    { "id": "words.un-re.untie", "text": "untie", "parts": ["un", "tie"], "emoji": "🎀", "note": "un- means undo it: untie is to undo the knot. In tie the ie says long i." },
+    { "id": "words.un-re.unzip", "text": "unzip", "parts": ["un", "zip"], "emoji": "🧥", "note": "un- means undo it: unzip is to open the zip." },
+    { "id": "words.un-re.unpack", "text": "unpack", "parts": ["un", "pack"], "emoji": "🎒", "note": "un- means undo it: unpack is to take things out of the bag." },
+    { "id": "words.un-re.undo", "text": "undo", "parts": ["un", "do"], "emoji": "↩️", "note": "un- means take it back: undo is to make it like before. do is a tricky word: the o says oo." },
+    { "id": "words.un-re.unkind", "text": "unkind", "parts": ["un", "kind"], "emoji": "😠", "note": "un- means not: unkind is not kind. In kind the i says its name." },
+    { "id": "words.un-re.unfair", "text": "unfair", "parts": ["un", "fair"], "note": "un- means not: unfair is not fair. air says air." },
+    { "id": "words.un-re.unsafe", "text": "unsafe", "parts": ["un", "safe"], "emoji": "⚠️", "note": "un- means not: unsafe is not safe. Magic e makes the a say its name." },
+    { "id": "words.un-re.unwrap", "text": "unwrap", "parts": ["un", "wrap"], "emoji": "🎁", "note": "un- means undo it: unwrap is to take the paper off. wr says r." },
+    { "id": "words.un-re.unplug", "text": "unplug", "parts": ["un", "plug"], "emoji": "🔌", "note": "un- means undo it: unplug is to pull the plug out." },
+
+    { "id": "words.un-re.redo", "text": "redo", "parts": ["re", "do"], "emoji": "🔁", "note": "re- says ree and means again: redo is to do it again. do is a tricky word: the o says oo." },
+    { "id": "words.un-re.replay", "text": "replay", "parts": ["re", "play"], "emoji": "🔄", "note": "re- means again: replay is to play it again. ay says long a." },
+    { "id": "words.un-re.retell", "text": "retell", "parts": ["re", "tell"], "emoji": "📖", "note": "re- means again: retell is to tell the story again." },
+    { "id": "words.un-re.refill", "text": "refill", "parts": ["re", "fill"], "emoji": "🥤", "note": "re- means again: refill is to fill it up again." },
+    { "id": "words.un-re.reread", "text": "reread", "parts": ["re", "read"], "emoji": "📚", "note": "re- means again: reread is to read it again. ea says long e here.", "say": "ree reed" },
+    { "id": "words.un-re.rewrite", "text": "rewrite", "parts": ["re", "write"], "emoji": "✏️", "note": "re- means again: rewrite is to write it again. wr says r, magic e makes the i say its name." },
+    { "id": "words.un-re.repaint", "text": "repaint", "parts": ["re", "paint"], "emoji": "🎨", "note": "re- means again: repaint is to paint it again. ai says long a." },
+    { "id": "words.un-re.reuse", "text": "reuse", "parts": ["re", "use"], "emoji": "♻️", "note": "re- means again: reuse is to use it again. In use the u says its name." },
+    { "id": "words.un-re.rebuild", "text": "rebuild", "parts": ["re", "build"], "emoji": "🧱", "note": "re- means again: rebuild is to build it again. In build the ui says short i: bild." }
+  ]
+}

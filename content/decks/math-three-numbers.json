@@ -1,0 +1,127 @@
+{
+  "id": "math.three-numbers",
+  "subject": "math",
+  "group": "add",
+  "order": 100,
+  "title": "Add Three Numbers",
+  "emoji": "🎲",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.2",
+    "NC.1.OA.3"
+  ],
+  "about": "Short stories that add three numbers with a total of 20 or less. The trick NC wants is to spot two numbers that make ten (or a double) and add those first.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Ask \"do any two of these make ten?\" before he adds in order.",
+  "cards": [
+    {
+      "id": "math.three-numbers.c01",
+      "q": "Kim has 4 red, 5 blue and 6 green cubes. How many cubes?",
+      "a": "15",
+      "wrong": [
+        "9",
+        "14"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c02",
+      "q": "Jo picked 3 apples, 4 pears and 7 plums. How many fruits?",
+      "a": "14",
+      "wrong": [
+        "7",
+        "13"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c03",
+      "q": "A box has 2 red, 8 blue and 5 green pens. How many pens?",
+      "a": "15",
+      "wrong": [
+        "10",
+        "16"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c04",
+      "q": "Max saw 6 ducks, 4 geese and 6 swans. How many birds?",
+      "a": "16",
+      "wrong": [
+        "10",
+        "15"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c05",
+      "q": "Ana has 5 cats, 5 dogs and 3 fish. How many pets?",
+      "a": "13",
+      "wrong": [
+        "10",
+        "12"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c06",
+      "q": "Sam read 7 books, then 3 more, then 2 more. How many books?",
+      "a": "12",
+      "wrong": [
+        "10",
+        "11"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c07",
+      "q": "Eli has 1 big, 9 small and 4 round rocks. How many rocks?",
+      "a": "14",
+      "wrong": [
+        "10",
+        "13"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c08",
+      "q": "Mia has 6 pink, 2 white and 8 blue shells. How many shells?",
+      "a": "16",
+      "wrong": [
+        "8",
+        "14"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c09",
+      "q": "The jar has 3 red, 3 green and 9 blue beads. How many beads?",
+      "a": "15",
+      "wrong": [
+        "6",
+        "12"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c10",
+      "q": "Leo found 2 feathers, 5 buttons and 5 marbles. How many things?",
+      "a": "12",
+      "wrong": [
+        "10",
+        "7"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c11",
+      "q": "Dad put 4 forks, 4 spoons and 4 cups on the table. How many things?",
+      "a": "12",
+      "wrong": [
+        "8",
+        "11"
+      ]
+    },
+    {
+      "id": "math.three-numbers.c12",
+      "q": "Zoe drew 9 suns, 1 moon and 10 stars. How many drawings?",
+      "a": "20",
+      "wrong": [
+        "10",
+        "19"
+      ]
+    }
+  ]
+}

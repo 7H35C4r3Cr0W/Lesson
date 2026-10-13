@@ -1,0 +1,255 @@
+{
+  "id": "math.half-past",
+  "subject": "math",
+  "group": "time",
+  "order": 260,
+  "title": "Half Past",
+  "emoji": "🕞",
+  "kind": "qa",
+  "standards": [
+    "NC.1.MD.3"
+  ],
+  "about": "Times like 3:30, \"half past 3\": the long hand on the 6 and the short hand between two numbers. Half hours are the hardest part of first-grade time because the short hand has moved past the hour.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Ask \"which two numbers is the short hand between? The smaller one is the hour.\"",
+  "cards": [
+    {
+      "id": "math.half-past.c01",
+      "q": "What time is it?",
+      "a": "3:30",
+      "wrong": [
+        "4:30",
+        "3:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 3,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c02",
+      "q": "What time is it?",
+      "a": "7:30",
+      "wrong": [
+        "8:30",
+        "7:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 7,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c03",
+      "q": "What time is it?",
+      "a": "12:30",
+      "wrong": [
+        "6:00",
+        "1:30"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 12,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c04",
+      "q": "What time is it?",
+      "a": "1:30",
+      "wrong": [
+        "2:30",
+        "1:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 1,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c05",
+      "q": "What time is it?",
+      "a": "6:30",
+      "wrong": [
+        "7:30",
+        "6:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 6,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c06",
+      "q": "What time is it?",
+      "a": "9:30",
+      "wrong": [
+        "10:30",
+        "9:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 9,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c07",
+      "q": "What time is it?",
+      "a": "11:30",
+      "wrong": [
+        "12:30",
+        "11:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 11,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c08",
+      "q": "What time is it?",
+      "a": "4:30",
+      "wrong": [
+        "5:30",
+        "4:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 4,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c09",
+      "q": "How many minutes past 2 is it?",
+      "a": "30",
+      "wrong": [
+        "2",
+        "60"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 2,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c10",
+      "q": "It is half past what hour?",
+      "a": "8",
+      "wrong": [
+        "9",
+        "30"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 8,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c11",
+      "q": "It is half past what hour?",
+      "a": "6",
+      "wrong": [
+        "7",
+        "30"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 6,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c12",
+      "q": "How many minutes past 12 is it?",
+      "a": "30",
+      "wrong": [
+        "12",
+        "60"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 12,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c13",
+      "q": "How do you write half past 4?",
+      "a": "4:30",
+      "wrong": [
+        "4:00",
+        "5:30"
+      ]
+    },
+    {
+      "id": "math.half-past.c14",
+      "q": "How do you write half past 9?",
+      "a": "9:30",
+      "wrong": [
+        "9:00",
+        "10:30"
+      ]
+    },
+    {
+      "id": "math.half-past.c15",
+      "q": "At 7:30, what number does the long hand point to?",
+      "a": "6",
+      "wrong": [
+        "12",
+        "7"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 7,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c16",
+      "q": "At 7:30, the short hand is between which numbers?",
+      "a": "7 and 8",
+      "wrong": [
+        "6 and 7",
+        "7 and 12"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 7,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.half-past.c17",
+      "q": "How many minutes are in half an hour?",
+      "a": "30",
+      "wrong": [
+        "60",
+        "15"
+      ]
+    },
+    {
+      "id": "math.half-past.c18",
+      "q": "It is 5:30. What time will it be in half an hour?",
+      "a": "6:00",
+      "wrong": [
+        "5:00",
+        "6:30"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 5,
+        "m": 30
+      }
+    }
+  ]
+}

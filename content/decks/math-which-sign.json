@@ -1,0 +1,209 @@
+{
+  "id": "math.which-sign",
+  "subject": "math",
+  "group": "place",
+  "order": 195,
+  "title": "Which Sign: >, < or =",
+  "sayTitle": "Which sign: greater than, less than, or equals",
+  "emoji": "🐊",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.3"
+  ],
+  "about": "Choosing the symbol >, < or = between two two-digit numbers, and reading a statement like 37 > 29 as true or false. NC.1.NBT.3 asks him to compare two-digit numbers by tens then ones and to record the result with these three signs.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Say \"the open mouth eats the bigger number\", and if both numbers are the same, nobody gets eaten: it is equals.",
+  "cards": [
+    {
+      "id": "math.which-sign.27-72",
+      "q": "27 ___ 72. Which sign goes in the blank?",
+      "a": "<",
+      "wrong": [
+        ">",
+        "="
+      ],
+      "note": "Tens first: 2 tens is less than 7 tens."
+    },
+    {
+      "id": "math.which-sign.65-56",
+      "q": "65 ___ 56. Which sign goes in the blank?",
+      "a": ">",
+      "wrong": [
+        "<",
+        "="
+      ],
+      "note": "Tens first: 6 tens is more than 5 tens."
+    },
+    {
+      "id": "math.which-sign.49-49",
+      "q": "49 ___ 49. Which sign goes in the blank?",
+      "a": "=",
+      "wrong": [
+        ">",
+        "<"
+      ],
+      "note": "Same number on both sides, so it is equals."
+    },
+    {
+      "id": "math.which-sign.31-39",
+      "q": "31 ___ 39. Which sign makes it true?",
+      "a": "<",
+      "wrong": [
+        ">",
+        "="
+      ],
+      "note": "Same tens, so look at the ones: 1 is less than 9."
+    },
+    {
+      "id": "math.which-sign.87-81",
+      "q": "87 ___ 81. Which sign makes it true?",
+      "a": ">",
+      "wrong": [
+        "<",
+        "="
+      ],
+      "note": "Same tens, so look at the ones: 7 is more than 1."
+    },
+    {
+      "id": "math.which-sign.50-15",
+      "q": "50 ___ 15. Pick the right sign.",
+      "a": ">",
+      "wrong": [
+        "<",
+        "="
+      ],
+      "note": "5 tens beats 1 ten. The ones do not matter here."
+    },
+    {
+      "id": "math.which-sign.18-81",
+      "q": "18 ___ 81. Which sign goes in the blank?",
+      "a": "<",
+      "wrong": [
+        ">",
+        "="
+      ]
+    },
+    {
+      "id": "math.which-sign.94-94",
+      "q": "94 ___ 94. Which sign makes it true?",
+      "a": "=",
+      "wrong": [
+        ">",
+        "<"
+      ]
+    },
+    {
+      "id": "math.which-sign.73-68",
+      "q": "73 ___ 68. Pick the right sign.",
+      "a": ">",
+      "wrong": [
+        "<",
+        "="
+      ],
+      "note": "7 tens is more than 6 tens, even though 3 is less than 8."
+    },
+    {
+      "id": "math.which-sign.60-59",
+      "q": "60 ___ 59. Which sign goes in the blank?",
+      "a": ">",
+      "wrong": [
+        "<",
+        "="
+      ]
+    },
+    {
+      "id": "math.which-sign.42-57",
+      "q": "42 ___ 57. Which sign makes it true?",
+      "a": "<",
+      "wrong": [
+        ">",
+        "="
+      ]
+    },
+    {
+      "id": "math.which-sign.true-46-38",
+      "q": "Which is true?",
+      "a": "46 > 38",
+      "wrong": [
+        "46 < 38",
+        "46 = 38"
+      ]
+    },
+    {
+      "id": "math.which-sign.true-53-55",
+      "q": "Which is true?",
+      "a": "53 < 55",
+      "wrong": [
+        "53 > 55",
+        "53 = 55"
+      ]
+    },
+    {
+      "id": "math.which-sign.true-77-77",
+      "q": "Which is true?",
+      "a": "77 = 77",
+      "wrong": [
+        "77 > 77",
+        "77 < 77"
+      ]
+    },
+    {
+      "id": "math.which-sign.true-12-21",
+      "q": "Which is true?",
+      "a": "12 < 21",
+      "wrong": [
+        "12 > 21",
+        "12 = 21"
+      ]
+    },
+    {
+      "id": "math.which-sign.means-bigger",
+      "q": "Which sign means bigger than?",
+      "a": ">",
+      "wrong": [
+        "<",
+        "="
+      ],
+      "note": "The open side faces the bigger number."
+    },
+    {
+      "id": "math.which-sign.means-smaller",
+      "q": "Which sign means smaller than?",
+      "a": "<",
+      "wrong": [
+        ">",
+        "="
+      ],
+      "note": "The small pointy end faces the smaller number."
+    },
+    {
+      "id": "math.which-sign.means-same",
+      "q": "Which sign means the same as?",
+      "a": "=",
+      "wrong": [
+        ">",
+        "<"
+      ]
+    },
+    {
+      "id": "math.which-sign.blank-62",
+      "q": "62 > ___. Which number goes in the blank?",
+      "a": "58",
+      "wrong": [
+        "62",
+        "70"
+      ],
+      "note": "62 is greater than 58. It is not greater than itself."
+    },
+    {
+      "id": "math.which-sign.blank-35",
+      "q": "35 < ___. Which number goes in the blank?",
+      "a": "40",
+      "wrong": [
+        "35",
+        "29"
+      ]
+    }
+  ]
+}

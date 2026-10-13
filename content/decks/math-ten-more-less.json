@@ -1,0 +1,242 @@
+{
+  "id": "math.ten-more-less",
+  "subject": "math",
+  "group": "place",
+  "order": 200,
+  "title": "10 More, 10 Less",
+  "emoji": "🔼",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.5"
+  ],
+  "about": "Ten more and ten less than a two-digit number, done in his head by changing the tens digit only. NC asks him to do this without counting by ones and to explain why.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Ask \"which digit changes, the tens or the ones?\" and point to the rods.",
+  "cards": [
+    {
+      "id": "math.ten-more-less.c01",
+      "q": "What is 10 more than 23?",
+      "a": "33",
+      "wrong": [
+        "24",
+        "13"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.ten-more-less.c02",
+      "q": "What is 10 more than 47?",
+      "a": "57",
+      "wrong": [
+        "48",
+        "37"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 7
+      }
+    },
+    {
+      "id": "math.ten-more-less.c03",
+      "q": "What is 10 more than 61?",
+      "a": "71",
+      "wrong": [
+        "62",
+        "51"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 1
+      }
+    },
+    {
+      "id": "math.ten-more-less.c04",
+      "q": "What is 10 more than 35?",
+      "a": "45",
+      "wrong": [
+        "36",
+        "25"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 5
+      }
+    },
+    {
+      "id": "math.ten-more-less.c05",
+      "q": "What is 10 more than 78?",
+      "a": "88",
+      "wrong": [
+        "79",
+        "68"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 7,
+        "ones": 8
+      }
+    },
+    {
+      "id": "math.ten-more-less.c06",
+      "q": "What is 10 more than 90?",
+      "a": "100",
+      "wrong": [
+        "91",
+        "80"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 9,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.ten-more-less.c07",
+      "q": "What is 10 more than 12?",
+      "a": "22",
+      "wrong": [
+        "13",
+        "2"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 2
+      }
+    },
+    {
+      "id": "math.ten-more-less.c08",
+      "q": "What is 10 more than 54?",
+      "a": "64",
+      "wrong": [
+        "55",
+        "44"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 4
+      }
+    },
+    {
+      "id": "math.ten-more-less.c09",
+      "q": "What is 10 less than 63?",
+      "a": "53",
+      "wrong": [
+        "62",
+        "73"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.ten-more-less.c10",
+      "q": "What is 10 less than 48?",
+      "a": "38",
+      "wrong": [
+        "47",
+        "58"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 8
+      }
+    },
+    {
+      "id": "math.ten-more-less.c11",
+      "q": "What is 10 less than 80?",
+      "a": "70",
+      "wrong": [
+        "79",
+        "90"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 8,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.ten-more-less.c12",
+      "q": "What is 10 less than 27?",
+      "a": "17",
+      "wrong": [
+        "26",
+        "37"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 7
+      }
+    },
+    {
+      "id": "math.ten-more-less.c13",
+      "q": "What is 10 less than 95?",
+      "a": "85",
+      "wrong": [
+        "94",
+        "96"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 9,
+        "ones": 5
+      }
+    },
+    {
+      "id": "math.ten-more-less.c14",
+      "q": "What is 10 less than 31?",
+      "a": "21",
+      "wrong": [
+        "30",
+        "41"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 1
+      }
+    },
+    {
+      "id": "math.ten-more-less.c15",
+      "q": "What is 10 less than 70?",
+      "a": "60",
+      "wrong": [
+        "69",
+        "80"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 7,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.ten-more-less.c16",
+      "q": "What is 10 less than 56?",
+      "a": "46",
+      "wrong": [
+        "55",
+        "66"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 6
+      }
+    }
+  ]
+}

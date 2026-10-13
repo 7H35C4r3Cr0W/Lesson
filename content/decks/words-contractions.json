@@ -1,0 +1,37 @@
+{
+  "id": "words.contractions",
+  "subject": "words",
+  "group": "more",
+  "order": 288,
+  "title": "Short for two words",
+  "emoji": "🔗",
+  "kind": "read",
+  "standards": ["L.1.2", "RF.1.4.g"],
+  "about": "Contractions: two words squeezed into one, with an apostrophe standing in for the missing letters (can't is short for cannot). CKLA Grade 1 teaches contractions in Unit 4 grammar and his readers are full of them; NC's L.1.2 conventions list puts apostrophes in grades 2 and 3, so reading them is the goal here, not spelling them.",
+  "tip": "Say the two long words, then squeeze them together fast and ask which letters fell out where the apostrophe is.",
+  "cards": [
+    { "id": "words.contractions.can-t", "text": "can't", "emoji": "🚫", "note": "can't is short for cannot. The apostrophe stands for the missing n and o." },
+    { "id": "words.contractions.don-t", "text": "don't", "emoji": "⛔", "note": "don't is short for do not. The apostrophe stands for the missing o. The o in don't says its name." },
+    { "id": "words.contractions.isn-t", "text": "isn't", "note": "isn't is short for is not. The apostrophe stands for the missing o." },
+    { "id": "words.contractions.didn-t", "text": "didn't", "note": "didn't is short for did not. The apostrophe stands for the missing o." },
+    { "id": "words.contractions.wasn-t", "text": "wasn't", "note": "wasn't is short for was not. The apostrophe stands for the missing o." },
+    { "id": "words.contractions.aren-t", "text": "aren't", "note": "aren't is short for are not. The apostrophe stands for the missing o." },
+    { "id": "words.contractions.won-t", "text": "won't", "note": "won't is short for will not. This one changes its spelling: will turns into wo." },
+
+    { "id": "words.contractions.it-s", "text": "it's", "note": "it's is short for it is. The apostrophe stands for the missing i." },
+    { "id": "words.contractions.he-s", "text": "he's", "emoji": "👦", "note": "he's is short for he is. The apostrophe stands for the missing i." },
+    { "id": "words.contractions.she-s", "text": "she's", "emoji": "👧", "note": "she's is short for she is. The apostrophe stands for the missing i." },
+    { "id": "words.contractions.that-s", "text": "that's", "emoji": "👉", "note": "that's is short for that is. The apostrophe stands for the missing i." },
+    { "id": "words.contractions.let-s", "text": "let's", "emoji": "🎉", "note": "let's is short for let us. The apostrophe stands for the missing u." },
+
+    { "id": "words.contractions.i-m", "text": "I'm", "emoji": "🙂", "note": "I'm is short for I am. The apostrophe stands for the missing a. I is always a capital." },
+    { "id": "words.contractions.i-ve", "text": "I've", "note": "I've is short for I have. The apostrophe stands for the missing h and a." },
+    { "id": "words.contractions.i-ll", "text": "I'll", "note": "I'll is short for I will. The apostrophe stands for the missing w and i." },
+    { "id": "words.contractions.we-ll", "text": "we'll", "emoji": "👫", "note": "we'll is short for we will. The apostrophe stands for the missing w and i." },
+    { "id": "words.contractions.you-ll", "text": "you'll", "note": "you'll is short for you will. The apostrophe stands for the missing w and i." },
+
+    { "id": "words.contractions.you-re", "text": "you're", "emoji": "👍", "note": "you're is short for you are. The apostrophe stands for the missing a." },
+    { "id": "words.contractions.we-re", "text": "we're", "note": "we're is short for we are. The apostrophe stands for the missing a." },
+    { "id": "words.contractions.they-re", "text": "they're", "emoji": "👥", "note": "they're is short for they are. The apostrophe stands for the missing a." }
+  ]
+}

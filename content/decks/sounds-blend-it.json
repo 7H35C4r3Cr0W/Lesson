@@ -1,0 +1,33 @@
+{
+  "id": "sounds.blend-it",
+  "subject": "sounds",
+  "group": "hear",
+  "order": 90,
+  "title": "Blend the sounds",
+  "emoji": "🧩",
+  "kind": "qa",
+  "standards": ["RF.1.3.b"],
+  "about": "Hear the sounds of a word one at a time and tap the word they make, including words with consonant blends like fl and st. This is NC RF.1.3.b and the oral blending drill CKLA uses every day.",
+  "tip": "If the voice garbles a sound, say the sounds yourself slowly (kuh ... ah ... t), then let him pick.",
+  "quiz": true,
+  "readChoices": true,
+  "speakFront": true,
+  "cards": [
+    { "id": "sounds.blend-it.cat", "q": "What word do these sounds make: c - a - t?", "sayQ": "Listen. kuh, ah, tuh. What word is that?", "a": "cat", "wrong": ["cap", "can"], "note": "c - a - t makes cat." },
+    { "id": "sounds.blend-it.sun", "q": "What word do these sounds make: s - u - n?", "sayQ": "Listen. sss, uh, nnn. What word is that?", "a": "sun", "wrong": ["sub", "sad"], "note": "s - u - n makes sun." },
+    { "id": "sounds.blend-it.map", "q": "What word do these sounds make: m - a - p?", "sayQ": "Listen. mmm, ah, puh. What word is that?", "a": "map", "wrong": ["mat", "nap"], "note": "m - a - p makes map." },
+    { "id": "sounds.blend-it.pig", "q": "What word do these sounds make: p - i - g?", "sayQ": "Listen. puh, ih, guh. What word is that?", "a": "pig", "wrong": ["pin", "dig"], "note": "p - i - g makes pig." },
+    { "id": "sounds.blend-it.bed", "q": "What word do these sounds make: b - e - d?", "sayQ": "Listen. buh, eh, duh. What word is that?", "a": "bed", "wrong": ["bet", "red"], "note": "b - e - d makes bed." },
+    { "id": "sounds.blend-it.hug", "q": "What word do these sounds make: h - u - g?", "sayQ": "Listen. huh, uh, guh. What word is that?", "a": "hug", "wrong": ["hum", "bug"], "note": "h - u - g makes hug." },
+    { "id": "sounds.blend-it.ship", "q": "What word do these sounds make: sh - i - p?", "sayQ": "Listen. shh, ih, puh. What word is that?", "a": "ship", "wrong": ["sip", "shed"], "note": "sh - i - p makes ship. The sh is one sound." },
+    { "id": "sounds.blend-it.chin", "q": "What word do these sounds make: ch - i - n?", "sayQ": "Listen. chuh, ih, nnn. What word is that?", "a": "chin", "wrong": ["chip", "tin"], "note": "ch - i - n makes chin. The ch is one sound." },
+    { "id": "sounds.blend-it.fish", "q": "What word do these sounds make: f - i - sh?", "sayQ": "Listen. fff, ih, shh. What word is that?", "a": "fish", "wrong": ["fin", "dish"], "note": "f - i - sh makes fish. The sh is one sound." },
+    { "id": "sounds.blend-it.jet", "q": "What word do these sounds make: j - e - t?", "sayQ": "Listen. juh, eh, tuh. What word is that?", "a": "jet", "wrong": ["jam", "net"], "note": "j - e - t makes jet." },
+    { "id": "sounds.blend-it.flag", "q": "What word do these sounds make: f - l - a - g?", "sayQ": "Listen. fff, lll, ah, guh. What word is that?", "a": "flag", "wrong": ["flap", "fat"], "note": "f - l - a - g makes flag. The f and l are two sounds that blend together." },
+    { "id": "sounds.blend-it.step", "q": "What word do these sounds make: s - t - e - p?", "sayQ": "Listen. sss, tuh, eh, puh. What word is that?", "a": "step", "wrong": ["stem", "set"], "note": "s - t - e - p makes step. The s and t are two sounds that blend together." },
+    { "id": "sounds.blend-it.drum", "q": "What word do these sounds make: d - r - u - m?", "sayQ": "Listen. duh, rrr, uh, mmm. What word is that?", "a": "drum", "wrong": ["dug", "drip"], "note": "d - r - u - m makes drum. The d and r are two sounds that blend together." },
+    { "id": "sounds.blend-it.snap", "q": "What word do these sounds make: s - n - a - p?", "sayQ": "Listen. sss, nnn, ah, puh. What word is that?", "a": "snap", "wrong": ["nap", "slap"], "note": "s - n - a - p makes snap. The s and n are two sounds that blend together." },
+    { "id": "sounds.blend-it.crab", "q": "What word do these sounds make: c - r - a - b?", "sayQ": "Listen. kuh, rrr, ah, buh. What word is that?", "a": "crab", "wrong": ["cab", "grab"], "note": "c - r - a - b makes crab. The c and r are two sounds that blend together." },
+    { "id": "sounds.blend-it.jump", "q": "What word do these sounds make: j - u - m - p?", "sayQ": "Listen. juh, uh, mmm, puh. What word is that?", "a": "jump", "wrong": ["jug", "bump"], "note": "j - u - m - p makes jump. The m and p at the end are two sounds that blend together." }
+  ]
+}

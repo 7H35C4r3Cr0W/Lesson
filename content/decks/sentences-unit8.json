@@ -1,0 +1,33 @@
+{
+  "id": "sentences.unit8",
+  "subject": "sentences",
+  "group": "read",
+  "order": 185,
+  "title": "Summer sentences",
+  "emoji": "🏖️",
+  "kind": "read",
+  "standards": ["RF.1.5.a", "RF.1.5.b", "RF.1.5.c", "RF.1.4.c", "RF.1.4.g"],
+  "about": "Eighteen sentences with the spellings a first grader meets at the very end of the year and over the summer: ea, igh, y as long i, ow and oe as long o, ew and ue, ir and ur, ow and oy, the endings er and est, and contractions like can't and we'll, plus tricky words such as eyes, won and your. NC RF.1.4.c (vowel teams) and RF.1.5 (fluency): by June he should read these smoothly with expression and fix a misread word on his own.",
+  "tip": "Have him read each one twice, once to get the words and once like he is telling you, and let him go back and fix any word that did not sound right.",
+  "quiz": true,
+  "cards": [
+    { "id": "sentences.unit8.bright-light", "text": "The bright light hurt my eyes.", "emoji": "🔦", "note": "igh says long i in bright and light; ur says /er/ in hurt; my: y says long i; eyes is a tricky word" },
+    { "id": "sentences.unit8.peach-sea", "text": "Mia will eat a peach by the sea.", "emoji": "🍑", "note": "ea says long e in eat, peach and sea; Mia is a name, capital M; by: y says long i" },
+    { "id": "sentences.unit8.sky-blue", "text": "The sky is bright and blue.", "emoji": "🌤️", "note": "y says long i in sky; igh says long i in bright; ue says /oo/ in blue" },
+    { "id": "sentences.unit8.throw-low", "text": "Throw the ball low and slow.", "emoji": "⚾", "note": "ow says long o in throw, low and slow; ball: a says /aw/ before ll" },
+    { "id": "sentences.unit8.joe-toe", "text": "Joe stubbed his toe on a rock.", "emoji": "🦶", "note": "oe says long o in Joe and toe; Joe is a name, capital J; stubbed: ed says /d/" },
+    { "id": "sentences.unit8.new-kite", "text": "The new kite flew up and away.", "emoji": "🪁", "note": "ew says /oo/ in new and flew; i_e in kite says long i; ay says long a in away" },
+    { "id": "sentences.unit8.sue-glue", "text": "Sue put glue on the blue paper.", "emoji": "🖍️", "note": "ue says /oo/ in Sue, glue and blue; Sue is a name, capital S; put is a tricky word: u says /oo/; paper has two parts: pa + per" },
+    { "id": "sentences.unit8.bird-chirped", "text": "The bird sat on her nest and chirped.", "emoji": "🐦", "note": "ir says /er/ in bird and chirped; er says /er/ in her; chirped: ed says /t/" },
+    { "id": "sentences.unit8.turn-page", "text": "Turn the page and read the next part.", "emoji": "📖", "note": "ur says /er/ in turn; a_e in page says long a and ge says /j/; ea says long e in read; ar says /ar/ in part" },
+    { "id": "sentences.unit8.clown-owl", "text": "Wow, the clown has a brown owl!", "emoji": "🦉", "note": "ow says /ow/ as in cow in wow, clown, brown and owl; the ! means read it with feeling" },
+    { "id": "sentences.unit8.roy-toy", "text": "Roy gave the boy a toy.", "emoji": "🧸", "note": "oy says /oi/ in Roy, boy and toy; Roy is a name, capital R; a_e in gave says long a" },
+    { "id": "sentences.unit8.faster", "text": "My dog runs faster than your cat.", "emoji": "🐕", "note": "faster has two parts: fast + er; er at the end means more; your is a tricky word: says yor; my: y says long i" },
+    { "id": "sentences.unit8.slowest-snail", "text": "The slowest snail won the race!", "emoji": "🐌", "note": "slowest has two parts: slow + est; est at the end means the most; ow says long o in slow; ai says long a in snail; won is a tricky word: o says /u/; ce in race says /s/" },
+    { "id": "sentences.unit8.cant-wait", "text": "I can't wait for the summer!", "emoji": "☀️", "note": "can't is short for cannot, and the little mark shows a letter is left out; ai says long a in wait; summer has two parts: sum + mer" },
+    { "id": "sentences.unit8.well-swim", "text": "We'll swim when it isn't raining.", "emoji": "🏊", "note": "we'll is short for we will; isn't is short for is not; ai says long a in raining; ing at the end" },
+    { "id": "sentences.unit8.dont-melt", "text": "Don't let the ice cream melt!", "emoji": "🍦", "note": "don't is short for do not; ce in ice says /s/; ea says long e in cream" },
+    { "id": "sentences.unit8.didnt-light", "text": "She didn't see the light turn green.", "emoji": "🚦", "note": "didn't is short for did not; igh says long i in light; ur says /er/ in turn; ee says long e in see and green" },
+    { "id": "sentences.unit8.puppy-happy", "text": "My puppy is happy in the sun.", "emoji": "🐶", "note": "y at the end of a short word says long i (my); y at the end of a longer word says long e (puppy, happy)" }
+  ]
+}

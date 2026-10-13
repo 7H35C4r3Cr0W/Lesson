@@ -1,0 +1,408 @@
+{
+  "id": "math.tally-and-graphs",
+  "subject": "math",
+  "group": "measure",
+  "order": 240,
+  "title": "Tally and Graphs",
+  "emoji": "📊",
+  "kind": "qa",
+  "standards": [
+    "NC.1.MD.4"
+  ],
+  "about": "Reading tally marks and a three-row picture graph: how many in each row, how many in all, and how many more or fewer. NC keeps data to three categories and 20 points.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "For \"how many more\", match them up one to one and count what sticks out.",
+  "cards": [
+    {
+      "id": "math.tally-and-graphs.c01",
+      "q": "How many tally marks?",
+      "a": "7",
+      "wrong": [
+        "6",
+        "8"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c02",
+      "q": "How many tally marks?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 5
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c03",
+      "q": "How many tally marks?",
+      "a": "12",
+      "wrong": [
+        "11",
+        "13"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 12
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c04",
+      "q": "How many tally marks?",
+      "a": "9",
+      "wrong": [
+        "8",
+        "10"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c05",
+      "q": "How many tally marks?",
+      "a": "15",
+      "wrong": [
+        "14",
+        "16"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 15
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c06",
+      "q": "How many tally marks?",
+      "a": "3",
+      "wrong": [
+        "2",
+        "4"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 3
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c07",
+      "q": "How many dogs?",
+      "a": "6",
+      "wrong": [
+        "4",
+        "2"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🐶",
+            "n": 6
+          },
+          {
+            "label": "🐱",
+            "n": 4
+          },
+          {
+            "label": "🐟",
+            "n": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c08",
+      "q": "How many fish?",
+      "a": "2",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🐶",
+            "n": 6
+          },
+          {
+            "label": "🐱",
+            "n": 4
+          },
+          {
+            "label": "🐟",
+            "n": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c09",
+      "q": "How many pets in all?",
+      "a": "12",
+      "wrong": [
+        "10",
+        "6"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🐶",
+            "n": 6
+          },
+          {
+            "label": "🐱",
+            "n": 4
+          },
+          {
+            "label": "🐟",
+            "n": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c10",
+      "q": "How many more dogs than cats?",
+      "a": "2",
+      "wrong": [
+        "6",
+        "10"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🐶",
+            "n": 6
+          },
+          {
+            "label": "🐱",
+            "n": 4
+          },
+          {
+            "label": "🐟",
+            "n": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c11",
+      "q": "How many fewer fish than dogs?",
+      "a": "4",
+      "wrong": [
+        "2",
+        "8"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🐶",
+            "n": 6
+          },
+          {
+            "label": "🐱",
+            "n": 4
+          },
+          {
+            "label": "🐟",
+            "n": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c12",
+      "q": "How many cats and fish together?",
+      "a": "6",
+      "wrong": [
+        "12",
+        "8"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🐶",
+            "n": 6
+          },
+          {
+            "label": "🐱",
+            "n": 4
+          },
+          {
+            "label": "🐟",
+            "n": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c13",
+      "q": "How many bananas?",
+      "a": "7",
+      "wrong": [
+        "5",
+        "3"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🍎",
+            "n": 5
+          },
+          {
+            "label": "🍌",
+            "n": 7
+          },
+          {
+            "label": "🍇",
+            "n": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c14",
+      "q": "How many fruits in all?",
+      "a": "15",
+      "wrong": [
+        "12",
+        "8"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🍎",
+            "n": 5
+          },
+          {
+            "label": "🍌",
+            "n": 7
+          },
+          {
+            "label": "🍇",
+            "n": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c15",
+      "q": "How many more bananas than grapes?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "10"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🍎",
+            "n": 5
+          },
+          {
+            "label": "🍌",
+            "n": 7
+          },
+          {
+            "label": "🍇",
+            "n": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c16",
+      "q": "How many more apples than grapes?",
+      "a": "2",
+      "wrong": [
+        "5",
+        "8"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🍎",
+            "n": 5
+          },
+          {
+            "label": "🍌",
+            "n": 7
+          },
+          {
+            "label": "🍇",
+            "n": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c17",
+      "q": "How many apples and grapes together?",
+      "a": "8",
+      "wrong": [
+        "15",
+        "12"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🍎",
+            "n": 5
+          },
+          {
+            "label": "🍌",
+            "n": 7
+          },
+          {
+            "label": "🍇",
+            "n": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.tally-and-graphs.c18",
+      "q": "How many sunny days?",
+      "a": "8",
+      "wrong": [
+        "6",
+        "4"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "☀️",
+            "n": 8
+          },
+          {
+            "label": "☁️",
+            "n": 6
+          },
+          {
+            "label": "🌧",
+            "n": 4
+          }
+        ]
+      }
+    }
+  ]
+}

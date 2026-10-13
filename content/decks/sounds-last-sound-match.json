@@ -1,0 +1,33 @@
+{
+  "id": "sounds.last-sound-match",
+  "subject": "sounds",
+  "group": "hear",
+  "order": 70,
+  "title": "Same last sound",
+  "emoji": "🚪",
+  "kind": "qa",
+  "standards": ["RF.1.3.c"],
+  "about": "Hear a word and tap the word that ends with the same sound, with no letters shown. This is the by-ear partner of the Last sounds level and completes NC RF.1.3.c (isolating the final sound) without any print.",
+  "tip": "Have him say the cue word and hold the very last sound (sunnn), then try each choice.",
+  "quiz": true,
+  "readChoices": true,
+  "speakFront": true,
+  "cards": [
+    { "id": "sounds.last-sound-match.cat", "q": "Which word ends with the same sound as cat?", "a": "boat", "wrong": ["cap", "can"], "emoji": "🐱", "note": "cat and boat both end with the same sound." },
+    { "id": "sounds.last-sound-match.bus", "q": "Which word ends with the same sound as bus?", "a": "mouse", "wrong": ["bug", "bun"], "emoji": "🚌", "note": "bus and mouse both end with the same sound." },
+    { "id": "sounds.last-sound-match.dog", "q": "Which word ends with the same sound as dog?", "a": "pig", "wrong": ["dot", "doll"], "emoji": "🐶", "note": "dog and pig both end with the same sound." },
+    { "id": "sounds.last-sound-match.sun", "q": "Which word ends with the same sound as sun?", "a": "moon", "wrong": ["sock", "sub"], "emoji": "☀️", "note": "sun and moon both end with the same sound." },
+    { "id": "sounds.last-sound-match.map", "q": "Which word ends with the same sound as map?", "a": "cup", "wrong": ["mat", "man"], "emoji": "🗺️", "note": "map and cup both end with the same sound." },
+    { "id": "sounds.last-sound-match.bed", "q": "Which word ends with the same sound as bed?", "a": "road", "wrong": ["bell", "bag"], "emoji": "🛏️", "note": "bed and road both end with the same sound." },
+    { "id": "sounds.last-sound-match.leaf", "q": "Which word ends with the same sound as leaf?", "a": "roof", "wrong": ["leg", "lid"], "emoji": "🍃", "note": "leaf and roof both end with the same sound." },
+    { "id": "sounds.last-sound-match.web", "q": "Which word ends with the same sound as web?", "a": "crab", "wrong": ["wet", "wig"], "emoji": "🕸️", "note": "web and crab both end with the same sound." },
+    { "id": "sounds.last-sound-match.gum", "q": "Which word ends with the same sound as gum?", "a": "jam", "wrong": ["got", "gap"], "emoji": "🍬", "note": "gum and jam both end with the same sound." },
+    { "id": "sounds.last-sound-match.fox", "q": "Which word ends with the same sound as fox?", "a": "six", "wrong": ["fog", "fan"], "emoji": "🦊", "note": "fox and six both end with the same sound." },
+    { "id": "sounds.last-sound-match.owl", "q": "Which word ends with the same sound as owl?", "a": "ball", "wrong": ["out", "ox"], "emoji": "🦉", "note": "owl and ball both end with the same sound." },
+    { "id": "sounds.last-sound-match.car", "q": "Which word ends with the same sound as car?", "a": "door", "wrong": ["cone", "cat"], "emoji": "🚗", "note": "car and door both end with the same sound." },
+    { "id": "sounds.last-sound-match.milk", "q": "Which word ends with the same sound as milk?", "a": "duck", "wrong": ["mitt", "mop"], "emoji": "🥛", "note": "milk and duck both end with the same sound." },
+    { "id": "sounds.last-sound-match.bell", "q": "Which word ends with the same sound as bell?", "a": "pool", "wrong": ["bat", "big"], "emoji": "🔔", "note": "bell and pool both end with the same sound." },
+    { "id": "sounds.last-sound-match.fish", "q": "Which word ends with the same sound as fish?", "a": "brush", "wrong": ["fin", "fig"], "emoji": "🐟", "note": "fish and brush both end with the same sound." },
+    { "id": "sounds.last-sound-match.ring", "q": "Which word ends with the same sound as ring?", "a": "song", "wrong": ["rip", "rock"], "emoji": "💍", "note": "ring and song both end with the same sound." }
+  ]
+}

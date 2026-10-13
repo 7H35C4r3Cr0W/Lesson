@@ -1,0 +1,32 @@
+{
+  "id": "words.ng-qu",
+  "subject": "words",
+  "group": "digraph",
+  "order": 90,
+  "title": "Ng and qu words",
+  "emoji": "👑",
+  "kind": "read",
+  "standards": ["RF.1.4.a", "RF.1.4.b"],
+  "about": "Ng at the end of words (ring, king) and qu at the start (quiz, quilt), from CKLA Unit 1 Lesson 20. Qu is read as one chunk that says kw.",
+  "tip": "For ng, have him hum through his nose at the end of the word.",
+  "cards": [
+    { "id": "words.ng-qu.ring", "text": "ring", "parts": ["r", "i", "ng"], "emoji": "💍", "note": "ng is one sound: hum it through your nose." },
+    { "id": "words.ng-qu.king", "text": "king", "parts": ["k", "i", "ng"], "emoji": "👑", "note": "ng is one sound." },
+    { "id": "words.ng-qu.sing", "text": "sing", "parts": ["s", "i", "ng"], "emoji": "🎤", "note": "ng is one sound." },
+    { "id": "words.ng-qu.wing", "text": "wing", "parts": ["w", "i", "ng"], "emoji": "🦋", "note": "ng is one sound. A bird or a bug has a wing." },
+    { "id": "words.ng-qu.song", "text": "song", "parts": ["s", "o", "ng"], "emoji": "🎵", "note": "ng is one sound." },
+    { "id": "words.ng-qu.long", "text": "long", "parts": ["l", "o", "ng"], "emoji": "🦒", "note": "ng is one sound. A giraffe has a long neck." },
+    { "id": "words.ng-qu.sang", "text": "sang", "parts": ["s", "a", "ng"], "emoji": "🎶", "note": "ng is one sound. Yesterday I sang a song." },
+    { "id": "words.ng-qu.hang", "text": "hang", "parts": ["h", "a", "ng"], "emoji": "🧥", "note": "ng is one sound. Hang up your coat." },
+    { "id": "words.ng-qu.bang", "text": "bang", "parts": ["b", "a", "ng"], "emoji": "🥁", "note": "ng is one sound. Bang the drum." },
+    { "id": "words.ng-qu.hung", "text": "hung", "parts": ["h", "u", "ng"], "note": "ng is one sound. I hung up my hat." },
+    { "id": "words.ng-qu.lung", "text": "lung", "parts": ["l", "u", "ng"], "note": "ng is one sound. A lung helps you breathe." },
+    { "id": "words.ng-qu.swing", "text": "swing", "parts": ["s", "w", "i", "ng"], "note": "ng is one sound. Swing at the park." },
+    { "id": "words.ng-qu.sting", "text": "sting", "parts": ["s", "t", "i", "ng"], "emoji": "🐝", "note": "ng is one sound." },
+    { "id": "words.ng-qu.quiz", "text": "quiz", "parts": ["qu", "i", "z"], "emoji": "❓", "note": "qu says kw." },
+    { "id": "words.ng-qu.quit", "text": "quit", "parts": ["qu", "i", "t"], "note": "qu says kw." },
+    { "id": "words.ng-qu.quilt", "text": "quilt", "parts": ["qu", "i", "l", "t"], "emoji": "🛏️", "note": "qu says kw." },
+    { "id": "words.ng-qu.squid", "text": "squid", "parts": ["s", "qu", "i", "d"], "emoji": "🦑", "note": "qu says kw." },
+    { "id": "words.ng-qu.quest", "text": "quest", "parts": ["qu", "e", "s", "t"], "emoji": "🗺️", "note": "qu says kw. A quest is a big search." }
+  ]
+}

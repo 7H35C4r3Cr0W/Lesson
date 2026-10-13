@@ -1,0 +1,24 @@
+{
+  "id": "words.tricky-3",
+  "subject": "words",
+  "group": "tricky",
+  "order": 340,
+  "title": "Tricky words 3",
+  "emoji": "⬇️",
+  "kind": "read",
+  "standards": ["RF.1.4.g"],
+  "about": "The 5 tricky words from CKLA Unit 3 (because, should, would, could, down) plus 5 short phrases that use them. From Unit 3 the class guesses the spelling first (shood) and then sees the real one.",
+  "tip": "Ask him how he thinks should is spelled, then show the real word and find the odd part.",
+  "cards": [
+    { "id": "words.tricky-3.because", "text": "because", "parts": ["b", "e", "c", "au", "se"], "tricky": [1, 3, 4], "note": "e says ee, au says u, se says z: be-cuz" },
+    { "id": "words.tricky-3.should", "text": "should", "parts": ["sh", "oul", "d"], "tricky": [1], "note": "oul says oo as in book" },
+    { "id": "words.tricky-3.would", "text": "would", "parts": ["w", "oul", "d"], "tricky": [1], "note": "oul says oo as in book" },
+    { "id": "words.tricky-3.could", "text": "could", "parts": ["c", "oul", "d"], "tricky": [1], "note": "oul says oo as in book" },
+    { "id": "words.tricky-3.down", "text": "down", "parts": ["d", "ow", "n"], "tricky": [1], "emoji": "⬇️", "note": "ow says ou as in out" },
+    { "id": "words.tricky-3.down-the-hill", "text": "down the hill", "note": "down and the are tricky words" },
+    { "id": "words.tricky-3.we-should-stop", "text": "we should stop", "note": "we and should are tricky words" },
+    { "id": "words.tricky-3.i-could-not", "text": "I could not", "note": "I and could are tricky words" },
+    { "id": "words.tricky-3.you-would-like-it", "text": "you would like it", "note": "you and would are tricky words" },
+    { "id": "words.tricky-3.because-it-is-wet", "text": "because it is wet", "note": "because and is are tricky words" }
+  ]
+}

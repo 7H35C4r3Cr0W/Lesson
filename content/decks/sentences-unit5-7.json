@@ -1,0 +1,30 @@
+{
+  "id": "sentences.unit5-7",
+  "subject": "sentences",
+  "group": "read",
+  "order": 180,
+  "title": "Spring sentences",
+  "emoji": "🚂",
+  "kind": "read",
+  "standards": ["RF.1.5.a", "RF.1.5.b", "RF.1.5.c", "RF.1.4.a", "RF.1.4.c", "RF.1.4.g"],
+  "about": "Fifteen sentences using the spellings CKLA Units 5 to 7 add in spring: tch, soft g and c (ge, ce, se), ve, wr, kn, wh, n as in pink, and ai, ay, oa, plus the tricky words how, picture, cow and talk. By May he should read these smoothly with expression.",
+  "tip": "Read one sentence each, taking turns, and let him catch you if you read too flat.",
+  "quiz": true,
+  "cards": [
+    { "id": "sentences.unit5-7.catch", "text": "The dog can catch the stick.", "emoji": "🐕", "note": "tch says /ch/ in catch; ck in stick says /k/" },
+    { "id": "sentences.unit5-7.huge-slice", "text": "We had a huge slice of cake.", "emoji": "🍰", "note": "ge in huge: g says /j/; ce in slice: c says /s/; a_e in cake says long a" },
+    { "id": "sentences.unit5-7.prince-horse", "text": "The prince has a white horse.", "emoji": "🐴", "note": "ce in prince says /s/; wh in white says /w/; se in horse says /s/" },
+    { "id": "sentences.unit5-7.write", "text": "I can write my name.", "emoji": "✏️", "note": "wr in write says /r/; i_e in write says long i" },
+    { "id": "sentences.unit5-7.knee", "text": "I bumped my knee on the bed.", "emoji": "🛏️", "note": "kn in knee says /n/; ee says long e; bumped: ed says /t/" },
+    { "id": "sentences.unit5-7.train-rain", "text": "The train waits in the rain.", "emoji": "🚂", "note": "ai says long a in train, waits and rain" },
+    { "id": "sentences.unit5-7.play-may", "text": "We can play all day in May.", "emoji": "☀️", "note": "ay says long a in play, day and May; May is a month, capital M; all is a tricky word" },
+    { "id": "sentences.unit5-7.goat-oats", "text": "The goat ate the oats.", "emoji": "🐐", "note": "oa says long o in goat and oats; a_e in ate says long a" },
+    { "id": "sentences.unit5-7.how-cow", "text": "How did the cow get on the boat?", "emoji": "🐄", "note": "how and cow are tricky words: ow says /ow/; oa in boat says long o; a question goes up at the end" },
+    { "id": "sentences.unit5-7.which-whale", "text": "Which whale is the biggest?", "emoji": "🐳", "note": "wh says /w/ in which and whale; biggest has two parts: big + gest; a question goes up at the end" },
+    { "id": "sentences.unit5-7.talk-picture", "text": "Let's talk and look at the picture.", "emoji": "🖼️", "note": "talk is a tricky word: al says /aw/; picture is a tricky word; Let's is short for let us" },
+    { "id": "sentences.unit5-7.pink-fence", "text": "The pink fence is wet with paint.", "emoji": "🎨", "note": "n in pink says /ng/; ce in fence says /s/; ai in paint says long a" },
+    { "id": "sentences.unit5-7.mice-cage", "text": "The mice have a big cage.", "emoji": "🐭", "note": "ce in mice: c says /s/; ge in cage: g says /j/; have is a tricky word" },
+    { "id": "sentences.unit5-7.grace-twelve", "text": "Grace gave twelve seeds to the hen.", "emoji": "🐔", "note": "Grace is a name, capital G, and ce says /s/; ve in gave and twelve says /v/; ee in seeds says long e" },
+    { "id": "sentences.unit5-7.stay-jake", "text": "Stay on the path, Jake!", "emoji": "👟", "note": "ay in stay says long a; th in path; Jake is a name, capital J; the ! means read it with feeling" }
+  ]
+}

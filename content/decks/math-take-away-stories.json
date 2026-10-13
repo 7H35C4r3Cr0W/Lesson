@@ -1,0 +1,213 @@
+{
+  "id": "math.take-away-stories",
+  "subject": "math",
+  "group": "subtract",
+  "order": 160,
+  "title": "Taking Away Stories",
+  "emoji": "📖",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.1"
+  ],
+  "about": "Subtraction word problems within 20: some went away (how many left), some went away and 6 are left (how many went?), and Ana has 12 while Ben has 7 (how many more?). The compare kind is new in first grade and the hardest.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "For \"how many more\", line the two groups up side by side and look at the extra.",
+  "cards": [
+    {
+      "id": "math.take-away-stories.c01",
+      "q": "Ben had 9 grapes and ate 4. How many grapes are left?",
+      "a": "5",
+      "wrong": [
+        "13",
+        "4"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.take-away-stories.c02",
+      "q": "Lia had 12 balloons and 5 popped. How many are left?",
+      "a": "7",
+      "wrong": [
+        "17",
+        "5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 12
+      }
+    },
+    {
+      "id": "math.take-away-stories.c03",
+      "q": "There were 15 birds and 6 flew away. How many are left?",
+      "a": "9",
+      "wrong": [
+        "6",
+        "8"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 15
+      }
+    },
+    {
+      "id": "math.take-away-stories.c04",
+      "q": "Tom had 10 cookies, ate some, now has 6. How many did he eat?",
+      "a": "4",
+      "wrong": [
+        "16",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.take-away-stories.c05",
+      "q": "Ava had 13 marbles, lost some, now has 8. How many did she lose?",
+      "a": "5",
+      "wrong": [
+        "8",
+        "13"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 13
+      }
+    },
+    {
+      "id": "math.take-away-stories.c06",
+      "q": "Max had 7 fish, gave some away, now has 2. How many did he give?",
+      "a": "5",
+      "wrong": [
+        "9",
+        "2"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.take-away-stories.c07",
+      "q": "Mia had 16 beads, lost some, now has 10. How many did she lose?",
+      "a": "6",
+      "wrong": [
+        "16",
+        "10"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 16
+      }
+    },
+    {
+      "id": "math.take-away-stories.c08",
+      "q": "Eli had 11 cards, gave some away, now has 3. How many did he give?",
+      "a": "8",
+      "wrong": [
+        "14",
+        "3"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 11
+      }
+    },
+    {
+      "id": "math.take-away-stories.c09",
+      "q": "Ana has 12 shells and Ben has 7. How many more does Ana have?",
+      "a": "5",
+      "wrong": [
+        "19",
+        "7"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 12
+      }
+    },
+    {
+      "id": "math.take-away-stories.c10",
+      "q": "Zoe has 9 pens and Sam has 4. How many fewer does Sam have?",
+      "a": "5",
+      "wrong": [
+        "13",
+        "4"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.take-away-stories.c11",
+      "q": "There are 14 cats and 8 dogs. How many more cats than dogs?",
+      "a": "6",
+      "wrong": [
+        "8",
+        "14"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 14
+      }
+    },
+    {
+      "id": "math.take-away-stories.c12",
+      "q": "Leo is 6 and Kim is 10. How many years older is Kim?",
+      "a": "4",
+      "wrong": [
+        "16",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.take-away-stories.c13",
+      "q": "A red rope is 11 blocks and a blue rope is 5. How many blocks longer is red?",
+      "a": "6",
+      "wrong": [
+        "16",
+        "5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 11
+      }
+    },
+    {
+      "id": "math.take-away-stories.c14",
+      "q": "Max has 20 stickers and Jo has 15. How many more does Max have?",
+      "a": "5",
+      "wrong": [
+        "15",
+        "10"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 20
+      }
+    },
+    {
+      "id": "math.take-away-stories.c15",
+      "q": "There are 13 apples and 13 pears. How many more apples than pears?",
+      "a": "0",
+      "wrong": [
+        "13",
+        "1"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 13
+      }
+    }
+  ]
+}

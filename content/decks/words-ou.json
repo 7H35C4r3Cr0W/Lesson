@@ -1,0 +1,32 @@
+{
+  "id": "words.ou",
+  "subject": "words",
+  "group": "more",
+  "order": 190,
+  "title": "Ou words",
+  "emoji": "☁️",
+  "kind": "read",
+  "standards": ["RF.1.4.b"],
+  "about": "The ou spelling from CKLA Unit 3, as in loud and cloud. The sound is what you say when something hurts: ou!",
+  "tip": "Have him say ouch first, then find that sound in the middle of each word.",
+  "cards": [
+    { "id": "words.ou.loud", "text": "loud", "parts": ["l", "ou", "d"], "emoji": "📢", "note": "ou says ow as in ouch" },
+    { "id": "words.ou.cloud", "text": "cloud", "parts": ["c", "l", "ou", "d"], "emoji": "☁️", "note": "ou says ow as in ouch" },
+    { "id": "words.ou.mouth", "text": "mouth", "parts": ["m", "ou", "th"], "emoji": "👄", "note": "th is one part; ou says ow as in ouch" },
+    { "id": "words.ou.out", "text": "out", "parts": ["ou", "t"], "note": "ou says ow as in ouch" },
+    { "id": "words.ou.shout", "text": "shout", "parts": ["sh", "ou", "t"], "emoji": "🗣️", "note": "sh is one part; ou says ow as in ouch" },
+    { "id": "words.ou.found", "text": "found", "parts": ["f", "ou", "n", "d"], "emoji": "🔍", "note": "ou says ow as in ouch" },
+    { "id": "words.ou.round", "text": "round", "parts": ["r", "ou", "n", "d"], "emoji": "⚪", "note": "ou says ow as in ouch" },
+    { "id": "words.ou.sound", "text": "sound", "parts": ["s", "ou", "n", "d"], "emoji": "🔊", "note": "ou says ow as in ouch" },
+    { "id": "words.ou.pound", "text": "pound", "parts": ["p", "ou", "n", "d"], "note": "ou says ow as in ouch" },
+    { "id": "words.ou.ground", "text": "ground", "parts": ["g", "r", "ou", "n", "d"], "note": "ou says ow as in ouch" },
+    { "id": "words.ou.count", "text": "count", "parts": ["c", "ou", "n", "t"], "emoji": "🔢", "note": "ou says ow as in ouch" },
+    { "id": "words.ou.ouch", "text": "ouch", "parts": ["ou", "ch"], "emoji": "🤕", "note": "ch is one part; ou says ow as in ouch" },
+    { "id": "words.ou.proud", "text": "proud", "parts": ["p", "r", "ou", "d"], "note": "ou says ow as in ouch" },
+    { "id": "words.ou.scout", "text": "scout", "parts": ["s", "c", "ou", "t"], "note": "ou says ow as in ouch" },
+    { "id": "words.ou.sprout", "text": "sprout", "parts": ["s", "p", "r", "ou", "t"], "emoji": "🌱", "note": "ou says ow as in ouch" },
+    { "id": "words.ou.south", "text": "south", "parts": ["s", "ou", "th"], "emoji": "🧭", "note": "th is one part; ou says ow as in ouch" },
+    { "id": "words.ou.couch", "text": "couch", "parts": ["c", "ou", "ch"], "emoji": "🛋️", "note": "ch is one part; ou says ow as in ouch" },
+    { "id": "words.ou.pouch", "text": "pouch", "parts": ["p", "ou", "ch"], "note": "ch is one part; ou says ow as in ouch" }
+  ]
+}

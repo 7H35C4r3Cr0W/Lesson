@@ -1,0 +1,216 @@
+{
+  "id": "math.ordinals",
+  "subject": "math",
+  "group": "count",
+  "order": 47,
+  "title": "First, Second, Third",
+  "emoji": "🥇",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.1"
+  ],
+  "about": "Order words from first to tenth, plus last and next, read off a line of animals, fruits and vehicles that starts on the left. Ordinal words are not a separate NC Grade 1 standard, but they are calendar and line-order vocabulary his class uses all year, so they sit here with counting (NC.1.NBT.1).",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Touch each picture from the left and say the order words together: first, second, third...",
+  "cards": [
+    {
+      "id": "math.ordinals.a-first",
+      "q": "🐶 🐱 🐭 🐰 Which animal is first in line?",
+      "a": "dog",
+      "wrong": [
+        "cat",
+        "rabbit"
+      ],
+      "sayQ": "A line of animals from the left: dog, cat, mouse, rabbit. Which animal is first in line?"
+    },
+    {
+      "id": "math.ordinals.a-second",
+      "q": "🐶 🐱 🐭 🐰 Which animal is second in line?",
+      "a": "cat",
+      "wrong": [
+        "dog",
+        "mouse"
+      ],
+      "sayQ": "A line of animals from the left: dog, cat, mouse, rabbit. Which animal is second in line?"
+    },
+    {
+      "id": "math.ordinals.a-third",
+      "q": "🐶 🐱 🐭 🐰 Which animal is third in line?",
+      "a": "mouse",
+      "wrong": [
+        "cat",
+        "rabbit"
+      ],
+      "sayQ": "A line of animals from the left: dog, cat, mouse, rabbit. Which animal is third in line?"
+    },
+    {
+      "id": "math.ordinals.a-last",
+      "q": "🐶 🐱 🐭 🐰 Which animal is last in line?",
+      "a": "rabbit",
+      "wrong": [
+        "mouse",
+        "dog"
+      ],
+      "sayQ": "A line of animals from the left: dog, cat, mouse, rabbit. Which animal is last in line?"
+    },
+    {
+      "id": "math.ordinals.a-next",
+      "q": "🐶 🐱 🐭 🐰 Who is next after the cat?",
+      "a": "mouse",
+      "wrong": [
+        "rabbit",
+        "dog"
+      ],
+      "sayQ": "A line of animals from the left: dog, cat, mouse, rabbit. Who is next after the cat?"
+    },
+    {
+      "id": "math.ordinals.b-fourth",
+      "q": "🍎 🍌 🍇 🍓 🍒 Which fruit is fourth in line?",
+      "a": "strawberry",
+      "wrong": [
+        "grapes",
+        "cherries"
+      ],
+      "sayQ": "A line of fruits from the left: apple, banana, grapes, strawberry, cherries. Which fruit is fourth in line?"
+    },
+    {
+      "id": "math.ordinals.b-fifth",
+      "q": "🍎 🍌 🍇 🍓 🍒 Which fruit is fifth in line?",
+      "a": "cherries",
+      "wrong": [
+        "strawberry",
+        "apple"
+      ],
+      "sayQ": "A line of fruits from the left: apple, banana, grapes, strawberry, cherries. Which fruit is fifth in line?"
+    },
+    {
+      "id": "math.ordinals.b-second",
+      "q": "🍎 🍌 🍇 🍓 🍒 Which fruit is second in line?",
+      "a": "banana",
+      "wrong": [
+        "apple",
+        "grapes"
+      ],
+      "sayQ": "A line of fruits from the left: apple, banana, grapes, strawberry, cherries. Which fruit is second in line?"
+    },
+    {
+      "id": "math.ordinals.b-grapes",
+      "q": "🍎 🍌 🍇 🍓 🍒 The grapes are in which place?",
+      "a": "third",
+      "wrong": [
+        "second",
+        "fourth"
+      ],
+      "sayQ": "A line of fruits from the left: apple, banana, grapes, strawberry, cherries. The grapes are in which place?"
+    },
+    {
+      "id": "math.ordinals.c-sixth",
+      "q": "🚗 🚌 🚲 🚂 ✈️ 🚀 Which one is sixth in line?",
+      "a": "rocket",
+      "wrong": [
+        "plane",
+        "train"
+      ],
+      "sayQ": "A line of things from the left: car, bus, bike, train, plane, rocket. Which one is sixth in line?"
+    },
+    {
+      "id": "math.ordinals.c-fourth",
+      "q": "🚗 🚌 🚲 🚂 ✈️ 🚀 Which one is fourth in line?",
+      "a": "train",
+      "wrong": [
+        "bike",
+        "plane"
+      ],
+      "sayQ": "A line of things from the left: car, bus, bike, train, plane, rocket. Which one is fourth in line?"
+    },
+    {
+      "id": "math.ordinals.c-bike",
+      "q": "🚗 🚌 🚲 🚂 ✈️ 🚀 The bike is in which place?",
+      "a": "third",
+      "wrong": [
+        "second",
+        "fourth"
+      ],
+      "sayQ": "A line of things from the left: car, bus, bike, train, plane, rocket. The bike is in which place?"
+    },
+    {
+      "id": "math.ordinals.c-next",
+      "q": "🚗 🚌 🚲 🚂 ✈️ 🚀 Which one is next after the car?",
+      "a": "bus",
+      "wrong": [
+        "bike",
+        "rocket"
+      ],
+      "sayQ": "A line of things from the left: car, bus, bike, train, plane, rocket. Which one is next after the car?"
+    },
+    {
+      "id": "math.ordinals.d-seventh",
+      "q": "🐸 🐵 🐔 🐧 🐢 🐙 🦋 🐝 🐞 🐌 Which animal is seventh in line?",
+      "a": "butterfly",
+      "wrong": [
+        "octopus",
+        "bee"
+      ],
+      "sayQ": "A line of animals from the left: frog, monkey, chicken, penguin, turtle, octopus, butterfly, bee, ladybug, snail. Which animal is seventh in line?"
+    },
+    {
+      "id": "math.ordinals.d-eighth",
+      "q": "🐸 🐵 🐔 🐧 🐢 🐙 🦋 🐝 🐞 🐌 Which animal is eighth in line?",
+      "a": "bee",
+      "wrong": [
+        "butterfly",
+        "ladybug"
+      ],
+      "sayQ": "A line of animals from the left: frog, monkey, chicken, penguin, turtle, octopus, butterfly, bee, ladybug, snail. Which animal is eighth in line?"
+    },
+    {
+      "id": "math.ordinals.d-ninth",
+      "q": "🐸 🐵 🐔 🐧 🐢 🐙 🦋 🐝 🐞 🐌 Who is ninth in line?",
+      "a": "ladybug",
+      "wrong": [
+        "bee",
+        "snail"
+      ],
+      "sayQ": "A line of animals from the left: frog, monkey, chicken, penguin, turtle, octopus, butterfly, bee, ladybug, snail. Who is ninth in line?"
+    },
+    {
+      "id": "math.ordinals.d-tenth",
+      "q": "🐸 🐵 🐔 🐧 🐢 🐙 🦋 🐝 🐞 🐌 Who is tenth in line?",
+      "a": "snail",
+      "wrong": [
+        "ladybug",
+        "frog"
+      ],
+      "sayQ": "A line of animals from the left: frog, monkey, chicken, penguin, turtle, octopus, butterfly, bee, ladybug, snail. Who is tenth in line?"
+    },
+    {
+      "id": "math.ordinals.d-turtle",
+      "q": "🐸 🐵 🐔 🐧 🐢 🐙 🦋 🐝 🐞 🐌 The turtle is in which place?",
+      "a": "fifth",
+      "wrong": [
+        "fourth",
+        "sixth"
+      ],
+      "sayQ": "A line of animals from the left: frog, monkey, chicken, penguin, turtle, octopus, butterfly, bee, ladybug, snail. The turtle is in which place?"
+    },
+    {
+      "id": "math.ordinals.behind",
+      "q": "Ava is fourth in line. Ben is right behind her. What place is Ben?",
+      "a": "fifth",
+      "wrong": [
+        "third",
+        "fourth"
+      ]
+    },
+    {
+      "id": "math.ordinals.in-front",
+      "q": "Mia is second in line. One friend is in front of her. What place is that friend?",
+      "a": "first",
+      "wrong": [
+        "third",
+        "second"
+      ]
+    }
+  ]
+}

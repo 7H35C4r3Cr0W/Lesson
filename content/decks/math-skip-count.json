@@ -1,0 +1,209 @@
+{
+  "id": "math.skip-count",
+  "subject": "math",
+  "group": "count",
+  "order": 45,
+  "title": "Count by 10s and 5s",
+  "emoji": "✋",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.1",
+    "NC.1.NBT.2"
+  ],
+  "about": "Counting by tens to 100 and then by fives to 100, with boxes of ten and hands of five as the pictures. Counting by tens is a kindergarten skill that NC.1.NBT.2 builds on (ten ones make a ten); counting by fives is a stretch toward NC.2.NBT.2, so the fives cards come second.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Clap on every count by tens; for fives, hold up one hand per count and say the numbers in a rhythm.",
+  "cards": [
+    {
+      "id": "math.skip-count.tens-40",
+      "q": "Count by tens: 10, 20, 30, what comes next?",
+      "a": "40",
+      "wrong": [
+        "31",
+        "50"
+      ]
+    },
+    {
+      "id": "math.skip-count.tens-70",
+      "q": "Count by tens: 40, 50, 60, what comes next?",
+      "a": "70",
+      "wrong": [
+        "61",
+        "80"
+      ]
+    },
+    {
+      "id": "math.skip-count.tens-100",
+      "q": "Count by tens: 70, 80, 90, what comes next?",
+      "a": "100",
+      "wrong": [
+        "91",
+        "80"
+      ]
+    },
+    {
+      "id": "math.skip-count.tens-after-50",
+      "q": "Count by tens. What comes after 50?",
+      "a": "60",
+      "wrong": [
+        "51",
+        "70"
+      ]
+    },
+    {
+      "id": "math.skip-count.tens-after-20",
+      "q": "Count by tens. What comes after 20?",
+      "a": "30",
+      "wrong": [
+        "21",
+        "40"
+      ]
+    },
+    {
+      "id": "math.skip-count.tens-gap-30",
+      "q": "Count by tens: 10, 20, ?, 40. What is missing?",
+      "a": "30",
+      "wrong": [
+        "21",
+        "50"
+      ],
+      "sayQ": "Count by tens: 10, 20, blank, 40. What is missing?"
+    },
+    {
+      "id": "math.skip-count.tens-gap-70",
+      "q": "Count by tens: 50, 60, ?, 80. What is missing?",
+      "a": "70",
+      "wrong": [
+        "61",
+        "90"
+      ],
+      "sayQ": "Count by tens: 50, 60, blank, 80. What is missing?"
+    },
+    {
+      "id": "math.skip-count.boxes-3",
+      "q": "Each box has 10 crayons. Count by tens: how many crayons in 3 boxes?",
+      "a": "30",
+      "wrong": [
+        "20",
+        "3"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "📦",
+        "n": 3
+      }
+    },
+    {
+      "id": "math.skip-count.boxes-6",
+      "q": "Each box has 10 crayons. Count by tens: how many crayons in 6 boxes?",
+      "a": "60",
+      "wrong": [
+        "50",
+        "6"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "📦",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.skip-count.fives-15",
+      "q": "Count by fives: 5, 10, what comes next?",
+      "a": "15",
+      "wrong": [
+        "11",
+        "20"
+      ]
+    },
+    {
+      "id": "math.skip-count.fives-30",
+      "q": "Count by fives: 15, 20, 25, what comes next?",
+      "a": "30",
+      "wrong": [
+        "26",
+        "35"
+      ]
+    },
+    {
+      "id": "math.skip-count.fives-45",
+      "q": "Count by fives: 30, 35, 40, what comes next?",
+      "a": "45",
+      "wrong": [
+        "41",
+        "50"
+      ]
+    },
+    {
+      "id": "math.skip-count.fives-after-45",
+      "q": "Count by fives. What comes after 45?",
+      "a": "50",
+      "wrong": [
+        "46",
+        "55"
+      ]
+    },
+    {
+      "id": "math.skip-count.fives-after-95",
+      "q": "Count by fives. What comes after 95?",
+      "a": "100",
+      "wrong": [
+        "96",
+        "90"
+      ]
+    },
+    {
+      "id": "math.skip-count.fives-gap-20",
+      "q": "Count by fives: 5, 10, 15, ?, 25. What is missing?",
+      "a": "20",
+      "wrong": [
+        "16",
+        "30"
+      ],
+      "sayQ": "Count by fives: 5, 10, 15, blank, 25. What is missing?"
+    },
+    {
+      "id": "math.skip-count.hands-2",
+      "q": "Each hand has 5 fingers. Count by fives: how many fingers on 2 hands?",
+      "a": "10",
+      "wrong": [
+        "7",
+        "15"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "✋",
+        "n": 2
+      }
+    },
+    {
+      "id": "math.skip-count.hands-3",
+      "q": "Each hand has 5 fingers. Count by fives: how many fingers on 3 hands?",
+      "a": "15",
+      "wrong": [
+        "8",
+        "20"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "✋",
+        "n": 3
+      }
+    },
+    {
+      "id": "math.skip-count.hands-4",
+      "q": "Each hand has 5 fingers. Count by fives: how many fingers on 4 hands?",
+      "a": "20",
+      "wrong": [
+        "9",
+        "25"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "✋",
+        "n": 4
+      }
+    }
+  ]
+}

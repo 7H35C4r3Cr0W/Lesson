@@ -1,0 +1,32 @@
+{
+  "id": "sounds.sh-ch-th",
+  "subject": "sounds",
+  "group": "teams",
+  "order": 110,
+  "title": "sh, ch and th",
+  "emoji": "🐟",
+  "kind": "qa",
+  "standards": ["RF.1.4.a", "L.1.2"],
+  "about": "Hear a word and pick which two-letter team makes its first or last sound: sh, ch or th. These consonant digraphs are NC RF.1.4.a and are taught in CKLA Unit 1 lessons 17 and 18.",
+  "tip": "Remind him that two letters can hold hands and make one new sound.",
+  "quiz": true,
+  "readChoices": false,
+  "speakFront": true,
+  "cards": [
+    { "id": "sounds.sh-ch-th.ship", "q": "Which letters make the first sound in ship?", "a": "sh", "wrong": ["ch", "th"], "emoji": "🚢", "note": "ship starts with the sh sound. Two letters, one sound.", "sayA": "the letters s h" },
+    { "id": "sounds.sh-ch-th.shop", "q": "Which letters make the first sound in shop?", "a": "sh", "wrong": ["ch", "th"], "emoji": "🛍️", "note": "shop starts with the sh sound. Two letters, one sound.", "sayA": "the letters s h" },
+    { "id": "sounds.sh-ch-th.shell", "q": "Which letters make the first sound in shell?", "a": "sh", "wrong": ["ch", "th"], "emoji": "🐚", "note": "shell starts with the sh sound. Two letters, one sound.", "sayA": "the letters s h" },
+    { "id": "sounds.sh-ch-th.fish", "q": "Which letters make the last sound in fish?", "a": "sh", "wrong": ["ch", "th"], "emoji": "🐟", "note": "fish ends with the sh sound. Two letters, one sound.", "sayA": "the letters s h" },
+    { "id": "sounds.sh-ch-th.dish", "q": "Which letters make the last sound in dish?", "a": "sh", "wrong": ["ch", "th"], "emoji": "🍽️", "note": "dish ends with the sh sound. Two letters, one sound.", "sayA": "the letters s h" },
+    { "id": "sounds.sh-ch-th.chin", "q": "Which letters make the first sound in chin?", "a": "ch", "wrong": ["sh", "th"], "note": "chin starts with the ch sound. Two letters, one sound.", "sayA": "the letters c h" },
+    { "id": "sounds.sh-ch-th.chick", "q": "Which letters make the first sound in chick?", "a": "ch", "wrong": ["sh", "th"], "emoji": "🐥", "note": "chick starts with the ch sound. Two letters, one sound.", "sayA": "the letters c h" },
+    { "id": "sounds.sh-ch-th.cheese", "q": "Which letters make the first sound in cheese?", "a": "ch", "wrong": ["sh", "th"], "emoji": "🧀", "note": "cheese starts with the ch sound. Two letters, one sound.", "sayA": "the letters c h" },
+    { "id": "sounds.sh-ch-th.cherry", "q": "Which letters make the first sound in cherry?", "a": "ch", "wrong": ["sh", "th"], "emoji": "🍒", "note": "cherry starts with the ch sound. Two letters, one sound.", "sayA": "the letters c h" },
+    { "id": "sounds.sh-ch-th.lunch", "q": "Which letters make the last sound in lunch?", "a": "ch", "wrong": ["sh", "th"], "emoji": "🍱", "note": "lunch ends with the ch sound. Two letters, one sound.", "sayA": "the letters c h" },
+    { "id": "sounds.sh-ch-th.thumb", "q": "Which letters make the first sound in thumb?", "a": "th", "wrong": ["sh", "ch"], "emoji": "👍", "note": "thumb starts with the th sound. Two letters, one sound. th can be quiet, like thin, or buzzy, like this.", "sayA": "the letters t h" },
+    { "id": "sounds.sh-ch-th.thin", "q": "Which letters make the first sound in thin?", "a": "th", "wrong": ["sh", "ch"], "note": "thin starts with the th sound. Two letters, one sound. th can be quiet, like thin, or buzzy, like this.", "sayA": "the letters t h" },
+    { "id": "sounds.sh-ch-th.bath", "q": "Which letters make the last sound in bath?", "a": "th", "wrong": ["sh", "ch"], "emoji": "🛁", "note": "bath ends with the th sound. Two letters, one sound. th can be quiet, like thin, or buzzy, like this.", "sayA": "the letters t h" },
+    { "id": "sounds.sh-ch-th.moth", "q": "Which letters make the last sound in moth?", "a": "th", "wrong": ["sh", "ch"], "note": "moth ends with the th sound. Two letters, one sound. th can be quiet, like thin, or buzzy, like this.", "sayA": "the letters t h" },
+    { "id": "sounds.sh-ch-th.this", "q": "Which letters make the first sound in the word this?", "a": "th", "wrong": ["sh", "ch"], "note": "this starts with the th sound. Two letters, one sound. th can be quiet, like thin, or buzzy, like this.", "sayA": "the letters t h" }
+  ]
+}

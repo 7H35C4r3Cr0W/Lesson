@@ -1,0 +1,358 @@
+{
+  "id": "math.count-coins",
+  "subject": "math",
+  "group": "time",
+  "order": 275,
+  "title": "Count the Coins",
+  "emoji": "💵",
+  "kind": "qa",
+  "standards": [
+    "NC.1.MD.5"
+  ],
+  "about": "Adding up a small handful of coins (totals to 50 cents) by starting with the biggest coin and counting on, plus choosing which two coins make a given amount. NC.1.MD.5 asks him to know each coin's value in pennies; counting a small group is the natural next step and is where second grade begins, so this deck stays small.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Start with the biggest coin and count on: \"25, 35, 40\" for a quarter, a dime and a nickel.",
+  "cards": [
+    {
+      "id": "math.count-coins.two-dimes",
+      "q": "How much money is this?",
+      "a": "20¢",
+      "wrong": [
+        "2¢",
+        "10¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime",
+          "dime"
+        ]
+      },
+      "note": "10, 20."
+    },
+    {
+      "id": "math.count-coins.nickel-2-pennies",
+      "q": "How much money is this?",
+      "a": "7¢",
+      "wrong": [
+        "3¢",
+        "12¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "nickel",
+          "penny",
+          "penny"
+        ]
+      },
+      "note": "5, 6, 7."
+    },
+    {
+      "id": "math.count-coins.dime-nickel",
+      "q": "How much money is this?",
+      "a": "15¢",
+      "wrong": [
+        "11¢",
+        "20¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime",
+          "nickel"
+        ]
+      },
+      "note": "10, 15."
+    },
+    {
+      "id": "math.count-coins.four-pennies",
+      "q": "How many cents is this?",
+      "a": "4¢",
+      "wrong": [
+        "5¢",
+        "10¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "penny",
+          "penny",
+          "penny",
+          "penny"
+        ]
+      }
+    },
+    {
+      "id": "math.count-coins.two-nickels",
+      "q": "How many cents is this?",
+      "a": "10¢",
+      "wrong": [
+        "2¢",
+        "5¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "nickel",
+          "nickel"
+        ]
+      },
+      "note": "5, 10."
+    },
+    {
+      "id": "math.count-coins.dime-3-pennies",
+      "q": "Count the coins. What is the total?",
+      "a": "13¢",
+      "wrong": [
+        "4¢",
+        "31¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime",
+          "penny",
+          "penny",
+          "penny"
+        ]
+      },
+      "note": "10, 11, 12, 13."
+    },
+    {
+      "id": "math.count-coins.quarter-2-pennies",
+      "q": "How much money is this?",
+      "a": "27¢",
+      "wrong": [
+        "3¢",
+        "25¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "quarter",
+          "penny",
+          "penny"
+        ]
+      },
+      "note": "25, 26, 27."
+    },
+    {
+      "id": "math.count-coins.2-dimes-nickel",
+      "q": "Count the coins. What is the total?",
+      "a": "25¢",
+      "wrong": [
+        "20¢",
+        "3¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime",
+          "dime",
+          "nickel"
+        ]
+      },
+      "note": "10, 20, 25."
+    },
+    {
+      "id": "math.count-coins.3-nickels-penny",
+      "q": "How many cents is this?",
+      "a": "16¢",
+      "wrong": [
+        "15¢",
+        "4¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "nickel",
+          "nickel",
+          "nickel",
+          "penny"
+        ]
+      },
+      "note": "5, 10, 15, 16."
+    },
+    {
+      "id": "math.count-coins.quarter-dime",
+      "q": "How much money is this?",
+      "a": "35¢",
+      "wrong": [
+        "30¢",
+        "26¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "quarter",
+          "dime"
+        ]
+      },
+      "note": "25, 35."
+    },
+    {
+      "id": "math.count-coins.four-dimes",
+      "q": "These coins are worth how many pennies?",
+      "a": "40",
+      "wrong": [
+        "4",
+        "30"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime",
+          "dime",
+          "dime",
+          "dime"
+        ]
+      },
+      "note": "10, 20, 30, 40."
+    },
+    {
+      "id": "math.count-coins.quarter-nickel",
+      "q": "Count the coins. What is the total?",
+      "a": "30¢",
+      "wrong": [
+        "26¢",
+        "35¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "quarter",
+          "nickel"
+        ]
+      },
+      "note": "25, 30."
+    },
+    {
+      "id": "math.count-coins.quarter-2-dimes-nickel",
+      "q": "Count the coins. What is the total?",
+      "a": "50¢",
+      "wrong": [
+        "45¢",
+        "40¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "quarter",
+          "dime",
+          "dime",
+          "nickel"
+        ]
+      },
+      "note": "25, 35, 45, 50."
+    },
+    {
+      "id": "math.count-coins.nickel-5-pennies",
+      "q": "How many cents is this?",
+      "a": "10¢",
+      "wrong": [
+        "6¢",
+        "15¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "nickel",
+          "penny",
+          "penny",
+          "penny",
+          "penny",
+          "penny"
+        ],
+        "label": "none"
+      },
+      "note": "6 coins, but 10 cents: 5, 6, 7, 8, 9, 10."
+    },
+    {
+      "id": "math.count-coins.dime-nickel-3-pennies",
+      "q": "These coins are worth how many pennies?",
+      "a": "18",
+      "wrong": [
+        "15",
+        "5"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime",
+          "nickel",
+          "penny",
+          "penny",
+          "penny"
+        ],
+        "label": "none"
+      },
+      "note": "10, 15, 16, 17, 18."
+    },
+    {
+      "id": "math.count-coins.eight-coins",
+      "q": "Count the coins. What is the total?",
+      "a": "25¢",
+      "wrong": [
+        "20¢",
+        "8¢"
+      ],
+      "visual": {
+        "type": "coins",
+        "coins": [
+          "dime",
+          "nickel",
+          "nickel",
+          "penny",
+          "penny",
+          "penny",
+          "penny",
+          "penny"
+        ],
+        "label": "none"
+      },
+      "note": "8 coins, but 25 cents: 10, 15, 20, 21, 22, 23, 24, 25."
+    },
+    {
+      "id": "math.count-coins.make-15",
+      "q": "Which coins make 15¢?",
+      "a": "a dime and a nickel",
+      "wrong": [
+        "a dime and a penny",
+        "two nickels"
+      ],
+      "note": "10 and 5 is 15."
+    },
+    {
+      "id": "math.count-coins.make-6",
+      "q": "Which coins make 6¢?",
+      "a": "a nickel and a penny",
+      "wrong": [
+        "two pennies",
+        "a dime and a penny"
+      ],
+      "note": "5 and 1 is 6."
+    },
+    {
+      "id": "math.count-coins.make-30",
+      "q": "Which coins make 30¢?",
+      "a": "a quarter and a nickel",
+      "wrong": [
+        "a quarter and a penny",
+        "two dimes"
+      ],
+      "note": "25 and 5 is 30."
+    },
+    {
+      "id": "math.count-coins.make-20",
+      "q": "Which coins make 20¢?",
+      "a": "two dimes",
+      "wrong": [
+        "two nickels",
+        "a dime and a nickel"
+      ],
+      "note": "10 and 10 is 20."
+    }
+  ]
+}

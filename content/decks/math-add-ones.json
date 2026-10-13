@@ -1,0 +1,258 @@
+{
+  "id": "math.add-ones",
+  "subject": "math",
+  "group": "place",
+  "order": 220,
+  "title": "Adding to Big Numbers",
+  "emoji": "🚀",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.4"
+  ],
+  "about": "A two-digit number plus a one-digit number within 100, first without crossing a ten (52 + 6), then crossing one (24 + 8 = 32). NC wants place-value thinking, not the written column method.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "For 24 + 8 say \"24 and 6 makes 30, then 2 more.\"",
+  "cards": [
+    {
+      "id": "math.add-ones.c01",
+      "q": "52 + 6 = ?",
+      "a": "58",
+      "wrong": [
+        "46",
+        "57"
+      ],
+      "sayQ": "52 plus 6 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 2
+      }
+    },
+    {
+      "id": "math.add-ones.c02",
+      "q": "23 + 4 = ?",
+      "a": "27",
+      "wrong": [
+        "19",
+        "37"
+      ],
+      "sayQ": "23 plus 4 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.add-ones.c03",
+      "q": "41 + 7 = ?",
+      "a": "48",
+      "wrong": [
+        "34",
+        "47"
+      ],
+      "sayQ": "41 plus 7 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 1
+      }
+    },
+    {
+      "id": "math.add-ones.c04",
+      "q": "65 + 3 = ?",
+      "a": "68",
+      "wrong": [
+        "62",
+        "69"
+      ],
+      "sayQ": "65 plus 3 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 5
+      }
+    },
+    {
+      "id": "math.add-ones.c05",
+      "q": "30 + 9 = ?",
+      "a": "39",
+      "wrong": [
+        "21",
+        "49"
+      ],
+      "sayQ": "30 plus 9 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.add-ones.c06",
+      "q": "74 + 5 = ?",
+      "a": "79",
+      "wrong": [
+        "69",
+        "78"
+      ],
+      "sayQ": "74 plus 5 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 7,
+        "ones": 4
+      }
+    },
+    {
+      "id": "math.add-ones.c07",
+      "q": "16 + 2 = ?",
+      "a": "18",
+      "wrong": [
+        "14",
+        "19"
+      ],
+      "sayQ": "16 plus 2 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 6
+      }
+    },
+    {
+      "id": "math.add-ones.c08",
+      "q": "83 + 6 = ?",
+      "a": "89",
+      "wrong": [
+        "77",
+        "88"
+      ],
+      "sayQ": "83 plus 6 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 8,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.add-ones.c09",
+      "q": "24 + 8 = ?",
+      "a": "32",
+      "wrong": [
+        "22",
+        "31"
+      ],
+      "sayQ": "24 plus 8 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 4
+      }
+    },
+    {
+      "id": "math.add-ones.c10",
+      "q": "37 + 5 = ?",
+      "a": "42",
+      "wrong": [
+        "32",
+        "41"
+      ],
+      "sayQ": "37 plus 5 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 7
+      }
+    },
+    {
+      "id": "math.add-ones.c11",
+      "q": "48 + 6 = ?",
+      "a": "54",
+      "wrong": [
+        "42",
+        "53"
+      ],
+      "sayQ": "48 plus 6 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 8
+      }
+    },
+    {
+      "id": "math.add-ones.c12",
+      "q": "59 + 3 = ?",
+      "a": "62",
+      "wrong": [
+        "56",
+        "61"
+      ],
+      "sayQ": "59 plus 3 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 9
+      }
+    },
+    {
+      "id": "math.add-ones.c13",
+      "q": "66 + 7 = ?",
+      "a": "73",
+      "wrong": [
+        "59",
+        "72"
+      ],
+      "sayQ": "66 plus 7 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 6
+      }
+    },
+    {
+      "id": "math.add-ones.c14",
+      "q": "75 + 9 = ?",
+      "a": "84",
+      "wrong": [
+        "66",
+        "83"
+      ],
+      "sayQ": "75 plus 9 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 7,
+        "ones": 5
+      }
+    },
+    {
+      "id": "math.add-ones.c15",
+      "q": "19 + 4 = ?",
+      "a": "23",
+      "wrong": [
+        "15",
+        "22"
+      ],
+      "sayQ": "19 plus 4 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 9
+      }
+    },
+    {
+      "id": "math.add-ones.c16",
+      "q": "88 + 8 = ?",
+      "a": "96",
+      "wrong": [
+        "80",
+        "95"
+      ],
+      "sayQ": "88 plus 8 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 8,
+        "ones": 8
+      }
+    }
+  ]
+}

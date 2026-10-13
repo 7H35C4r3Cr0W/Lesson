@@ -1,0 +1,30 @@
+{
+  "id": "sentences.unit2",
+  "subject": "sentences",
+  "group": "read",
+  "order": 50,
+  "title": "Magic e sentences",
+  "emoji": "🎂",
+  "kind": "read",
+  "standards": ["RF.1.5.a", "RF.1.5.b", "RF.1.5.c", "RF.1.4.c", "RF.1.4.g"],
+  "about": "Fifteen sentences that add CKLA Unit 2 spellings (ee and the magic-e long vowels a_e, i_e, o_e, u_e) and the Unit 2 tricky words he, she, we, me, be, they, their, my, by, you, your. Expected around November.",
+  "tip": "If he reads a magic-e word short (cap for cape), point to the e and say the e makes the vowel say its name.",
+  "quiz": true,
+  "cards": [
+    { "id": "sentences.unit2.bake-cake", "text": "We like to bake a cake.", "emoji": "🎂", "note": "magic e in like, bake and cake; we: the e says its name" },
+    { "id": "sentences.unit2.bike-kite", "text": "She has a bike and a kite.", "emoji": "🪁", "note": "magic e in bike and kite; she: the e says its name" },
+    { "id": "sentences.unit2.green-tree", "text": "He can see the green tree.", "emoji": "🌳", "note": "ee says long e in see, green and tree; he: the e says its name" },
+    { "id": "sentences.unit2.cute-pup", "text": "I have a cute pup at home.", "emoji": "🐶", "note": "magic e in cute and home; have: the e makes no sound" },
+    { "id": "sentences.unit2.snake-rock", "text": "The snake hid by the rock.", "emoji": "🐍", "note": "magic e in snake; by: the y says long i" },
+    { "id": "sentences.unit2.sleep-tent", "text": "They sleep in a big tent.", "emoji": "⛺", "note": "ee in sleep; they: ey says long a" },
+    { "id": "sentences.unit2.gave-rose", "text": "Mom gave me a rose.", "emoji": "🌹", "note": "magic e in gave and rose; rose: the s says /z/; me: the e says its name" },
+    { "id": "sentences.unit2.mule-gate", "text": "The mule can jump the gate.", "emoji": "🐴", "note": "magic e in mule and gate" },
+    { "id": "sentences.unit2.feet-lake", "text": "My feet got wet in the lake.", "emoji": "🦶", "note": "ee in feet; magic e in lake; my: the y says long i" },
+    { "id": "sentences.unit2.wave-to-me", "text": "Can you wave to me?", "emoji": "👋", "note": "magic e in wave; you: says yoo; me: the e says its name. A question: let his voice go up" },
+    { "id": "sentences.unit2.five-cubes", "text": "Dave has five red cubes.", "emoji": "🎲", "note": "magic e in Dave, five and cubes; the s on cubes says /z/" },
+    { "id": "sentences.unit2.queen-bee", "text": "The queen bee has a hive.", "emoji": "🐝", "note": "qu and ee in queen; ee in bee; magic e in hive" },
+    { "id": "sentences.unit2.their-cat", "text": "Their cat sleeps on the bed.", "emoji": "🐱", "note": "their: sounds like there; ee in sleeps" },
+    { "id": "sentences.unit2.your-bike", "text": "Your bike is by the shed.", "emoji": "🚲", "note": "your: says yor; magic e in bike; by: the y says long i" },
+    { "id": "sentences.unit2.home-at-nine", "text": "I will be home at nine.", "emoji": "🏠", "note": "be: the e says its name; magic e in home and nine" }
+  ]
+}

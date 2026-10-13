@@ -1,0 +1,319 @@
+{
+  "id": "math.tens-plus-minus",
+  "subject": "math",
+  "group": "place",
+  "order": 210,
+  "title": "Tens Plus and Minus",
+  "emoji": "🧮",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.4",
+    "NC.1.NBT.6"
+  ],
+  "about": "Adding a multiple of ten to a two-digit number (43 + 30) and subtracting tens from tens (70 − 30). Only the tens digit moves; the ones stay put.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Say \"3 tens plus 3 more tens is 6 tens\" and let him finish with the ones.",
+  "cards": [
+    {
+      "id": "math.tens-plus-minus.c01",
+      "q": "43 + 30 = ?",
+      "a": "73",
+      "wrong": [
+        "46",
+        "83"
+      ],
+      "sayQ": "43 plus 30 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c02",
+      "q": "20 + 50 = ?",
+      "a": "70",
+      "wrong": [
+        "25",
+        "60"
+      ],
+      "sayQ": "20 plus 50 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c03",
+      "q": "15 + 10 = ?",
+      "a": "25",
+      "wrong": [
+        "16",
+        "35"
+      ],
+      "sayQ": "15 plus 10 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 5
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c04",
+      "q": "62 + 20 = ?",
+      "a": "82",
+      "wrong": [
+        "64",
+        "72"
+      ],
+      "sayQ": "62 plus 20 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 2
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c05",
+      "q": "30 + 30 = ?",
+      "a": "60",
+      "wrong": [
+        "33",
+        "50"
+      ],
+      "sayQ": "30 plus 30 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c06",
+      "q": "57 + 40 = ?",
+      "a": "97",
+      "wrong": [
+        "61",
+        "87"
+      ],
+      "sayQ": "57 plus 40 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 7
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c07",
+      "q": "10 + 80 = ?",
+      "a": "90",
+      "wrong": [
+        "18",
+        "80"
+      ],
+      "sayQ": "10 plus 80 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c08",
+      "q": "24 + 60 = ?",
+      "a": "84",
+      "wrong": [
+        "30",
+        "74"
+      ],
+      "sayQ": "24 plus 60 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 4
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c09",
+      "q": "36 + 50 = ?",
+      "a": "86",
+      "wrong": [
+        "41",
+        "76"
+      ],
+      "sayQ": "36 plus 50 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 6
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c10",
+      "q": "71 + 20 = ?",
+      "a": "91",
+      "wrong": [
+        "73",
+        "81"
+      ],
+      "sayQ": "71 plus 20 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 7,
+        "ones": 1
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c11",
+      "q": "70 − 30 = ?",
+      "a": "40",
+      "wrong": [
+        "4",
+        "30"
+      ],
+      "sayQ": "70 minus 30 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 7,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c12",
+      "q": "90 − 50 = ?",
+      "a": "40",
+      "wrong": [
+        "45",
+        "50"
+      ],
+      "sayQ": "90 minus 50 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 9,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c13",
+      "q": "40 − 40 = ?",
+      "a": "0",
+      "wrong": [
+        "4",
+        "40"
+      ],
+      "sayQ": "40 minus 40 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c14",
+      "q": "60 − 10 = ?",
+      "a": "50",
+      "wrong": [
+        "5",
+        "40"
+      ],
+      "sayQ": "60 minus 10 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c15",
+      "q": "80 − 20 = ?",
+      "a": "60",
+      "wrong": [
+        "6",
+        "70"
+      ],
+      "sayQ": "80 minus 20 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 8,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c16",
+      "q": "50 − 30 = ?",
+      "a": "20",
+      "wrong": [
+        "2",
+        "30"
+      ],
+      "sayQ": "50 minus 30 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c17",
+      "q": "30 − 20 = ?",
+      "a": "10",
+      "wrong": [
+        "1",
+        "20"
+      ],
+      "sayQ": "30 minus 20 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c18",
+      "q": "90 − 70 = ?",
+      "a": "20",
+      "wrong": [
+        "2",
+        "30"
+      ],
+      "sayQ": "90 minus 70 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 9,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c19",
+      "q": "60 − 40 = ?",
+      "a": "20",
+      "wrong": [
+        "24",
+        "30"
+      ],
+      "sayQ": "60 minus 40 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-plus-minus.c20",
+      "q": "80 − 50 = ?",
+      "a": "30",
+      "wrong": [
+        "3",
+        "20"
+      ],
+      "sayQ": "80 minus 50 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 8,
+        "ones": 0
+      }
+    }
+  ]
+}

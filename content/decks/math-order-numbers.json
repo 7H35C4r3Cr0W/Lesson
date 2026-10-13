@@ -1,0 +1,187 @@
+{
+  "id": "math.order-numbers",
+  "subject": "math",
+  "group": "place",
+  "order": 197,
+  "title": "Smallest to Biggest",
+  "emoji": "📈",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.3"
+  ],
+  "about": "Finding the smallest, biggest and middle number in a set of three two-digit numbers, which is how he puts numbers in order. This extends NC.1.NBT.3 (compare two-digit numbers by tens, then ones) from two numbers to three.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Ask \"which has the fewest tens?\" first; only compare the ones when the tens tie.",
+  "cards": [
+    {
+      "id": "math.order-numbers.small-48-84-44",
+      "q": "Which number is the smallest: 48, 84, 44?",
+      "a": "44",
+      "wrong": [
+        "48",
+        "84"
+      ],
+      "note": "44 and 48 both have 4 tens, so compare the ones: 4 is less than 8."
+    },
+    {
+      "id": "math.order-numbers.small-57-75-51",
+      "q": "Which number is the smallest: 57, 75, 51?",
+      "a": "51",
+      "wrong": [
+        "57",
+        "75"
+      ]
+    },
+    {
+      "id": "math.order-numbers.small-30-13-31",
+      "q": "Which number is the smallest: 30, 13, 31?",
+      "a": "13",
+      "wrong": [
+        "30",
+        "31"
+      ],
+      "note": "13 has only 1 ten."
+    },
+    {
+      "id": "math.order-numbers.small-96-69-66",
+      "q": "Which number is the smallest: 96, 69, 66?",
+      "a": "66",
+      "wrong": [
+        "96",
+        "69"
+      ]
+    },
+    {
+      "id": "math.order-numbers.big-28-82-88",
+      "q": "Which number is the biggest: 28, 82, 88?",
+      "a": "88",
+      "wrong": [
+        "28",
+        "82"
+      ]
+    },
+    {
+      "id": "math.order-numbers.big-54-45-59",
+      "q": "Which number is the biggest: 54, 45, 59?",
+      "a": "59",
+      "wrong": [
+        "54",
+        "45"
+      ],
+      "note": "54 and 59 both have 5 tens, so the ones decide."
+    },
+    {
+      "id": "math.order-numbers.big-70-17-77",
+      "q": "Which number is the biggest: 70, 17, 77?",
+      "a": "77",
+      "wrong": [
+        "70",
+        "17"
+      ]
+    },
+    {
+      "id": "math.order-numbers.big-39-93-33",
+      "q": "Which number is the biggest: 39, 93, 33?",
+      "a": "93",
+      "wrong": [
+        "39",
+        "33"
+      ]
+    },
+    {
+      "id": "math.order-numbers.first-26-62-16",
+      "q": "Put in order from smallest: 26, 62, 16. Which comes first?",
+      "a": "16",
+      "wrong": [
+        "26",
+        "62"
+      ]
+    },
+    {
+      "id": "math.order-numbers.first-85-58-50",
+      "q": "Put in order from smallest: 85, 58, 50. Which comes first?",
+      "a": "50",
+      "wrong": [
+        "85",
+        "58"
+      ],
+      "note": "50 and 58 share 5 tens; 50 has 0 ones, so it is first."
+    },
+    {
+      "id": "math.order-numbers.first-41-14-44",
+      "q": "Put in order from smallest: 41, 14, 44. Which comes first?",
+      "a": "14",
+      "wrong": [
+        "41",
+        "44"
+      ]
+    },
+    {
+      "id": "math.order-numbers.bigfirst-67-76-60",
+      "q": "Put in order from biggest: 67, 76, 60. Which comes first?",
+      "a": "76",
+      "wrong": [
+        "67",
+        "60"
+      ]
+    },
+    {
+      "id": "math.order-numbers.bigfirst-19-91-90",
+      "q": "Put in order from biggest: 19, 91, 90. Which comes first?",
+      "a": "91",
+      "wrong": [
+        "19",
+        "90"
+      ]
+    },
+    {
+      "id": "math.order-numbers.mid-25-52-35",
+      "q": "Which number is in the middle: 25, 52, 35?",
+      "a": "35",
+      "wrong": [
+        "25",
+        "52"
+      ],
+      "note": "In order it is 25, 35, 52."
+    },
+    {
+      "id": "math.order-numbers.mid-80-18-48",
+      "q": "Which number is in the middle: 80, 18, 48?",
+      "a": "48",
+      "wrong": [
+        "80",
+        "18"
+      ],
+      "note": "In order it is 18, 48, 80."
+    },
+    {
+      "id": "math.order-numbers.mid-63-36-46",
+      "q": "Which number is in the middle: 63, 36, 46?",
+      "a": "46",
+      "wrong": [
+        "63",
+        "36"
+      ],
+      "note": "In order it is 36, 46, 63."
+    },
+    {
+      "id": "math.order-numbers.last-72-27-20",
+      "q": "Put in order from smallest: 72, 27, 20. Which comes last?",
+      "a": "72",
+      "wrong": [
+        "27",
+        "20"
+      ]
+    },
+    {
+      "id": "math.order-numbers.last-11-99-55",
+      "q": "Put in order from smallest: 11, 99, 55. Which comes last?",
+      "a": "99",
+      "wrong": [
+        "11",
+        "55"
+      ]
+    }
+  ]
+}

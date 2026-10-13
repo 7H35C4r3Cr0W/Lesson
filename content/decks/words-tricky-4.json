@@ -1,0 +1,24 @@
+{
+  "id": "words.tricky-4",
+  "subject": "words",
+  "group": "tricky",
+  "order": 350,
+  "title": "Tricky words 4: days",
+  "emoji": "📅",
+  "kind": "read",
+  "standards": ["RF.1.4.g"],
+  "about": "The CKLA Unit 4 tricky words: the seven days of the week plus today, yesterday and tomorrow. Day names start with a capital letter because they are names.",
+  "tip": "Point to the capital letter and say: a day is a name, so it gets a capital.",
+  "cards": [
+    { "id": "words.tricky-4.sunday", "text": "Sunday", "parts": ["S", "u", "n", "d", "ay"], "tricky": [4], "emoji": "☀️", "note": "ay says long a; capital S, it is a name" },
+    { "id": "words.tricky-4.monday", "text": "Monday", "parts": ["M", "o", "n", "d", "ay"], "tricky": [1, 4], "emoji": "📅", "note": "o says u, ay says long a; capital M, it is a name" },
+    { "id": "words.tricky-4.tuesday", "text": "Tuesday", "parts": ["T", "ue", "s", "d", "ay"], "tricky": [1, 2, 4], "emoji": "📅", "note": "ue says oo, s says z, ay says long a" },
+    { "id": "words.tricky-4.wednesday", "text": "Wednesday", "parts": ["W", "e", "d", "n", "e", "s", "d", "ay"], "tricky": [2, 4, 5, 7], "emoji": "📅", "note": "say Wenz-day: the first d and second e make no sound, s says z, ay says long a" },
+    { "id": "words.tricky-4.thursday", "text": "Thursday", "parts": ["Th", "ur", "s", "d", "ay"], "tricky": [1, 2, 4], "emoji": "📅", "note": "ur says er, s says z, ay says long a" },
+    { "id": "words.tricky-4.friday", "text": "Friday", "parts": ["F", "r", "i", "d", "ay"], "tricky": [2, 4], "emoji": "📅", "note": "i says its name, ay says long a" },
+    { "id": "words.tricky-4.saturday", "text": "Saturday", "parts": ["S", "a", "t", "ur", "d", "ay"], "tricky": [3, 5], "emoji": "📅", "note": "ur says er, ay says long a" },
+    { "id": "words.tricky-4.today", "text": "today", "parts": ["t", "o", "d", "ay"], "tricky": [1, 3], "emoji": "📆", "note": "o says u, ay says long a" },
+    { "id": "words.tricky-4.yesterday", "text": "yesterday", "parts": ["y", "e", "s", "t", "er", "d", "ay"], "tricky": [6], "note": "ay says long a; er is regular" },
+    { "id": "words.tricky-4.tomorrow", "text": "tomorrow", "parts": ["t", "o", "m", "o", "rr", "ow"], "tricky": [1, 5], "note": "first o says u, ow says long o" }
+  ]
+}

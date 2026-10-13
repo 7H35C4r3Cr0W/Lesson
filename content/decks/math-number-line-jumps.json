@@ -1,0 +1,289 @@
+{
+  "id": "math.number-line-jumps",
+  "subject": "math",
+  "group": "add",
+  "order": 95,
+  "title": "Number Line Jumps",
+  "emoji": "🐸",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.6",
+    "NC.1.OA.4"
+  ],
+  "about": "Adding and taking away within 20 by hopping along a number line: start on the dot, jump right to add, jump back to take away, and count the jumps to find a missing part. The number line is one of the strategies NC.1.OA.6 names for adding and subtracting within 20, and the \"how many jumps\" cards are NC.1.OA.4 (finding an unknown addend by counting on).",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Put his finger on the dot and say the numbers as he hops; the start number is not a jump.",
+  "cards": [
+    {
+      "id": "math.number-line-jumps.right-7-3",
+      "q": "Start at 7. Jump 3 to the right. Where do you land?",
+      "a": "10",
+      "wrong": [
+        "9",
+        "4"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 7
+      }
+    },
+    {
+      "id": "math.number-line-jumps.right-4-5",
+      "q": "Start at 4. Jump 5 to the right. Where do you land?",
+      "a": "9",
+      "wrong": [
+        "8",
+        "10"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 4
+      }
+    },
+    {
+      "id": "math.number-line-jumps.right-2-6",
+      "q": "Start at 2. Jump 6 to the right. Where do you land?",
+      "a": "8",
+      "wrong": [
+        "7",
+        "9"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 2
+      }
+    },
+    {
+      "id": "math.number-line-jumps.right-9-4",
+      "q": "Start at 9. Jump 4 to the right. Where do you land?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "5"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 9
+      }
+    },
+    {
+      "id": "math.number-line-jumps.right-12-6",
+      "q": "The frog is on 12. It hops 6 to the right. Where does it stop?",
+      "a": "18",
+      "wrong": [
+        "17",
+        "6"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 12
+      }
+    },
+    {
+      "id": "math.number-line-jumps.right-15-5",
+      "q": "The frog is on 15. It hops 5 to the right. Where does it stop?",
+      "a": "20",
+      "wrong": [
+        "19",
+        "10"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 15
+      }
+    },
+    {
+      "id": "math.number-line-jumps.right-6-7",
+      "q": "The frog is on 6. It hops 7 to the right. Where does it stop?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 6
+      }
+    },
+    {
+      "id": "math.number-line-jumps.right-11-3",
+      "q": "Start at 11. Jump 3 to the right. Where do you land?",
+      "a": "14",
+      "wrong": [
+        "13",
+        "8"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 11
+      }
+    },
+    {
+      "id": "math.number-line-jumps.back-10-4",
+      "q": "Start at 10. Jump back 4. Where do you land?",
+      "a": "6",
+      "wrong": [
+        "7",
+        "14"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 10
+      }
+    },
+    {
+      "id": "math.number-line-jumps.back-12-4",
+      "q": "Start at 12. Jump back 4. Where do you land?",
+      "a": "8",
+      "wrong": [
+        "9",
+        "16"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 12
+      }
+    },
+    {
+      "id": "math.number-line-jumps.back-9-6",
+      "q": "Start at 9. Jump back 6. Where do you land?",
+      "a": "3",
+      "wrong": [
+        "4",
+        "15"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 9
+      }
+    },
+    {
+      "id": "math.number-line-jumps.back-15-7",
+      "q": "Start at 15. Jump back 7. Where do you land?",
+      "a": "8",
+      "wrong": [
+        "9",
+        "7"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 15
+      }
+    },
+    {
+      "id": "math.number-line-jumps.back-20-10",
+      "q": "The frog is on 20. It hops back 10. Where does it stop?",
+      "a": "10",
+      "wrong": [
+        "11",
+        "9"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 20
+      }
+    },
+    {
+      "id": "math.number-line-jumps.back-18-9",
+      "q": "The frog is on 18. It hops back 9. Where does it stop?",
+      "a": "9",
+      "wrong": [
+        "10",
+        "8"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 18
+      }
+    },
+    {
+      "id": "math.number-line-jumps.back-14-5",
+      "q": "The frog is on 14. It hops back 5. Where does it stop?",
+      "a": "9",
+      "wrong": [
+        "10",
+        "19"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 14
+      }
+    },
+    {
+      "id": "math.number-line-jumps.count-6-10",
+      "q": "Start at 6. How many jumps to the right to reach 10?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 10,
+        "mark": 6
+      }
+    },
+    {
+      "id": "math.number-line-jumps.count-8-13",
+      "q": "Start at 8. How many jumps to the right to reach 13?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 8
+      }
+    },
+    {
+      "id": "math.number-line-jumps.count-13-9",
+      "q": "Start at 13. How many jumps back to reach 9?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 13
+      }
+    }
+  ]
+}

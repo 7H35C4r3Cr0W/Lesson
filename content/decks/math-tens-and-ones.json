@@ -1,0 +1,327 @@
+{
+  "id": "math.tens-and-ones",
+  "subject": "math",
+  "group": "place",
+  "order": 180,
+  "title": "Tens and Ones",
+  "emoji": "🏗",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.2",
+    "NC.1.NBT.7"
+  ],
+  "about": "Two-digit numbers to 99 as tens and ones: 30 is 3 tens, 37 is 3 tens and 7 ones, and the blocks match the numeral. This is the heart of first-grade place value.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Ask \"how many rods, how many loose cubes?\" then say the number together.",
+  "cards": [
+    {
+      "id": "math.tens-and-ones.c01",
+      "q": "3 tens is what number?",
+      "a": "30",
+      "wrong": [
+        "3",
+        "13"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c02",
+      "q": "6 tens is what number?",
+      "a": "60",
+      "wrong": [
+        "6",
+        "16"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c03",
+      "q": "9 tens is what number?",
+      "a": "90",
+      "wrong": [
+        "9",
+        "19"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 9,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c04",
+      "q": "How many tens are in 40?",
+      "a": "4",
+      "wrong": [
+        "40",
+        "14"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c05",
+      "q": "How many tens are in 70?",
+      "a": "7",
+      "wrong": [
+        "70",
+        "17"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 7,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c06",
+      "q": "Count the blocks. What number is it?",
+      "a": "37",
+      "wrong": [
+        "73",
+        "10"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 7
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c07",
+      "q": "Count the blocks. What number is it?",
+      "a": "25",
+      "wrong": [
+        "52",
+        "7"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 5
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c08",
+      "q": "Count the blocks. What number is it?",
+      "a": "41",
+      "wrong": [
+        "14",
+        "5"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 1
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c09",
+      "q": "Count the blocks. What number is it?",
+      "a": "58",
+      "wrong": [
+        "85",
+        "13"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 8
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c10",
+      "q": "Count the blocks. What number is it?",
+      "a": "82",
+      "wrong": [
+        "28",
+        "10"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 8,
+        "ones": 2
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c11",
+      "q": "Count the blocks. What number is it?",
+      "a": "66",
+      "wrong": [
+        "12",
+        "60"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 6
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c12",
+      "q": "How many tens are in 43?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "43"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c13",
+      "q": "How many ones are in 43?",
+      "a": "3",
+      "wrong": [
+        "4",
+        "43"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c14",
+      "q": "How many tens are in 78?",
+      "a": "7",
+      "wrong": [
+        "8",
+        "78"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 7,
+        "ones": 8
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c15",
+      "q": "How many ones are in 91?",
+      "a": "1",
+      "wrong": [
+        "9",
+        "91"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 9,
+        "ones": 1
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c16",
+      "q": "How many tens are in 56?",
+      "a": "5",
+      "wrong": [
+        "6",
+        "56"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 6
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c17",
+      "q": "How many ones are in 20?",
+      "a": "0",
+      "wrong": [
+        "2",
+        "20"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c18",
+      "q": "2 tens and 9 ones is what number?",
+      "a": "29",
+      "wrong": [
+        "92",
+        "11"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 9
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c19",
+      "q": "5 tens and 3 ones is what number?",
+      "a": "53",
+      "wrong": [
+        "35",
+        "8"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c20",
+      "q": "7 tens and 0 ones is what number?",
+      "a": "70",
+      "wrong": [
+        "7",
+        "77"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 7,
+        "ones": 0
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c21",
+      "q": "8 tens and 4 ones is what number?",
+      "a": "84",
+      "wrong": [
+        "48",
+        "12"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 8,
+        "ones": 4
+      }
+    },
+    {
+      "id": "math.tens-and-ones.c22",
+      "q": "4 tens and 4 ones is what number?",
+      "a": "44",
+      "wrong": [
+        "8",
+        "40"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 4
+      }
+    }
+  ]
+}

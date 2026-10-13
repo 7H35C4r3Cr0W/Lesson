@@ -1,0 +1,138 @@
+{
+  "id": "science.day-night-sky",
+  "subject": "science",
+  "group": "earth",
+  "order": 30,
+  "title": "Day Sky, Night Sky",
+  "emoji": "☀️",
+  "kind": "qa",
+  "standards": ["ESS.1.1.1"],
+  "about": "What we see in the day sky and the night sky, and how the sun and moon seem to move across it (ESS.1.1.1). NC asks children to notice the apparent movement, not explain it.",
+  "tip": "Look out the same window in the morning and after dinner and talk about where the sun was each time.",
+  "quiz": true,
+  "readChoices": true,
+  "speakFront": true,
+  "cards": [
+    {
+      "id": "science.day-night-sky.sun",
+      "q": "What do we see in the day sky that gives us light and heat?",
+      "a": "the sun",
+      "wrong": ["the moon", "a cloud"],
+      "emoji": "☀️"
+    },
+    {
+      "id": "science.day-night-sky.night",
+      "q": "What do we see in the night sky?",
+      "a": "the moon and stars",
+      "wrong": ["the sun", "a rainbow"],
+      "emoji": "🌙"
+    },
+    {
+      "id": "science.day-night-sky.daymoon",
+      "q": "Can we ever see the moon in the daytime?",
+      "a": "yes, sometimes",
+      "wrong": ["never", "only in winter"],
+      "emoji": "🌙",
+      "note": "Look for a pale moon on a bright day."
+    },
+    {
+      "id": "science.day-night-sky.rise",
+      "q": "When does the sun seem to come up?",
+      "a": "in the morning",
+      "wrong": ["in the evening", "at midnight"],
+      "emoji": "🌅"
+    },
+    {
+      "id": "science.day-night-sky.set",
+      "q": "When does the sun seem to go down?",
+      "a": "in the evening",
+      "wrong": ["in the morning", "at lunch"],
+      "emoji": "🌇"
+    },
+    {
+      "id": "science.day-night-sky.high",
+      "q": "In the morning the sun is low. By midday, where does the sun seem to be?",
+      "a": "high in the sky",
+      "wrong": ["under the ground", "gone away"],
+      "emoji": "☀️",
+      "note": "Midday is the middle of the day. The sun seems highest then."
+    },
+    {
+      "id": "science.day-night-sky.safe",
+      "q": "Which one can hurt your eyes if you look right at it?",
+      "a": "the sun",
+      "wrong": ["the moon", "a tree"],
+      "emoji": "🕶️",
+      "note": "Never look right at the sun."
+    },
+    {
+      "id": "science.day-night-sky.star",
+      "q": "What kind of sky object is the sun?",
+      "a": "a star",
+      "wrong": ["a moon", "a cloud"],
+      "emoji": "⭐",
+      "note": "The sun is the star closest to us."
+    },
+    {
+      "id": "science.day-night-sky.small",
+      "q": "Why do stars look so small?",
+      "a": "they are far away",
+      "wrong": ["they are tiny", "they are hiding"],
+      "emoji": "✨",
+      "note": "Stars are very big, but very far away."
+    },
+    {
+      "id": "science.day-night-sky.whenstars",
+      "q": "When can we see lots of stars?",
+      "a": "at night",
+      "wrong": ["at lunch", "in the afternoon"],
+      "emoji": "🌃"
+    },
+    {
+      "id": "science.day-night-sky.move",
+      "q": "From morning to evening, what does the sun seem to do?",
+      "a": "move across the sky",
+      "wrong": ["stay in one spot", "blink on and off"],
+      "emoji": "☀️",
+      "note": "It only seems to move. We see this pattern every day."
+    },
+    {
+      "id": "science.day-night-sky.shape",
+      "q": "What shape does the sun look like in the sky?",
+      "a": "a circle",
+      "wrong": ["a square", "a triangle"],
+      "emoji": "☀️"
+    },
+    {
+      "id": "science.day-night-sky.after",
+      "q": "What comes after night?",
+      "a": "day",
+      "wrong": ["night", "winter"],
+      "emoji": "🌄",
+      "note": "Day and night repeat. That is a pattern."
+    },
+    {
+      "id": "science.day-night-sky.isnight",
+      "q": "The sky is dark and you see the moon. Is it day or night?",
+      "a": "night",
+      "wrong": ["day", "lunchtime"],
+      "emoji": "🌙"
+    },
+    {
+      "id": "science.day-night-sky.blue",
+      "q": "On a clear day, what color is the sky?",
+      "a": "blue",
+      "wrong": ["black", "green"],
+      "emoji": "🌤️",
+      "note": "Clouds are part of the day sky too."
+    },
+    {
+      "id": "science.day-night-sky.moonmove",
+      "q": "Watch the moon all night. What does it seem to do?",
+      "a": "move across the sky",
+      "wrong": ["stay in one spot", "get bigger"],
+      "emoji": "🌙",
+      "note": "The moon and stars seem to move too, just like the sun."
+    }
+  ]
+}

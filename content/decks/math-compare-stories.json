@@ -1,0 +1,257 @@
+{
+  "id": "math.compare-stories",
+  "subject": "math",
+  "group": "subtract",
+  "order": 165,
+  "title": "How Many More?",
+  "emoji": "🐚",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.1",
+    "NC.1.OA.4"
+  ],
+  "about": "Compare word problems within 20: how many more, how many fewer, and how many more are needed to reach a number. Compare with the difference unknown is one of the new Grade 1 problem types in NC.1.OA.1; the last three cards (\"Sam has 3 more than Mia\") are the bigger- and smaller-unknown kinds that NC places in Grade 2, included as a gentle stretch.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Draw the two groups in two rows, match them up one to one, and count the ones with no partner.",
+  "cards": [
+    {
+      "id": "math.compare-stories.shells",
+      "q": "Sam has 7 shells and Mia has 4. How many more does Sam have?",
+      "a": "3",
+      "wrong": [
+        "11",
+        "4"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.compare-stories.cars",
+      "q": "Ben has 10 cars and Ava has 6. How many more cars does Ben have?",
+      "a": "4",
+      "wrong": [
+        "16",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.compare-stories.books",
+      "q": "Mia read 12 books and Sam read 9. How many more books did Mia read?",
+      "a": "3",
+      "wrong": [
+        "9",
+        "4"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 12
+      }
+    },
+    {
+      "id": "math.compare-stories.cups",
+      "q": "There are 15 red cups and 8 blue cups. How many more red cups?",
+      "a": "7",
+      "wrong": [
+        "8",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 15
+      }
+    },
+    {
+      "id": "math.compare-stories.jumps",
+      "q": "Ava jumped 11 times and Ben jumped 5 times. How many more jumps did Ava do?",
+      "a": "6",
+      "wrong": [
+        "16",
+        "5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 11
+      }
+    },
+    {
+      "id": "math.compare-stories.towers",
+      "q": "A tall tower has 18 blocks and a short one has 10. How many more in the tall tower?",
+      "a": "8",
+      "wrong": [
+        "10",
+        "7"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 18
+      }
+    },
+    {
+      "id": "math.compare-stories.stickers",
+      "q": "Mia has 5 stickers and Ben has 9. How many fewer does Mia have?",
+      "a": "4",
+      "wrong": [
+        "14",
+        "5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.compare-stories.ducks",
+      "q": "There are 6 ducks and 13 geese. How many fewer ducks than geese?",
+      "a": "7",
+      "wrong": [
+        "6",
+        "19"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 13
+      }
+    },
+    {
+      "id": "math.compare-stories.crayons",
+      "q": "Ava has 8 crayons and Sam has 14. How many fewer crayons does Ava have?",
+      "a": "6",
+      "wrong": [
+        "8",
+        "5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 14
+      }
+    },
+    {
+      "id": "math.compare-stories.frogs",
+      "q": "Ben saw 3 frogs and Mia saw 10. How many fewer frogs did Ben see?",
+      "a": "7",
+      "wrong": [
+        "13",
+        "3"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.compare-stories.pets",
+      "q": "Ava has 2 pets and Ben has 6. How many fewer pets does Ava have?",
+      "a": "4",
+      "wrong": [
+        "8",
+        "2"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.compare-stories.need-10",
+      "q": "Mia has 6 shells. How many more does she need to have 10?",
+      "a": "4",
+      "wrong": [
+        "16",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.compare-stories.need-20",
+      "q": "Sam has 13 blocks. How many more does he need to have 20?",
+      "a": "7",
+      "wrong": [
+        "13",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 13
+      }
+    },
+    {
+      "id": "math.compare-stories.need-15",
+      "q": "Ben needs 15 cards for a game. He has 9. How many more does he need?",
+      "a": "6",
+      "wrong": [
+        "9",
+        "5"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 9
+      }
+    },
+    {
+      "id": "math.compare-stories.need-12",
+      "q": "Ava wants 12 balloons. She has 8. How many more does she need?",
+      "a": "4",
+      "wrong": [
+        "20",
+        "8"
+      ],
+      "visual": {
+        "type": "numberline",
+        "from": 0,
+        "to": 20,
+        "mark": 8
+      }
+    },
+    {
+      "id": "math.compare-stories.bigger-shells",
+      "q": "Mia has 4 shells. Sam has 3 more than Mia. How many shells does Sam have?",
+      "a": "7",
+      "wrong": [
+        "1",
+        "3"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 4
+      }
+    },
+    {
+      "id": "math.compare-stories.smaller-cars",
+      "q": "Ben has 9 cars. Ava has 2 fewer than Ben. How many cars does Ava have?",
+      "a": "7",
+      "wrong": [
+        "11",
+        "2"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.compare-stories.bigger-books",
+      "q": "Sam has 6 books. Mia has 5 more than Sam. How many books does Mia have?",
+      "a": "11",
+      "wrong": [
+        "1",
+        "5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    }
+  ]
+}

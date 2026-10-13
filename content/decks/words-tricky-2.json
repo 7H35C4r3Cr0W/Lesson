@@ -1,0 +1,25 @@
+{
+  "id": "words.tricky-2",
+  "subject": "words",
+  "group": "tricky",
+  "order": 330,
+  "title": "Tricky words 2",
+  "emoji": "🗝️",
+  "kind": "read",
+  "standards": ["RF.1.4.g"],
+  "about": "The 11 tricky words from CKLA Unit 2: he, she, be, me, we, they, their, my, by, you, your. In Unit 2 his class starts copying each one onto an index card and underlining the tricky part.",
+  "tip": "Have him write the word on a card and underline the tricky part, just like at school.",
+  "cards": [
+    { "id": "words.tricky-2.he", "text": "he", "parts": ["h", "e"], "tricky": [1], "note": "the e says its name" },
+    { "id": "words.tricky-2.she", "text": "she", "parts": ["sh", "e"], "tricky": [1], "note": "the e says its name" },
+    { "id": "words.tricky-2.be", "text": "be", "parts": ["b", "e"], "tricky": [1], "note": "the e says its name" },
+    { "id": "words.tricky-2.me", "text": "me", "parts": ["m", "e"], "tricky": [1], "note": "the e says its name" },
+    { "id": "words.tricky-2.we", "text": "we", "parts": ["w", "e"], "tricky": [1], "note": "the e says its name" },
+    { "id": "words.tricky-2.they", "text": "they", "parts": ["th", "ey"], "tricky": [1], "note": "ey says long a" },
+    { "id": "words.tricky-2.their", "text": "their", "parts": ["th", "eir"], "tricky": [1], "note": "eir says air" },
+    { "id": "words.tricky-2.my", "text": "my", "parts": ["m", "y"], "tricky": [1], "note": "the y says long i" },
+    { "id": "words.tricky-2.by", "text": "by", "parts": ["b", "y"], "tricky": [1], "note": "the y says long i" },
+    { "id": "words.tricky-2.you", "text": "you", "parts": ["y", "ou"], "tricky": [1], "note": "ou says oo" },
+    { "id": "words.tricky-2.your", "text": "your", "parts": ["y", "our"], "tricky": [1], "note": "our says or" }
+  ]
+}

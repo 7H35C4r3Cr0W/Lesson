@@ -1,0 +1,120 @@
+{
+  "id": "science.moon-changes",
+  "subject": "science",
+  "group": "earth",
+  "order": 40,
+  "title": "The Moon Changes",
+  "emoji": "🌙",
+  "kind": "qa",
+  "standards": ["ESS.1.1.2"],
+  "about": "Noticing that the moon's look changes a little each day in a pattern that repeats about every four weeks (ESS.1.1.2). NC does not require phase names or the reason, only the pattern.",
+  "tip": "Keep a moon chart on the fridge: draw what the moon looks like a few nights a week and ask what he thinks comes next.",
+  "quiz": true,
+  "readChoices": true,
+  "speakFront": true,
+  "cards": [
+    {
+      "id": "science.moon-changes.nightly",
+      "q": "How does the moon look from one night to the next?",
+      "a": "a little different",
+      "wrong": ["always the same", "always full"],
+      "emoji": "🌙"
+    },
+    {
+      "id": "science.moon-changes.daily",
+      "q": "How often does the moon's look change a little?",
+      "a": "every day",
+      "wrong": ["every year", "never"],
+      "emoji": "🌔"
+    },
+    {
+      "id": "science.moon-changes.month",
+      "q": "About how long until the moon looks the same again?",
+      "a": "about four weeks",
+      "wrong": ["one day", "one year"],
+      "emoji": "📅",
+      "note": "That is about one month."
+    },
+    {
+      "id": "science.moon-changes.repeat",
+      "q": "What does the moon pattern do?",
+      "a": "it repeats",
+      "wrong": ["it happens only once", "it never comes back"],
+      "emoji": "🔁",
+      "note": "A pattern is something that happens again and again."
+    },
+    {
+      "id": "science.moon-changes.seq1",
+      "q": "Look: 🌑 🌒 🌓. Which moon comes next?",
+      "sayQ": "Look at the moons. Which one comes next?",
+      "a": "🌔",
+      "sayA": "the moon that is almost full",
+      "wrong": ["🌑", "🌘"],
+      "emoji": "🔭"
+    },
+    {
+      "id": "science.moon-changes.seq2",
+      "q": "Look: 🌒 🌓 🌔. Which moon comes next?",
+      "sayQ": "Look at the moons. Which one comes next?",
+      "a": "🌕",
+      "sayA": "the full moon",
+      "wrong": ["🌑", "🌘"],
+      "emoji": "🔭"
+    },
+    {
+      "id": "science.moon-changes.seq3",
+      "q": "Look: 🌕 🌖 🌗. Which moon comes next?",
+      "sayQ": "Look at the moons. Which one comes next?",
+      "a": "🌘",
+      "sayA": "the thin moon",
+      "wrong": ["🌕", "🌔"],
+      "emoji": "🔭"
+    },
+    {
+      "id": "science.moon-changes.seq4",
+      "q": "Look: 🌔 🌕 🌖. Which moon comes next?",
+      "sayQ": "Look at the moons. Which one comes next?",
+      "a": "🌗",
+      "sayA": "the half moon",
+      "wrong": ["🌑", "🌒"],
+      "emoji": "🔭"
+    },
+    {
+      "id": "science.moon-changes.less",
+      "q": "After a full moon, how much of the moon do we see each night?",
+      "a": "less and less",
+      "wrong": ["more and more", "the same amount"],
+      "emoji": "🌖"
+    },
+    {
+      "id": "science.moon-changes.more",
+      "q": "Before a full moon, how much of the moon do we see each night?",
+      "a": "more and more",
+      "wrong": ["less and less", "the same amount"],
+      "emoji": "🌔"
+    },
+    {
+      "id": "science.moon-changes.chart",
+      "q": "How can you keep track of how the moon looks?",
+      "a": "a moon chart",
+      "wrong": ["a map", "a clock"],
+      "emoji": "📋",
+      "note": "Draw the moon a few nights each week."
+    },
+    {
+      "id": "science.moon-changes.predict",
+      "q": "What helps you guess how the moon will look next week?",
+      "a": "the pattern",
+      "wrong": ["a coin flip", "a dice roll"],
+      "emoji": "🤔"
+    },
+    {
+      "id": "science.moon-changes.light",
+      "q": "What lights up the moon?",
+      "a": "the sun",
+      "wrong": ["a flashlight", "a lamp"],
+      "emoji": "☀️",
+      "note": "The moon is always round. We see more or less of the side the sun lights."
+    }
+  ]
+}

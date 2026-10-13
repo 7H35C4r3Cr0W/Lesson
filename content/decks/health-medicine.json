@@ -1,0 +1,110 @@
+{
+  "id": "health.medicine",
+  "subject": "health",
+  "group": "safety",
+  "order": 60,
+  "title": "Medicine Safety",
+  "emoji": "💊",
+  "kind": "qa",
+  "standards": ["1.ANCOD.1.1", "1.ANCOD.1.2", "1.ANCOD.1.3", "1.ANCOD.1.4"],
+  "about": "Medicine is not candy, only a trusted adult gives it, too much can hurt, cleaning products are for grown-ups, and tell a grown-up if you find pills or an unmarked bottle. NC 1.ANCOD.1, which in Grade 1 is household product and medicine safety, not drugs.",
+  "tip": "Show him where medicines live in your home and that the cabinet stays closed and up high.",
+  "quiz": true,
+  "readChoices": true,
+  "speakFront": true,
+  "cards": [
+    {
+      "id": "health.medicine.not-candy",
+      "q": "Some pills look like candy. Are they candy?",
+      "a": "no, never",
+      "wrong": ["yes", "sometimes"],
+      "emoji": "🍬",
+      "note": "Medicine is never candy, even when it looks like it."
+    },
+    {
+      "id": "health.medicine.who-gives",
+      "q": "Who should give you medicine?",
+      "a": "a trusted adult",
+      "wrong": ["you", "a friend"],
+      "emoji": "💊"
+    },
+    {
+      "id": "health.medicine.friends-medicine",
+      "q": "Is it safe to take a friend's medicine?",
+      "a": "no",
+      "wrong": ["yes", "yes, if they say so"],
+      "emoji": "🚫"
+    },
+    {
+      "id": "health.medicine.too-much",
+      "q": "Can too much medicine hurt you?",
+      "a": "yes",
+      "wrong": ["no", "never"],
+      "emoji": "⚠️"
+    },
+    {
+      "id": "health.medicine.how-much",
+      "q": "Who decides how much medicine you get?",
+      "a": "a doctor or grown-up",
+      "wrong": ["you", "your friend"],
+      "emoji": "🏥"
+    },
+    {
+      "id": "health.medicine.pills-floor",
+      "q": "You find pills on the floor. What do you do?",
+      "a": "tell a grown-up",
+      "wrong": ["eat them", "hide them"],
+      "emoji": "🙋"
+    },
+    {
+      "id": "health.medicine.no-label",
+      "q": "You find a bottle with no label. Should you drink it?",
+      "a": "no, ask a grown-up",
+      "wrong": ["yes, if you are thirsty", "yes, if it smells good"],
+      "emoji": "🧴"
+    },
+    {
+      "id": "health.medicine.where-kept",
+      "q": "Where do medicines belong?",
+      "a": "up high and locked away",
+      "wrong": ["on the floor", "in your toy box"],
+      "emoji": "🔒"
+    },
+    {
+      "id": "health.medicine.sprays-who",
+      "q": "Who are cleaning sprays for?",
+      "a": "grown-ups",
+      "wrong": ["kids", "pets"],
+      "emoji": "🧽"
+    },
+    {
+      "id": "health.medicine.smell-taste",
+      "q": "Should you smell or taste cleaning products?",
+      "a": "no",
+      "wrong": ["yes", "only a little"],
+      "emoji": "❌"
+    },
+    {
+      "id": "health.medicine.spray-ask",
+      "q": "Before you touch a spray bottle at home, what do you do?",
+      "a": "ask a grown-up",
+      "wrong": ["just grab it", "spray a friend"],
+      "emoji": "💦"
+    },
+    {
+      "id": "health.medicine.baby-pill",
+      "q": "You see a baby reaching for a pill. What do you do?",
+      "a": "tell a grown-up right away",
+      "wrong": ["just watch", "eat it yourself"],
+      "emoji": "👶"
+    },
+    {
+      "id": "health.medicine.call-help",
+      "q": "Someone swallowed something that is not food. What does a grown-up do?",
+      "a": "call for help right away",
+      "wrong": ["wait until tomorrow", "take a nap"],
+      "emoji": "☎️",
+      "note": "Grown-ups can call Poison Help at 1-800-222-1222 or 9-1-1."
+    }
+  ]
+}

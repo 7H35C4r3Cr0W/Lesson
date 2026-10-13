@@ -1,0 +1,30 @@
+{
+  "id": "words.tch",
+  "subject": "words",
+  "group": "more",
+  "order": 220,
+  "title": "Tch words",
+  "emoji": "⚾",
+  "kind": "read",
+  "standards": ["RF.1.4.a", "RF.1.4.b"],
+  "about": "CKLA Unit 5 adds tch, a three-letter way to spell the ch sound right after a short vowel (catch, match).",
+  "tip": "Three letters, one sound; it comes right after a short vowel.",
+  "cards": [
+    { "id": "words.tch.catch", "text": "catch", "parts": ["c", "a", "tch"], "emoji": "⚾", "note": "tch says /ch/: three letters, one sound, right after the short a" },
+    { "id": "words.tch.match", "text": "match", "parts": ["m", "a", "tch"], "note": "tch says /ch/: three letters, one sound" },
+    { "id": "words.tch.fetch", "text": "fetch", "parts": ["f", "e", "tch"], "emoji": "🐕", "note": "tch says /ch/: three letters, one sound, right after the short e" },
+    { "id": "words.tch.patch", "text": "patch", "parts": ["p", "a", "tch"], "note": "tch says /ch/: three letters, one sound" },
+    { "id": "words.tch.pitch", "text": "pitch", "parts": ["p", "i", "tch"], "note": "tch says /ch/: three letters, one sound, right after the short i" },
+    { "id": "words.tch.switch", "text": "switch", "parts": ["s", "w", "i", "tch"], "emoji": "💡", "note": "s-w blend, then tch says /ch/ in one part" },
+    { "id": "words.tch.ditch", "text": "ditch", "parts": ["d", "i", "tch"], "note": "tch says /ch/: three letters, one sound" },
+    { "id": "words.tch.hatch", "text": "hatch", "parts": ["h", "a", "tch"], "emoji": "🐣", "note": "tch says /ch/: three letters, one sound" },
+    { "id": "words.tch.latch", "text": "latch", "parts": ["l", "a", "tch"], "note": "tch says /ch/: three letters, one sound; a latch keeps a gate shut" },
+    { "id": "words.tch.notch", "text": "notch", "parts": ["n", "o", "tch"], "note": "tch says /ch/: three letters, one sound, right after the short o" },
+    { "id": "words.tch.hutch", "text": "hutch", "parts": ["h", "u", "tch"], "emoji": "🐰", "note": "tch says /ch/, right after the short u; a hutch is a rabbit's house" },
+    { "id": "words.tch.stitch", "text": "stitch", "parts": ["s", "t", "i", "tch"], "emoji": "🧵", "note": "s-t blend, then tch says /ch/ in one part" },
+    { "id": "words.tch.sketch", "text": "sketch", "parts": ["s", "k", "e", "tch"], "emoji": "✏️", "note": "s-k blend, then tch says /ch/ in one part" },
+    { "id": "words.tch.scratch", "text": "scratch", "parts": ["s", "c", "r", "a", "tch"], "note": "s-c-r blend, then tch says /ch/ in one part" },
+    { "id": "words.tch.stretch", "text": "stretch", "parts": ["s", "t", "r", "e", "tch"], "emoji": "🤸", "note": "s-t-r blend, then tch says /ch/ in one part" },
+    { "id": "words.tch.itch", "text": "itch", "parts": ["i", "tch"], "note": "tch says /ch/: three letters, one sound, right after the short i" }
+  ]
+}

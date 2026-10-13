@@ -1,0 +1,215 @@
+{
+  "id": "math.doubles-plus-one",
+  "subject": "math",
+  "group": "add",
+  "order": 85,
+  "title": "Doubles Plus One",
+  "emoji": "👟",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.6"
+  ],
+  "about": "Using a double he knows to get a near double: 4 + 4 = 8, so 4 + 5 is one more, 9. NC.1.OA.6 names \"creating equivalent but easier or known sums\" as a strategy for adding within 20; this deck makes that step explicit instead of only asking the fact.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Ask \"which two numbers are almost the same? Double the smaller one, then add one more.\"",
+  "cards": [
+    {
+      "id": "math.doubles-plus-one.d1",
+      "q": "1 + 1 = 2, so 1 + 2 = ?",
+      "a": "3",
+      "wrong": [
+        "2",
+        "4"
+      ],
+      "sayQ": "1 plus 1 equals 2, so 1 plus 2 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 1
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.d2",
+      "q": "Double 2 is 4. What is 2 + 3?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 2
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.d3",
+      "q": "3 + 3 = 6, so 3 + 4 = ?",
+      "a": "7",
+      "wrong": [
+        "6",
+        "8"
+      ],
+      "sayQ": "3 plus 3 equals 6, so 3 plus 4 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 3
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.d4",
+      "q": "Double 4 is 8. What is 4 + 5?",
+      "a": "9",
+      "wrong": [
+        "8",
+        "10"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 4
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.d5",
+      "q": "5 + 5 = 10, so 5 + 6 = ?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "sayQ": "5 plus 5 equals 10, so 5 plus 6 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 5
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.d6",
+      "q": "Double 6 is 12. What is 6 + 7?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.d7",
+      "q": "7 + 7 = 14, so 7 + 8 = ?",
+      "a": "15",
+      "wrong": [
+        "14",
+        "16"
+      ],
+      "sayQ": "7 plus 7 equals 14, so 7 plus 8 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.d8",
+      "q": "Double 8 is 16. What is 8 + 9?",
+      "a": "17",
+      "wrong": [
+        "16",
+        "18"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.d9",
+      "q": "9 + 9 = 18, so 9 + 10 = ?",
+      "a": "19",
+      "wrong": [
+        "18",
+        "20"
+      ],
+      "sayQ": "9 plus 9 equals 18, so 9 plus 10 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.which-6",
+      "q": "6 + 7 is one more than which double?",
+      "a": "6 + 6",
+      "wrong": [
+        "7 + 7",
+        "5 + 5"
+      ]
+    },
+    {
+      "id": "math.doubles-plus-one.which-4",
+      "q": "4 + 5 is one more than which double?",
+      "a": "4 + 4",
+      "wrong": [
+        "5 + 5",
+        "3 + 3"
+      ]
+    },
+    {
+      "id": "math.doubles-plus-one.which-8",
+      "q": "8 + 9 is one more than which double?",
+      "a": "8 + 8",
+      "wrong": [
+        "9 + 9",
+        "7 + 7"
+      ]
+    },
+    {
+      "id": "math.doubles-plus-one.which-3",
+      "q": "3 + 4 is one more than which double?",
+      "a": "3 + 3",
+      "wrong": [
+        "4 + 4",
+        "2 + 2"
+      ]
+    },
+    {
+      "id": "math.doubles-plus-one.think-7",
+      "q": "Think 7 + 7 and 1 more. What is 8 + 7?",
+      "a": "15",
+      "wrong": [
+        "14",
+        "16"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.think-8",
+      "q": "Think 8 + 8 and 1 more. What is 9 + 8?",
+      "a": "17",
+      "wrong": [
+        "16",
+        "18"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.doubles-plus-one.think-6",
+      "q": "Think 6 + 6 and 1 more. What is 7 + 6?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    }
+  ]
+}

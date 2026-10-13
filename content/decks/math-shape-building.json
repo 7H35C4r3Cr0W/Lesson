@@ -1,0 +1,186 @@
+{
+  "id": "math.shape-building",
+  "subject": "math",
+  "group": "shapes",
+  "order": 300,
+  "title": "Put Shapes Together",
+  "emoji": "🏠",
+  "kind": "qa",
+  "standards": [
+    "NC.1.G.2"
+  ],
+  "about": "Making new shapes from old ones (two squares make a rectangle, two trapezoids make a hexagon, a cube with a cone on top makes a tower) and naming the parts. NC lists this as its own standard.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Build it with pattern blocks or boxes first, then ask \"what did we use?\"",
+  "cards": [
+    {
+      "id": "math.shape-building.c01",
+      "q": "Two squares side by side make what shape?",
+      "a": "rectangle",
+      "wrong": [
+        "triangle",
+        "circle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangle",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.shape-building.c02",
+      "q": "Two half-circles make what shape?",
+      "a": "circle",
+      "wrong": [
+        "square",
+        "triangle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "circle",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.shape-building.c03",
+      "q": "Two trapezoids can make what shape?",
+      "a": "hexagon",
+      "wrong": [
+        "circle",
+        "triangle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "hexagon",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.shape-building.c04",
+      "q": "Six triangles can make what shape?",
+      "a": "hexagon",
+      "wrong": [
+        "square",
+        "circle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "hexagon",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.shape-building.c05",
+      "q": "A house is a square with a triangle on top. What shape is the roof?",
+      "a": "triangle",
+      "wrong": [
+        "square",
+        "circle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "triangle",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.shape-building.c06",
+      "q": "A bus is a rectangle with two circles under it. What shapes are the wheels?",
+      "a": "circles",
+      "wrong": [
+        "squares",
+        "triangles"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "circle",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.shape-building.c07",
+      "q": "Which two shapes make a square?",
+      "a": "two triangles",
+      "wrong": [
+        "two circles",
+        "two hexagons"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "square",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.shape-building.c08",
+      "q": "A tower is a cube with a cone on top. What is on top?",
+      "a": "cone",
+      "wrong": [
+        "cube",
+        "sphere"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cone",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.shape-building.c09",
+      "q": "A can with a box on top: what shape is the can?",
+      "a": "cylinder",
+      "wrong": [
+        "cube",
+        "cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.shape-building.c10",
+      "q": "Two cubes stacked up make what shape?",
+      "a": "rectangular prism",
+      "wrong": [
+        "sphere",
+        "cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangular-prism",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.shape-building.c11",
+      "q": "A crayon is a cylinder with a cone on the end. What shape is the long part?",
+      "a": "cylinder",
+      "wrong": [
+        "cone",
+        "cube"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.shape-building.c12",
+      "q": "A half-circle sits on top of a rectangle. What is the top shape?",
+      "a": "half-circle",
+      "wrong": [
+        "triangle",
+        "square"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "half-circle",
+        "color": "gold"
+      }
+    }
+  ]
+}

@@ -1,0 +1,478 @@
+{
+  "id": "math.read-the-graph",
+  "subject": "math",
+  "group": "measure",
+  "order": 245,
+  "title": "Read the Graph",
+  "emoji": "📋",
+  "kind": "qa",
+  "standards": [
+    "NC.1.MD.4"
+  ],
+  "about": "Answering questions from a picture graph: how many in a row, how many in all, how many more or fewer, and which row has the most or fewest. NC.1.MD.4 asks him to read data in up to three categories with at most 20 points; the four-row flower graph is a small stretch past that.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "For \"how many more\", cover the part that matches and count only what sticks out.",
+  "cards": [
+    {
+      "id": "math.read-the-graph.a-cookies",
+      "q": "Look at the graph. How many cookies?",
+      "a": "8",
+      "wrong": [
+        "6",
+        "3"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🍎",
+            "n": 6
+          },
+          {
+            "label": "🍌",
+            "n": 3
+          },
+          {
+            "label": "🍪",
+            "n": 8
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.read-the-graph.a-more-cookies",
+      "q": "How many more cookies than bananas?",
+      "a": "5",
+      "wrong": [
+        "3",
+        "11"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🍎",
+            "n": 6
+          },
+          {
+            "label": "🍌",
+            "n": 3
+          },
+          {
+            "label": "🍪",
+            "n": 8
+          }
+        ]
+      },
+      "note": "8 cookies, 3 bananas. 3 and 5 more makes 8."
+    },
+    {
+      "id": "math.read-the-graph.a-fewest",
+      "q": "Which snack has the fewest?",
+      "a": "🍌",
+      "wrong": [
+        "🍎",
+        "🍪"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🍎",
+            "n": 6
+          },
+          {
+            "label": "🍌",
+            "n": 3
+          },
+          {
+            "label": "🍪",
+            "n": 8
+          }
+        ]
+      },
+      "sayA": "banana"
+    },
+    {
+      "id": "math.read-the-graph.a-in-all",
+      "q": "How many snacks in all?",
+      "a": "17",
+      "wrong": [
+        "14",
+        "9"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🍎",
+            "n": 6
+          },
+          {
+            "label": "🍌",
+            "n": 3
+          },
+          {
+            "label": "🍪",
+            "n": 8
+          }
+        ]
+      },
+      "note": "6 + 3 + 8 = 17."
+    },
+    {
+      "id": "math.read-the-graph.b-rabbits",
+      "q": "How many rabbits?",
+      "a": "5",
+      "wrong": [
+        "9",
+        "4"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🐦",
+            "n": 9
+          },
+          {
+            "label": "🐰",
+            "n": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.read-the-graph.b-more-birds",
+      "q": "How many more birds than rabbits?",
+      "a": "4",
+      "wrong": [
+        "5",
+        "14"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🐦",
+            "n": 9
+          },
+          {
+            "label": "🐰",
+            "n": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.read-the-graph.b-in-all",
+      "q": "How many animals in all?",
+      "a": "14",
+      "wrong": [
+        "9",
+        "4"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🐦",
+            "n": 9
+          },
+          {
+            "label": "🐰",
+            "n": 5
+          }
+        ]
+      },
+      "note": "9 + 5 = 14."
+    },
+    {
+      "id": "math.read-the-graph.c-bus",
+      "q": "How many kids ride the bus?",
+      "a": "7",
+      "wrong": [
+        "6",
+        "4"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🚌",
+            "n": 7
+          },
+          {
+            "label": "🚗",
+            "n": 6
+          },
+          {
+            "label": "🚶",
+            "n": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.read-the-graph.c-most",
+      "q": "Which way to school has the most kids?",
+      "a": "🚌",
+      "wrong": [
+        "🚗",
+        "🚶"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🚌",
+            "n": 7
+          },
+          {
+            "label": "🚗",
+            "n": 6
+          },
+          {
+            "label": "🚶",
+            "n": 4
+          }
+        ]
+      },
+      "sayA": "bus"
+    },
+    {
+      "id": "math.read-the-graph.c-fewer-walk",
+      "q": "How many fewer kids walk than ride the bus?",
+      "a": "3",
+      "wrong": [
+        "4",
+        "7"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🚌",
+            "n": 7
+          },
+          {
+            "label": "🚗",
+            "n": 6
+          },
+          {
+            "label": "🚶",
+            "n": 4
+          }
+        ]
+      },
+      "note": "4 walk, 7 ride the bus. 4 and 3 more makes 7."
+    },
+    {
+      "id": "math.read-the-graph.c-car-or-walk",
+      "q": "How many kids ride in a car or walk?",
+      "a": "10",
+      "wrong": [
+        "13",
+        "6"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🚌",
+            "n": 7
+          },
+          {
+            "label": "🚗",
+            "n": 6
+          },
+          {
+            "label": "🚶",
+            "n": 4
+          }
+        ]
+      },
+      "note": "6 + 4 = 10."
+    },
+    {
+      "id": "math.read-the-graph.d-tulips",
+      "q": "How many tulips?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "3"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🌸",
+            "n": 4
+          },
+          {
+            "label": "🌻",
+            "n": 2
+          },
+          {
+            "label": "🌷",
+            "n": 5
+          },
+          {
+            "label": "🌹",
+            "n": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.read-the-graph.d-fewest",
+      "q": "Which flower has the fewest?",
+      "a": "🌻",
+      "wrong": [
+        "🌸",
+        "🌷",
+        "🌹"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🌸",
+            "n": 4
+          },
+          {
+            "label": "🌻",
+            "n": 2
+          },
+          {
+            "label": "🌷",
+            "n": 5
+          },
+          {
+            "label": "🌹",
+            "n": 3
+          }
+        ]
+      },
+      "sayA": "sunflower"
+    },
+    {
+      "id": "math.read-the-graph.d-in-all",
+      "q": "How many flowers in all?",
+      "a": "14",
+      "wrong": [
+        "12",
+        "10"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🌸",
+            "n": 4
+          },
+          {
+            "label": "🌻",
+            "n": 2
+          },
+          {
+            "label": "🌷",
+            "n": 5
+          },
+          {
+            "label": "🌹",
+            "n": 3
+          }
+        ]
+      },
+      "note": "4 + 2 + 5 + 3 = 14."
+    },
+    {
+      "id": "math.read-the-graph.d-more-tulips",
+      "q": "How many more tulips than sunflowers?",
+      "a": "3",
+      "wrong": [
+        "2",
+        "7"
+      ],
+      "visual": {
+        "type": "graph",
+        "rows": [
+          {
+            "label": "🌸",
+            "n": 4
+          },
+          {
+            "label": "🌻",
+            "n": 2
+          },
+          {
+            "label": "🌷",
+            "n": 5
+          },
+          {
+            "label": "🌹",
+            "n": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "math.read-the-graph.tally-cars",
+      "q": "Max counted cars with tally marks. How many cars?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 11
+      },
+      "note": "Two bundles of 5 and 1 more."
+    },
+    {
+      "id": "math.read-the-graph.tally-birds",
+      "q": "Jo made a tally mark for each bird she saw. How many birds?",
+      "a": "14",
+      "wrong": [
+        "13",
+        "15"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 14
+      },
+      "note": "Two bundles of 5 and 4 more."
+    },
+    {
+      "id": "math.read-the-graph.tally-sunny",
+      "q": "The class tallied the sunny days. How many sunny days?",
+      "a": "18",
+      "wrong": [
+        "17",
+        "19"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 18
+      },
+      "note": "Three bundles of 5 and 3 more."
+    },
+    {
+      "id": "math.read-the-graph.tally-groups",
+      "q": "How many groups of 5 are in these tally marks?",
+      "a": "2",
+      "wrong": [
+        "10",
+        "5"
+      ],
+      "visual": {
+        "type": "tally",
+        "n": 10
+      },
+      "note": "Every fifth mark crosses the bundle. Count the bundles."
+    }
+  ]
+}

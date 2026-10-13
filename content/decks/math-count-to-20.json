@@ -1,0 +1,298 @@
+{
+  "id": "math.count-to-20",
+  "subject": "math",
+  "group": "count",
+  "order": 10,
+  "title": "Count to 20",
+  "emoji": "🍓",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.7"
+  ],
+  "about": "Counting a set of things and matching it to the numeral, 1 to 20. This is the base for every other math level.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Have him touch each picture as he counts; the rows are groups of five, so 7 is a full row and two more.",
+  "cards": [
+    {
+      "id": "math.count-to-20.c01",
+      "q": "How many flowers?",
+      "a": "1",
+      "wrong": [
+        "2",
+        "3"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🌸",
+        "n": 1
+      }
+    },
+    {
+      "id": "math.count-to-20.c02",
+      "q": "How many stars?",
+      "a": "2",
+      "wrong": [
+        "1",
+        "3"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "⭐",
+        "n": 2
+      }
+    },
+    {
+      "id": "math.count-to-20.c03",
+      "q": "How many apples?",
+      "a": "3",
+      "wrong": [
+        "2",
+        "4"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🍎",
+        "n": 3
+      }
+    },
+    {
+      "id": "math.count-to-20.c04",
+      "q": "How many cats?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🐱",
+        "n": 4
+      }
+    },
+    {
+      "id": "math.count-to-20.c05",
+      "q": "How many ducks?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🦆",
+        "n": 5
+      }
+    },
+    {
+      "id": "math.count-to-20.c06",
+      "q": "How many balls?",
+      "a": "6",
+      "wrong": [
+        "5",
+        "7"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "⚽",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.count-to-20.c07",
+      "q": "How many fish?",
+      "a": "7",
+      "wrong": [
+        "6",
+        "8"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🐟",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.count-to-20.c08",
+      "q": "How many cars?",
+      "a": "8",
+      "wrong": [
+        "7",
+        "9"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🚗",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.count-to-20.c09",
+      "q": "How many bugs?",
+      "a": "9",
+      "wrong": [
+        "8",
+        "10"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🐞",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.count-to-20.c10",
+      "q": "How many frogs?",
+      "a": "10",
+      "wrong": [
+        "9",
+        "11"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🐸",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.count-to-20.c11",
+      "q": "How many bananas?",
+      "a": "11",
+      "wrong": [
+        "10",
+        "12"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🍌",
+        "n": 11
+      }
+    },
+    {
+      "id": "math.count-to-20.c12",
+      "q": "How many strawberries?",
+      "a": "12",
+      "wrong": [
+        "11",
+        "13"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🍓",
+        "n": 12
+      }
+    },
+    {
+      "id": "math.count-to-20.c13",
+      "q": "How many leaves?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🍃",
+        "n": 13
+      }
+    },
+    {
+      "id": "math.count-to-20.c14",
+      "q": "How many bees?",
+      "a": "14",
+      "wrong": [
+        "13",
+        "15"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🐝",
+        "n": 14
+      }
+    },
+    {
+      "id": "math.count-to-20.c15",
+      "q": "How many cookies?",
+      "a": "15",
+      "wrong": [
+        "14",
+        "16"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🍪",
+        "n": 15
+      }
+    },
+    {
+      "id": "math.count-to-20.c16",
+      "q": "How many dogs?",
+      "a": "16",
+      "wrong": [
+        "15",
+        "17"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🐶",
+        "n": 16
+      }
+    },
+    {
+      "id": "math.count-to-20.c17",
+      "q": "How many shells?",
+      "a": "17",
+      "wrong": [
+        "16",
+        "18"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🐚",
+        "n": 17
+      }
+    },
+    {
+      "id": "math.count-to-20.c18",
+      "q": "How many birds?",
+      "a": "18",
+      "wrong": [
+        "17",
+        "19"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🐦",
+        "n": 18
+      }
+    },
+    {
+      "id": "math.count-to-20.c19",
+      "q": "How many hats?",
+      "a": "19",
+      "wrong": [
+        "18",
+        "20"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🎩",
+        "n": 19
+      }
+    },
+    {
+      "id": "math.count-to-20.c20",
+      "q": "How many cherries?",
+      "a": "20",
+      "wrong": [
+        "19",
+        "10"
+      ],
+      "visual": {
+        "type": "count",
+        "emoji": "🍒",
+        "n": 20
+      }
+    }
+  ]
+}

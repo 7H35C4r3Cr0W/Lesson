@@ -1,0 +1,265 @@
+{
+  "id": "math.time-hour",
+  "subject": "math",
+  "group": "time",
+  "order": 250,
+  "title": "Time to the Hour",
+  "emoji": "🕒",
+  "kind": "qa",
+  "standards": [
+    "NC.1.MD.3"
+  ],
+  "about": "Reading and writing times like 3:00 on an analog clock and a digital clock, and knowing the short hand shows the hour while the long hand points to 12. NC asks for both kinds of clock.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Say \"short hand first: what number is it pointing to?\"",
+  "cards": [
+    {
+      "id": "math.time-hour.c01",
+      "q": "What time is it?",
+      "a": "3:00",
+      "wrong": [
+        "4:00",
+        "12:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 3,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c02",
+      "q": "What time is it?",
+      "a": "7:00",
+      "wrong": [
+        "8:00",
+        "6:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 7,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c03",
+      "q": "What time is it?",
+      "a": "12:00",
+      "wrong": [
+        "6:00",
+        "1:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 12,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c04",
+      "q": "What time is it?",
+      "a": "9:00",
+      "wrong": [
+        "3:00",
+        "10:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 9,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c05",
+      "q": "What time is it?",
+      "a": "1:00",
+      "wrong": [
+        "12:00",
+        "2:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 1,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c06",
+      "q": "What time is it?",
+      "a": "6:00",
+      "wrong": [
+        "12:00",
+        "5:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 6,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c07",
+      "q": "What time is it?",
+      "a": "11:00",
+      "wrong": [
+        "12:00",
+        "10:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 11,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c08",
+      "q": "What time is it?",
+      "a": "4:00",
+      "wrong": [
+        "8:00",
+        "5:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 4,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c09",
+      "q": "What time is it?",
+      "a": "8:00",
+      "wrong": [
+        "4:00",
+        "9:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 8,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c10",
+      "q": "What time is it?",
+      "a": "2:00",
+      "wrong": [
+        "10:00",
+        "3:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 2,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c11",
+      "q": "What time does this clock show?",
+      "a": "10:00",
+      "wrong": [
+        "1:00",
+        "10:30"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 10,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c12",
+      "q": "What time does this clock show?",
+      "a": "6:00",
+      "wrong": [
+        "9:00",
+        "6:30"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 6,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c13",
+      "q": "It is 5:00. What number does the long hand point to?",
+      "a": "12",
+      "wrong": [
+        "5",
+        "6"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 5,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c14",
+      "q": "It is 5:00. What number does the short hand point to?",
+      "a": "5",
+      "wrong": [
+        "12",
+        "6"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 5,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c15",
+      "q": "How many minutes are in one hour?",
+      "a": "60",
+      "wrong": [
+        "30",
+        "100"
+      ]
+    },
+    {
+      "id": "math.time-hour.c16",
+      "q": "At 8:00, what number does the long hand point to?",
+      "a": "12",
+      "wrong": [
+        "8",
+        "6"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 8,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c17",
+      "q": "At 2:00, what number does the short hand point to?",
+      "a": "2",
+      "wrong": [
+        "12",
+        "3"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 2,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.time-hour.c18",
+      "q": "It is 9:00. What time will it be one hour later?",
+      "a": "10:00",
+      "wrong": [
+        "8:00",
+        "9:30"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 9,
+        "m": 0
+      }
+    }
+  ]
+}

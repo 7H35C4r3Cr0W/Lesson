@@ -1,0 +1,33 @@
+{
+  "id": "words.ew-ue",
+  "subject": "words",
+  "group": "more",
+  "order": 278,
+  "title": "Ew and ue: new, blue",
+  "emoji": "🔵",
+  "kind": "read",
+  "standards": ["RF.1.4.c"],
+  "about": "Two spellings that say oo, as in new and blue (in a few words, like few and rescue, there is a little y in front: yoo, the long u sound). CKLA Grade 1 teaches only oo for this sound (Unit 3) and leaves ew and ue to Grade 2, so this is the last step-ahead level, for the end of the year; NC RF.1.4.c (vowel teams for long vowel sounds).",
+  "tip": "Both teams say oo like moon; if it sounds odd, add a little y in front (few, cue).",
+  "cards": [
+    { "id": "words.ew-ue.new", "text": "new", "parts": ["n", "ew"], "note": "ew says oo, with a little y: nyoo or noo, both are right" },
+    { "id": "words.ew-ue.few", "text": "few", "parts": ["f", "ew"], "note": "ew says yoo here, like few" },
+    { "id": "words.ew-ue.grew", "text": "grew", "parts": ["g", "r", "ew"], "emoji": "🌱", "note": "g-r blend, then ew says oo" },
+    { "id": "words.ew-ue.chew", "text": "chew", "parts": ["ch", "ew"], "emoji": "🍬", "note": "ch is one part; ew says oo" },
+    { "id": "words.ew-ue.flew", "text": "flew", "parts": ["f", "l", "ew"], "emoji": "🐦", "note": "f-l blend, then ew says oo" },
+    { "id": "words.ew-ue.stew", "text": "stew", "parts": ["s", "t", "ew"], "emoji": "🍲", "note": "s-t blend, then ew says oo" },
+    { "id": "words.ew-ue.drew", "text": "drew", "parts": ["d", "r", "ew"], "emoji": "🎨", "note": "d-r blend, then ew says oo" },
+    { "id": "words.ew-ue.threw", "text": "threw", "parts": ["th", "r", "ew"], "emoji": "⚾", "note": "th is one part; ew says oo" },
+    { "id": "words.ew-ue.screw", "text": "screw", "parts": ["s", "c", "r", "ew"], "emoji": "🔩", "note": "s-c-r blend, then ew says oo" },
+    { "id": "words.ew-ue.crew", "text": "crew", "parts": ["c", "r", "ew"], "emoji": "🚢", "note": "c-r blend, then ew says oo; a crew is the team on a ship" },
+    { "id": "words.ew-ue.dew", "text": "dew", "parts": ["d", "ew"], "emoji": "💧", "note": "ew says oo; dew is the water on the grass in the morning" },
+    { "id": "words.ew-ue.newt", "text": "newt", "parts": ["n", "ew", "t"], "emoji": "🦎", "note": "ew says oo; a newt is a little lizard-like animal" },
+    { "id": "words.ew-ue.news", "text": "news", "parts": ["n", "ew", "s"], "emoji": "📰", "note": "ew says oo; the s says z" },
+    { "id": "words.ew-ue.blue", "text": "blue", "parts": ["b", "l", "ue"], "emoji": "🔵", "note": "b-l blend, then ue says oo" },
+    { "id": "words.ew-ue.glue", "text": "glue", "parts": ["g", "l", "ue"], "note": "g-l blend, then ue says oo" },
+    { "id": "words.ew-ue.true", "text": "true", "parts": ["t", "r", "ue"], "emoji": "✅", "note": "t-r blend, then ue says oo" },
+    { "id": "words.ew-ue.clue", "text": "clue", "parts": ["c", "l", "ue"], "emoji": "🔍", "note": "c-l blend, then ue says oo" },
+    { "id": "words.ew-ue.cue", "text": "cue", "parts": ["c", "ue"], "note": "ue says yoo here: cue, a signal that it is your turn" },
+    { "id": "words.ew-ue.rescue", "text": "rescue", "parts": ["r", "e", "s", "c", "ue"], "emoji": "🚒", "note": "two syllables: res-cue; ue says yoo" }
+  ]
+}

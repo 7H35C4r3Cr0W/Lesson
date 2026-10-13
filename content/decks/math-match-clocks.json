@@ -1,0 +1,281 @@
+{
+  "id": "math.match-clocks",
+  "subject": "math",
+  "group": "time",
+  "order": 265,
+  "title": "Match the Clocks",
+  "emoji": "⏰",
+  "kind": "qa",
+  "standards": [
+    "NC.1.MD.3"
+  ],
+  "about": "Matching an analog clock to its digital time, a digital time to its words (\"half past three\"), and words back to digits, with hours and half hours mixed together. NC.1.MD.3 asks him to tell and write time to the hour and half hour on both kinds of clock.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Long hand first: on the 12 means o'clock, on the 6 means half past; then find the hour with the short hand.",
+  "cards": [
+    {
+      "id": "math.match-clocks.clock-3-30",
+      "q": "Which digital time matches this clock?",
+      "a": "3:30",
+      "wrong": [
+        "3:00",
+        "6:30"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 3,
+        "m": 30
+      },
+      "note": "Long hand on 6 means 30. Short hand is past 3."
+    },
+    {
+      "id": "math.match-clocks.clock-8-00",
+      "q": "Which digital time matches this clock?",
+      "a": "8:00",
+      "wrong": [
+        "8:30",
+        "9:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 8,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.match-clocks.clock-11-30",
+      "q": "Which digital time matches this clock?",
+      "a": "11:30",
+      "wrong": [
+        "11:00",
+        "12:30"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 11,
+        "m": 30
+      },
+      "note": "The short hand is between 11 and 12, so the hour is still 11."
+    },
+    {
+      "id": "math.match-clocks.clock-2-00",
+      "q": "Tap the time that matches.",
+      "a": "2:00",
+      "wrong": [
+        "2:30",
+        "3:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 2,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.match-clocks.clock-6-30",
+      "q": "Tap the time that matches.",
+      "a": "6:30",
+      "wrong": [
+        "6:00",
+        "7:30"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 6,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.match-clocks.clock-12-00",
+      "q": "Which digital time matches this clock?",
+      "a": "12:00",
+      "wrong": [
+        "12:30",
+        "6:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 12,
+        "m": 0
+      },
+      "note": "Both hands point straight up."
+    },
+    {
+      "id": "math.match-clocks.clock-9-30",
+      "q": "Tap the time that matches.",
+      "a": "9:30",
+      "wrong": [
+        "9:00",
+        "10:30"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 9,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.match-clocks.clock-5-00",
+      "q": "Which digital time matches this clock?",
+      "a": "5:00",
+      "wrong": [
+        "5:30",
+        "6:00"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 5,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.match-clocks.clock-1-30",
+      "q": "Tap the time that matches.",
+      "a": "1:30",
+      "wrong": [
+        "1:00",
+        "2:30"
+      ],
+      "visual": {
+        "type": "clock",
+        "h": 1,
+        "m": 30
+      },
+      "note": "The short hand is between 1 and 2, so the hour is 1."
+    },
+    {
+      "id": "math.match-clocks.words-3-30",
+      "q": "Say it in words. What time is it?",
+      "a": "half past three",
+      "wrong": [
+        "three o'clock",
+        "half past four"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 3,
+        "m": 30
+      },
+      "note": "3:30 is half past three: thirty minutes after 3."
+    },
+    {
+      "id": "math.match-clocks.words-7-00",
+      "q": "Say it in words. What time is it?",
+      "a": "seven o'clock",
+      "wrong": [
+        "half past seven",
+        "six o'clock"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 7,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.match-clocks.words-10-30",
+      "q": "Say it in words. What time is it?",
+      "a": "half past ten",
+      "wrong": [
+        "ten o'clock",
+        "half past eleven"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 10,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.match-clocks.words-1-00",
+      "q": "How do you say this time?",
+      "a": "one o'clock",
+      "wrong": [
+        "half past one",
+        "twelve o'clock"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 1,
+        "m": 0
+      }
+    },
+    {
+      "id": "math.match-clocks.words-12-30",
+      "q": "How do you say this time?",
+      "a": "half past twelve",
+      "wrong": [
+        "twelve o'clock",
+        "half past one"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 12,
+        "m": 30
+      },
+      "note": "12:30 is half past twelve, not half past one."
+    },
+    {
+      "id": "math.match-clocks.words-4-30",
+      "q": "How do you say this time?",
+      "a": "half past four",
+      "wrong": [
+        "four o'clock",
+        "half past five"
+      ],
+      "visual": {
+        "type": "digital",
+        "h": 4,
+        "m": 30
+      }
+    },
+    {
+      "id": "math.match-clocks.digits-2-30",
+      "q": "Which time is half past two?",
+      "a": "2:30",
+      "wrong": [
+        "2:00",
+        "3:30"
+      ]
+    },
+    {
+      "id": "math.match-clocks.digits-6-00",
+      "q": "Which time is six o'clock?",
+      "a": "6:00",
+      "wrong": [
+        "6:30",
+        "12:00"
+      ]
+    },
+    {
+      "id": "math.match-clocks.digits-11-30",
+      "q": "Which time is half past eleven?",
+      "a": "11:30",
+      "wrong": [
+        "11:00",
+        "12:30"
+      ]
+    },
+    {
+      "id": "math.match-clocks.hands-10-00",
+      "q": "The short hand points to 10 and the long hand points to 12. What time is it?",
+      "a": "10:00",
+      "wrong": [
+        "10:30",
+        "12:00"
+      ],
+      "note": "Long hand on 12 means o'clock."
+    },
+    {
+      "id": "math.match-clocks.hands-5-30",
+      "q": "The short hand is between 5 and 6 and the long hand is on 6. What time is it?",
+      "a": "5:30",
+      "wrong": [
+        "6:30",
+        "5:00"
+      ],
+      "note": "Between 5 and 6 means the hour is 5; long hand on 6 means 30."
+    }
+  ]
+}

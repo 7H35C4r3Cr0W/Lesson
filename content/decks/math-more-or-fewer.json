@@ -1,0 +1,200 @@
+{
+  "id": "math.more-or-fewer",
+  "subject": "math",
+  "group": "count",
+  "order": 40,
+  "title": "More or Fewer?",
+  "emoji": "🐻",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.3"
+  ],
+  "about": "Which of two numbers to 20 is more or fewer, with a ten-frame picture for support. This is the first step toward comparing two-digit numbers with symbols.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Ask \"which one would you rather have if it were cookies?\" then count the frame to check.",
+  "cards": [
+    {
+      "id": "math.more-or-fewer.c01",
+      "q": "Which is more, 12 or 9?",
+      "a": "12",
+      "wrong": [
+        "9",
+        "2"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 12
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c02",
+      "q": "Which is more, 6 or 10?",
+      "a": "10",
+      "wrong": [
+        "6",
+        "1"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c03",
+      "q": "Which is more, 15 or 11?",
+      "a": "15",
+      "wrong": [
+        "11",
+        "5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 15
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c04",
+      "q": "Which is more, 8 or 13?",
+      "a": "13",
+      "wrong": [
+        "8",
+        "3"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c05",
+      "q": "Which is more, 20 or 17?",
+      "a": "20",
+      "wrong": [
+        "17",
+        "2"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 20
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c06",
+      "q": "Which is more, 14 or 16?",
+      "a": "16",
+      "wrong": [
+        "14",
+        "4"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 14
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c07",
+      "q": "Which is fewer, 7 or 11?",
+      "a": "7",
+      "wrong": [
+        "11",
+        "17"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c08",
+      "q": "Which is fewer, 18 or 9?",
+      "a": "9",
+      "wrong": [
+        "18",
+        "19"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 18
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c09",
+      "q": "Which is fewer, 13 or 10?",
+      "a": "10",
+      "wrong": [
+        "13",
+        "30"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 13
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c10",
+      "q": "Which is fewer, 15 or 19?",
+      "a": "15",
+      "wrong": [
+        "19",
+        "50"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 15
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c11",
+      "q": "Which is fewer, 4 or 12?",
+      "a": "4",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 4
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c12",
+      "q": "Which is the most: 5, 9 or 2?",
+      "a": "9",
+      "wrong": [
+        "5",
+        "2"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 5
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c13",
+      "q": "Which is the most: 11, 16 or 13?",
+      "a": "16",
+      "wrong": [
+        "11",
+        "13"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 11
+      }
+    },
+    {
+      "id": "math.more-or-fewer.c14",
+      "q": "Which is the fewest: 8, 3 or 6?",
+      "a": "3",
+      "wrong": [
+        "8",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    }
+  ]
+}
