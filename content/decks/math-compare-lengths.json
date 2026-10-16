@@ -1,0 +1,216 @@
+{
+  "id": "math.compare-lengths",
+  "subject": "math",
+  "group": "measure",
+  "order": 235,
+  "title": "Longer, Shorter, Taller",
+  "emoji": "🦒",
+  "kind": "qa",
+  "standards": [
+    "NC.1.MD.1",
+    "NC.1.MD.2"
+  ],
+  "about": "Ordering three things by length from words alone (a pencil is longer than a crayon, the crayon is longer than an eraser), comparing two things through a third one, and reading two measured objects to say which is longer, shorter or taller. NC.1.MD.1 asks for exactly this ordering and indirect comparison, and NC.1.MD.2 supplies the block counts.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Ask him to say the order out loud, longest to shortest, before he picks.",
+  "cards": [
+    {
+      "id": "math.compare-lengths.longest-pencil",
+      "q": "A pencil is longer than a crayon. A crayon is longer than an eraser. Which is longest?",
+      "a": "the pencil",
+      "wrong": [
+        "the crayon",
+        "the eraser"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.shortest-rope",
+      "q": "A rope is shorter than a scarf. A scarf is shorter than a hose. Which is shortest?",
+      "a": "the rope",
+      "wrong": [
+        "the scarf",
+        "the hose"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.tallest-tree",
+      "q": "A tree is taller than a house. The house is taller than a flower. Which is tallest?",
+      "a": "the tree",
+      "wrong": [
+        "the house",
+        "the flower"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.shortest-dog",
+      "q": "A giraffe is taller than a horse. The horse is taller than a dog. Which is shortest?",
+      "a": "the dog",
+      "wrong": [
+        "the horse",
+        "the giraffe"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.middle-truck",
+      "q": "A train is longer than a truck. The truck is longer than a bike. Which is in the middle?",
+      "a": "the truck",
+      "wrong": [
+        "the train",
+        "the bike"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.middle-chair",
+      "q": "A ladder is taller than a chair. The chair is taller than a cup. Which is in the middle?",
+      "a": "the chair",
+      "wrong": [
+        "the ladder",
+        "the cup"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.string-crayon",
+      "q": "A string is as long as a pencil. The pencil is longer than a crayon. Which is longer, string or crayon?",
+      "a": "the string",
+      "wrong": [
+        "the crayon",
+        "the same"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.ribbon-rope",
+      "q": "A ribbon is as long as a stick. The stick is shorter than a rope. Which is shorter, the ribbon or the rope?",
+      "a": "the ribbon",
+      "wrong": [
+        "the rope",
+        "the same"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.desk-book",
+      "q": "A desk is longer than a string. A book is shorter than that string. Which is longer, the desk or the book?",
+      "a": "the desk",
+      "wrong": [
+        "the book",
+        "the same"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.door-box",
+      "q": "A door is taller than a stick. A box is shorter than that stick. Which is taller, the door or the box?",
+      "a": "the door",
+      "wrong": [
+        "the box",
+        "the same"
+      ]
+    },
+    {
+      "id": "math.compare-lengths.cucumber-banana",
+      "q": "The cucumber is 5 blocks long. A banana is 7 blocks long. Which is longer?",
+      "a": "the banana",
+      "wrong": [
+        "the cucumber",
+        "the same"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 5,
+        "emoji": "🥒"
+      }
+    },
+    {
+      "id": "math.compare-lengths.broom-guitar",
+      "q": "The broom is 10 blocks long. A guitar is 8 blocks long. Which is shorter?",
+      "a": "the guitar",
+      "wrong": [
+        "the broom",
+        "the same"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 10,
+        "emoji": "🧹"
+      }
+    },
+    {
+      "id": "math.compare-lengths.bone-corn",
+      "q": "The bone is 3 blocks long. A corn cob is 4 blocks long. Which is shorter?",
+      "a": "the bone",
+      "wrong": [
+        "the corn cob",
+        "the same"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 3,
+        "emoji": "🦴"
+      }
+    },
+    {
+      "id": "math.compare-lengths.crocodile-canoe",
+      "q": "The crocodile is 11 blocks long. A canoe is 9 blocks long. Which is longer?",
+      "a": "the crocodile",
+      "wrong": [
+        "the canoe",
+        "the same"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 11,
+        "emoji": "🐊"
+      }
+    },
+    {
+      "id": "math.compare-lengths.boat-sock",
+      "q": "The boat is 6 blocks long. A sock is 6 blocks long. Which is longer?",
+      "a": "the same",
+      "wrong": [
+        "the boat",
+        "the sock"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 6,
+        "emoji": "🚤"
+      }
+    },
+    {
+      "id": "math.compare-lengths.longest-guitar",
+      "q": "A sock is 6 blocks, a guitar is 8 blocks and a bone is 3 blocks. Which is longest?",
+      "a": "the guitar",
+      "wrong": [
+        "the sock",
+        "the bone"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 8,
+        "emoji": "🎸"
+      }
+    },
+    {
+      "id": "math.compare-lengths.shortest-corn",
+      "q": "A canoe is 9 blocks, a corn cob is 4 blocks and a broom is 10 blocks. Which is shortest?",
+      "a": "the corn cob",
+      "wrong": [
+        "the canoe",
+        "the broom"
+      ],
+      "visual": {
+        "type": "measure",
+        "len": 4,
+        "emoji": "🌽"
+      }
+    },
+    {
+      "id": "math.compare-lengths.line-up",
+      "q": "You want to see which stick is longer. Where do you line up the sticks?",
+      "a": "at the same end",
+      "wrong": [
+        "at different ends",
+        "in a pile"
+      ]
+    }
+  ]
+}

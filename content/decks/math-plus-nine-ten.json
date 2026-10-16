@@ -1,0 +1,255 @@
+{
+  "id": "math.plus-nine-ten",
+  "subject": "math",
+  "group": "add",
+  "order": 97,
+  "title": "Adding 9 and 10 the Fast Way",
+  "emoji": "⚡",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.6"
+  ],
+  "about": "Two fast facts: adding 10 keeps the ones (7 + 10 = 17), and adding 9 is one less than adding 10 (7 + 9 = 16). NC.1.OA.6 calls this making an easier, equivalent sum, one of the strategies it names for adding within 20.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Whenever a 9 shows up, say \"think 10, take 1\" and let him finish.",
+  "cards": [
+    {
+      "id": "math.plus-nine-ten.p10-7",
+      "q": "7 + 10 = ?",
+      "a": "17",
+      "wrong": [
+        "16",
+        "18"
+      ],
+      "sayQ": "7 plus 10 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.p10-3",
+      "q": "3 + 10 = ?",
+      "a": "13",
+      "wrong": [
+        "12",
+        "14"
+      ],
+      "sayQ": "3 plus 10 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.p10-6",
+      "q": "6 + 10 = ?",
+      "a": "16",
+      "wrong": [
+        "15",
+        "17"
+      ],
+      "sayQ": "6 plus 10 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.p10-8",
+      "q": "8 + 10 = ?",
+      "a": "18",
+      "wrong": [
+        "17",
+        "19"
+      ],
+      "sayQ": "8 plus 10 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.p10-5",
+      "q": "5 + 10 = ?",
+      "a": "15",
+      "wrong": [
+        "14",
+        "16"
+      ],
+      "sayQ": "5 plus 10 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.add10-2",
+      "q": "Add 10 to 2. What do you get?",
+      "a": "12",
+      "wrong": [
+        "11",
+        "20"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.add10-9",
+      "q": "Add 10 to 9. What do you get?",
+      "a": "19",
+      "wrong": [
+        "18",
+        "90"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 10
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.so9-7",
+      "q": "7 + 10 = 17, so 7 + 9 = ?",
+      "a": "16",
+      "wrong": [
+        "17",
+        "15"
+      ],
+      "sayQ": "7 plus 10 equals 17, so 7 plus 9 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.so9-6",
+      "q": "6 + 10 = 16, so 6 + 9 = ?",
+      "a": "15",
+      "wrong": [
+        "16",
+        "14"
+      ],
+      "sayQ": "6 plus 10 equals 16, so 6 plus 9 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.so9-4",
+      "q": "4 + 10 = 14, so 4 + 9 = ?",
+      "a": "13",
+      "wrong": [
+        "14",
+        "12"
+      ],
+      "sayQ": "4 plus 10 equals 14, so 4 plus 9 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.so9-8",
+      "q": "8 + 10 = 18, so 8 + 9 = ?",
+      "a": "17",
+      "wrong": [
+        "18",
+        "16"
+      ],
+      "sayQ": "8 plus 10 equals 18, so 8 plus 9 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.think-5",
+      "q": "Think 5 + 10, then take 1. What is 5 + 9?",
+      "a": "14",
+      "wrong": [
+        "15",
+        "13"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.think-3",
+      "q": "Think 3 + 10, then take 1. What is 3 + 9?",
+      "a": "12",
+      "wrong": [
+        "13",
+        "11"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.think-1",
+      "q": "Think 1 + 10, then take 1. What is 1 + 9?",
+      "a": "10",
+      "wrong": [
+        "11",
+        "9"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.which-7",
+      "q": "7 + 9 is one less than which sum?",
+      "a": "7 + 10",
+      "wrong": [
+        "7 + 8",
+        "8 + 10"
+      ]
+    },
+    {
+      "id": "math.plus-nine-ten.which-5",
+      "q": "5 + 9 is one less than which sum?",
+      "a": "5 + 10",
+      "wrong": [
+        "5 + 8",
+        "6 + 10"
+      ]
+    },
+    {
+      "id": "math.plus-nine-ten.tenfirst-2",
+      "q": "10 + 2 = 12, so 9 + 2 = ?",
+      "a": "11",
+      "wrong": [
+        "12",
+        "10"
+      ],
+      "sayQ": "10 plus 2 equals 12, so 9 plus 2 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.plus-nine-ten.tenfirst-6",
+      "q": "10 + 6 = 16, so 9 + 6 = ?",
+      "a": "15",
+      "wrong": [
+        "16",
+        "14"
+      ],
+      "sayQ": "10 plus 6 equals 16, so 9 plus 6 equals what",
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    }
+  ]
+}

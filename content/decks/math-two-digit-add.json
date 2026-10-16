@@ -1,0 +1,250 @@
+{
+  "id": "math.two-digit-add",
+  "subject": "math",
+  "group": "place",
+  "order": 225,
+  "title": "Adding Two-Digit Numbers",
+  "emoji": "🏰",
+  "kind": "qa",
+  "standards": [
+    "NC.1.NBT.4"
+  ],
+  "about": "Adding two two-digit numbers with no regrouping, tens with tens and ones with ones (23 + 45 = 68). NC.1.NBT.4 asks only for two-digit plus one-digit and plus a multiple of ten in Grade 1, so adding two two-digit numbers is a step-ahead into Grade 2 (NC.2.NBT.5) built on the same place-value thinking.",
+  "quiz": true,
+  "readChoices": false,
+  "tip": "Point to the rods and say \"tens with tens\", then to the cubes and say \"ones with ones.\"",
+  "cards": [
+    {
+      "id": "math.two-digit-add.eq-23-45",
+      "q": "23 + 45 = ?",
+      "a": "68",
+      "wrong": [
+        "58",
+        "69"
+      ],
+      "sayQ": "23 plus 45 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.two-digit-add.eq-31-26",
+      "q": "31 + 26 = ?",
+      "a": "57",
+      "wrong": [
+        "47",
+        "56"
+      ],
+      "sayQ": "31 plus 26 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 3,
+        "ones": 1
+      }
+    },
+    {
+      "id": "math.two-digit-add.eq-42-35",
+      "q": "42 + 35 = ?",
+      "a": "77",
+      "wrong": [
+        "67",
+        "78"
+      ],
+      "sayQ": "42 plus 35 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 2
+      }
+    },
+    {
+      "id": "math.two-digit-add.eq-14-52",
+      "q": "14 + 52 = ?",
+      "a": "66",
+      "wrong": [
+        "56",
+        "65"
+      ],
+      "sayQ": "14 plus 52 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 4
+      }
+    },
+    {
+      "id": "math.two-digit-add.eq-61-27",
+      "q": "61 + 27 = ?",
+      "a": "88",
+      "wrong": [
+        "78",
+        "89"
+      ],
+      "sayQ": "61 plus 27 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 1
+      }
+    },
+    {
+      "id": "math.two-digit-add.eq-53-44",
+      "q": "53 + 44 = ?",
+      "a": "97",
+      "wrong": [
+        "87",
+        "96"
+      ],
+      "sayQ": "53 plus 44 equals what",
+      "visual": {
+        "type": "blocks",
+        "tens": 5,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.two-digit-add.what-25-32",
+      "q": "What is 25 + 32?",
+      "a": "57",
+      "wrong": [
+        "47",
+        "58"
+      ]
+    },
+    {
+      "id": "math.two-digit-add.what-36-41",
+      "q": "What is 36 + 41?",
+      "a": "77",
+      "wrong": [
+        "67",
+        "76"
+      ]
+    },
+    {
+      "id": "math.two-digit-add.what-12-73",
+      "q": "What is 12 + 73?",
+      "a": "85",
+      "wrong": [
+        "75",
+        "86"
+      ]
+    },
+    {
+      "id": "math.two-digit-add.what-44-24",
+      "q": "What is 44 + 24?",
+      "a": "68",
+      "wrong": [
+        "58",
+        "67"
+      ]
+    },
+    {
+      "id": "math.two-digit-add.what-71-18",
+      "q": "What is 71 + 18?",
+      "a": "89",
+      "wrong": [
+        "79",
+        "88"
+      ]
+    },
+    {
+      "id": "math.two-digit-add.what-33-33",
+      "q": "What is 33 + 33?",
+      "a": "66",
+      "wrong": [
+        "56",
+        "65"
+      ]
+    },
+    {
+      "id": "math.two-digit-add.add-15-21",
+      "q": "Add 15 and 21. What do you get?",
+      "a": "36",
+      "wrong": [
+        "26",
+        "35"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 1,
+        "ones": 5
+      }
+    },
+    {
+      "id": "math.two-digit-add.add-46-32",
+      "q": "Add 46 and 32. What do you get?",
+      "a": "78",
+      "wrong": [
+        "68",
+        "77"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 4,
+        "ones": 6
+      }
+    },
+    {
+      "id": "math.two-digit-add.add-62-17",
+      "q": "Add 62 and 17. What do you get?",
+      "a": "79",
+      "wrong": [
+        "69",
+        "78"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 6,
+        "ones": 2
+      }
+    },
+    {
+      "id": "math.two-digit-add.story-cards",
+      "q": "Ben has 21 cards and Mia has 34. How many cards in all?",
+      "a": "55",
+      "wrong": [
+        "45",
+        "54"
+      ]
+    },
+    {
+      "id": "math.two-digit-add.story-beads",
+      "q": "A jar has 43 red beads and 26 blue beads. How many beads?",
+      "a": "69",
+      "wrong": [
+        "59",
+        "68"
+      ]
+    },
+    {
+      "id": "math.two-digit-add.tens-23-45",
+      "q": "In 23 + 45, how many tens in all?",
+      "a": "6",
+      "wrong": [
+        "5",
+        "7"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 3
+      }
+    },
+    {
+      "id": "math.two-digit-add.ones-23-45",
+      "q": "In 23 + 45, how many ones in all?",
+      "a": "8",
+      "wrong": [
+        "7",
+        "9"
+      ],
+      "visual": {
+        "type": "blocks",
+        "tens": 2,
+        "ones": 3
+      }
+    }
+  ]
+}

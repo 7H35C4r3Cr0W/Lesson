@@ -1,0 +1,32 @@
+{
+  "id": "words.ch-as-k-ph",
+  "subject": "words",
+  "group": "more",
+  "order": 282,
+  "title": "Ch says k, ph says f",
+  "emoji": "🐬",
+  "kind": "read",
+  "standards": ["RF.1.4.a", "RF.1.4.b"],
+  "about": "Two spellings from further along the code: ch can say k (school, echo, ache), so like oo and ow it is a try-it-both-ways spelling, and ph says f (phone, dolphin, elephant). Neither is in the CKLA Grade 1 code (both come in Grade 2 and 3), so this is a step-ahead level for the end of the year once the Sh and ch and Kn, wh and nk levels are solid; NC RF.1.4.a (consonant digraphs) and RF.1.4.b (decoding).",
+  "tip": "If a ch word sounds wrong, say: try it the other way, with a k; ph is always f, so have him tap it as one dot and say f.",
+  "cards": [
+    { "id": "words.ch-as-k-ph.school", "text": "school", "parts": ["s", "ch", "oo", "l"], "emoji": "🏫", "note": "ch says k here; oo as in moon: skool" },
+    { "id": "words.ch-as-k-ph.echo", "text": "echo", "parts": ["e", "ch", "o"], "emoji": "🔊", "note": "ch says k; the o at the end says its name: ek-o, a sound that bounces back" },
+    { "id": "words.ch-as-k-ph.anchor", "text": "anchor", "parts": ["a", "n", "ch", "or"], "tricky": [3], "emoji": "⚓", "note": "ch says k; the or at the end says er: ang-ker, it holds a boat still" },
+    { "id": "words.ch-as-k-ph.stomach", "text": "stomach", "parts": ["s", "t", "o", "m", "a", "ch"], "tricky": [2, 4], "note": "ch says k at the end; o says u and a says uh: stum-uk, your tummy" },
+    { "id": "words.ch-as-k-ph.ache", "text": "ache", "parts": ["a", "ch", "e"], "emoji": "😣", "note": "magic e makes a say its name; ch says k: ake, a pain that goes on and on" },
+    { "id": "words.ch-as-k-ph.headache", "text": "headache", "parts": ["h", "ea", "d", "a", "ch", "e"], "emoji": "🤕", "note": "two words: head + ache; ea says short e, ch says k: hed-ake" },
+    { "id": "words.ch-as-k-ph.chorus", "text": "chorus", "parts": ["ch", "or", "u", "s"], "emoji": "🎵", "note": "ch says k; or as in fork: kor-us, the part of a song everyone sings" },
+    { "id": "words.ch-as-k-ph.character", "text": "character", "parts": ["ch", "ar", "a", "c", "t", "er"], "tricky": [1], "emoji": "🎭", "note": "ch says k; ar says air here: kair-uk-ter, a person in a story" },
+    { "id": "words.ch-as-k-ph.phone", "text": "phone", "parts": ["ph", "o", "n", "e"], "emoji": "📞", "note": "ph says f; magic e makes o say its name: fone" },
+    { "id": "words.ch-as-k-ph.photo", "text": "photo", "parts": ["ph", "o", "t", "o"], "emoji": "📷", "note": "ph says f; both o's say their name: fo-to" },
+    { "id": "words.ch-as-k-ph.graph", "text": "graph", "parts": ["g", "r", "a", "ph"], "emoji": "📊", "note": "ph says f, right at the end: graf, a picture made of numbers" },
+    { "id": "words.ch-as-k-ph.dolphin", "text": "dolphin", "parts": ["d", "o", "l", "ph", "i", "n"], "emoji": "🐬", "note": "ph says f; two parts: dol-phin" },
+    { "id": "words.ch-as-k-ph.elephant", "text": "elephant", "parts": ["e", "l", "e", "ph", "a", "n", "t"], "emoji": "🐘", "note": "ph says f; three parts: el-e-phant" },
+    { "id": "words.ch-as-k-ph.alphabet", "text": "alphabet", "parts": ["a", "l", "ph", "a", "b", "e", "t"], "emoji": "🔤", "note": "ph says f; three parts: al-pha-bet" },
+    { "id": "words.ch-as-k-ph.trophy", "text": "trophy", "parts": ["t", "r", "o", "ph", "y"], "emoji": "🏆", "note": "ph says f; the o says its name and y at the end says ee: tro-fee" },
+    { "id": "words.ch-as-k-ph.nephew", "text": "nephew", "parts": ["n", "e", "ph", "ew"], "emoji": "👦", "note": "ph says f; ew as in few: nef-yoo, a brother's or sister's son" },
+    { "id": "words.ch-as-k-ph.phonics", "text": "phonics", "parts": ["ph", "o", "n", "i", "c", "s"], "emoji": "🎓", "note": "ph says f; two parts: phon-ics; the sound lessons at school: fon-iks" },
+    { "id": "words.ch-as-k-ph.sphere", "text": "sphere", "parts": ["s", "ph", "ere"], "tricky": [2], "emoji": "🏀", "note": "ph says f; ere says eer, like in here: sfeer, a ball shape" }
+  ]
+}

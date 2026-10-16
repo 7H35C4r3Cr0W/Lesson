@@ -1,0 +1,271 @@
+{
+  "id": "math.build-solids",
+  "subject": "math",
+  "group": "shapes",
+  "order": 305,
+  "title": "Build with Solid Shapes",
+  "emoji": "🗼",
+  "kind": "qa",
+  "standards": [
+    "NC.1.G.2",
+    "NC.1.G.1"
+  ],
+  "about": "Putting solid shapes together and taking them apart: a cylinder with a cone on top makes a rocket, cubes in a row make a rectangular prism, and each part keeps its own name. NC.1.G.2 covers building with cubes, rectangular prisms, cones and cylinders, and NC.1.G.1 adds the flat faces and whether a solid rolls, stacks or slides.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Build it from cans, boxes and a party hat, then ask \"what shape is each piece?\"",
+  "cards": [
+    {
+      "id": "math.build-solids.rocket-bottom",
+      "q": "A rocket is a cylinder with a cone on top. What shape is the bottom part?",
+      "a": "cylinder",
+      "wrong": [
+        "cube",
+        "sphere"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.build-solids.rocket-pieces",
+      "q": "Which two solids make a rocket shape?",
+      "a": "a cylinder and a cone",
+      "wrong": [
+        "a cube and a sphere",
+        "two spheres"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cone",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.build-solids.prism-pieces",
+      "q": "Which pieces make a rectangular prism?",
+      "a": "two cubes",
+      "wrong": [
+        "two cones",
+        "two spheres"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangular-prism",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.build-solids.cubes-row",
+      "q": "Put 3 cubes in a row. What shape do they make?",
+      "a": "rectangular prism",
+      "wrong": [
+        "cone",
+        "cylinder"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangular-prism",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.build-solids.drums",
+      "q": "A drum is a cylinder. Stack 2 drums. What shape do they make?",
+      "a": "a taller cylinder",
+      "wrong": [
+        "a cube",
+        "a cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.build-solids.wheel",
+      "q": "A train car is a rectangular prism with 4 wheels. What solid shape is a wheel?",
+      "a": "cylinder",
+      "wrong": [
+        "cube",
+        "cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.build-solids.hat-bottom",
+      "q": "A party hat is a cone. Which flat shape is its bottom?",
+      "a": "circle",
+      "wrong": [
+        "square",
+        "triangle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cone",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.build-solids.cylinder-ends",
+      "q": "What shape are the two flat ends of a cylinder?",
+      "a": "circles",
+      "wrong": [
+        "squares",
+        "triangles"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.build-solids.prism-face",
+      "q": "Which flat shape is a face of a rectangular prism?",
+      "a": "rectangle",
+      "wrong": [
+        "circle",
+        "triangle"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangular-prism",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.build-solids.faces-cylinder",
+      "q": "How many flat faces does a cylinder have?",
+      "a": "2",
+      "wrong": [
+        "1",
+        "0"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.build-solids.faces-cone",
+      "q": "How many flat faces does a cone have?",
+      "a": "1",
+      "wrong": [
+        "2",
+        "0"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cone",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.build-solids.faces-prism",
+      "q": "How many flat faces does a rectangular prism have?",
+      "a": "6",
+      "wrong": [
+        "4",
+        "8"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "rectangular-prism",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.build-solids.roll-stack",
+      "q": "Which shape can roll and also stack?",
+      "a": "cylinder",
+      "wrong": [
+        "cube",
+        "sphere"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "green"
+      }
+    },
+    {
+      "id": "math.build-solids.slide-stack",
+      "q": "Which shape slides on a flat face and stacks well?",
+      "a": "cube",
+      "wrong": [
+        "sphere",
+        "cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cube",
+        "color": "coral"
+      }
+    },
+    {
+      "id": "math.build-solids.can-side",
+      "q": "You push a can on its side. What does it do?",
+      "a": "it rolls",
+      "wrong": [
+        "it slides",
+        "it stacks"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cylinder",
+        "color": "purple"
+      }
+    },
+    {
+      "id": "math.build-solids.tower-bottom",
+      "q": "Which shape is best for the bottom of a tall tower?",
+      "a": "cube",
+      "wrong": [
+        "sphere",
+        "cone"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cube",
+        "color": "blue"
+      }
+    },
+    {
+      "id": "math.build-solids.count-solids",
+      "q": "A tower has 4 cubes stacked up and a cone on top. How many solids were used?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cube",
+        "color": "gold"
+      }
+    },
+    {
+      "id": "math.build-solids.cone-curve",
+      "q": "Which solid rolls in a curve, like a party hat on its side?",
+      "a": "cone",
+      "wrong": [
+        "cube",
+        "rectangular prism"
+      ],
+      "visual": {
+        "type": "shape",
+        "shape": "cone",
+        "color": "green"
+      }
+    }
+  ]
+}

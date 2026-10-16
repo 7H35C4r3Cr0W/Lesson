@@ -1,0 +1,239 @@
+{
+  "id": "math.number-partners",
+  "subject": "math",
+  "group": "add",
+  "order": 75,
+  "title": "Number Partners",
+  "emoji": "🤝",
+  "kind": "qa",
+  "standards": [
+    "NC.1.OA.6",
+    "NC.1.OA.4"
+  ],
+  "about": "The number pairs hiding inside 5, 6, 7, 8 and 9 (3 and 5 make 8), which NC.1.OA.6 and NC.1.OA.4 lean on for adding, finding a missing part and taking away within 20. Make Ten covers the pairs for 10; this level does the smaller totals so every part-whole fact within 10 is at his fingertips.",
+  "quiz": true,
+  "readChoices": true,
+  "tip": "Hold up the total on your fingers, fold some down, and ask \"what two parts do you see?\"",
+  "cards": [
+    {
+      "id": "math.number-partners.pair-5",
+      "q": "Which pair makes 5?",
+      "a": "2 and 3",
+      "wrong": [
+        "2 and 2",
+        "3 and 3"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 5
+      }
+    },
+    {
+      "id": "math.number-partners.pair-6",
+      "q": "Which pair makes 6?",
+      "a": "2 and 4",
+      "wrong": [
+        "2 and 3",
+        "3 and 4"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.number-partners.pair-7",
+      "q": "Which pair makes 7?",
+      "a": "3 and 4",
+      "wrong": [
+        "3 and 3",
+        "4 and 4"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.number-partners.pair-8",
+      "q": "Which pair makes 8?",
+      "a": "3 and 5",
+      "wrong": [
+        "3 and 4",
+        "4 and 5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.number-partners.pair-9",
+      "q": "Which pair makes 9?",
+      "a": "4 and 5",
+      "wrong": [
+        "4 and 4",
+        "5 and 5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.number-partners.and-6-9",
+      "q": "6 and ___ make 9",
+      "a": "3",
+      "wrong": [
+        "4",
+        "15"
+      ],
+      "sayQ": "6 and what make 9"
+    },
+    {
+      "id": "math.number-partners.and-4-7",
+      "q": "4 and ___ make 7",
+      "a": "3",
+      "wrong": [
+        "2",
+        "11"
+      ],
+      "sayQ": "4 and what make 7"
+    },
+    {
+      "id": "math.number-partners.and-2-8",
+      "q": "2 and ___ make 8",
+      "a": "6",
+      "wrong": [
+        "5",
+        "10"
+      ],
+      "sayQ": "2 and what make 8"
+    },
+    {
+      "id": "math.number-partners.and-1-6",
+      "q": "1 and ___ make 6",
+      "a": "5",
+      "wrong": [
+        "4",
+        "7"
+      ],
+      "sayQ": "1 and what make 6"
+    },
+    {
+      "id": "math.number-partners.and-3-5",
+      "q": "3 and ___ make 5",
+      "a": "2",
+      "wrong": [
+        "1",
+        "8"
+      ],
+      "sayQ": "3 and what make 5"
+    },
+    {
+      "id": "math.number-partners.more-8-4",
+      "q": "8 is 4 and how many more?",
+      "a": "4",
+      "wrong": [
+        "3",
+        "5"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.number-partners.more-9-7",
+      "q": "9 is 7 and how many more?",
+      "a": "2",
+      "wrong": [
+        "1",
+        "3"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.number-partners.more-7-2",
+      "q": "7 is 2 and how many more?",
+      "a": "5",
+      "wrong": [
+        "4",
+        "6"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 7
+      }
+    },
+    {
+      "id": "math.number-partners.more-6-3",
+      "q": "6 is 3 and how many more?",
+      "a": "3",
+      "wrong": [
+        "2",
+        "4"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 6
+      }
+    },
+    {
+      "id": "math.number-partners.break-9-1",
+      "q": "Break 9 into two parts. One part is 1. What is the other part?",
+      "a": "8",
+      "wrong": [
+        "7",
+        "9"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 9
+      }
+    },
+    {
+      "id": "math.number-partners.break-8-6",
+      "q": "Break 8 into two parts. One part is 6. What is the other part?",
+      "a": "2",
+      "wrong": [
+        "3",
+        "1"
+      ],
+      "visual": {
+        "type": "tenframe",
+        "n": 8
+      }
+    },
+    {
+      "id": "math.number-partners.two-9",
+      "q": "Which two numbers make 9?",
+      "a": "3 and 6",
+      "wrong": [
+        "3 and 5",
+        "4 and 6"
+      ]
+    },
+    {
+      "id": "math.number-partners.two-8",
+      "q": "Which two numbers make 8?",
+      "a": "2 and 6",
+      "wrong": [
+        "2 and 5",
+        "3 and 6"
+      ]
+    },
+    {
+      "id": "math.number-partners.two-7",
+      "q": "Which two numbers make 7?",
+      "a": "2 and 5",
+      "wrong": [
+        "2 and 4",
+        "3 and 5"
+      ]
+    }
+  ]
+}

@@ -15,11 +15,11 @@ Raspberry Pi on your home Wi-Fi and is used on an iPad in Safari. No accounts, n
 
 Everything is plain Python (standard library) and plain JavaScript. No build step, nothing to `pip install`.
 
-**What's inside:** 203 levels / ~3,500 cards across 7 subjects, built from the North Carolina Grade 1 standards and
-sized to last the whole school year: 🔤 Sounds (22), 📖 Words (50, in CKLA reading order, incl. all five CKLA
-tricky-word sets, two sight-word sets, prefixes/suffixes and contractions), 💬 Sentences (31, incl. grammar and
-reading-comprehension levels), 🔢 Math (45), 🔬 Science (18), 🌎 My World / social studies (20), 💪 Healthy Me /
-health & PE (17). Plus 8 mini-games. Every deck was written from fact-checked research on the NC standards and then
+**What's inside:** 233 levels / ~4,050 cards across 7 subjects, built from the North Carolina Grade 1 standards and
+sized to last the whole school year: 🔤 Sounds (26), 📖 Words (54, in CKLA reading order, incl. all five CKLA
+tricky-word sets, three sight-word sets, prefixes/suffixes, contractions and silent letters), 💬 Sentences (36, incl.
+grammar and reading-comprehension levels), 🔢 Math (50), 🔬 Science (22), 🌎 My World / social studies (24), 💪 Healthy
+Me / health & PE (21). Plus 8 mini-games. Every deck was written from fact-checked research on the NC standards and then
 independently re-checked card by card. Late-year levels that step past the Grade 1 code or standards (e.g. ea/igh/ew
 spellings, seasons, coin totals) say so in their grown-up "about" text; hide any deck the class has not reached from
 Grown-ups → Cards and it is skipped on the path.
@@ -37,7 +37,7 @@ Build the demo copy yourself with `python tools/build_static.py` (writes `docs/`
 
 ## For teachers
 
-- **What it is:** 203 short levels across seven subjects, written to the NC Standard Course of Study for Grade 1,
+- **What it is:** 233 short levels across seven subjects, written to the NC Standard Course of Study for Grade 1,
   reading in the CKLA Grade 1 Skills order. Each level = talking flashcards (Look) + a tap-the-answer round (Play).
 - **How it teaches:** a level is passed at 85% or better on a round (9 of 10), which opens the next one; missed cards
   come back first and are collected under Needs practice; three right answers in a row across days make a card
