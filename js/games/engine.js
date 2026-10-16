@@ -116,9 +116,11 @@ export function createGame(root, scope, { meta, pool, exit = '/games', count = R
       if (!this.canSpeak || !q) return;
       const automatic = autoHear;
       autoHear = false;
-      if (automatic && !q.listen && !speech.full()) return;
+      const always = q.deck.readAloud === true;        // read-along decks are always read out
+      if (automatic && !q.listen && !speech.full() && !always) return;
       const ok = await speech.speak(q.say);
-      if (!ok || q.listen || !withChoices || !speech.full() || !prefs.readChoices || q.deck.readChoices === false) return;
+      if (!ok || q.listen || !withChoices || (!speech.full() && !always) || (!prefs.readChoices && !always)
+        || q.deck.readChoices === false) return;
       await speech.speakEach(q.choices.map(speakable));
     },
 
