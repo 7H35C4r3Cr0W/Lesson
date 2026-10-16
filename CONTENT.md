@@ -34,7 +34,7 @@ Edit a file, save, reload the page on the tablet. No restart. Run `python tools/
   "speakFront": true,                // optional (qa only). false = do not read the question aloud on flashcards
   "readAloud": true,                 // optional (qa only). true = the quiz and games always read the question (and choices,
                                      //   unless readChoices is false), even in "only when needed" voice mode: for read-along
-                                     //   subjects a first-grader cannot read alone yet (Computers)
+                                     //   subjects a first-grader cannot read alone yet (Computers, My Body)
   "cards": [ ... ]                   // 8 to 30 cards
 }
 ```

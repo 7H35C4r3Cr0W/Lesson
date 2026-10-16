@@ -222,5 +222,31 @@
         "title": "Electricity and robots"
       }
     ]
+  },
+  {
+    "id": "body",
+    "title": "My Body",
+    "emoji": "🧠",
+    "color": "#7b2d8e",
+    "tint": "#f1e2f5",
+    "about": "How the body is built and how it works, from head to toe and from bones to brain, and the food and drink that keep it going. NC Grade 1 Healthful Living (1.NPA nutrition and activity, 1.PCH personal health) and Science LS.1.1.1 (what living things need); the inside-the-body levels are bridge topics taught in many first-grade classrooms. Written to be read together with a grown-up.",
+    "groups": [
+      {
+        "id": "outside",
+        "title": "Outside my body"
+      },
+      {
+        "id": "inside",
+        "title": "Inside my body"
+      },
+      {
+        "id": "grow",
+        "title": "Growing, resting, moving"
+      },
+      {
+        "id": "eat",
+        "title": "Healthy eating"
+      }
+    ]
   }
 ]

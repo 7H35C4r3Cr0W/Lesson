@@ -15,16 +15,23 @@ Raspberry Pi on your home Wi-Fi and is used on an iPad in Safari. No accounts, n
 
 Everything is plain Python (standard library) and plain JavaScript. No build step, nothing to `pip install`.
 
-**What's inside:** 252 levels / ~4,380 cards across 8 subjects, built from the North Carolina Grade 1 standards and
+**What's inside:** 283 levels / ~4,900 cards across 9 subjects, built from the North Carolina Grade 1 standards and
 sized to last the whole school year: 🔤 Sounds (26), 📖 Words (54, in CKLA reading order, incl. all five CKLA
 tricky-word sets, three sight-word sets, prefixes/suffixes, contractions and silent letters), 💬 Sentences (36, incl.
 grammar and reading-comprehension levels), 🔢 Math (50), 🔬 Science (22), 🌎 My World / social studies (24), 💪 Healthy
-Me / health & PE (21), 💻 Computers (19: what computers are and their parts, apps, keyboards, taking care of devices,
-saving and finding, the internet, passwords and private information, being kind online, steps in order, patterns and
-loops, finding bugs, if-then, data and pictures, electricity and batteries, circuits and switches, robots and sensors —
-written to the NC K-2 Computer Science Standards, K2-CS/NI/DA/AP/IC; electricity and if-then are bridge topics).
-Computers is a **read-along** subject: its levels carry `readAloud: true`, so the tablet reads every question and
-answer out loud even in "only when needed" voice mode, and the lesson plans tell the grown-up to read along. Plus 8 mini-games. Every deck was written from fact-checked research on the NC standards and then
+Me / health & PE (21), 💻 Computers (29: what computers are and their parts, apps, point/click/drag, logging on and
+off, keyboards, saving and finding, taking care of devices, what to do when it doesn't work, the internet, passwords and
+private information, sending a message, being kind online, steps in order, patterns and loops, finding bugs, if-then,
+sorting and searching, data and pictures, making things, planning it out, events, on-and-off computer codes,
+electricity and batteries, circuits and switches, lights/buzzers/motors, robots and sensors — written to the NC K-2
+Computer Science Standards, K2-CS/NI/DA/AP/IC; electricity and if-then are bridge topics) and 🧠 My Body (21: head to
+toe, the five senses, skin/hair/nails, joints, bones, muscles, heart and blood, lungs, brain and nerves, food's journey,
+eyes and ears, growing up, how the body fights germs, rest and movement, then healthy eating — food as fuel, fruits and
+vegetables, grains/protein/dairy, drinks and water, everyday and sometimes foods, meals and snacks, trying new foods —
+on NC Healthful Living 1.NPA/1.PCH and Science LS.1.1.1; the inside-the-body levels are bridge topics).
+Computers and My Body are **read-along** subjects: their levels carry `readAloud: true`, so the tablet reads every
+question and answer out loud even in "only when needed" voice mode, and the lesson plans tell the grown-up to read
+along. Plus 8 mini-games. Every deck was written from fact-checked research on the NC standards and then
 independently re-checked card by card. Late-year levels that step past the Grade 1 code or standards (e.g. ea/igh/ew
 spellings, seasons, coin totals) say so in their grown-up "about" text; hide any deck the class has not reached from
 Grown-ups → Cards and it is skipped on the path.
@@ -42,7 +49,7 @@ Build the demo copy yourself with `python tools/build_static.py` (writes `docs/`
 
 ## For teachers
 
-- **What it is:** 252 short levels across eight subjects, written to the NC Standard Course of Study for Grade 1,
+- **What it is:** 283 short levels across nine subjects, written to the NC Standard Course of Study for Grade 1,
   reading in the CKLA Grade 1 Skills order. Each level = talking flashcards (Look) + a tap-the-answer round (Play).
 - **How it teaches:** a level is passed at 85% or better on a round (9 of 10), which opens the next one; missed cards
   come back first and are collected under Needs practice; three right answers in a row across days make a card
