@@ -7,9 +7,18 @@
     "tint": "#ffe4ec",
     "about": "Letter sounds, listening games (rhymes, blending, counting sounds) and sound teams. NC RF.1.3 and RF.1.4.a.",
     "groups": [
-      { "id": "letters", "title": "Letters and sounds" },
-      { "id": "hear", "title": "Listen and find" },
-      { "id": "teams", "title": "Sound teams" }
+      {
+        "id": "letters",
+        "title": "Letters and sounds"
+      },
+      {
+        "id": "hear",
+        "title": "Listen and find"
+      },
+      {
+        "id": "teams",
+        "title": "Sound teams"
+      }
     ]
   },
   {
@@ -20,13 +29,34 @@
     "tint": "#e6efff",
     "about": "Reading words: short vowels first, then digraphs, blends, long vowels and tricky words, in the order his class teaches them. NC RF.1.4 (phonics and word recognition).",
     "groups": [
-      { "id": "short", "title": "Short vowel words" },
-      { "id": "digraph", "title": "Sh, ch, th and friends" },
-      { "id": "blend", "title": "Blends" },
-      { "id": "long", "title": "Long vowels" },
-      { "id": "more", "title": "More spellings" },
-      { "id": "tricky", "title": "Tricky words" },
-      { "id": "silly", "title": "Silly words" }
+      {
+        "id": "short",
+        "title": "Short vowel words"
+      },
+      {
+        "id": "digraph",
+        "title": "Sh, ch, th and friends"
+      },
+      {
+        "id": "blend",
+        "title": "Blends"
+      },
+      {
+        "id": "long",
+        "title": "Long vowels"
+      },
+      {
+        "id": "more",
+        "title": "More spellings"
+      },
+      {
+        "id": "tricky",
+        "title": "Tricky words"
+      },
+      {
+        "id": "silly",
+        "title": "Silly words"
+      }
     ]
   },
   {
@@ -37,9 +67,18 @@
     "tint": "#efe9ff",
     "about": "Reading whole sentences smoothly, capital letters, end marks and word types. NC RF.1.5 (fluency) and L.1.",
     "groups": [
-      { "id": "read", "title": "Read it" },
-      { "id": "grammar", "title": "How sentences work" },
-      { "id": "meaning", "title": "What it means" }
+      {
+        "id": "read",
+        "title": "Read it"
+      },
+      {
+        "id": "grammar",
+        "title": "How sentences work"
+      },
+      {
+        "id": "meaning",
+        "title": "What it means"
+      }
     ]
   },
   {
@@ -50,13 +89,34 @@
     "tint": "#dff5ea",
     "about": "Numbers, adding and taking away, tens and ones, time, money, shapes and measuring. NC.1.OA, NBT, MD, G.",
     "groups": [
-      { "id": "count", "title": "Counting and numbers" },
-      { "id": "add", "title": "Adding" },
-      { "id": "subtract", "title": "Taking away" },
-      { "id": "place", "title": "Tens and ones" },
-      { "id": "measure", "title": "Measuring and data" },
-      { "id": "time", "title": "Time and money" },
-      { "id": "shapes", "title": "Shapes" }
+      {
+        "id": "count",
+        "title": "Counting and numbers"
+      },
+      {
+        "id": "add",
+        "title": "Adding"
+      },
+      {
+        "id": "subtract",
+        "title": "Taking away"
+      },
+      {
+        "id": "place",
+        "title": "Tens and ones"
+      },
+      {
+        "id": "measure",
+        "title": "Measuring and data"
+      },
+      {
+        "id": "time",
+        "title": "Time and money"
+      },
+      {
+        "id": "shapes",
+        "title": "Shapes"
+      }
     ]
   },
   {
@@ -67,9 +127,18 @@
     "tint": "#ffe9d6",
     "about": "Pushes and pulls, the sky, Earth's land and water, and living things. NC Grade 1 science.",
     "groups": [
-      { "id": "physical", "title": "Pushes and pulls" },
-      { "id": "earth", "title": "Earth and sky" },
-      { "id": "life", "title": "Living things" }
+      {
+        "id": "physical",
+        "title": "Pushes and pulls"
+      },
+      {
+        "id": "earth",
+        "title": "Earth and sky"
+      },
+      {
+        "id": "life",
+        "title": "Living things"
+      }
     ]
   },
   {
@@ -80,11 +149,26 @@
     "tint": "#dff6f8",
     "about": "Rules, community helpers, maps, needs and wants, and North Carolina. NC Grade 1 social studies.",
     "groups": [
-      { "id": "civics", "title": "Rules and helpers" },
-      { "id": "geo", "title": "Maps and places" },
-      { "id": "econ", "title": "Needs, wants and money" },
-      { "id": "history", "title": "Long ago and today" },
-      { "id": "nc", "title": "North Carolina" }
+      {
+        "id": "civics",
+        "title": "Rules and helpers"
+      },
+      {
+        "id": "geo",
+        "title": "Maps and places"
+      },
+      {
+        "id": "econ",
+        "title": "Needs, wants and money"
+      },
+      {
+        "id": "history",
+        "title": "Long ago and today"
+      },
+      {
+        "id": "nc",
+        "title": "North Carolina"
+      }
     ]
   },
   {
@@ -95,9 +179,48 @@
     "tint": "#ffe3ee",
     "about": "Feelings, staying safe, eating well and moving. NC Grade 1 healthful living.",
     "groups": [
-      { "id": "feelings", "title": "Feelings and friends" },
-      { "id": "safety", "title": "Staying safe" },
-      { "id": "body", "title": "Food and body" }
+      {
+        "id": "feelings",
+        "title": "Feelings and friends"
+      },
+      {
+        "id": "safety",
+        "title": "Staying safe"
+      },
+      {
+        "id": "body",
+        "title": "Food and body"
+      }
+    ]
+  },
+  {
+    "id": "tech",
+    "title": "Computers",
+    "emoji": "💻",
+    "color": "#a0522d",
+    "tint": "#f6e3d8",
+    "about": "How computers and gadgets work, using them well and safely, thinking in steps like a programmer, and the batteries, switches and robots behind them. NC K-2 Computer Science Standards (K2-CS, K2-NI, K2-DA, K2-AP, K2-IC); electricity levels are a bridge topic. Written to be read together with a grown-up.",
+    "groups": [
+      {
+        "id": "know",
+        "title": "What computers are"
+      },
+      {
+        "id": "use",
+        "title": "Using them well"
+      },
+      {
+        "id": "safe",
+        "title": "Safe and kind online"
+      },
+      {
+        "id": "think",
+        "title": "Think like a computer"
+      },
+      {
+        "id": "power",
+        "title": "Electricity and robots"
+      }
     ]
   }
 ]

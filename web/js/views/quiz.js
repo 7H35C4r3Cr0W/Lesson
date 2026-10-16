@@ -137,15 +137,16 @@ export function runQuiz(root, scope, opts) {
     });
     readAloud();
 
-    // A listening question must say its word; anything else is read only in "read everything" mode.
+    // A listening question must say its word; anything else is read only in "read everything" mode,
+    // or always when the deck asks for it (read-along subjects the child cannot read alone yet).
     async function readAloud() {
-      if (!canSpeak || (!listen && !speech.full())) return;
+      if (!canSpeak || (!listen && !speech.full() && !deck.readAloud)) return;
       hearBtn.classList.add('speaking');
       const ok = await speech.speak(promptSay);
       hearBtn.classList.remove('speaking');
       if (!ok || !live() || listen) return;
       // Read each choice too, so a child who cannot read them yet can still answer.
-      if (!prefs.readChoices || deck.readChoices === false) return;
+      if ((!prefs.readChoices && !deck.readAloud) || deck.readChoices === false) return;
       await speech.speakEach(question.choices.map(speakable), (i) => {
         if (!live()) return;
         buttons.forEach((b, n) => b.classList.toggle('reading', n === i));

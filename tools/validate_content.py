@@ -18,9 +18,9 @@ ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9.-]*$")
-STANDARD_RE = re.compile(r"^(NC\.)?[A-Z0-9.]+(\.[a-z0-9]+)*$")
+STANDARD_RE = re.compile(r"^(NC\.)?[A-Z0-9][A-Z0-9.-]*(\.[a-z0-9]+)*$")   # also NC CS codes like K2-CS-01
 DECK_KEYS = {"id", "subject", "group", "order", "title", "emoji", "kind", "standards", "about", "tip", "quiz",
-             "readChoices", "speakFront", "sayTitle", "cards", "notes"}
+             "readChoices", "speakFront", "sayTitle", "readAloud", "cards", "notes"}
 READ_CARD_KEYS = {"id", "text", "parts", "tricky", "emoji", "note", "say", "quiz", "tags"}
 QA_CARD_KEYS = {"id", "q", "a", "wrong", "emoji", "visual", "note", "sayQ", "sayA", "quiz", "tags"}
 
@@ -228,7 +228,7 @@ def check_deck(deck, path: Path, subjects: dict, seen_cards: Counter, seen_decks
         rep.err(where, "'standards' must list at least one NC standard code")
     elif any(not isinstance(s, str) or not STANDARD_RE.match(s) for s in standards):
         rep.err(where, f"standards must look like RF.1.4.b or NC.1.OA.6, got {standards}")
-    for key in ("quiz", "readChoices", "speakFront"):
+    for key in ("quiz", "readChoices", "speakFront", "readAloud"):
         if key in deck and not isinstance(deck[key], bool):
             rep.err(where, f"'{key}' must be true or false")
     cards = deck.get("cards")

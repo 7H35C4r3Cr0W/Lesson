@@ -79,6 +79,12 @@ const KIND = {
 
 // The teaching routine the app is built around, in the order a lesson runs.
 function steps(deck) {
+  const base = baseSteps(deck);
+  if (!deck.readAloud) return base;
+  return ['Read along: this level is written to be read together. The tablet reads each question and the choices out loud, you read along and talk it through, then read the note on the card back after the answer.', ...base];
+}
+
+function baseSteps(deck) {
   const need = needToPass(Math.min(store.prefs().sessionSize, deck.cards.length));
   if (deck.kind === 'read') {
     return [
