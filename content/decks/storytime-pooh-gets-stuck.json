@@ -1,0 +1,88 @@
+{
+  "id": "storytime.pooh-gets-stuck",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 370,
+  "title": "Pooh Gets Stuck",
+  "emoji": "🍯",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.3", "RF.1.4"],
+  "about": "A. A. Milne's 1926 chapter in which Pooh visits Rabbit, eats far too much honey and gets wedged in Rabbit's front door, so his friends read to him for a week until he is thin enough to pull out with a pop. It is one of the funniest chapters in Winnie-the-Pooh and an easy one to act out, with a clear where and when to talk about. The 1926 book is in the public domain in the United States, and this is a retelling in first-grade words, five pages long.",
+  "tip": "Act it out: he is Pooh stuck in a doorway, you take his front paws and pull, and everyone shouts pop when he comes free.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "A. A. Milne (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Too much honey, one tight front door, and a pop."
+  },
+  "passage": {
+    "text": "One day Pooh went for a walk.\nHe came to a hole in a sandy bank.\nIt was Rabbit's house.\n\"Is anybody home?\" called Pooh.\n\"Come in,\" said Rabbit.\nPooh squeezed through the front door.\n\"Would you like a little something?\" said Rabbit.\n\"Yes, please,\" said Pooh.\n\"Honey, if you have it.\"\n***\nRabbit set out a big pot of honey.\nPooh ate it all up.\nThen he ate another pot.\nAnd another.\nAt last Pooh got up to go.\n\"Thank you, Rabbit,\" he said.\nHe started out the front door.\nHe pushed with his front paws.\nHe pushed with his back paws.\nBut he could not get out!\nPooh was stuck.\n***\n\"Oh, help!\" said Pooh.\n\"I am stuck.\"\n\"It is all that honey,\" said Rabbit.\n\"You ate too much, you silly old bear.\"\n\"We must wait for you to get thin.\"\n\"How long will that take?\" asked Pooh.\n\"About a week,\" said Rabbit.\n\"A week!\" said Pooh.\n\"But what about meals?\"\n\"No meals,\" said Rabbit.\n\"That is how you get thin.\"\n\"Then will you read to me?\" asked Pooh.\n***\nSo Rabbit read to Pooh every day.\nPooh's front half was outside.\nHis back half was inside.\nRabbit hung his towels on Pooh's back legs.\nPiglet came to visit.\nEeyore came to visit.\nAt the end of the week, Rabbit said, \"Now!\"\nPiglet and Eeyore took hold of Pooh's paws.\nRabbit pushed from inside.\n***\n\"Pull!\" said Piglet.\n\"Pull!\" said Eeyore.\n\"Push!\" said Rabbit.\nThey pulled and pushed.\nThen, pop!\nOut popped Pooh, like a cork!\nPiglet and Eeyore fell over in a heap.\n\"Thank you, my friends,\" said Pooh.\nHe went off into the wood, humming a hum.\nAnd he did not eat so much honey after that.\nWell, not for a day or two.",
+    "level": "open",
+    "focus": ["oo", "short u", "ea"],
+    "tricky": ["one", "pooh", "for", "a", "he", "to", "sandy", "was", "rabbit", "house", "is", "anybody", "come", "said", "squeezed", "through", "the", "door", "would", "you", "little", "something", "please", "honey", "have", "out", "of", "another", "go", "thank", "started", "could", "oh", "i", "all", "too", "silly", "old", "bear", "we", "wait", "how", "about", "week", "what", "meals", "no", "read", "me", "so", "every", "day", "towels", "piglet", "eeyore", "from", "now", "they", "pop", "like", "over", "heap", "my", "friends", "into", "humming", "eat", "much", "after", "two"]
+  },
+  "cards": [
+    { "id": "storytime.pooh-gets-stuck.whose-house",
+      "q": "Whose house did Pooh visit?",
+      "a": "Rabbit's",
+      "wrong": ["Piglet's", "Eeyore's"],
+      "emoji": "🐇",
+      "note": "Rabbit's house was a hole in a sandy bank, with a front door just big enough for a bear who has not had lunch." },
+
+    { "id": "storytime.pooh-gets-stuck.ate-honey",
+      "q": "What did Pooh eat at Rabbit's house?",
+      "a": "honey",
+      "wrong": ["carrots", "cake"],
+      "emoji": "🍯",
+      "note": "A big pot, then another pot, then another, which is why he got stuck." },
+
+    { "id": "storytime.pooh-gets-stuck.where-stuck",
+      "q": "Where did Pooh get stuck?",
+      "a": "in the front door",
+      "wrong": ["up a tree", "in a river"],
+      "note": "His front half was outside and his back half was inside." },
+
+    { "id": "storytime.pooh-gets-stuck.why-stuck",
+      "q": "Why did Pooh get stuck in the door?",
+      "a": "he ate too much",
+      "wrong": ["the door was locked", "he was too sleepy"],
+      "note": "It is all that honey, said Rabbit, because Pooh was wider going out than he had been coming in." },
+
+    { "id": "storytime.pooh-gets-stuck.first",
+      "q": "What happened first in the story?",
+      "a": "Pooh took a walk",
+      "wrong": ["Pooh got stuck", "Pooh popped out"],
+      "note": "The story starts with Pooh walking through the wood to Rabbit's front door." },
+
+    { "id": "storytime.pooh-gets-stuck.end",
+      "q": "What happened at the end of the story?",
+      "a": "Pooh popped out",
+      "wrong": ["Pooh ate honey", "Pooh got stuck"],
+      "note": "Pop, out he came like a cork, and his friends fell over in a heap." },
+
+    { "id": "storytime.pooh-gets-stuck.like-pooh",
+      "q": "What was Pooh like in the story?",
+      "a": "silly and hungry",
+      "wrong": ["mean and loud", "fast and sneaky"],
+      "note": "Rabbit calls him a silly old bear, and he ate pot after pot of honey." },
+
+    { "id": "storytime.pooh-gets-stuck.when-week",
+      "q": "When did the friends pull Pooh out?",
+      "a": "after a week",
+      "wrong": ["right away", "after a year"],
+      "note": "Pooh had to go a whole week with no meals before he was thin enough to pull out." },
+
+    { "id": "storytime.pooh-gets-stuck.vocab-stuck",
+      "q": "In the story, what does 'stuck' mean?",
+      "a": "cannot get out",
+      "wrong": ["fast asleep", "very happy"],
+      "note": "Stuck means held so tight you cannot move, the way Pooh was wedged in the door." },
+
+    { "id": "storytime.pooh-gets-stuck.word-honey",
+      "q": "Which word is in the story?",
+      "a": "honey",
+      "wrong": ["money", "bunny"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

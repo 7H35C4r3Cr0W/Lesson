@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-wild-things",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 610,
+  "title": "Wild Things words",
+  "emoji": "🐺",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "A boy in a wolf suit gets into trouble and is sent to his room, where a forest grows and a boat carries him to an island of huge roaring creatures who make him their king. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read it together, with him doing the roars.",
+  "book": {
+    "author": "Maurice Sendak",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Where+the+Wild+Things+Are&searchType=title",
+    "blurb": "The classic Caldecott Medal picture book about a boy, his temper and a wild island far away."
+  },
+  "passage": {
+    "text": "Max wolf suit bed\nroom supper forest boat\nsail crown king roar\nteeth claws night wild\nhome things",
+    "level": "open",
+    "focus": ["oa", "ee", "igh"],
+    "tricky": ["wolf", "suit", "crown", "roar", "wild"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-wild-things.max", "text": "Max", "parts": ["M", "a", "x"], "note": "capital M, it is his name; x says ks" },
+    { "id": "storytime.shelf-wild-things.wolf", "text": "wolf", "parts": ["w", "o", "l", "f"], "tricky": [1], "emoji": "🐺", "note": "the o says oo as in book: woolf" },
+    { "id": "storytime.shelf-wild-things.suit", "text": "suit", "parts": ["s", "ui", "t"], "tricky": [1], "note": "ui says oo: soot" },
+    { "id": "storytime.shelf-wild-things.bed", "text": "bed", "parts": ["b", "e", "d"], "emoji": "🛏️", "note": "all regular: b-e-d" },
+    { "id": "storytime.shelf-wild-things.room", "text": "room", "parts": ["r", "oo", "m"], "note": "oo says long oo, like moon" },
+    { "id": "storytime.shelf-wild-things.supper", "text": "supper", "parts": ["s", "u", "pp", "er"], "emoji": "🍽️", "note": "pp is one p; two parts: sup + per; supper is dinner" },
+    { "id": "storytime.shelf-wild-things.forest", "text": "forest", "parts": ["f", "or", "e", "s", "t"], "emoji": "🌲", "note": "two parts: for + est; or says or" },
+    { "id": "storytime.shelf-wild-things.boat", "text": "boat", "parts": ["b", "oa", "t"], "emoji": "🛶", "note": "oa says long o" },
+    { "id": "storytime.shelf-wild-things.sail", "text": "sail", "parts": ["s", "ai", "l"], "emoji": "⛵", "note": "ai says long a" },
+    { "id": "storytime.shelf-wild-things.crown", "text": "crown", "parts": ["c", "r", "ow", "n"], "tricky": [2], "emoji": "👑", "note": "c-r blend; ow says ou as in out, like in cow" },
+    { "id": "storytime.shelf-wild-things.king", "text": "king", "parts": ["k", "i", "ng"], "emoji": "🤴", "note": "ng is one sound" },
+    { "id": "storytime.shelf-wild-things.roar", "text": "roar", "parts": ["r", "oar"], "tricky": [1], "emoji": "🦁", "note": "oar says or, like in oar: ror" },
+    { "id": "storytime.shelf-wild-things.teeth", "text": "teeth", "parts": ["t", "ee", "th"], "emoji": "🦷", "note": "ee says long e; th is one part, at the end" },
+    { "id": "storytime.shelf-wild-things.claws", "text": "claws", "parts": ["c", "l", "aw", "s"], "note": "c-l blend; aw says aw, like saw; the s says z" },
+    { "id": "storytime.shelf-wild-things.night", "text": "night", "parts": ["n", "igh", "t"], "emoji": "🌙", "note": "igh says long i, like in light" },
+    { "id": "storytime.shelf-wild-things.wild", "text": "wild", "parts": ["w", "i", "l", "d"], "tricky": [1], "note": "the i says its name, like in child: wyld" },
+    { "id": "storytime.shelf-wild-things.home", "text": "home", "parts": ["h", "o", "m", "e"], "emoji": "🏠", "note": "magic e makes o say its name" },
+    { "id": "storytime.shelf-wild-things.things", "text": "things", "parts": ["th", "i", "ng", "s"], "note": "th is one part; ng is one sound; the s says z" }
+  ]
+}

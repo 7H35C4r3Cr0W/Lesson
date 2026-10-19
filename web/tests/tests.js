@@ -333,7 +333,9 @@ test('splitSounds: letter teams, magic e, soft c, y at the end, silent letters',
 });
 test('splitSounds: g stays hard in get, give, girl and tiger, soft in gem and cage', () => {
   const first = (w) => P.splitSounds(w)[0].sound;
-  for (const w of ['get', 'getting', 'give', 'giving', 'gives', 'gift', 'girl', 'girls', 'giggled']) eq(first(w), 'guh', w);
+  for (const w of ['get', 'gets', 'getting', 'give', 'giving', 'gives', 'gift', 'girl', 'girls', 'giggled']) eq(first(w), 'guh', w);
+  eq(P.splitSounds('forgetting')[2].sound, 'guh', 'forgetting');     // f, or, g ...
+  eq(P.splitSounds('beginning')[2].sound, 'guh', 'beginning');
   eq(P.splitSounds('tiger')[2].sound, 'guh', 'tiger');
   eq(P.splitSounds('begin')[2].sound, 'guh', 'begin');
   eq(first('gem'), 'juh', 'gem');
@@ -346,6 +348,43 @@ test('splitSounds: magic e works across a soft c or g (cage, race, ice)', () => 
   eq(sounds('race'), ['rrr', 'ay', 'sss', '']);
   eq(sounds('ice'), ['eye', 'sss', '']);
   eq(sounds('huge'), ['huh', 'you', 'juh', '']);
+  eq(sounds('since'), ['sss', 'ih', 'nnn', 'sss', '']);                 // n before the c: no magic e
+  eq(sounds('village'), ['vvv', 'ih', 'lll', 'aa', 'juh', '']);         // two syllables: the a stays short
+  eq(sounds('office'), ['ah', 'fff', 'ih', 'sss', '']);
+});
+test('splitSounds: magic e under an ending s or d (cakes, named, faces, hated), never across x, give stays short', () => {
+  const sounds = (w) => P.splitSounds(w).map((p) => p.sound);
+  eq(sounds('cakes'), ['kuh', 'ay', 'kuh', '', 'sss']);
+  eq(sounds('grapes'), ['guh', 'rrr', 'ay', 'puh', '', 'sss']);
+  eq(sounds('named'), ['nnn', 'ay', 'mmm', '', 'duh']);
+  eq(sounds('smiled'), ['sss', 'mmm', 'eye', 'lll', '', 'duh']);
+  eq(sounds('faces'), ['fff', 'ay', 'sss', 'eh', 'sss']);               // -es after a hiss is a syllable
+  eq(sounds('hated'), ['huh', 'ay', 'tuh', 'eh', 'duh']);               // -ed after t is a syllable
+  eq(sounds('opened'), ['ah', 'puh', 'eh', 'nnn', '', 'duh']);          // a two-syllable base keeps its short vowel
+  eq(sounds('fixed'), ['fff', 'ih', 'ks', '', 'duh']);
+  eq(sounds('boxes'), ['buh', 'ah', 'ks', 'eh', 'sss']);
+  eq(sounds('axe'), ['aa', 'ks', '']);
+  eq(sounds('give'), ['guh', 'ih', 'vvv', '']);
+  eq(sounds('lived'), ['lll', 'ih', 'vvv', '', 'duh']);
+  eq(sounds('five'), ['fff', 'eye', 'vvv', '']);
+  eq(sounds('cats'), ['kuh', 'aa', 'tuh', 'sss']);
+});
+test('splitSounds: an ending -ed or -es is a syllable only after t / d or a hiss (wanted, wishes; jumped, asked, apples are not)', () => {
+  const sounds = (w) => P.splitSounds(w).map((p) => p.sound);
+  eq(sounds('jumped'), ['juh', 'uh', 'mmm', 'puh', '', 'duh']);
+  eq(sounds('asked'), ['aa', 'sss', 'kuh', '', 'duh']);
+  eq(sounds('played'), ['puh', 'lll', 'ay', '', 'duh']);
+  eq(sounds('hopped'), ['huh', 'ah', 'puh', '', 'duh']);
+  eq(sounds('wanted'), ['wuh', 'aa', 'nnn', 'tuh', 'eh', 'duh']);
+  eq(sounds('patted'), ['puh', 'aa', 'tuh', 'eh', 'duh']);
+  eq(sounds('needed'), ['nnn', 'ee', 'duh', 'eh', 'duh']);
+  eq(sounds('wishes'), ['wuh', 'ih', 'shh', 'eh', 'sss']);
+  eq(sounds('apples'), ['aa', 'puh', 'lll', '', 'sss']);
+  eq(sounds('elves'), ['eh', 'lll', 'vvv', '', 'sss']);
+  eq(sounds('hundred'), ['huh', 'uh', 'nnn', 'duh', 'rrr', 'eh', 'duh']);   // not an ending
+  eq(sounds('red'), ['rrr', 'eh', 'duh']);
+  eq(sounds('sled'), ['sss', 'lll', 'eh', 'duh']);
+  eq(sounds('yes'), ['yuh', 'eh', 'sss']);
 });
 
 // ---- DOM and drawings ---------------------------------------------------------

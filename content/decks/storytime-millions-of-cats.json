@@ -1,0 +1,87 @@
+{
+  "id": "storytime.millions-of-cats",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 350,
+  "title": "Millions of Cats",
+  "emoji": "🐈",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Wanda Gág's 1928 picture book about a lonely old man and woman, a hill covered with cats, and the one shy kitten who stays. First graders love the counting refrain of hundreds and thousands and millions of cats, and the ending is a kind one about being loved. In this softened telling the cats only quarrel and run off in a huff; it is a public-domain story retold in first-grade words, five pages long.",
+  "tip": "Ask: why did the shy kitten stay when all the other cats ran away?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Wanda Gág (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "One old man, one hill, and millions of cats."
+  },
+  "passage": {
+    "text": "Once there was an old man and an old woman.\nThey lived in a neat little house.\nThey were happy.\nBut they were lonely.\n\"I wish we had a cat,\" said the old woman.\n\"I will find you one,\" said the old man.\nSo he set off over the hills.\n***\nAt last he came to a hill.\nThe hill was covered with cats!\nThere were hundreds of cats.\nThere were thousands of cats.\nThere were millions of cats, all over the hill!\n\"Oh!\" said the old man.\n\"Now I can pick the prettiest one.\"\nHe picked a white cat.\nThen he saw a black cat.\nHe could not choose.\nSo he took them all.\n***\nThe cats followed him home.\nHundreds of cats, thousands of cats, millions of cats!\nThe old woman came to the door.\n\"My dear!\" she said.\n\"We cannot keep millions of cats.\"\n\"Let the cats pick,\" said the old man.\n\"Which cat is the prettiest?\"\n\"I am!\" said one cat.\n\"No, I am!\" said another.\n\"I am the prettiest!\" they all said.\n***\nThe cats began to quarrel.\nThey hissed and fussed.\nThey stamped their paws.\nThen, in a huff, they all ran away.\nHundreds and thousands and millions of cats, all gone!\nThe yard was quiet.\nOnly one little kitten was left.\nShe was thin and shy.\nShe had hidden in the tall grass.\n\"I did not think I was pretty,\" she said.\n\"So I did not quarrel.\"\n***\nThe old man picked up the kitten.\nThe old woman gave her warm milk.\nThey loved her every day.\nThe kitten grew plump and happy.\nHer fur shone like silk.\nThe old man smiled.\n\"She is the prettiest cat of all!\"\n\"I think so, too,\" said the old woman.\nA little love can make anyone shine.",
+    "level": "open",
+    "focus": ["short i", "ll", "-ed endings"],
+    "tricky": ["once", "there", "was", "old", "woman", "they", "a", "neat", "little", "house", "were", "happy", "lonely", "i", "we", "said", "you", "one", "so", "he", "over", "to", "the", "covered", "of", "thousands", "millions", "all", "oh", "now", "prettiest", "white", "could", "choose", "followed", "door", "my", "dear", "she", "cannot", "which", "is", "no", "another", "began", "quarrel", "their", "away", "quiet", "only", "shy", "hidden", "pretty", "warm", "loved", "every", "grew", "fur", "shone", "like", "smiled", "too", "love", "anyone"]
+  },
+  "cards": [
+    { "id": "storytime.millions-of-cats.wish-cat",
+      "q": "What did the old woman wish for?",
+      "a": "a cat",
+      "wrong": ["a dog", "a hat"],
+      "emoji": "🐈",
+      "note": "The old man and woman were happy but lonely, so she wished for a cat to keep them company." },
+
+    { "id": "storytime.millions-of-cats.how-many",
+      "q": "How many cats followed the old man home?",
+      "a": "millions of cats",
+      "wrong": ["just one cat", "two cats"],
+      "note": "Hundreds of cats, thousands of cats, millions of cats, all in a line behind him." },
+
+    { "id": "storytime.millions-of-cats.quarrel-about",
+      "q": "What did the cats quarrel about?",
+      "a": "who was prettiest",
+      "wrong": ["who was biggest", "who was fastest"],
+      "note": "Every cat said I am the prettiest, and the fuss sent them all off in a huff." },
+
+    { "id": "storytime.millions-of-cats.who-stayed",
+      "q": "Which cat stayed with the old man and woman?",
+      "a": "a thin, shy kitten",
+      "wrong": ["a big white cat", "a black cat"],
+      "note": "She had hidden in the tall grass and did not quarrel, because she did not think she was pretty." },
+
+    { "id": "storytime.millions-of-cats.first",
+      "q": "What happened first in the story?",
+      "a": "they wanted a cat",
+      "wrong": ["the cats ran away", "the kitten drank milk"],
+      "note": "The old woman's wish is what sends the old man off over the hills." },
+
+    { "id": "storytime.millions-of-cats.end",
+      "q": "What happened at the end of the story?",
+      "a": "the kitten grew pretty",
+      "wrong": ["the cats came home", "the man set off"],
+      "note": "Warm milk and love made the thin kitten plump, shiny and the prettiest cat of all." },
+
+    { "id": "storytime.millions-of-cats.feel-lonely",
+      "q": "How did the old man and woman feel at the start?",
+      "a": "lonely",
+      "wrong": ["silly", "sleepy"],
+      "note": "They were happy in their neat little house, but lonely, which is why they wanted a cat." },
+
+    { "id": "storytime.millions-of-cats.lesson",
+      "q": "What does this story teach?",
+      "a": "love makes you shine",
+      "wrong": ["show off to win", "quarrel with everyone"],
+      "note": "A little love can make anyone shine; the last line says it." },
+
+    { "id": "storytime.millions-of-cats.vocab-quarrel",
+      "q": "In the story, what does 'quarrel' mean?",
+      "a": "fuss and argue",
+      "wrong": ["play a game", "take a nap"],
+      "note": "To quarrel is to argue in an angry way, the way the cats did over who was prettiest." },
+
+    { "id": "storytime.millions-of-cats.word-kitten",
+      "q": "Which word is in the story?",
+      "a": "kitten",
+      "wrong": ["mitten", "kitchen"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

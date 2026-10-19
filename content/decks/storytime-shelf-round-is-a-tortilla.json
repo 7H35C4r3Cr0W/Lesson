@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-round-is-a-tortilla",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 560,
+  "title": "Round Is a Tortilla words",
+  "emoji": "🌮",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "A child looks for shapes in the everyday things around the family and finds circles, squares, triangles and stars everywhere, with a few Spanish words along the way. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read it together, then hunt for shapes around the kitchen.",
+  "book": {
+    "author": "Roseanne Thong",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A shapes book set in a Latino neighborhood, with Spanish words tucked into the rhymes."
+  },
+  "passage": {
+    "text": "round shape circle square\nstar tortilla taco clock\npot moon sun drum\nflag kite bell box\nhat window",
+    "level": "open",
+    "focus": ["ou", "ck", "i_e"],
+    "tricky": ["circle", "square", "tortilla", "taco"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-round-is-a-tortilla.round", "text": "round", "parts": ["r", "ou", "n", "d"], "emoji": "⭕", "note": "ou says ow, like in out" },
+    { "id": "storytime.shelf-round-is-a-tortilla.shape", "text": "shape", "parts": ["sh", "a", "p", "e"], "note": "sh is one part; magic e makes a say its name" },
+    { "id": "storytime.shelf-round-is-a-tortilla.circle", "text": "circle", "parts": ["c", "ir", "c", "le"], "tricky": [3], "emoji": "🔵", "note": "the first c says s, ir says er, le says ul: sir-kul" },
+    { "id": "storytime.shelf-round-is-a-tortilla.square", "text": "square", "parts": ["s", "qu", "are"], "tricky": [2], "emoji": "🟦", "note": "qu says kw; are says air, like in care: skwair" },
+    { "id": "storytime.shelf-round-is-a-tortilla.star", "text": "star", "parts": ["s", "t", "ar"], "emoji": "⭐", "note": "s-t blend; ar says ar" },
+    { "id": "storytime.shelf-round-is-a-tortilla.tortilla", "text": "tortilla", "parts": ["t", "or", "t", "i", "ll", "a"], "tricky": [3, 4, 5], "note": "a Spanish word: i says ee, ll says y and the a says u: tor-tee-ya" },
+    { "id": "storytime.shelf-round-is-a-tortilla.taco", "text": "taco", "parts": ["t", "a", "c", "o"], "tricky": [1], "emoji": "🌮", "note": "a Spanish word: the a says ah and the o says its name: tah-co" },
+    { "id": "storytime.shelf-round-is-a-tortilla.clock", "text": "clock", "parts": ["c", "l", "o", "ck"], "emoji": "⏰", "note": "c-l blend; ck is one sound" },
+    { "id": "storytime.shelf-round-is-a-tortilla.pot", "text": "pot", "parts": ["p", "o", "t"], "emoji": "🍲", "note": "all regular: p-o-t" },
+    { "id": "storytime.shelf-round-is-a-tortilla.moon", "text": "moon", "parts": ["m", "oo", "n"], "emoji": "🌙", "note": "oo says long oo" },
+    { "id": "storytime.shelf-round-is-a-tortilla.sun", "text": "sun", "parts": ["s", "u", "n"], "emoji": "☀️", "note": "all regular: s-u-n" },
+    { "id": "storytime.shelf-round-is-a-tortilla.drum", "text": "drum", "parts": ["d", "r", "u", "m"], "emoji": "🥁", "note": "d-r blend" },
+    { "id": "storytime.shelf-round-is-a-tortilla.flag", "text": "flag", "parts": ["f", "l", "a", "g"], "emoji": "🚩", "note": "f-l blend" },
+    { "id": "storytime.shelf-round-is-a-tortilla.kite", "text": "kite", "parts": ["k", "i", "t", "e"], "emoji": "🪁", "note": "magic e makes i say its name" },
+    { "id": "storytime.shelf-round-is-a-tortilla.bell", "text": "bell", "parts": ["b", "e", "ll"], "emoji": "🔔", "note": "ll is two letters, one sound" },
+    { "id": "storytime.shelf-round-is-a-tortilla.box", "text": "box", "parts": ["b", "o", "x"], "emoji": "📦", "note": "x says ks" },
+    { "id": "storytime.shelf-round-is-a-tortilla.hat", "text": "hat", "parts": ["h", "a", "t"], "emoji": "🎩", "note": "all regular: h-a-t" },
+    { "id": "storytime.shelf-round-is-a-tortilla.window", "text": "window", "parts": ["w", "i", "n", "d", "ow"], "note": "two parts: win + dow; ow says long o at the end" }
+  ]
+}

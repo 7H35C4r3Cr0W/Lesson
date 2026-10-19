@@ -1,0 +1,88 @@
+{
+  "id": "storytime.little-engine",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 340,
+  "title": "The Little Engine That Could",
+  "emoji": "🚂",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Watty Piper's 1930 picture book about a train full of toys that breaks down, the big engines that will not help, and the little blue engine who says she thinks she can and pulls the toys over the mountain. First graders love chanting the refrain, and the story gives them words for trying hard at something new. It is a public-domain story retold here in first-grade words, four pages long.",
+  "tip": "Chant I think I can, I think I can together while he pushes something heavy, like a box of books, across the room.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Watty Piper (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A little blue engine who thinks she can."
+  },
+  "passage": {
+    "text": "A little train was full of toys.\nThere were dolls and teddy bears.\nThere were toy trucks and red balls.\nThere were apples and oranges, too.\nThe toys were going to the good children.\nThe children lived on the other side of the mountain.\nThen the train stopped.\nIts engine would not go.\n\"Oh, no!\" said the toys.\n\"How will we get over the mountain?\"\n***\nA big shiny engine came by.\n\"Please pull us over the mountain,\" said the toys.\n\"I pull fancy trains,\" said the shiny engine.\n\"I will not pull toys.\"\nAnd off it went.\nThen a big strong engine came by.\n\"Please pull us over the mountain,\" said the toys.\n\"I pull heavy freight,\" said the strong engine.\n\"I will not pull toys.\"\nAnd off it went.\nThe toys felt sad.\n***\nThen a little blue engine came by.\nShe was very small.\n\"Please pull us over the mountain,\" said the toys.\n\"I am not very big,\" she said.\n\"But the children need their toys.\"\n\"I think I can.\"\nShe hooked on to the little train.\nPuff, puff! Chug, chug!\n\"I think I can. I think I can.\"\nUp, up, up she went.\n\"I think I can. I think I can.\"\n***\nSlowly, slowly, she pulled the train up the mountain.\n\"I think I can. I think I can.\"\nAt last she got to the top!\n\"Hooray!\" said the toys.\nThen down the mountain she went.\n\"I thought I could. I thought I could.\"\nThe children got their toys.\nThey were so happy.\nThe little blue engine was happy, too.\nBelieve in yourself and try your best.",
+    "level": "open",
+    "focus": ["th", "short u", "s blends"],
+    "tricky": ["a", "little", "was", "of", "toys", "there", "were", "teddy", "bears", "toy", "apples", "too", "the", "going", "to", "good", "other", "mountain", "engine", "would", "go", "oh", "no", "said", "how", "we", "over", "shiny", "by", "please", "i", "fancy", "heavy", "freight", "blue", "she", "very", "their", "hooked", "slowly", "hooray", "down", "thought", "could", "they", "so", "happy", "believe", "yourself", "try", "your"]
+  },
+  "cards": [
+    { "id": "storytime.little-engine.full-of-toys",
+      "q": "What was the little train full of?",
+      "a": "toys",
+      "wrong": ["coal", "hay"],
+      "emoji": "🧸",
+      "note": "Dolls, teddy bears, toy trucks, red balls, and apples and oranges too, all on their way to the children." },
+
+    { "id": "storytime.little-engine.who-children",
+      "q": "Who were the toys going to?",
+      "a": "the children",
+      "wrong": ["the shiny engine", "the strong engine"],
+      "note": "The good children lived on the other side of the mountain, which is why the train had to get over it." },
+
+    { "id": "storytime.little-engine.shiny-pulls",
+      "q": "What did the big shiny engine pull?",
+      "a": "fancy trains",
+      "wrong": ["heavy freight", "little toys"],
+      "note": "The shiny engine was too proud for toys, and the strong engine was too busy with its freight." },
+
+    { "id": "storytime.little-engine.said-think",
+      "q": "What did the little blue engine say as she pulled?",
+      "a": "I think I can",
+      "wrong": ["I give up", "I will not pull"],
+      "emoji": "🚂",
+      "note": "Say it with him, faster and faster, as the train climbs the mountain." },
+
+    { "id": "storytime.little-engine.first",
+      "q": "What happened first in the story?",
+      "a": "the train stopped",
+      "wrong": ["the children got toys", "the blue engine came"],
+      "note": "The engine would not go, so the toys were stuck at the foot of the mountain." },
+
+    { "id": "storytime.little-engine.end",
+      "q": "What happened at the end of the story?",
+      "a": "the children got toys",
+      "wrong": ["the train stopped", "the shiny engine left"],
+      "note": "Down the other side of the mountain she went, saying I thought I could." },
+
+    { "id": "storytime.little-engine.feel-sad",
+      "q": "How did the toys feel when the big engines left?",
+      "a": "sad",
+      "wrong": ["silly", "proud"],
+      "note": "Two big engines went off without them, so the toys felt sad until the little blue engine came." },
+
+    { "id": "storytime.little-engine.lesson",
+      "q": "What does this story teach?",
+      "a": "believe in yourself",
+      "wrong": ["give up right away", "only big engines help"],
+      "note": "Believe in yourself and try your best: the little engine was small, but she tried." },
+
+    { "id": "storytime.little-engine.vocab-freight",
+      "q": "In the story, what does 'freight' mean?",
+      "a": "things a train carries",
+      "wrong": ["a kind of toy", "a tall hill"],
+      "note": "Freight is the heavy load a train carries, like coal or boxes, and the strong engine pulled freight, not toys." },
+
+    { "id": "storytime.little-engine.word-train",
+      "q": "Which word is in the story?",
+      "a": "train",
+      "wrong": ["trail", "tray"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

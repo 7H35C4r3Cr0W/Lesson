@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-henry-and-mudge",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 640,
+  "title": "Henry and Mudge words",
+  "emoji": "🐕",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Henry has no brothers or sisters and no other kids on his street, until his parents let him pick a puppy named Mudge, who grows into a huge, drooling dog that follows him everywhere. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read the short chapters together, one each night.",
+  "book": {
+    "author": "Cynthia Rylant",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Henry+and+Mudge+The+First+Book&searchType=title",
+    "blurb": "The first easy-reader book about a boy and his very big dog, and the day Mudge gets lost."
+  },
+  "passage": {
+    "text": "Henry Mudge dog puppy\nbig drool walk lost\nfound home bed woods\nhug lick sad smell\nbark alone",
+    "level": "open",
+    "focus": ["oo", "ck", "ar"],
+    "tricky": ["henry", "puppy", "walk", "alone"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-henry-and-mudge.henry", "text": "Henry", "parts": ["H", "e", "n", "r", "y"], "tricky": [4], "emoji": "👦", "note": "capital H, it is his name; y at the end says ee: Hen-ree" },
+    { "id": "storytime.shelf-henry-and-mudge.mudge", "text": "Mudge", "parts": ["M", "u", "dge"], "emoji": "🐕", "note": "capital M, it is his name; dge says j, like in bridge" },
+    { "id": "storytime.shelf-henry-and-mudge.dog", "text": "dog", "parts": ["d", "o", "g"], "emoji": "🐶", "note": "all regular: d-o-g" },
+    { "id": "storytime.shelf-henry-and-mudge.puppy", "text": "puppy", "parts": ["p", "u", "pp", "y"], "tricky": [3], "note": "pp is one p; y at the end says ee: pup-ee" },
+    { "id": "storytime.shelf-henry-and-mudge.big", "text": "big", "parts": ["b", "i", "g"], "note": "all regular: b-i-g" },
+    { "id": "storytime.shelf-henry-and-mudge.drool", "text": "drool", "parts": ["d", "r", "oo", "l"], "emoji": "🤤", "note": "d-r blend; oo says long oo; drool is dog spit" },
+    { "id": "storytime.shelf-henry-and-mudge.walk", "text": "walk", "parts": ["w", "a", "l", "k"], "tricky": [1, 2], "emoji": "🚶", "note": "a says aw and the l makes no sound, like in talk: wawk" },
+    { "id": "storytime.shelf-henry-and-mudge.lost", "text": "lost", "parts": ["l", "o", "s", "t"], "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-henry-and-mudge.found", "text": "found", "parts": ["f", "ou", "n", "d"], "emoji": "🔍", "note": "ou says ow, like in out" },
+    { "id": "storytime.shelf-henry-and-mudge.home", "text": "home", "parts": ["h", "o", "m", "e"], "emoji": "🏠", "note": "magic e makes o say its name" },
+    { "id": "storytime.shelf-henry-and-mudge.bed", "text": "bed", "parts": ["b", "e", "d"], "emoji": "🛏️", "note": "all regular: b-e-d" },
+    { "id": "storytime.shelf-henry-and-mudge.woods", "text": "woods", "parts": ["w", "oo", "d", "s"], "emoji": "🌲", "note": "oo says oo as in book; the s says z" },
+    { "id": "storytime.shelf-henry-and-mudge.hug", "text": "hug", "parts": ["h", "u", "g"], "emoji": "🤗", "note": "all regular: h-u-g" },
+    { "id": "storytime.shelf-henry-and-mudge.lick", "text": "lick", "parts": ["l", "i", "ck"], "emoji": "👅", "note": "ck is one sound" },
+    { "id": "storytime.shelf-henry-and-mudge.sad", "text": "sad", "parts": ["s", "a", "d"], "emoji": "😢", "note": "all regular: s-a-d" },
+    { "id": "storytime.shelf-henry-and-mudge.smell", "text": "smell", "parts": ["s", "m", "e", "ll"], "emoji": "👃", "note": "s-m blend; ll is one sound" },
+    { "id": "storytime.shelf-henry-and-mudge.bark", "text": "bark", "parts": ["b", "ar", "k"], "note": "ar says ar" },
+    { "id": "storytime.shelf-henry-and-mudge.alone", "text": "alone", "parts": ["a", "l", "o", "n", "e"], "tricky": [0], "note": "the first a says u; magic e makes o say its name: uh-lone" }
+  ]
+}

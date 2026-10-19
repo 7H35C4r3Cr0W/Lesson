@@ -204,14 +204,16 @@ export function mount(root, scope, deckId) {
     story.style.removeProperty('--read-size');
     story.style.removeProperty('--read-leading');
     const fits = () => stage.scrollHeight <= stage.clientHeight;
-    if (!stage.clientHeight || fits()) return;
+    const mark = () => stage.classList.toggle('can-scroll', !fits());   // a fade says "more below"
+    if (!stage.clientHeight || fits()) return mark();
     const base = Math.round(parseFloat(getComputedStyle(story).fontSize)) || 32;
     for (const [px, leading] of [[base, 1.6], [base, 1.5], [base - 2, 1.5], [base - 4, 1.5], [base - 6, 1.5]]) {
       if (px < 26) return;
       story.style.setProperty('--read-size', `${px}px`);
       story.style.setProperty('--read-leading', String(leading));
-      if (fits()) return;
+      if (fits()) return mark();
     }
+    mark();
   }
 
   function drawFoot() {
@@ -289,6 +291,15 @@ export function mount(root, scope, deckId) {
   function finishScoring() {
     const marked = allWords.filter((el) => el.classList.contains('miss'));
     const seconds = Math.min(MAX_SECONDS, Math.max(1, Math.round((performance.now() - startedAt) / 1000)));
+    // A Start-then-Finished slip would record hundreds of words a minute and sit in "best" for good:
+    // nobody reads faster than about eight words a second, so a quicker "read" goes back to Start.
+    if (seconds < Math.max(3, Math.round(words / 8))) {
+      startedAt = null;
+      allWords.forEach((el) => el.classList.remove('miss'));
+      showBubble('That was quick! Tap Start when the reading begins, Finished at the end.');
+      drawFoot();
+      return;
+    }
     const missed = Array.from(new Set(marked.map((el) => el.dataset.word).filter(Boolean)));
     finish({ mode: 'scored', words, errors: Math.min(words, marked.length), seconds, missed });
   }

@@ -1,0 +1,88 @@
+{
+  "id": "storytime.velveteen-rabbit",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 360,
+  "title": "The Velveteen Rabbit",
+  "emoji": "🐰",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Margery Williams's 1922 story of a toy rabbit who is loved by a boy until his fur is rubbed off, and who learns from the wise old Skin Horse that being loved is what makes a toy Real. It is a gentle story for talking about love, growing up and old favorite toys. This softened telling leaves out the illness and the bonfire: the boy simply grows up, and the nursery magic Fairy turns the old rabbit into a real one; it is a public-domain story retold in first-grade words, five pages long.",
+  "tip": "Ask: which toy at home is the most loved and most worn out, and is it Real?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Margery Williams (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A toy rabbit who is loved until he becomes Real."
+  },
+  "passage": {
+    "text": "Once there was a velveteen rabbit.\nHe was soft and brown.\nHe had pink ears and a white tail.\nA boy got him as a present.\nBut the boy had fancy toys, too.\nThey had wheels and springs.\nThe rabbit sat in the toy box.\nHe felt plain and shy.\n***\nIn the toy box lived the old Skin Horse.\n\"What is Real?\" asked the rabbit.\n\"Real is not how you are made,\" said the Horse.\n\"A child loves you for a long, long time.\"\n\"Then you become Real.\"\n\"Does it hurt?\" asked the rabbit.\n\"Sometimes,\" said the Horse.\n\"Your fur gets rubbed off.\"\n\"You get very shabby.\"\n\"But once you are Real, it does not matter.\"\n***\nOne night the boy could not find his toy dog.\nSo Mother gave him the rabbit.\nThe boy hugged the rabbit all night.\nAfter that, they were always together.\nThey played in the garden.\nThe boy took him to bed every night.\n\"He is not a toy,\" said the boy.\n\"He is Real!\"\nThe rabbit was so happy.\n***\nYears went by.\nThe rabbit got old and shabby.\nBut the boy loved him, so he was Real.\nThen the boy grew up.\nHe got new toys.\nThe old rabbit was put in a sack.\n\"Put him out in the garden,\" said Mother.\nThat night the rabbit sat all alone.\nA tear rolled down his face.\n***\nWhere the tear fell, a flower grew.\nOut of the flower came a fairy.\n\"I am the nursery magic Fairy,\" she said.\n\"You were Real to the boy.\"\n\"Now you will be Real to everyone.\"\nShe kissed him on the nose.\nHis legs began to twitch.\nHe was a real rabbit at last!\nHe ran off with the wild rabbits.\nBeing loved is what makes you Real.",
+    "level": "open",
+    "focus": ["short a", "-ed endings", "ai and ay"],
+    "tricky": ["once", "there", "was", "a", "velveteen", "he", "brown", "ears", "white", "boy", "the", "fancy", "toys", "too", "they", "wheels", "toy", "shy", "lived", "old", "horse", "what", "is", "real", "how", "you", "are", "said", "child", "loves", "for", "does", "hurt", "sometimes", "your", "fur", "very", "shabby", "one", "night", "could", "find", "so", "mother", "all", "were", "always", "together", "played", "garden", "to", "every", "happy", "years", "by", "loved", "grew", "new", "put", "out", "alone", "tear", "rolled", "down", "face", "where", "flower", "of", "fairy", "i", "nursery", "magic", "she", "now", "be", "everyone", "nose", "began", "twitch", "wild", "being", "makes"]
+  },
+  "cards": [
+    { "id": "storytime.velveteen-rabbit.who-said-real",
+      "q": "Who said, 'Then you become Real'?",
+      "a": "the Skin Horse",
+      "wrong": ["the boy", "Mother"],
+      "emoji": "🐴",
+      "note": "The old Skin Horse had been loved for years, so he knew all about being Real." },
+
+    { "id": "storytime.velveteen-rabbit.bed-rabbit",
+      "q": "What did the boy take to bed every night?",
+      "a": "the rabbit",
+      "wrong": ["a toy train", "a big book"],
+      "emoji": "🐰",
+      "note": "After the night he lost his toy dog, the boy and the rabbit were always together." },
+
+    { "id": "storytime.velveteen-rabbit.fur-rubbed",
+      "q": "What did the Skin Horse say happens to your fur?",
+      "a": "it gets rubbed off",
+      "wrong": ["it turns blue", "it grows longer"],
+      "note": "The Skin Horse said it would happen, and that once you are Real it does not matter." },
+
+    { "id": "storytime.velveteen-rabbit.where-sack",
+      "q": "Where was the old rabbit put when the boy grew up?",
+      "a": "in a sack",
+      "wrong": ["in a boat", "in a tree"],
+      "note": "The boy got new toys, and the old rabbit went out to the garden in a sack." },
+
+    { "id": "storytime.velveteen-rabbit.first",
+      "q": "What happened first in the story?",
+      "a": "the rabbit was new",
+      "wrong": ["the fairy came", "the rabbit got shabby"],
+      "note": "The story opens with the soft brown rabbit, brand new, before the fancy toys crowd him out." },
+
+    { "id": "storytime.velveteen-rabbit.end",
+      "q": "What happened at the end of the story?",
+      "a": "he became real",
+      "wrong": ["he met the Horse", "he was a present"],
+      "note": "The Fairy kissed his nose, his legs began to twitch, and he ran off with the wild rabbits." },
+
+    { "id": "storytime.velveteen-rabbit.feel-happy",
+      "q": "How did the rabbit feel when the boy called him Real?",
+      "a": "happy",
+      "wrong": ["grumpy", "bored"],
+      "note": "He is not a toy, said the boy, he is Real, and that made the rabbit so happy." },
+
+    { "id": "storytime.velveteen-rabbit.lesson",
+      "q": "What does this story teach?",
+      "a": "love makes you real",
+      "wrong": ["new toys are best", "fur must stay neat"],
+      "note": "Being loved is what makes you Real; the last line says it." },
+
+    { "id": "storytime.velveteen-rabbit.vocab-shabby",
+      "q": "In the story, what does 'shabby' mean?",
+      "a": "worn and old",
+      "wrong": ["shiny and new", "big and tall"],
+      "note": "A shabby toy has been loved so much that its fur is rubbed thin and its seams are worn." },
+
+    { "id": "storytime.velveteen-rabbit.word-sack",
+      "q": "Which word is in the story?",
+      "a": "sack",
+      "wrong": ["sock", "snack"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-possum-magic",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 550,
+  "title": "Possum Magic words",
+  "emoji": "✨",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Grandma Poss uses bush magic to make little Hush invisible so she is safe from snakes, and the two possums travel across Australia tasting people food to find the magic that makes her seen again. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read it together, with him reading the words he knows.",
+  "book": {
+    "author": "Mem Fox",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "An Australian classic about a possum nobody can see and the food that brings her back."
+  },
+  "passage": {
+    "text": "Hush possum magic bush\ntree see snake safe\nfood eat cake bread\ntown map trip home\nlook find",
+    "level": "open",
+    "focus": ["a_e", "ee", "oo"],
+    "tricky": ["bush", "bread", "town", "find"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-possum-magic.hush", "text": "Hush", "parts": ["H", "u", "sh"], "note": "capital H, it is her name; sh is one part" },
+    { "id": "storytime.shelf-possum-magic.possum", "text": "possum", "parts": ["p", "o", "ss", "u", "m"], "note": "two parts: poss + um; ss is one sound" },
+    { "id": "storytime.shelf-possum-magic.magic", "text": "magic", "parts": ["m", "a", "g", "i", "c"], "emoji": "✨", "note": "two parts: mag + ic; the g says j" },
+    { "id": "storytime.shelf-possum-magic.bush", "text": "bush", "parts": ["b", "u", "sh"], "tricky": [1], "emoji": "🌿", "note": "u says oo as in book, like in push; the bush is the wild country" },
+    { "id": "storytime.shelf-possum-magic.tree", "text": "tree", "parts": ["t", "r", "ee"], "emoji": "🌳", "note": "t-r blend; ee says long e" },
+    { "id": "storytime.shelf-possum-magic.see", "text": "see", "parts": ["s", "ee"], "emoji": "👀", "note": "ee says long e" },
+    { "id": "storytime.shelf-possum-magic.snake", "text": "snake", "parts": ["s", "n", "a", "k", "e"], "emoji": "🐍", "note": "s-n blend; magic e makes a say its name" },
+    { "id": "storytime.shelf-possum-magic.safe", "text": "safe", "parts": ["s", "a", "f", "e"], "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-possum-magic.food", "text": "food", "parts": ["f", "oo", "d"], "emoji": "🍽️", "note": "oo says long oo, like moon" },
+    { "id": "storytime.shelf-possum-magic.eat", "text": "eat", "parts": ["ea", "t"], "note": "ea says long e" },
+    { "id": "storytime.shelf-possum-magic.cake", "text": "cake", "parts": ["c", "a", "k", "e"], "emoji": "🎂", "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-possum-magic.bread", "text": "bread", "parts": ["b", "r", "ea", "d"], "tricky": [2], "emoji": "🍞", "note": "b-r blend; ea says e here, not long e: bred" },
+    { "id": "storytime.shelf-possum-magic.town", "text": "town", "parts": ["t", "ow", "n"], "tricky": [1], "emoji": "🏘️", "note": "ow says ou as in out, like in cow" },
+    { "id": "storytime.shelf-possum-magic.map", "text": "map", "parts": ["m", "a", "p"], "emoji": "🗺️", "note": "all regular: m-a-p" },
+    { "id": "storytime.shelf-possum-magic.trip", "text": "trip", "parts": ["t", "r", "i", "p"], "emoji": "🧳", "note": "t-r blend" },
+    { "id": "storytime.shelf-possum-magic.home", "text": "home", "parts": ["h", "o", "m", "e"], "emoji": "🏠", "note": "magic e makes o say its name" },
+    { "id": "storytime.shelf-possum-magic.look", "text": "look", "parts": ["l", "oo", "k"], "note": "oo says oo as in book" },
+    { "id": "storytime.shelf-possum-magic.find", "text": "find", "parts": ["f", "i", "n", "d"], "tricky": [1], "emoji": "🔍", "note": "the i says its name, like in kind: fynd" }
+  ]
+}

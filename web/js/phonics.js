@@ -61,10 +61,21 @@ function hardG(word) {
   });
 }
 
+// Words where a final -ve keeps the vowel short (English never ends a word in v, so the e is
+// only there for spelling): give, live, have, love. Checked with an ending s or d too (gives, lived).
+const SHORT_VE = new Set(['give', 'live', 'have', 'love', 'dove', 'glove', 'shove', 'above']);
+const shortVe = (w) => SHORT_VE.has(w) || (/[sd]$/.test(w) && SHORT_VE.has(w.slice(0, -1)));
+// Sounds after which an ending -es is a syllable of its own (faces, boxes, wishes), not a silent e (cakes).
+const HISS = new Set(['s', 'ss', 'z', 'zz', 'x', 'sh', 'ch', 'tch', 'dge', 'c-soft', 'g-soft']);
+// Words that end in -ed without it being an ending: the e is heard (hundred, wicked, naked).
+const ED_HEARD = new Set(['hundred', 'kindred', 'hatred', 'sacred', 'wicked', 'naked', 'rugged', 'ragged', 'jagged',
+  'crooked', 'wretched', 'beloved', 'dogged', 'legged']);
+
 const isVowelKey = (key) => !!key && (VOWELS.includes(key[0]) || key.startsWith('y-'));
-// A soft c or g is still one consonant letter, so magic e works across it (cage, race, ice).
+// A soft c or g is still one consonant letter, so magic e works across it (cage, race, ice);
+// x is two sounds (/ks/), so it never is one (axe, fixed, boxes), as in tools/decodability.py.
 const isSingleConsonant = (key) => !!key && (key === 'c-soft' || key === 'g-soft'
-  || (key.length === 1 && /[a-z]/.test(key) && !VOWELS.includes(key) && key !== 'y'));
+  || (key.length === 1 && /[a-z]/.test(key) && !VOWELS.includes(key) && key !== 'y' && key !== 'x'));
 
 // The word as [{ text, sound }]: text is the letters of one sound, sound is what the voice
 // says for it ('' for a silent letter, such as the e in "cake" or an apostrophe).
@@ -101,17 +112,36 @@ export function splitSounds(word) {
       p.key = 'i';
     }
   });
+  // Magic e (cake, hope, bike): also under an ending s or d when the base is one syllable (cakes,
+  // named; opened and visited are left alone), and across a soft c or g in a one-syllable word only
+  // (cage, race, ice; village and office keep their short vowel). The short -ve words are listed.
+  const tail = n >= 2 && (parts[n - 1].key === 's' || parts[n - 1].key === 'd') ? 1 : 0;
+  const e = n - 1 - tail;                                 // where a final e would be
+  const before = e >= 1 ? parts[e - 1].key : null;        // the sound in front of it
+  const soft = before === 'c-soft' || before === 'g-soft';
+  const magic = e >= 2 && parts[e].key === 'e' && isSingleConsonant(before)
+    && VOWELS.includes(parts[e - 2].key || '-') && parts[e - 2].key.length === 1
+    && (!(tail || soft) || !parts.slice(0, e - 2).some((q) => isVowelKey(q.key)))
+    && !shortVe(w);
   if (n === 1 && (w === 'i' || w === 'a')) {
     parts[0].key = `${w}-long`;                           // the words "I" and "a"
-  } else if (n >= 3 && parts[n - 1].key === 'e' && isSingleConsonant(parts[n - 2].key)
-    && VOWELS.includes(parts[n - 3].key || '-') && parts[n - 3].key.length === 1) {
-    parts[n - 3].key += '-long';                          // magic e: cake, hope, bike
-    parts[n - 1].key = null;
+  } else if (magic) {
+    parts[e - 2].key += '-long';
+    if (!tail) parts[e].key = null;                       // cake; under an ending the rule below decides
   } else if (n >= 2 && parts[n - 1].key && parts[n - 1].key.length === 1 && 'eiou'.includes(parts[n - 1].key)) {
     const earlier = parts.slice(0, n - 1).some((q) => isVowelKey(q.key));
     // An open syllable at the end is long (go, hi, me); a final e after another vowel is silent (apple).
     if (parts[n - 1].key === 'e' && earlier) parts[n - 1].key = null;
     else parts[n - 1].key += '-long';
+  }
+  // An ending -es or -ed is a syllable of its own only after a hiss (boxes, faces) or a t / d
+  // (wanted, hated); after any other sound the e is silent and only the s or d is heard (cakes,
+  // apples, elves, jumped, asked, played). A word that merely ends in those letters keeps its e
+  // (yes, red: no vowel before the e; hundred, wicked: listed).
+  if (tail && parts[e].key === 'e' && before && parts.slice(0, e).some((q) => isVowelKey(q.key))
+    && !(parts[n - 1].key === 'd' && ED_HEARD.has(w))) {
+    const heard = parts[n - 1].key === 's' ? HISS.has(before) : ['t', 'd', 'tt', 'dd'].includes(before);
+    if (!heard) parts[e].key = null;
   }
   return parts.map((p) => ({ text: p.text, sound: p.key ? SOUNDS[p.key] || '' : '' }));
 }

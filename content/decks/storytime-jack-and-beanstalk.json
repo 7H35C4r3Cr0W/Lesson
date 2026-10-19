@@ -1,0 +1,88 @@
+{
+  "id": "storytime.jack-and-beanstalk",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 210,
+  "title": "Jack and the Beanstalk",
+  "emoji": "🌱",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The English folk tale of the boy who trades his cow for five magic beans, climbs the beanstalk to a giant's castle and brings home the hen that lays golden eggs. First graders love the climb, the chant of fee, fi, fo, fum and chopping down the beanstalk, and the story is a good one for talking about brave choices and careful trades. In this softened telling nobody is hurt and the giant simply stays grumbling up in the clouds; it is a public-domain story retold in first-grade words, five pages long.",
+  "tip": "Ask: was one old cow for five beans a good trade, and how did it turn out in the end?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale from England (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Five magic beans, one tall beanstalk, and a grumpy giant."
+  },
+  "passage": {
+    "text": "Once there was a boy named Jack.\nHe lived with his mother.\nThey were very poor.\nAll they had was one old cow.\n\"Take the cow to market,\" said his mother.\n\"Sell her for some money.\"\nOn the way, Jack met a man.\n\"I will trade you for that cow,\" said the man.\n\"Five magic beans!\"\nSo Jack made the trade.\n***\n\"Beans?\" said his mother.\n\"Oh, Jack! We needed that money.\"\nShe tossed the beans out the window.\nIn the night, the beans began to grow.\nThey grew and grew and grew.\nIn the morning, Jack saw a giant beanstalk.\nIt went up, up, up into the clouds!\nJack climbed it to the very top.\n***\nAt the top was a huge castle.\nJack crept inside.\n\"Fee, fi, fo, fum!\" boomed a giant.\n\"I smell a boy!\"\nHe was big and grumpy.\nJack hid behind a big pot.\nThe giant sat down.\n\"Hen, lay!\" he said.\nA little hen laid a golden egg.\nJack knew that hen!\nShe was his family's hen.\nThe giant had taken her long ago.\n***\nSoon the giant fell asleep.\nJack tiptoed out.\nHe picked up the hen.\n\"Come home with me,\" he whispered.\nThen he ran for the beanstalk.\n\"Cluck!\" said the hen.\nThe giant woke up.\n\"Who took my hen?\" he roared.\nJack climbed down as fast as he could.\nThe giant looked down.\nThe beanstalk was much too thin for him.\n***\nJack got to the bottom.\n\"Mother! Get the axe!\" he called.\nChop, chop, chop!\nDown came the beanstalk.\nFar up in the clouds, the giant grumbled.\n\"Humph!\" he said.\nHe never came down.\nJack gave the hen to his mother.\n\"She lays golden eggs,\" he said.\nNow they were never poor again.\nBe brave, and think before you trade.",
+    "level": "open",
+    "focus": ["ea", "ow", "-ed endings"],
+    "tricky": ["once", "there", "was", "a", "boy", "he", "lived", "mother", "they", "were", "very", "poor", "all", "one", "old", "cow", "the", "to", "said", "some", "money", "i", "you", "beans", "magic", "so", "oh", "we", "she", "tossed", "out", "window", "night", "began", "grow", "grew", "giant", "beanstalk", "into", "climbed", "huge", "castle", "crept", "fi", "fo", "boomed", "grumpy", "behind", "down", "little", "golden", "knew", "family", "taken", "her", "ago", "asleep", "tiptoed", "come", "me", "whispered", "for", "cluck", "woke", "who", "my", "roared", "could", "looked", "too", "bottom", "axe", "called", "far", "grumbled", "humph", "never", "gave", "lays", "now", "again", "be", "brave", "before"]
+  },
+  "cards": [
+    { "id": "storytime.jack-and-beanstalk.traded-beans",
+      "q": "What did Jack trade the cow for?",
+      "a": "five magic beans",
+      "wrong": ["a bag of gold", "a new hat"],
+      "emoji": "🌱",
+      "note": "His mother was upset, because they needed the money, and she tossed the beans out the window." },
+
+    { "id": "storytime.jack-and-beanstalk.grew-beanstalk",
+      "q": "What grew outside the window in the night?",
+      "a": "a giant beanstalk",
+      "wrong": ["a tall tree", "a rose bush"],
+      "note": "The beans grew and grew until the beanstalk reached up into the clouds." },
+
+    { "id": "storytime.jack-and-beanstalk.hen-laid",
+      "q": "What did the little hen lay?",
+      "a": "golden eggs",
+      "wrong": ["blue eggs", "tiny eggs"],
+      "emoji": "🥚",
+      "note": "Hen, lay, said the giant, and out came a golden egg." },
+
+    { "id": "storytime.jack-and-beanstalk.took-hen",
+      "q": "What did Jack take from the giant?",
+      "a": "the hen",
+      "wrong": ["the big pot", "the table"],
+      "note": "The hen had been his family's hen all along, and the giant had taken her long ago." },
+
+    { "id": "storytime.jack-and-beanstalk.first",
+      "q": "What happened first in the story?",
+      "a": "Jack traded the cow",
+      "wrong": ["Jack climbed up", "the beanstalk fell"],
+      "note": "Everything starts with the trade on the way to market." },
+
+    { "id": "storytime.jack-and-beanstalk.end",
+      "q": "What happened at the end of the story?",
+      "a": "the beanstalk came down",
+      "wrong": ["Jack met a man", "the giant fell asleep"],
+      "note": "Chop, chop, chop, and the giant stayed up in the clouds while Jack and his mother were never poor again." },
+
+    { "id": "storytime.jack-and-beanstalk.like-giant",
+      "q": "What was the giant like?",
+      "a": "big and grumpy",
+      "wrong": ["small and kind", "quiet and shy"],
+      "note": "He booms fee, fi, fo, fum, roars when his hen is gone, and grumbles when he cannot follow." },
+
+    { "id": "storytime.jack-and-beanstalk.lesson",
+      "q": "What does this story teach?",
+      "a": "be brave and careful",
+      "wrong": ["trade for anything", "always stay home"],
+      "note": "Be brave, and think before you trade; the last line says it." },
+
+    { "id": "storytime.jack-and-beanstalk.vocab-crept",
+      "q": "In the story, what does 'crept' mean?",
+      "a": "moved very quietly",
+      "wrong": ["ran very fast", "jumped up high"],
+      "note": "Jack crept into the castle so the giant would not hear him." },
+
+    { "id": "storytime.jack-and-beanstalk.word-beans",
+      "q": "Which word is in the story?",
+      "a": "beans",
+      "wrong": ["bears", "beads"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

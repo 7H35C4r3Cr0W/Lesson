@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-hamster-roommates",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 580,
+  "title": "Hamster Roommates words",
+  "emoji": "🐹",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Henry the hamster wants a little peace and quiet, but his roommate Marvin never stops talking, so after Henry finally loses his cool the two of them have to work out how to share one cage. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him reading the words he practised.",
+  "book": {
+    "author": "Cheryl B. Klein",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A funny picture book about a quiet hamster, a chatty hamster and the cage they both call home."
+  },
+  "passage": {
+    "text": "hamster Henry Marvin roommate\ncage wheel nest seed\nsnack chew read book\nloud quiet talk still\nsleep share",
+    "level": "open",
+    "focus": ["ee", "oo", "ou"],
+    "tricky": ["henry", "quiet", "talk", "share"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-hamster-roommates.hamster", "text": "hamster", "parts": ["h", "a", "m", "s", "t", "er"], "emoji": "🐹", "note": "two parts: ham + ster; er says er" },
+    { "id": "storytime.shelf-hamster-roommates.henry", "text": "Henry", "parts": ["H", "e", "n", "r", "y"], "tricky": [4], "note": "capital H, it is his name; y at the end says ee: Hen-ree" },
+    { "id": "storytime.shelf-hamster-roommates.marvin", "text": "Marvin", "parts": ["M", "ar", "v", "i", "n"], "note": "capital M, it is his name; ar says ar; two parts: Mar-vin" },
+    { "id": "storytime.shelf-hamster-roommates.roommate", "text": "roommate", "parts": ["r", "oo", "mm", "a", "t", "e"], "note": "two words: room + mate; magic e makes a say its name" },
+    { "id": "storytime.shelf-hamster-roommates.cage", "text": "cage", "parts": ["c", "a", "g", "e"], "note": "magic e makes a say its name; the g says j" },
+    { "id": "storytime.shelf-hamster-roommates.wheel", "text": "wheel", "parts": ["wh", "ee", "l"], "note": "wh says w; ee says long e" },
+    { "id": "storytime.shelf-hamster-roommates.nest", "text": "nest", "parts": ["n", "e", "s", "t"], "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-hamster-roommates.seed", "text": "seed", "parts": ["s", "ee", "d"], "emoji": "🌱", "note": "ee says long e" },
+    { "id": "storytime.shelf-hamster-roommates.snack", "text": "snack", "parts": ["s", "n", "a", "ck"], "emoji": "🥕", "note": "s-n blend; ck is one sound" },
+    { "id": "storytime.shelf-hamster-roommates.chew", "text": "chew", "parts": ["ch", "ew"], "note": "ch is one part; ew says oo" },
+    { "id": "storytime.shelf-hamster-roommates.read", "text": "read", "parts": ["r", "ea", "d"], "emoji": "📖", "note": "ea says long e: reed" },
+    { "id": "storytime.shelf-hamster-roommates.book", "text": "book", "parts": ["b", "oo", "k"], "emoji": "📚", "note": "oo says oo as in look" },
+    { "id": "storytime.shelf-hamster-roommates.loud", "text": "loud", "parts": ["l", "ou", "d"], "emoji": "📢", "note": "ou says ow, like in out" },
+    { "id": "storytime.shelf-hamster-roommates.quiet", "text": "quiet", "parts": ["qu", "i", "e", "t"], "tricky": [1, 2], "emoji": "🤫", "note": "qu says kw; i says its name and the e says u: kwy-ut" },
+    { "id": "storytime.shelf-hamster-roommates.talk", "text": "talk", "parts": ["t", "a", "l", "k"], "tricky": [1, 2], "emoji": "💬", "note": "a says aw and the l makes no sound, like in walk: tawk" },
+    { "id": "storytime.shelf-hamster-roommates.still", "text": "still", "parts": ["s", "t", "i", "ll"], "note": "s-t blend; ll is one sound" },
+    { "id": "storytime.shelf-hamster-roommates.sleep", "text": "sleep", "parts": ["s", "l", "ee", "p"], "emoji": "😴", "note": "s-l blend; ee says long e" },
+    { "id": "storytime.shelf-hamster-roommates.share", "text": "share", "parts": ["sh", "are"], "tricky": [1], "note": "sh is one part; are says air, like in care" }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-beekle",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 540,
+  "title": "Beekle words",
+  "emoji": "👑",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "An imaginary friend is born on a faraway island and waits to be picked by a child, then sails to the real world on his own and finds a girl who gives him his name. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him reading the words he practised.",
+  "book": {
+    "author": "Dan Santat",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A Caldecott Medal picture book about an imaginary friend who goes looking for his child."
+  },
+  "passage": {
+    "text": "Beekle Alice island friend\nwait pick kid real\ncity boat sail star\npark tree crown name\nhug swing",
+    "level": "open",
+    "focus": ["ee", "ai", "ar"],
+    "tricky": ["beekle", "alice", "island", "friend", "city", "crown"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-beekle.beekle", "text": "Beekle", "parts": ["B", "ee", "k", "le"], "tricky": [3], "note": "capital B, it is his name; ee says long e; le says ul: Bee-kul" },
+    { "id": "storytime.shelf-beekle.alice", "text": "Alice", "parts": ["A", "l", "i", "ce"], "tricky": [3], "emoji": "👧", "note": "capital A, it is her name; ce says s and the i stays short: Al-iss" },
+    { "id": "storytime.shelf-beekle.island", "text": "island", "parts": ["i", "s", "l", "a", "n", "d"], "tricky": [0, 1], "emoji": "🏝️", "note": "the i says its name and the s is silent: eye-land" },
+    { "id": "storytime.shelf-beekle.friend", "text": "friend", "parts": ["f", "r", "ie", "n", "d"], "tricky": [2], "note": "ie says e: frend" },
+    { "id": "storytime.shelf-beekle.wait", "text": "wait", "parts": ["w", "ai", "t"], "emoji": "⏳", "note": "ai says long a" },
+    { "id": "storytime.shelf-beekle.pick", "text": "pick", "parts": ["p", "i", "ck"], "note": "ck is one sound" },
+    { "id": "storytime.shelf-beekle.kid", "text": "kid", "parts": ["k", "i", "d"], "emoji": "🧒", "note": "all regular: k-i-d" },
+    { "id": "storytime.shelf-beekle.real", "text": "real", "parts": ["r", "ea", "l"], "note": "ea says long e; real means not pretend" },
+    { "id": "storytime.shelf-beekle.city", "text": "city", "parts": ["c", "i", "t", "y"], "tricky": [3], "emoji": "🏙️", "note": "c says s before i; y at the end says ee: sit-ee" },
+    { "id": "storytime.shelf-beekle.boat", "text": "boat", "parts": ["b", "oa", "t"], "emoji": "🛶", "note": "oa says long o" },
+    { "id": "storytime.shelf-beekle.sail", "text": "sail", "parts": ["s", "ai", "l"], "emoji": "⛵", "note": "ai says long a" },
+    { "id": "storytime.shelf-beekle.star", "text": "star", "parts": ["s", "t", "ar"], "emoji": "⭐", "note": "s-t blend; ar says ar" },
+    { "id": "storytime.shelf-beekle.park", "text": "park", "parts": ["p", "ar", "k"], "emoji": "🏞️", "note": "ar says ar, like car" },
+    { "id": "storytime.shelf-beekle.tree", "text": "tree", "parts": ["t", "r", "ee"], "emoji": "🌳", "note": "t-r blend; ee says long e" },
+    { "id": "storytime.shelf-beekle.crown", "text": "crown", "parts": ["c", "r", "ow", "n"], "tricky": [2], "emoji": "👑", "note": "c-r blend; ow says ou as in out, like in cow" },
+    { "id": "storytime.shelf-beekle.name", "text": "name", "parts": ["n", "a", "m", "e"], "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-beekle.hug", "text": "hug", "parts": ["h", "u", "g"], "emoji": "🤗", "note": "all regular: h-u-g" },
+    { "id": "storytime.shelf-beekle.swing", "text": "swing", "parts": ["s", "w", "i", "ng"], "note": "s-w blend; ng is one sound" }
+  ]
+}

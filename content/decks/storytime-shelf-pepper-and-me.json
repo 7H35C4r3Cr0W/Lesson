@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-pepper-and-me",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 520,
+  "title": "Pepper and Me words",
+  "emoji": "🩹",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "A girl falls down and gets a scab on her leg, and the scab stays so long that she names it Pepper and talks to it like a friend until the day it finally comes off. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him reading the words he practised.",
+  "book": {
+    "author": "Béatrice Alemagna",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A tender, funny picture book about a scab named Pepper and learning to let go."
+  },
+  "passage": {
+    "text": "Pepper scab leg fall\nhurt skin itch scratch\npick bath wait heal\ngrow bed off me\naway friend",
+    "level": "open",
+    "focus": ["tch", "ck", "ur"],
+    "tricky": ["fall", "me", "away", "friend"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-pepper-and-me.pepper", "text": "Pepper", "parts": ["P", "e", "pp", "er"], "note": "capital P, it is the scab's name; pp is one p; two parts: Pep + per; er says er" },
+    { "id": "storytime.shelf-pepper-and-me.scab", "text": "scab", "parts": ["s", "c", "a", "b"], "note": "s-c blend; all regular: s-c-a-b" },
+    { "id": "storytime.shelf-pepper-and-me.leg", "text": "leg", "parts": ["l", "e", "g"], "emoji": "🦵", "note": "all regular: l-e-g" },
+    { "id": "storytime.shelf-pepper-and-me.fall", "text": "fall", "parts": ["f", "a", "ll"], "tricky": [1], "note": "a says aw before ll, like in ball; ll is one l: fawl" },
+    { "id": "storytime.shelf-pepper-and-me.hurt", "text": "hurt", "parts": ["h", "ur", "t"], "emoji": "🤕", "note": "ur says er, like in fur" },
+    { "id": "storytime.shelf-pepper-and-me.skin", "text": "skin", "parts": ["s", "k", "i", "n"], "note": "s-k blend; all regular" },
+    { "id": "storytime.shelf-pepper-and-me.itch", "text": "itch", "parts": ["i", "tch"], "note": "tch is one sound, like ch" },
+    { "id": "storytime.shelf-pepper-and-me.scratch", "text": "scratch", "parts": ["s", "c", "r", "a", "tch"], "note": "s-c-r blend; tch is one sound, like ch" },
+    { "id": "storytime.shelf-pepper-and-me.pick", "text": "pick", "parts": ["p", "i", "ck"], "note": "ck is one sound" },
+    { "id": "storytime.shelf-pepper-and-me.bath", "text": "bath", "parts": ["b", "a", "th"], "emoji": "🛁", "note": "th is one part, at the end" },
+    { "id": "storytime.shelf-pepper-and-me.wait", "text": "wait", "parts": ["w", "ai", "t"], "emoji": "⏳", "note": "ai says long a" },
+    { "id": "storytime.shelf-pepper-and-me.heal", "text": "heal", "parts": ["h", "ea", "l"], "note": "ea says long e; to heal is to get better" },
+    { "id": "storytime.shelf-pepper-and-me.grow", "text": "grow", "parts": ["g", "r", "ow"], "emoji": "🌱", "note": "g-r blend; ow says long o, like snow" },
+    { "id": "storytime.shelf-pepper-and-me.bed", "text": "bed", "parts": ["b", "e", "d"], "emoji": "🛏️", "note": "all regular: b-e-d" },
+    { "id": "storytime.shelf-pepper-and-me.off", "text": "off", "parts": ["o", "ff"], "note": "ff is two letters, one sound: f" },
+    { "id": "storytime.shelf-pepper-and-me.me", "text": "me", "parts": ["m", "e"], "tricky": [1], "note": "the e says its name, like in he and we" },
+    { "id": "storytime.shelf-pepper-and-me.away", "text": "away", "parts": ["a", "w", "ay"], "tricky": [0], "note": "two parts: a + way; the a says u and ay says long a: uh-way" },
+    { "id": "storytime.shelf-pepper-and-me.friend", "text": "friend", "parts": ["f", "r", "ie", "n", "d"], "tricky": [2], "note": "ie says e: frend" }
+  ]
+}

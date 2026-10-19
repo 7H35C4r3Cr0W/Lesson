@@ -1,0 +1,88 @@
+{
+  "id": "storytime.henny-penny",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 220,
+  "title": "Henny Penny",
+  "emoji": "🐔",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The old English folk tale, also told as Chicken Little, about the hen who is bonked by an acorn, decides the sky is falling and sets off to tell the king with a line of friends behind her. The rhyming names and repeated lines make it a favorite for reading aloud, and it is a gentle way to talk about checking a scary story before you believe it. In this softened telling a wise owl stops everyone at the fox's den and shows them the acorn; it is a public-domain story retold in first-grade words, five pages long.",
+  "tip": "Ask: what should Henny Penny have done before she ran off to tell the king?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale from England (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "One acorn, one worried hen, and a long line of friends."
+  },
+  "passage": {
+    "text": "One day Henny Penny was pecking in the yard.\nPlop!\nAn acorn fell on her head.\n\"Oh, my!\" said Henny Penny.\nShe was scared.\n\"The sky is falling!\"\n\"I must go and tell the king.\"\nOn the way she met Cocky Locky.\n\"The sky is falling!\" said Henny Penny.\n\"I am going to tell the king.\"\n\"I will come, too,\" said Cocky Locky.\n***\nSoon they met Ducky Lucky.\n\"The sky is falling!\" said Henny Penny.\n\"We are going to tell the king.\"\n\"I will come, too,\" said Ducky Lucky.\nThen they met Turkey Lurkey.\n\"Where are you going?\" he asked.\n\"The sky is falling!\" said Henny Penny.\n\"We are going to tell the king.\"\n\"I will come, too,\" said Turkey Lurkey.\nOff they all went.\n***\nThen they met Foxy Loxy.\n\"Where are you going?\" he asked.\n\"The sky is falling!\" said Henny Penny.\n\"We are going to tell the king.\"\nFoxy Loxy smiled a sly smile.\n\"I know a short way,\" he said.\n\"Come into my den.\"\n\"Oh, thank you,\" said Henny Penny.\nAnd they all walked toward the den.\n***\n\"Stop!\" called a voice from a tree.\nIt was a wise old owl.\n\"Stay out of that den!\"\n\"Henny Penny, did you look up?\" asked the owl.\n\"No,\" said Henny Penny.\nThe owl held up a little brown acorn.\n\"This is an acorn,\" he said.\n\"Acorns fall from oak trees.\"\n\"One fell on your head.\"\n\"The sky is just fine.\"\n***\nHenny Penny looked up.\nThe sky was blue and still.\n\"It was only an acorn,\" she said.\nFoxy Loxy gave a huff and ran off.\n\"Thank you, Owl,\" said Henny Penny.\nThen they all went home for supper.\nHenny Penny, Cocky Locky, Ducky Lucky, and Turkey Lurkey.\nNobody told the king.\nCheck before you believe a scary story.",
+    "level": "open",
+    "focus": ["y at the end", "ck", "-ing endings"],
+    "tricky": ["one", "henny", "penny", "was", "the", "acorn", "her", "head", "oh", "my", "said", "she", "scared", "sky", "is", "i", "go", "to", "cocky", "locky", "going", "come", "too", "they", "ducky", "lucky", "we", "are", "turkey", "lurkey", "where", "you", "he", "all", "foxy", "loxy", "smiled", "sly", "know", "a", "into", "thank", "walked", "toward", "called", "voice", "from", "wise", "old", "owl", "out", "of", "look", "no", "little", "brown", "acorns", "oak", "your", "looked", "blue", "only", "gave", "for", "nobody", "told", "believe", "scary", "story"]
+  },
+  "cards": [
+    { "id": "storytime.henny-penny.fell-acorn",
+      "q": "What fell on Henny Penny's head?",
+      "a": "an acorn",
+      "wrong": ["a rock", "an apple"],
+      "emoji": "🌰",
+      "note": "Plop, one little brown acorn from the oak tree, and she never looked up to check." },
+
+    { "id": "storytime.henny-penny.tell-king",
+      "q": "Who did Henny Penny want to tell?",
+      "a": "the king",
+      "wrong": ["the queen", "her mother"],
+      "note": "She was sure the sky was falling and that the king had to know." },
+
+    { "id": "storytime.henny-penny.fox-den",
+      "q": "Where did Foxy Loxy want them to go?",
+      "a": "into his den",
+      "wrong": ["up a tree", "to the pond"],
+      "emoji": "🦊",
+      "note": "He smiled a sly smile and said it was a short way to the king." },
+
+    { "id": "storytime.henny-penny.who-stopped",
+      "q": "Who stopped them at the fox's den?",
+      "a": "a wise old owl",
+      "wrong": ["a big dog", "the king"],
+      "note": "The owl called stop from a tree and showed everyone what had really fallen." },
+
+    { "id": "storytime.henny-penny.first",
+      "q": "What happened first in the story?",
+      "a": "an acorn fell",
+      "wrong": ["the owl called stop", "they went home"],
+      "note": "The whole story starts with one plop on Henny Penny's head." },
+
+    { "id": "storytime.henny-penny.end",
+      "q": "What happened at the end of the story?",
+      "a": "they all went home",
+      "wrong": ["an acorn fell", "they met the fox"],
+      "note": "Nobody told the king, and they all went home for supper instead." },
+
+    { "id": "storytime.henny-penny.feel-scared",
+      "q": "How did Henny Penny feel when the acorn hit her head?",
+      "a": "scared",
+      "wrong": ["sleepy", "proud"],
+      "note": "She was so scared she did not stop to look at what had hit her." },
+
+    { "id": "storytime.henny-penny.lesson",
+      "q": "What does this story teach?",
+      "a": "check before you believe",
+      "wrong": ["believe every scary story", "run and tell everyone"],
+      "note": "Check before you believe a scary story; the last line says it." },
+
+    { "id": "storytime.henny-penny.vocab-sly",
+      "q": "In the story, what does 'sly' mean?",
+      "a": "tricky and sneaky",
+      "wrong": ["kind and helpful", "sleepy and slow"],
+      "note": "A sly fox is a tricky one, and his short way to the king was really a trick." },
+
+    { "id": "storytime.henny-penny.word-sky",
+      "q": "Which word is in the story?",
+      "a": "sky",
+      "wrong": ["ski", "spy"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

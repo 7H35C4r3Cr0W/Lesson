@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-unicorn-and-yeti",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 570,
+  "title": "Unicorn and Yeti words",
+  "emoji": "🦄",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Unicorn is sparkly and can do magic, Yeti is big and furry and loves snowball fights, and in three short stories the two of them learn that being different is no reason not to be best friends. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read one of the three stories together each night.",
+  "book": {
+    "author": "Heather Ayris Burnell",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "The first easy-reader comic about a unicorn and a yeti who meet in the snow and become friends."
+  },
+  "passage": {
+    "text": "Unicorn Yeti sparkly snow\nhill ice cold hot\nhorn fur big magic\njump fun play best\nnew friends",
+    "level": "open",
+    "focus": ["or", "ur", "i_e"],
+    "tricky": ["unicorn", "yeti", "sparkly", "cold", "friends"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-unicorn-and-yeti.unicorn", "text": "Unicorn", "parts": ["U", "n", "i", "c", "or", "n"], "tricky": [0], "emoji": "🦄", "note": "capital U, it is a name; the u says you; three parts: U-ni-corn" },
+    { "id": "storytime.shelf-unicorn-and-yeti.yeti", "text": "Yeti", "parts": ["Y", "e", "t", "i"], "tricky": [3], "note": "capital Y, it is a name; the i at the end says ee: Yet-ee" },
+    { "id": "storytime.shelf-unicorn-and-yeti.sparkly", "text": "sparkly", "parts": ["s", "p", "ar", "k", "l", "y"], "tricky": [5], "emoji": "✨", "note": "s-p blend; ar says ar; y at the end says ee: spark-lee" },
+    { "id": "storytime.shelf-unicorn-and-yeti.snow", "text": "snow", "parts": ["s", "n", "ow"], "emoji": "❄️", "note": "s-n blend; ow says long o" },
+    { "id": "storytime.shelf-unicorn-and-yeti.hill", "text": "hill", "parts": ["h", "i", "ll"], "note": "ll is two letters, one sound" },
+    { "id": "storytime.shelf-unicorn-and-yeti.ice", "text": "ice", "parts": ["i", "c", "e"], "emoji": "🧊", "note": "magic e makes i say its name; c says s before e" },
+    { "id": "storytime.shelf-unicorn-and-yeti.cold", "text": "cold", "parts": ["c", "o", "l", "d"], "tricky": [1], "emoji": "🥶", "note": "the o says its name, like in old: kohld" },
+    { "id": "storytime.shelf-unicorn-and-yeti.hot", "text": "hot", "parts": ["h", "o", "t"], "emoji": "🥵", "note": "all regular: h-o-t" },
+    { "id": "storytime.shelf-unicorn-and-yeti.horn", "text": "horn", "parts": ["h", "or", "n"], "note": "or says or, like fork" },
+    { "id": "storytime.shelf-unicorn-and-yeti.fur", "text": "fur", "parts": ["f", "ur"], "note": "ur says er, like in her" },
+    { "id": "storytime.shelf-unicorn-and-yeti.big", "text": "big", "parts": ["b", "i", "g"], "note": "all regular: b-i-g" },
+    { "id": "storytime.shelf-unicorn-and-yeti.magic", "text": "magic", "parts": ["m", "a", "g", "i", "c"], "note": "two parts: mag + ic; the g says j" },
+    { "id": "storytime.shelf-unicorn-and-yeti.jump", "text": "jump", "parts": ["j", "u", "m", "p"], "note": "all regular; m-p at the end" },
+    { "id": "storytime.shelf-unicorn-and-yeti.fun", "text": "fun", "parts": ["f", "u", "n"], "emoji": "🎉", "note": "all regular: f-u-n" },
+    { "id": "storytime.shelf-unicorn-and-yeti.play", "text": "play", "parts": ["p", "l", "ay"], "note": "p-l blend, then ay says long a" },
+    { "id": "storytime.shelf-unicorn-and-yeti.best", "text": "best", "parts": ["b", "e", "s", "t"], "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-unicorn-and-yeti.new", "text": "new", "parts": ["n", "ew"], "emoji": "🆕", "note": "ew says oo, with a little y: nyoo or noo, both are right" },
+    { "id": "storytime.shelf-unicorn-and-yeti.friends", "text": "friends", "parts": ["f", "r", "ie", "n", "d", "s"], "tricky": [2], "note": "ie says e; the s says z: frendz" }
+  ]
+}

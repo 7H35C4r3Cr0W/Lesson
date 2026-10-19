@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-magic-tree-house",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 650,
+  "title": "Magic Tree House words",
+  "emoji": "🦕",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Jack and Annie find a tree house full of books in the woods, make a wish, and are whirled back to the time of the dinosaurs, where they have to find their way home before dark. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read a chapter together each night.",
+  "book": {
+    "author": "Mary Pope Osborne",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Dinosaurs+Before+Dark&searchType=title",
+    "blurb": "The first Magic Tree House chapter book, where a wish sends two kids back to the dinosaurs."
+  },
+  "passage": {
+    "text": "Jack Annie tree house\nwoods book wish spin\nwind dinosaur egg nest\nhill gold time fly\nback home",
+    "level": "open",
+    "focus": ["oo", "ck", "i_e"],
+    "tricky": ["annie", "dinosaur", "gold", "fly"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-magic-tree-house.jack", "text": "Jack", "parts": ["J", "a", "ck"], "emoji": "👦", "note": "capital J, it is his name; ck is one sound" },
+    { "id": "storytime.shelf-magic-tree-house.annie", "text": "Annie", "parts": ["A", "nn", "ie"], "tricky": [2], "emoji": "👧", "note": "capital A, it is her name; nn is one n; ie says ee here: An-ee" },
+    { "id": "storytime.shelf-magic-tree-house.tree", "text": "tree", "parts": ["t", "r", "ee"], "emoji": "🌳", "note": "t-r blend; ee says long e" },
+    { "id": "storytime.shelf-magic-tree-house.house", "text": "house", "parts": ["h", "ou", "se"], "emoji": "🏡", "note": "ou says ow, like in out; se says s, the e is silent" },
+    { "id": "storytime.shelf-magic-tree-house.woods", "text": "woods", "parts": ["w", "oo", "d", "s"], "emoji": "🌲", "note": "oo says oo as in book; the s says z" },
+    { "id": "storytime.shelf-magic-tree-house.book", "text": "book", "parts": ["b", "oo", "k"], "emoji": "📖", "note": "oo says oo as in look" },
+    { "id": "storytime.shelf-magic-tree-house.wish", "text": "wish", "parts": ["w", "i", "sh"], "emoji": "🌟", "note": "sh is one part, at the end" },
+    { "id": "storytime.shelf-magic-tree-house.spin", "text": "spin", "parts": ["s", "p", "i", "n"], "emoji": "🌀", "note": "s-p blend" },
+    { "id": "storytime.shelf-magic-tree-house.wind", "text": "wind", "parts": ["w", "i", "n", "d"], "emoji": "💨", "note": "all regular; n-d at the end: the wind blows" },
+    { "id": "storytime.shelf-magic-tree-house.dinosaur", "text": "dinosaur", "parts": ["d", "i", "n", "o", "s", "au", "r"], "tricky": [1, 3, 5], "emoji": "🦕", "note": "three parts: di-no-saur; i and o say their names and au says aw: dy-no-sor" },
+    { "id": "storytime.shelf-magic-tree-house.egg", "text": "egg", "parts": ["e", "gg"], "emoji": "🥚", "note": "gg is two letters, one sound: g" },
+    { "id": "storytime.shelf-magic-tree-house.nest", "text": "nest", "parts": ["n", "e", "s", "t"], "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-magic-tree-house.hill", "text": "hill", "parts": ["h", "i", "ll"], "note": "ll is two letters, one sound" },
+    { "id": "storytime.shelf-magic-tree-house.gold", "text": "gold", "parts": ["g", "o", "l", "d"], "tricky": [1], "note": "the o says its name, like in old: gohld" },
+    { "id": "storytime.shelf-magic-tree-house.time", "text": "time", "parts": ["t", "i", "m", "e"], "emoji": "⏰", "note": "magic e makes i say its name" },
+    { "id": "storytime.shelf-magic-tree-house.fly", "text": "fly", "parts": ["f", "l", "y"], "tricky": [2], "note": "f-l blend; y at the end says long i, like in my" },
+    { "id": "storytime.shelf-magic-tree-house.back", "text": "back", "parts": ["b", "a", "ck"], "note": "ck is one sound" },
+    { "id": "storytime.shelf-magic-tree-house.home", "text": "home", "parts": ["h", "o", "m", "e"], "emoji": "🏠", "note": "magic e makes o say its name" }
+  ]
+}

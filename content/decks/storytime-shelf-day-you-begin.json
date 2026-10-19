@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-day-you-begin",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 530,
+  "title": "The Day You Begin words",
+  "emoji": "🏫",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "On the first day in a new class, a child looks around a room where no one seems quite like her, and finds that telling her own story is the way friendships begin. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read it together, then talk about a day he felt new somewhere.",
+  "book": {
+    "author": "Jacqueline Woodson",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A warm picture book about feeling different in a new place and finding the courage to share who you are."
+  },
+  "passage": {
+    "text": "day class room desk\nlunch rice trip summer\nsister story name brave\nbegin share speak world\nyou alone",
+    "level": "open",
+    "focus": ["er", "a_e", "ea"],
+    "tricky": ["story", "share", "world", "you", "alone"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-day-you-begin.day", "text": "day", "parts": ["d", "ay"], "emoji": "☀️", "note": "ay says long a" },
+    { "id": "storytime.shelf-day-you-begin.class", "text": "class", "parts": ["c", "l", "a", "ss"], "emoji": "🏫", "note": "c-l blend; ss is two letters, one sound" },
+    { "id": "storytime.shelf-day-you-begin.room", "text": "room", "parts": ["r", "oo", "m"], "note": "oo says long oo, like moon" },
+    { "id": "storytime.shelf-day-you-begin.desk", "text": "desk", "parts": ["d", "e", "s", "k"], "note": "all regular; s-k at the end" },
+    { "id": "storytime.shelf-day-you-begin.lunch", "text": "lunch", "parts": ["l", "u", "n", "ch"], "emoji": "🍱", "note": "ch is one part, at the end" },
+    { "id": "storytime.shelf-day-you-begin.rice", "text": "rice", "parts": ["r", "i", "c", "e"], "emoji": "🍚", "note": "magic e makes i say its name; c says s before e" },
+    { "id": "storytime.shelf-day-you-begin.trip", "text": "trip", "parts": ["t", "r", "i", "p"], "emoji": "🧳", "note": "t-r blend" },
+    { "id": "storytime.shelf-day-you-begin.summer", "text": "summer", "parts": ["s", "u", "mm", "er"], "note": "mm is one m; two parts: sum + mer; er says er" },
+    { "id": "storytime.shelf-day-you-begin.sister", "text": "sister", "parts": ["s", "i", "s", "t", "er"], "note": "two parts: sis + ter; er says er" },
+    { "id": "storytime.shelf-day-you-begin.story", "text": "story", "parts": ["s", "t", "or", "y"], "tricky": [3], "emoji": "📖", "note": "s-t blend; or says or; y at the end says ee: stor-ee" },
+    { "id": "storytime.shelf-day-you-begin.name", "text": "name", "parts": ["n", "a", "m", "e"], "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-day-you-begin.brave", "text": "brave", "parts": ["b", "r", "a", "v", "e"], "note": "b-r blend; magic e makes a say its name" },
+    { "id": "storytime.shelf-day-you-begin.begin", "text": "begin", "parts": ["b", "e", "g", "i", "n"], "note": "two parts: be + gin; the e says its name and the g stays hard: bee-gin" },
+    { "id": "storytime.shelf-day-you-begin.share", "text": "share", "parts": ["sh", "are"], "tricky": [1], "note": "sh is one part; are says air, like in care" },
+    { "id": "storytime.shelf-day-you-begin.speak", "text": "speak", "parts": ["s", "p", "ea", "k"], "emoji": "🗣️", "note": "s-p blend; ea says long e" },
+    { "id": "storytime.shelf-day-you-begin.world", "text": "world", "parts": ["w", "or", "l", "d"], "tricky": [1], "emoji": "🌍", "note": "or says er after w: werld" },
+    { "id": "storytime.shelf-day-you-begin.you", "text": "you", "parts": ["y", "ou"], "tricky": [1], "note": "ou says oo here: yoo" },
+    { "id": "storytime.shelf-day-you-begin.alone", "text": "alone", "parts": ["a", "l", "o", "n", "e"], "tricky": [0], "note": "the first a says u; magic e makes o say its name: uh-lone" }
+  ]
+}

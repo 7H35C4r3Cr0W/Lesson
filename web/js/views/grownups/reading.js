@@ -303,6 +303,12 @@ export function draw(body, scope) {
           h('span', { class: 'lvl lvl-notyet' }, m.times > 1 ? `${m.word} ×${m.times}` : m.word))));
     }
   }).catch((err) => {
-    if (scope.alive) fail(err);
+    if (!scope.alive) return;
+    fail(err);
+    // The summary columns stand on their own; the history and the words to practice did not arrive.
+    fillRows({ decks: [] });
+    wordsBox.firstChild.textContent = '–';
+    clear(wordsPanel).append(h('h2', null, 'Words to practice'),
+      h('p', { class: 'muted' }, 'The read history could not be loaded just now. Open Reading again to retry.'));
   });
 }
