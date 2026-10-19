@@ -387,6 +387,103 @@ test('splitSounds: an ending -ed or -es is a syllable only after t / d or a hiss
   eq(sounds('yes'), ['yuh', 'eh', 'sss']);
 });
 
+// ---- reading round 2: Follow along, the Word Card, My words, the bookmark ------
+
+group('Reading round 2');
+test('followStep: the pointed-at word moves on, an earlier word goes back, a later word stays put', () => {
+  eq(L.followStep(0, 0), 1);
+  eq(L.followStep(3, 3), 4);
+  eq(L.followStep(3, 1), 1);
+  eq(L.followStep(3, 0), 0);
+  eq(L.followStep(3, 5), 3);
+  eq(L.followStep(0, 7), 0);
+});
+test('wordParts: case kept, punctuation around the word dropped, an apostrophe shown but not a sound', () => {
+  const dont = P.wordParts("don't");
+  eq([dont.text, dont.clean, dont.tricky], ["don't", "don't", false]);
+  eq(dont.parts.map((p) => p.text).join(''), "don't", 'the parts spell the word as written');
+  eq(dont.parts.filter((p) => p.kind !== 'punct').map((p) => p.text), ['d', 'o', 'n', 't'], 'the apostrophe is not a sound part');
+  eq(dont.parts.map((p) => p.kind), ['sound', 'sound', 'sound', 'punct', 'sound']);
+  const hi = P.wordParts('"Hi!"');
+  eq([hi.text, hi.clean], ['Hi', 'hi']);
+  eq(hi.parts.map((p) => p.text), ['H', 'i']);
+  eq(P.wordParts("Max's").parts.map((p) => p.text), ['M', 'a', 'x', "'", 's']);
+  eq(P.wordParts("Max's").clean, 'max');
+  eq(P.wordParts('cat-nap,').parts.map((p) => p.kind), ['sound', 'sound', 'sound', 'punct', 'sound', 'sound', 'sound']);
+});
+test('wordParts: a letter team is one part with a line, a silent letter is greyed, a tricky word is whole', () => {
+  eq(P.wordParts('ship.').parts.map((p) => p.kind), ['team', 'sound', 'sound']);
+  eq(P.wordParts('cake').parts.map((p) => p.kind), ['sound', 'sound', 'sound', 'silent']);
+  eq(P.wordParts('match').parts.map((p) => p.text), ['m', 'a', 'tch']);
+  const the = P.wordParts('The', ['the', 'a']);
+  eq([the.tricky, the.text, the.clean], [true, 'The', 'the']);
+  eq(P.wordParts('the', []).tricky, false);
+  eq(P.wordParts("Max's", ['max']).tricky, true, 'the tricky check uses the dictionary word');
+  eq(P.wordParts('???').parts, [], 'no letters, no parts');
+});
+test('wordBank: most-missed first, at most 30, with the stories a word came from (newest read first)', async () => {
+  const { wordBank } = await import('/js/views/mywords.js');
+  const report = {
+    missed: [{ word: 'cat', times: 1, lastAt: 5 }, { word: 'the', times: 3, lastAt: 9 }],
+    decks: [
+      { deck: 'A', reads: [{ at: 3, missed: ['the'] }, { at: 1, missed: ['the', 'cat'] }] },
+      { deck: 'B', reads: [{ at: 2, missed: ['the'] }] },
+    ],
+  };
+  const bank = wordBank(report);
+  eq(bank.map((w) => w.word), ['the', 'cat']);
+  eq(bank[0], { word: 'the', times: 3, decks: ['A', 'B'] });
+  eq(bank[1], { word: 'cat', times: 1, decks: ['A'] });
+  eq(wordBank(null), []);
+  eq(wordBank({ missed: 'nope', decks: 7 }), []);
+  eq(wordBank({ missed: Array.from({ length: 40 }, (_, i) => ({ word: `w${i}`, times: 40 - i })), decks: [] }).length, 30);
+});
+test('readDots: three little books and the right words for 0, 1, 2, 3 and more reads', async () => {
+  const { readDots, readRate } = await import('/js/views/reader.js');
+  const dots = (n, opts) => readDots(n, opts);
+  const on = (el) => el.querySelectorAll('.read-dot.on').length;
+  eq([on(dots(0)), on(dots(1)), on(dots(2)), on(dots(3)), on(dots(9))], [0, 1, 2, 3, 3]);
+  eq(dots(0).querySelectorAll('.read-dot').length, 3);
+  ok(dots(0).textContent.includes('Read it 3 times to earn the bookmark'), 'no reads yet');
+  ok(dots(2).textContent.includes('Read 2 of 3'), 'two reads');
+  ok(dots(3).textContent.includes('Read 3 times!') && dots(3).classList.contains('earned'), 'earned');
+  ok(dots(1, { hint: true }).textContent.includes('read it again tomorrow'), 'the result card nudge');
+  ok(!dots(3, { hint: true }).textContent.includes('tomorrow'), 'no nudge once earned');
+  ok(readRate() > 0 && readRate(true) <= readRate() && readRate(true) >= 0.5, 'Slower is a step down, never below 0.5');
+});
+test('longPress: two right-clicks in a row both hold, a hold on a button no longer on the page does nothing, the click after a hold is swallowed', async () => {
+  const { longPress } = await import('/js/views/reader.js');
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  let holds = 0;
+  let clicks = 0;
+  const btn = h('button', { type: 'button' }, 'cat');
+  longPress(btn, () => { holds += 1; });
+  btn.addEventListener('click', () => { clicks += 1; });
+  const fire = (type, init = {}) => btn.dispatchEvent(new PointerEvent(type, { bubbles: true, cancelable: true, ...init }));
+  const menu = () => btn.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, button: 2 }));
+  fire('pointerdown', { button: 2 }); menu();
+  fire('pointerdown', { button: 2 }); menu();
+  eq(holds, 2, 'the flag left by the first right-click must not swallow the second');
+  fire('pointerdown', { button: 0, clientX: 10, clientY: 10 });       // the screen changed under the finger
+  await wait(520);
+  eq(holds, 2, 'a hold on a detached button opens nothing');
+  fire('pointerup', { button: 0 });
+  document.body.append(btn);
+  try {
+    fire('pointerdown', { button: 0, clientX: 10, clientY: 10 });
+    await wait(520);
+    fire('pointerup', { button: 0 });
+    btn.click();
+    eq([holds, clicks], [3, 0], 'the hold fired and swallowed the click that followed it');
+    fire('pointerdown', { button: 0, clientX: 10, clientY: 10 });
+    fire('pointerup', { button: 0 });
+    btn.click();
+    eq([holds, clicks], [3, 1], 'a quick tap clicks as usual');
+  } finally {
+    btn.remove();
+  }
+});
+
 // ---- DOM and drawings ---------------------------------------------------------
 
 group('Safety of the page builder');

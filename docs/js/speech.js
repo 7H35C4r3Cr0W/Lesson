@@ -84,6 +84,16 @@ export function listVoices() {
   return voices.filter((v) => !NOVELTY.test(v.name)).map((v) => ({ id: v.voiceURI, name: v.name, lang: v.lang }));
 }
 
+// Is the voice in use one of the natural (downloaded) ones, or the basic built-in one?
+// On an iPad the built-in voices sound robotic; Settings › Accessibility › Spoken Content › Voices
+// offers Enhanced / Premium downloads that this app picks up automatically.
+export function voiceQuality() {
+  if (!chosen) return 'none';
+  const tag = `${chosen.name} ${chosen.voiceURI}`;
+  if (/natural|neural|enhanced|premium|siri/i.test(tag)) return 'natural';
+  return 'basic';
+}
+
 export function currentVoice() {
   return chosen ? chosen.voiceURI : null;
 }
@@ -178,17 +188,19 @@ export function speak(text, opts = {}) {
 
 // Say several things in order, telling the caller which one is being spoken so it
 // can light up the matching button. Stops early if anything else starts speaking.
-export async function speakEach(items, onItem) {
+//   opts.rate   a speed for this run (the story screens read slower than the quiz)
+//   opts.gapMs  the pause between items (default 180 ms)
+export async function speakEach(items, onItem, opts = {}) {
   const mine = epoch;              // if stop() is called from elsewhere, epoch changes and we bail
   for (let i = 0; i < items.length; i++) {
     if (mine !== epoch) break;
     if (onItem) onItem(i);
-    const ok = await speak(items[i]);
+    const ok = await speak(items[i], opts);
     if (!ok || mine !== epoch) {
       if (onItem) onItem(-1);
       return false;
     }
-    await new Promise((r) => setTimeout(r, 180));
+    await new Promise((r) => setTimeout(r, opts.gapMs || 180));
     if (mine !== epoch || current) {     // something else started or stopped during the pause
       if (onItem) onItem(-1);
       return false;

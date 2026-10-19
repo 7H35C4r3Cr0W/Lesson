@@ -1,0 +1,87 @@
+{
+  "id": "storytime.emperors-new-clothes",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 390,
+  "title": "The Emperor's New Clothes",
+  "emoji": "👑",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Hans Christian Andersen's tale of an emperor who pays two tricksters for magic clothes that only clever people can see, parades through town in his underthings because nobody wants to look foolish, and is finally set straight by a child who says what everyone can see. First graders find it very funny, and this telling keeps it kind: the emperor laughs at himself, and the ending says plainly that it is brave to say what is true. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Ask why the grown-ups said the clothes were lovely, and why the child did not.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Hans Christian Andersen (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Magic clothes nobody can see, and a child who says so."
+  },
+  "passage": {
+    "text": "Once there was an emperor.\nHe loved new clothes more than anything.\nHe had a coat for every hour of the day.\nOne day, two tricksters came to town.\n\"We can weave the finest cloth,\" they said.\n\"It is magic cloth.\"\n\"Only clever people can see it.\"\n\"I must have it!\" said the emperor.\nHe gave them a big bag of gold.\n***\nThe tricksters sat at an empty loom.\nThey moved their hands back and forth.\nBut there was no cloth at all!\nThe emperor sent a wise old man to look.\nThe man saw nothing.\n\"Oh no!\" he thought.\n\"Maybe I am not clever.\"\nSo he said, \"What lovely cloth!\"\nEveryone else said the same.\nNobody wanted to look foolish.\n***\nAt last the tricksters said, \"It is done!\"\nThey pretended to dress the emperor.\nHe had nothing on but his underthings!\nHe looked in the mirror.\n\"Oh my, they fit so well!\" he said.\nNobody wanted to look foolish.\nThe tricksters took the gold and slipped away.\nThen the emperor went out for a parade.\n***\nThe people lined the streets.\n\"What a fine coat!\" they said.\n\"What a fine hat!\"\nNobody wanted to look foolish.\nThen a little child looked up.\n\"But he has nothing on!\" said the child.\nEveryone got very quiet.\nThen someone giggled.\nThen everyone laughed and laughed.\n***\nThe emperor looked down.\nHe saw his underthings.\nHe turned red.\n\"Oh my, I look silly!\" he said.\nThen he laughed too.\n\"Ho, ho! The child is right!\"\n\"That child is brave.\"\n\"I am glad someone told the truth.\"\nHe went home and put on his old coat.\nIt is brave to say what is true.",
+    "level": "open",
+    "focus": ["th", "ow", "-ed endings"],
+    "tricky": ["the", "a", "once", "there", "was", "loved", "new", "clothes", "more", "than", "anything", "for", "every", "hour", "of", "one", "two", "came", "to", "town", "we", "weave", "finest", "cloth", "they", "said", "magic", "only", "clever", "people", "see", "must", "have", "gave", "them", "gold", "empty", "loom", "moved", "their", "no", "all", "wise", "old", "look", "saw", "nothing", "oh", "thought", "maybe", "so", "what", "lovely", "everyone", "else", "same", "nobody", "wanted", "foolish", "last", "done", "pretended", "his", "underthings", "looked", "mirror", "my", "well", "took", "away", "went", "out", "parade", "lined", "streets", "little", "child", "very", "quiet", "someone", "giggled", "laughed", "down", "turned", "silly", "too", "ho", "right", "brave", "glad", "told", "truth", "home", "put", "say", "true", "emperor", "tricksters"]
+  },
+  "cards": [
+    { "id": "storytime.emperors-new-clothes.loved-clothes",
+      "q": "What did the emperor love more than anything?",
+      "a": "new clothes",
+      "wrong": ["new books", "new toys"],
+      "emoji": "👑",
+      "note": "A coat for every hour of the day; that is why the magic cloth was so tempting." },
+
+    { "id": "storytime.emperors-new-clothes.who-see",
+      "q": "Who did the tricksters say could see the cloth?",
+      "a": "only clever people",
+      "wrong": ["only tall people", "only the emperor"],
+      "note": "There was no cloth at all; saying only clever people could see it kept everyone quiet." },
+
+    { "id": "storytime.emperors-new-clothes.gold",
+      "q": "What did the emperor give the tricksters?",
+      "a": "a bag of gold",
+      "wrong": ["a bag of beans", "a bag of hay"],
+      "note": "He paid a big bag of gold for cloth that did not exist." },
+
+    { "id": "storytime.emperors-new-clothes.who-said-child",
+      "q": "Who said, 'But he has nothing on!'?",
+      "a": "a little child",
+      "wrong": ["the emperor", "a trickster"],
+      "note": "Everyone else was afraid of looking foolish; the child just said what was there." },
+
+    { "id": "storytime.emperors-new-clothes.first",
+      "q": "What happened first in the story?",
+      "a": "two tricksters came",
+      "wrong": ["the child spoke up", "the emperor laughed"],
+      "note": "Two tricksters arrive with a promise of magic cloth; everything else follows from that." },
+
+    { "id": "storytime.emperors-new-clothes.end",
+      "q": "What happened at the end of the story?",
+      "a": "the emperor laughed",
+      "wrong": ["two tricksters came", "the man saw nothing"],
+      "note": "He turned red, laughed at himself, and went home for his old coat." },
+
+    { "id": "storytime.emperors-new-clothes.feel-silly",
+      "q": "How did the emperor feel when he looked down?",
+      "a": "silly",
+      "wrong": ["proud", "sleepy"],
+      "note": "He turned red and said so himself, then laughed: a good way to handle a mistake." },
+
+    { "id": "storytime.emperors-new-clothes.lesson",
+      "q": "What does this story teach?",
+      "a": "say what is true",
+      "wrong": ["trick your friends", "buy more clothes"],
+      "note": "Everyone saw the truth, but only the child was brave enough to say it." },
+
+    { "id": "storytime.emperors-new-clothes.vocab-clever",
+      "q": "In the story, what does 'clever' mean?",
+      "a": "smart",
+      "wrong": ["tall", "hungry"],
+      "note": "Clever means smart, quick to understand; nobody wanted to seem the opposite." },
+
+    { "id": "storytime.emperors-new-clothes.word-cloth",
+      "q": "Which word is in the story?",
+      "a": "cloth",
+      "wrong": ["clock", "cloud"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

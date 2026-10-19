@@ -8,18 +8,23 @@ Raspberry Pi on your home Wi-Fi and is used on an iPad in Safari. No accounts, n
   (flashcards that talk) or **Play** (a short round of tap-the-answer). A level is passed with **85% or better**
   on a round (three stars), which opens the next one. Games pull questions from the levels reached. Right
   answers earn stars, stars earn stickers. Story levels add a **Read** screen: the child reads the story from
-  the tablet, taps any word to hear it (🔤 *Sound it out* says it sound by sound), and earns a star for
-  reading it before the questions.
+  the tablet, taps any word to hear it (🔤 *Sound it out* says it sound by sound), presses and holds a word for
+  its **Word Card** (the word big with its sounds marked: say it, sound it out), can switch on **Show sounds**
+  (every word marked like a flashcard) or **Follow along** (one word lit at a time, tap it to move on), and
+  earns a star for reading it before the questions; three reads earn the story's bookmark, and the words he
+  asked for help with collect in **My words** on the home screen.
 - **For the grown-up:** a locked area with progress, a **Levels** page (every level, its best and latest score,
   passed or not, and every wrong answer), a **Reading** page (every read of every story, words correct per
-  minute, accuracy, the words to practice) with a scoring mode on the Read screen, "needs practice" cards, a
-  test builder (pick decks, how many questions, which cards), test history with question-by-question results,
-  flags for cards that are wrong, deck on/off switches, settings, export.
+  minute, accuracy, the words to practice, and the **Books** checklist: every classic and library book, ticked
+  per child with the date it was read) with a scoring mode on the Read screen and a *We read this book* tick on
+  a book's level page, "needs practice" cards, a test builder (pick decks, how many questions, which cards),
+  test history with question-by-question results, flags for cards that are wrong, deck on/off switches,
+  settings, export.
 
 Everything is plain Python (standard library) and plain JavaScript. No build step, nothing to `pip install`.
 
-**What's inside:** 283 levels / ~4,900 cards across 9 subjects, plus two story subjects (12 stories and
-55 Story Time levels, below), built from the North Carolina Grade 1 standards and
+**What's inside:** 366 levels and about 6,000 cards in all: 283 levels / ~4,900 cards across 9 subjects, plus two reading subjects (📚 Read by
+Myself, 12 stories, and 📕 Books, 71 levels, below), built from the North Carolina Grade 1 standards and
 sized to last the whole school year: 🔤 Sounds (26), 📖 Words (54, in CKLA reading order, incl. all five CKLA
 tricky-word sets, three sight-word sets, prefixes/suffixes, contractions and silent letters), 💬 Sentences (36, incl.
 grammar and reading-comprehension levels), 🔢 Math (50), 🔬 Science (22), 🌎 My World / social studies (24), 💪 Healthy
@@ -33,13 +38,15 @@ toe, the five senses, skin/hair/nails, joints, bones, muscles, heart and blood, 
 eyes and ears, growing up, how the body fights germs, rest and movement, then healthy eating — food as fuel, fruits and
 vegetables, grains/protein/dairy, drinks and water, everyday and sometimes foods, meals and snacks, trying new foods —
 on NC Healthful Living 1.NPA/1.PCH and Science LS.1.1.1; the inside-the-body levels are bridge topics).
-📚 Stories (12 decodable stories in the CKLA Grade 1 Skills unit order, so each uses only the sound-spellings and
-tricky words taught so far; every story has a Read screen and 8–12 questions about it, NC RF.1.4 and RL.1.1–1.3) and
-📖 Story Time (55 levels: 29 public-domain classics — Aesop's fables, folk and fairy tales from around the world,
-Hans Christian Andersen, Beatrix Potter, Winnie-the-Pooh, The Velveteen Rabbit and The Little Engine That Could — retold at first-grade level and read page by page, plus a shelf of 26 famous library books such as
-*If You Give a Mouse a Cookie*, *Frog and Toad* and *Elephant & Piggie*, where each level is the words you will meet in
-that book, with a link to borrow it). The app never copies a published book's text or pictures; it teaches the words
-and links to the library.
+📚 Read by Myself (12 decodable stories in the CKLA Grade 1 Skills unit order, so each uses only the sound-spellings and
+tricky words taught so far and the child can sound it out alone; every story has a Read screen and 8–12 questions about
+it, NC RF.1.4 and RL.1.1–1.3) and 📕 Books (71 levels: 33 classics retold — Aesop's fables, folk and fairy tales from
+around the world, Hans Christian Andersen, Beatrix Potter, Winnie-the-Pooh, The Velveteen Rabbit and The Little Engine
+That Could — at first-grade level to read together, page by page, plus a Books to borrow shelf of 38 famous library
+books such as *If You Give a Mouse a Cookie*, *Frog and Toad* and *Elephant & Piggie*, where each level is the words you
+will meet in that book, with a link to borrow it). The app never copies a published book's text or pictures; it teaches
+the words and links to the library. Every level of 📕 Books is on the **Books** checklist in Grown-ups → Reading, to tick
+off per child as it is read.
 Computers and My Body are **read-along** subjects: their levels carry `readAloud: true`, so the tablet reads every
 question and answer out loud even in "only when needed" voice mode, and the lesson plans tell the grown-up to read
 along. Plus 8 mini-games. Every deck was written from fact-checked research on the NC standards and then
@@ -60,14 +67,15 @@ Build the demo copy yourself with `python tools/build_static.py` (writes `docs/`
 
 ## For teachers
 
-- **What it is:** 283 short levels across nine subjects, plus 12 decodable stories and 55 Story
-  Time levels, written to the NC Standard Course of Study for Grade 1, reading in the CKLA Grade 1 Skills order.
+- **What it is:** 283 short levels across nine subjects, plus 📚 Read by Myself (12 decodable stories) and 📕 Books
+  (71 levels), written to the NC Standard Course of Study for Grade 1, reading in the CKLA Grade 1 Skills order.
   Each level = talking flashcards (Look) + a tap-the-answer round (Play); a story level adds a Read screen first.
 - **Reading fluency:** on a story's Read screen the child reads from the tablet and taps any word he needs (the
   tablet says it and remembers it). A grown-up can score a read instead: *Grown-up: score this read* → *Start* →
   tap each word read wrong → *Finished*. The tablet records words correct per minute, the same measure as the
   mCLASS/DIBELS check, and accuracy; the child only ever sees stars. Grown-ups → Reading keeps every read of
   every story and the words to practice. Read each story three times (cold, warm, hot) and watch the number climb.
+  Its **Books** checklist ticks off every classic and library book as each child reads it, with the date.
 - **How it teaches:** a level is passed at 85% or better on a round (9 of 10), which opens the next one; missed cards
   come back first and are collected under Needs practice; three right answers in a row across days make a card
   mastered; eight mini-games reuse the levels already reached. Nothing has a timer, lives or a game-over.
@@ -151,12 +159,14 @@ PIN in Settings and the Pi itself will refuse grown-up changes without it.
 - **Levels**: every level in every subject with its status (passed / not yet / locked), best score, last round,
   rounds played, cards missed and cards mastered. Open a level for every round played on it (score, pass or
   not) and **what he got wrong**: each missed card, the answer, what he chose and how often, when. *Start this
-  level over* forgets its rounds and resets its cards. A story level also lists every read of its story.
+  level over* forgets its rounds and resets its cards. A story level also lists every read of its story, and a
+  book's level page has a *We read this book* tick (the same tick as the Books checklist).
 - **Reading**: how to score a read and what the numbers mean, then stories read, reads in all, best and latest
-  words per minute and the words to practice; a table of every story (reads, last read and whether it was by
-  himself or scored, last and best WPM, accuracy of the last scored read, most-missed words), every read of each
-  story (when, mode, missed / words, time, WPM, the words), and **Words to practice**: every word tapped for help
-  or marked wrong, most often first.
+  words per minute and the words to practice; the **Books** checklist (every deck with a `book`, world by world:
+  a tick per child, the date it was read, reads on the tablet and a Borrow link to the library); a table of
+  every story (reads, last read and whether it was by himself or scored, last and best WPM, accuracy of the last
+  scored read, most-missed words), every read of each story (when, mode, missed / words, time, WPM, the words),
+  and **Words to practice**: every word tapped for help or marked wrong, most often first.
 - **Tests**: *Make a test* → name, how many questions, which cards (all / already seen / needs practice / missed /
   new), decks to draw from, and whether to show right/wrong after each question. Saved tests appear as a
   "Test time!" button on the child's home screen. History lists every finished test with score and time; open one

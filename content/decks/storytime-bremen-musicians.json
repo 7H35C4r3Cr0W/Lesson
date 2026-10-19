@@ -1,0 +1,89 @@
+{
+  "id": "storytime.bremen-musicians",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 230,
+  "title": "The Bremen Town Musicians",
+  "emoji": "🎶",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The Brothers Grimm's tale of a donkey, a dog, a cat and a rooster who are all too old to be wanted, so they set off together to be musicians in the town of Bremen. First graders love the growing chorus of hee-haw, woof, meow and cock-a-doodle-doo, the animal pile-up at the window and the robbers who run from a noise, and the ending says plainly that friends who work together are never too old to help. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Say the four animal sounds together, louder each time, then ask why the robbers ran away.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "the Brothers Grimm (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Four old friends, one big noise, and a snug new home."
+  },
+  "passage": {
+    "text": "Once there was an old donkey.\nHe was too old to carry sacks.\n\"No one needs me now,\" he said sadly.\n\"I will go to Bremen and be a musician.\"\nSoon he met an old dog.\n\"I am too old to hunt,\" said the dog.\n\"Come with me!\" said the donkey.\n\"We will be musicians in Bremen!\"\nHee-haw! Woof!\n***\nNext they met an old cat.\n\"I am too old to catch mice,\" said the cat.\n\"Come with us!\" said the donkey.\n\"We will be musicians in Bremen!\"\nThen they met an old rooster.\n\"No one wants me on the farm,\" said the rooster.\n\"Come with us!\" said the cat.\n\"We will be musicians in Bremen!\"\nHee-haw! Woof! Meow! Cock-a-doodle-doo!\n***\nNight came.\nThe four friends were tired and hungry.\nThen they saw a light in the woods.\nIt was a little cottage.\nThey peeked in the window.\nThree robbers sat at a big table.\nThey had bread and cheese and cake!\n\"I have a plan,\" said the donkey.\n\"Let's make some music.\"\n***\nThe dog got on the donkey's back.\nThe cat got on the dog's back.\nThe rooster got on top of the cat.\nThen they all sang at once.\nHee-haw! Woof! Meow! Cock-a-doodle-doo!\nWhat a terrible noise!\nThe robbers jumped up.\n\"What is that?\" they yelled.\nThey ran far, far away.\nThey never came back.\n***\nThe four friends went inside.\nThey ate the bread and cheese and cake.\nThe cat slept by the warm fire.\nThe rooster slept up on a beam.\nThey never did get to Bremen.\nBut they did not mind.\nThey stayed in the snug cottage.\nFriends who work together are never too old to help.",
+    "level": "open",
+    "focus": ["oo", "ee", "-ed endings"],
+    "tricky": ["the", "a", "once", "there", "was", "old", "too", "to", "no", "one", "now", "said", "go", "be", "soon", "come", "with", "we", "they", "us", "then", "wants", "night", "were", "four", "friends", "saw", "light", "woods", "little", "three", "table", "have", "let's", "some", "music", "what", "away", "never", "came", "warm", "who", "work", "together", "are", "help", "mind", "donkey", "carry", "sadly", "bremen", "musician", "musicians", "hee-haw", "woof", "meow", "cock-a-doodle-doo", "mice", "rooster", "farm", "tired", "hungry", "cottage", "peeked", "window", "robbers", "bread", "cheese", "terrible", "noise", "yelled", "inside", "beam", "snug"]
+  },
+  "cards": [
+    { "id": "storytime.bremen-musicians.donkey-sacks",
+      "q": "What was the donkey too old to do?",
+      "a": "carry sacks",
+      "wrong": ["sing songs", "eat hay"],
+      "emoji": "🐴",
+      "note": "An old donkey cannot carry heavy sacks any more, so he sets off to make music instead." },
+
+    { "id": "storytime.bremen-musicians.where-bremen",
+      "q": "Where did the four friends want to go?",
+      "a": "to Bremen",
+      "wrong": ["to the beach", "to the moon"],
+      "note": "Bremen is a town; the four friends head there to sing for their supper, though they never arrive." },
+
+    { "id": "storytime.bremen-musicians.rooster-top",
+      "q": "Who stood at the very top?",
+      "a": "the rooster",
+      "wrong": ["the donkey", "the dog"],
+      "emoji": "🐓",
+      "note": "Donkey, then dog, then cat, then rooster: the smallest climbs on top." },
+
+    { "id": "storytime.bremen-musicians.robbers-ran",
+      "q": "What did the robbers do when they heard the noise?",
+      "a": "ran away",
+      "wrong": ["went to sleep", "sang along"],
+      "note": "They never found out that the terrible noise was four old animals saying hello." },
+
+    { "id": "storytime.bremen-musicians.first",
+      "q": "What happened first in the story?",
+      "a": "the donkey left home",
+      "wrong": ["the robbers ran away", "the friends ate cake"],
+      "note": "Too old to carry sacks, the donkey leaves home to be a musician; everything else follows." },
+
+    { "id": "storytime.bremen-musicians.end",
+      "q": "What happened at the end of the story?",
+      "a": "the friends stayed there",
+      "wrong": ["the donkey left home", "they met the rooster"],
+      "note": "They never reached Bremen and did not mind: they had a snug cottage and each other." },
+
+    { "id": "storytime.bremen-musicians.feel-sad",
+      "q": "How did the donkey feel at the start?",
+      "a": "sad",
+      "wrong": ["happy", "proud"],
+      "note": "Nobody needed him any more; ask what cheered him up again." },
+
+    { "id": "storytime.bremen-musicians.lesson",
+      "q": "What does this story teach?",
+      "a": "friends work together",
+      "wrong": ["stay home alone", "give up fast"],
+      "note": "Alone, each friend was too old to be wanted; together they won a warm home." },
+
+    { "id": "storytime.bremen-musicians.vocab-musician",
+      "q": "In the story, what is a 'musician'?",
+      "a": "someone who makes music",
+      "wrong": ["someone who bakes bread", "someone who fixes shoes"],
+      "emoji": "🎶",
+      "note": "A musician makes music by singing or playing; the friends plan to sing for their supper." },
+
+    { "id": "storytime.bremen-musicians.word-donkey",
+      "q": "Which word is in the story?",
+      "a": "donkey",
+      "wrong": ["monkey", "turkey"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

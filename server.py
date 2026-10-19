@@ -178,6 +178,13 @@ CREATE TABLE IF NOT EXISTS reads(
   at INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS reads_profile_deck ON reads(profile_id, deck_id);
+CREATE TABLE IF NOT EXISTS books(
+  profile_id INTEGER NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  deck_id TEXT NOT NULL,
+  read INTEGER NOT NULL DEFAULT 1,
+  at INTEGER NOT NULL,
+  PRIMARY KEY(profile_id, deck_id)
+) WITHOUT ROWID;
 CREATE TABLE IF NOT EXISTS settings(
   key TEXT PRIMARY KEY,
   value TEXT NOT NULL
@@ -727,6 +734,7 @@ class App:
             ("POST", r"/api/attempts", self.h_attempts, False),
             ("POST", r"/api/rounds", self.h_rounds, False),
             ("POST", r"/api/reads", self.h_reads, False),
+            ("PUT", r"/api/books/([\w.-]+)", self.h_book_set, False),
             ("POST", r"/api/tests/(\d+)/finish", self.h_test_finish, False),
             ("POST", r"/api/profiles/(\d+)/avatar", self.h_avatar, False),
             ("POST", r"/api/parent/unlock", self.h_unlock, False),
@@ -846,6 +854,17 @@ class App:
             s["last"] = {"mode": r["mode"], "words": r["words"], "errors": r["errors"], "seconds": r["seconds"],
                          "wcpm": r["wcpm"], "at": r["at"]}
         return out
+
+    def books_of(self, profile_id: int) -> dict:
+        """Per book a grown-up ticked as read for this child: that it was, and when (the first tick's time).
+
+        Mirrors booksOf() in web/js/static-api.js.
+        """
+        return {
+            r["deck_id"]: {"read": bool(r["read"]), "at": r["at"]}
+            for r in self.db.read("SELECT deck_id, read, at FROM books WHERE profile_id=? ORDER BY at, deck_id",
+                                  (profile_id,))
+        }
 
     LEGACY_GAP_MS = 20 * 60 * 1000     # answers further apart than this were different sittings
 
@@ -1041,6 +1060,7 @@ class App:
             "profile": self.profile_json(profile), "stats": stats, "flags": flags, "tests": tests,
             "days": days, "stars": self.stars(pid), "pinSet": self.parent.pin_is_set(),
             "today": local_day(), "rounds": self.round_summary(pid), "reads": self.read_summary(pid),
+            "books": self.books_of(pid),
         }
 
     def h_report(self, req: Request):
@@ -1168,6 +1188,25 @@ class App:
             "missed": [{"word": w, "times": times[w], "lastAt": last_at[w]} for w in words],
             "stars": self.stars(pid),
         }
+
+    def h_book_set(self, req: Request):
+        """A grown-up ticks "we read this book" for one child, or unticks it. Any level that is a book
+        (a `book` object) or carries a story (a `passage`) can be ticked; ticking again keeps the first
+        date, unticking forgets it. Replies with every book this child has read."""
+        deck_id = req.args[0]
+        pid = want_int(req.body, "profile", 1, 10**9)
+        self.profile_row(pid)
+        deck = self.content.decks.get(deck_id)
+        if not deck or not (isinstance(deck.get("book"), dict) or deck.get("passage")):
+            raise ApiError(400, "Not a book")
+        read = want_bool(req.body, "read")
+        with self.db.tx() as c:
+            if read:
+                c.execute("INSERT OR IGNORE INTO books(profile_id, deck_id, read, at) VALUES(?,?,1,?)",
+                          (pid, deck_id, now_ms()))
+            else:
+                c.execute("DELETE FROM books WHERE profile_id=? AND deck_id=?", (pid, deck_id))
+        return {"books": self.books_of(pid)}
 
     def h_attempts(self, req: Request):
         pid = want_int(req.body, "profile", 1, 10**9)
@@ -1403,11 +1442,13 @@ class App:
             if raw["voiceMode"] not in ("help", "full", "off"):
                 raise ApiError(400, "Bad voiceMode")
             out["voiceMode"] = raw["voiceMode"]
-        if "speechRate" in raw:
-            rate = raw["speechRate"]
-            if isinstance(rate, bool) or not isinstance(rate, (int, float)) or not 0.5 <= rate <= 1.5:
-                raise ApiError(400, "Bad speechRate")
-            out["speechRate"] = round(float(rate), 2)
+        # The quiz voice and the story voice (Read to me, word taps, sounding out) have their own speeds.
+        for key, lo, hi in (("speechRate", 0.5, 1.5), ("readRate", 0.5, 1.2)):
+            if key in raw:
+                rate = raw[key]
+                if isinstance(rate, bool) or not isinstance(rate, (int, float)) or not lo <= rate <= hi:
+                    raise ApiError(400, f"Bad {key}")
+                out[key] = round(float(rate), 2)
         if "hiddenDecks" in raw:
             decks = raw["hiddenDecks"]
             if not isinstance(decks, list) or len(decks) > 1000:
@@ -1451,13 +1492,14 @@ class App:
         return {"ok": True}
 
     def h_profile_reset(self, req: Request):
-        """Wipe practice history. scope 'all' also clears tests; scope 'deck' clears one deck's cards."""
+        """Wipe practice history. scope 'all' also clears tests and the book ticks; scope 'deck' clears one
+        deck's cards, rounds, reads and book tick."""
         pid = int(req.args[0])
         self.profile_row(pid)
         scope = req.body.get("scope")
         with self.db.tx() as c:
             if scope == "all":
-                for table in ("card_stats", "attempts", "tests", "rounds", "reads"):
+                for table in ("card_stats", "attempts", "tests", "rounds", "reads", "books"):
                     c.execute(f"DELETE FROM {table} WHERE profile_id=?", (pid,))
                 c.execute("DELETE FROM flags WHERE profile_id=? AND kind='practice'", (pid,))
             elif scope == "deck":
@@ -1477,13 +1519,14 @@ class App:
                     raise ApiError(400, "Unknown deck")
                 c.execute("DELETE FROM rounds WHERE profile_id=? AND deck_id=?", (pid, deck_id))
                 c.execute("DELETE FROM reads WHERE profile_id=? AND deck_id=?", (pid, deck_id))
+                c.execute("DELETE FROM books WHERE profile_id=? AND deck_id=?", (pid, deck_id))
             else:
                 raise ApiError(400, "Bad scope")
         return {"ok": True}
 
     def h_export(self, req: Request):
         out = {"app": APP_NAME, "version": VERSION, "exported": now_ms()}
-        for table in ("profiles", "card_stats", "attempts", "flags", "tests", "rounds", "reads"):
+        for table in ("profiles", "card_stats", "attempts", "flags", "tests", "rounds", "reads", "books"):
             out[table] = [dict(r) for r in self.db.read(f"SELECT * FROM {table}")]
         return out
 

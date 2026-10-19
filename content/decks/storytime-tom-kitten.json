@@ -1,0 +1,88 @@
+{
+  "id": "storytime.tom-kitten",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 380,
+  "title": "The Tale of Tom Kitten",
+  "emoji": "🐱",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.3", "RF.1.4"],
+  "about": "Beatrix Potter's 1907 tale of Tom Kitten and his sisters Mittens and Moppet, dressed in their best clothes for their mother's tea party and told to stay clean, who lose every button and stitch on the garden wall to three waddling Puddle-Ducks. First graders love the pop of the buttons, the pit-pat waddle-pat refrain and the thumping upstairs while the grown-ups sip their tea. It is a public-domain book retold here in first-grade words, five pages long; the real one with Potter's pictures is at the library.",
+  "tip": "Chant pit-pat, paddle-pat with him, then ask who ended up wearing the kittens' clothes.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Beatrix Potter (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Three kittens, their best clothes, and three cheeky ducks."
+  },
+  "passage": {
+    "text": "Once there were three little kittens.\nTheir names were Mittens, Tom Kitten, and Moppet.\nTheir mother was Mrs. Tabitha Twitchit.\nOne day, friends were coming for tea.\nSo she washed their faces.\nShe brushed their fur.\nShe put them in their best clothes.\nTom's suit had six shiny buttons.\n\"Now go out and play,\" she said.\n\"But keep your clothes clean!\"\n***\nThe kittens went out into the garden.\nMoppet and Mittens tried to stay clean.\nBut they tripped on their long dresses.\nTom could not even hop.\nHis suit was too tight!\nThen they climbed up the garden wall.\nPop! Pop! Pop!\nTom's buttons flew off one by one.\n***\nJust then, three ducks came waddling by.\nPit-pat, paddle-pat! Pit-pat, waddle-pat!\nThey were the Puddle-Ducks.\n\"Look at all the buttons!\" said a duck.\nThen Tom's hat fell off the wall.\nHis suit slid off, too.\nThe dresses slipped off next.\nSoon all the clothes were in a heap.\nThe ducks picked them up.\nAnd they put them on!\n***\nOff went the ducks in the fine clothes.\nPit-pat, paddle-pat! Pit-pat, waddle-pat!\nSplash!\nThey jumped into the pond.\nThe clothes floated away.\nThe three kittens sat on the wall.\nThey had no clothes on at all!\nJust then, Mrs. Tabitha Twitchit came out.\n\"Oh my!\" she said.\n\"Look at you!\"\n\"My friends are coming for tea!\"\nShe was very upset.\n***\nShe sent the kittens upstairs.\n\"Stay up there and be good,\" she said.\nThen her friends came for tea.\nThey sat and sipped and talked.\nBut the kittens were not being good.\nThump! Bump! Thump!\nThey bounced on the beds.\nWhat a noisy tea party!\nAnd the Puddle-Ducks?\nThey are still looking for those clothes.",
+    "level": "open",
+    "focus": ["short i", "short o", "-ed endings"],
+    "tricky": ["the", "a", "once", "there", "were", "their", "names", "was", "one", "friends", "coming", "for", "tea", "so", "she", "washed", "faces", "brushed", "put", "them", "clothes", "shiny", "now", "go", "out", "play", "said", "but", "keep", "your", "clean", "into", "garden", "tried", "to", "stay", "they", "dresses", "could", "even", "his", "too", "climbed", "wall", "buttons", "by", "just", "came", "waddling", "look", "all", "soon", "heap", "picked", "went", "fine", "splash", "floated", "away", "no", "oh", "my", "you", "are", "upset", "upstairs", "be", "good", "her", "talked", "being", "bounced", "what", "noisy", "party", "still", "looking", "those", "kittens", "kitten", "mittens", "moppet", "mrs.", "tabitha", "twitchit", "puddle-ducks", "pit-pat", "paddle-pat", "waddle-pat", "thump", "bump"]
+  },
+  "cards": [
+    { "id": "storytime.tom-kitten.mother",
+      "q": "Who was the kittens' mother?",
+      "a": "Mrs. Tabitha Twitchit",
+      "wrong": ["Mrs. Puddle-Duck", "Mrs. Rabbit"],
+      "emoji": "🐱",
+      "note": "Tabitha Twitchit is the mother of Tom, Mittens and Moppet; the three ducks are the Puddle-Ducks." },
+
+    { "id": "storytime.tom-kitten.told-clean",
+      "q": "What did the mother tell the kittens to do?",
+      "a": "keep their clothes clean",
+      "wrong": ["climb the wall", "jump on the beds"],
+      "note": "That is the one thing she asks, and it lasts about as long as a walk to the garden wall." },
+
+    { "id": "storytime.tom-kitten.buttons",
+      "q": "What popped off Tom's suit?",
+      "a": "his buttons",
+      "wrong": ["his socks", "his gloves"],
+      "note": "Pop, pop, pop: the suit was too tight, so the buttons flew off one by one." },
+
+    { "id": "storytime.tom-kitten.ducks-clothes",
+      "q": "Who put on the kittens' clothes?",
+      "a": "the Puddle-Ducks",
+      "wrong": ["the mice", "the mother cat"],
+      "emoji": "🦆",
+      "note": "The ducks picked up the heap of clothes, put them on and waddled off to the pond." },
+
+    { "id": "storytime.tom-kitten.first",
+      "q": "What happened first in the story?",
+      "a": "they got dressed up",
+      "wrong": ["the ducks waddled off", "they bounced on beds"],
+      "note": "Washed faces, brushed fur and best clothes come first; the garden wall undoes it all." },
+
+    { "id": "storytime.tom-kitten.end",
+      "q": "What happened at the end of the story?",
+      "a": "a noisy tea party",
+      "wrong": ["they got dressed up", "Tom lost his buttons"],
+      "note": "The friends sipped tea downstairs while thump, bump, thump went the kittens upstairs." },
+
+    { "id": "storytime.tom-kitten.feel-upset",
+      "q": "How did the kittens' mother feel when she saw them?",
+      "a": "upset",
+      "wrong": ["proud", "sleepy"],
+      "note": "Oh my, look at you: her friends were on the way and the kittens had nothing on." },
+
+    { "id": "storytime.tom-kitten.setting",
+      "q": "Where did the kittens go out to play?",
+      "a": "in the garden",
+      "wrong": ["at the beach", "in the woods"],
+      "note": "The setting is where a story happens: a house with a garden, a wall and a pond." },
+
+    { "id": "storytime.tom-kitten.vocab-waddling",
+      "q": "In the story, what does 'waddling' mean?",
+      "a": "walking like a duck",
+      "wrong": ["flying up high", "sleeping in a nest"],
+      "note": "Ducks rock from side to side when they walk: pit-pat, waddle-pat." },
+
+    { "id": "storytime.tom-kitten.word-tea",
+      "q": "Which word is in the story?",
+      "a": "tea",
+      "wrong": ["tie", "toe"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

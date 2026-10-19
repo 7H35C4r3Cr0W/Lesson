@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-mercy-watson",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 720,
+  "title": "Mercy Watson words",
+  "emoji": "🐷",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Mercy is a pig who lives like a pampered daughter with Mr. and Mrs. Watson, and when she squeezes into their bed one night the floor starts to give way and the whole street ends up joining the rescue. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read a chapter together each night, with him reading the words he practised.",
+  "book": {
+    "author": "Kate DiCamillo",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Mercy+Watson+to+the+Rescue&searchType=title",
+    "blurb": "A toast-loving pig, a sagging bedroom floor and a neighborhood that comes running."
+  },
+  "passage": {
+    "text": "Mercy Watson pig toast\nbed floor crack hot\nbutter dark truck help\nknock sisters Baby jump\nrescue down",
+    "level": "open",
+    "focus": ["oa", "ck", "er"],
+    "tricky": ["Mercy", "Watson", "floor", "knock", "Baby", "down"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-mercy-watson.mercy", "text": "Mercy", "parts": ["M", "er", "c", "y"], "tricky": [2, 3], "emoji": "🐷", "note": "capital M, it is her name; er says er; c says s before y and y says ee: Mer-see" },
+    { "id": "storytime.shelf-mercy-watson.watson", "text": "Watson", "parts": ["W", "a", "t", "s", "o", "n"], "tricky": [1, 4], "note": "capital W, the family name; a says o after w and the o says u: Wot-sun" },
+    { "id": "storytime.shelf-mercy-watson.pig", "text": "pig", "parts": ["p", "i", "g"], "emoji": "🐖", "note": "all regular: p-i-g" },
+    { "id": "storytime.shelf-mercy-watson.toast", "text": "toast", "parts": ["t", "oa", "s", "t"], "emoji": "🍞", "note": "oa says long o; s-t at the end" },
+    { "id": "storytime.shelf-mercy-watson.bed", "text": "bed", "parts": ["b", "e", "d"], "emoji": "🛏️", "note": "all regular: b-e-d" },
+    { "id": "storytime.shelf-mercy-watson.floor", "text": "floor", "parts": ["f", "l", "oor"], "tricky": [2], "note": "f-l blend; oor says or here, like in door: flor" },
+    { "id": "storytime.shelf-mercy-watson.crack", "text": "crack", "parts": ["c", "r", "a", "ck"], "note": "c-r blend; ck is one sound" },
+    { "id": "storytime.shelf-mercy-watson.hot", "text": "hot", "parts": ["h", "o", "t"], "emoji": "🔥", "note": "all regular: h-o-t" },
+    { "id": "storytime.shelf-mercy-watson.butter", "text": "butter", "parts": ["b", "u", "tt", "er"], "note": "tt is one t; two parts: but + ter; er says er" },
+    { "id": "storytime.shelf-mercy-watson.dark", "text": "dark", "parts": ["d", "ar", "k"], "note": "ar says ar, like in car" },
+    { "id": "storytime.shelf-mercy-watson.truck", "text": "truck", "parts": ["t", "r", "u", "ck"], "emoji": "🚒", "note": "t-r blend; ck is one sound" },
+    { "id": "storytime.shelf-mercy-watson.help", "text": "help", "parts": ["h", "e", "l", "p"], "note": "all regular; l-p at the end" },
+    { "id": "storytime.shelf-mercy-watson.knock", "text": "knock", "parts": ["kn", "o", "ck"], "tricky": [0], "emoji": "🚪", "note": "kn says n, the k is silent; ck is one sound: nock" },
+    { "id": "storytime.shelf-mercy-watson.sisters", "text": "sisters", "parts": ["s", "i", "s", "t", "er", "s"], "emoji": "👭", "note": "two parts: sis + ters; er says er; the last s says z" },
+    { "id": "storytime.shelf-mercy-watson.baby", "text": "Baby", "parts": ["B", "a", "b", "y"], "tricky": [1, 3], "note": "capital B, it is her name; the a says its name and y says ee: Bay-bee" },
+    { "id": "storytime.shelf-mercy-watson.jump", "text": "jump", "parts": ["j", "u", "m", "p"], "note": "all regular: j-u-m-p" },
+    { "id": "storytime.shelf-mercy-watson.rescue", "text": "rescue", "parts": ["r", "e", "s", "c", "ue"], "note": "two parts: res + cue; ue says yoo, like in cue" },
+    { "id": "storytime.shelf-mercy-watson.down", "text": "down", "parts": ["d", "ow", "n"], "tricky": [1], "emoji": "⬇️", "note": "ow says ou, like in cow" }
+  ]
+}

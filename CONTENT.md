@@ -125,8 +125,8 @@ earns a star; only the Play round passes the level.
   Letters, apostrophes, spaces and `. , ! ? " ' -` only. A one-page story (no `***`) is 30–120 words (an error
   outside that), 40–90 preferred (a warning); a book of several pages is checked page by page, 20–120 words each,
   10 pages at most. Sentences of 12 words or fewer and lines of 14 or fewer (warnings).
-- `passage.level` (required) — the decodability level the words are checked against: a group id of the Stories
-  subject (`unit1` … `unit7`), looked up in `content/phonics_levels.json` (below). `"open"` skips the check, for
+- `passage.level` (required) — the decodability level the words are checked against: a group id of the Read by Myself
+  subject (`reading`: `unit1` … `unit7`), looked up in `content/phonics_levels.json` (below). `"open"` skips the check, for
   retold classics and anything else meant to be read together rather than decoded alone.
 - `passage.focus` / `passage.tricky` — short strings for grown-ups: the sound-spellings the story practises
   (`"short a"`, `"ck"`) and the tricky words it uses. Optional but expected; the level page, the lesson plan and
@@ -136,8 +136,9 @@ earns a star; only the Play round passes the level.
   uses the usual round length (10 questions → 9 right passes).
 - `readAloud: true` (the tablet reads each question even in "only when needed" voice mode) and
   `readChoices: false` (the choices are story words the child reads himself; read along if he is stuck).
-- A `kind: "read"` deck may carry a `passage` too. Story Time's shelf levels are "the words you will meet in this
-  book": the passage lays those words out as lines, the cards are the same words, and the deck also carries `book`.
+- A `kind: "read"` deck may carry a `passage` too. The Books to borrow shelf of the Books subject (`storytime`) is
+  "the words you will meet in this book": the passage lays those words out as lines, the cards are the same words,
+  and the deck also carries `book`.
 
 ### `book` (optional, any deck)
 
@@ -150,6 +151,10 @@ earns a star; only the Play round passes the level.
 book's text or pictures: a shelf level teaches the words and links to the library. Public-domain classics (Aesop's
 fables, fairy tales, Peter Rabbit, nursery rhymes) are retold at first-grade level in the app's own words, with
 `passage.level: "open"`.
+
+Any deck with a `book` key is listed on the **Books** checklist in Grown-ups → Reading (grouped under its subject's
+groups, a tick per child with the date, `author` under the title, `borrow` as the Borrow link) and gets a
+*We read this book* tick on its level page.
 
 ### How words are counted
 

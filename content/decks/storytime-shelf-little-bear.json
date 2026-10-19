@@ -1,0 +1,43 @@
+{
+  "id": "storytime.shelf-little-bear",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 700,
+  "title": "Little Bear words",
+  "emoji": "🐻",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Little Bear and his mother share four small stories: a cold day in the snow, a pot of soup for his birthday, a pretend trip to the moon and a wish at bedtime. This level teaches the words the child will meet in the stories, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read one of the four stories together each night.",
+  "book": {
+    "author": "Else Holmelund Minarik",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Little+Bear&searchType=title",
+    "blurb": "Four gentle first stories about a small bear and the mother who always knows what he needs."
+  },
+  "passage": {
+    "text": "Little Bear Mother snow\nhat coat pants fur\nsoup birthday cake hen\nduck moon tree wish\nwhat",
+    "level": "open",
+    "focus": ["oa", "ow", "ur"],
+    "tricky": ["Little", "Bear", "Mother", "soup", "what"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-little-bear.little", "text": "Little", "parts": ["L", "i", "tt", "le"], "tricky": [3], "emoji": "🐻", "note": "capital L, it is the first half of his name; tt is one t; le says ul: Lit-ul" },
+    { "id": "storytime.shelf-little-bear.bear", "text": "Bear", "parts": ["B", "ear"], "tricky": [1], "note": "capital B, the other half of his name; ear says air here: Bair" },
+    { "id": "storytime.shelf-little-bear.mother", "text": "Mother", "parts": ["M", "o", "th", "er"], "tricky": [1], "note": "capital M, it is Mother Bear's name; o says u; th is one part: Muth-er" },
+    { "id": "storytime.shelf-little-bear.snow", "text": "snow", "parts": ["s", "n", "ow"], "emoji": "❄️", "note": "s-n blend; ow says long o, like in show" },
+    { "id": "storytime.shelf-little-bear.hat", "text": "hat", "parts": ["h", "a", "t"], "emoji": "🧢", "note": "all regular: h-a-t" },
+    { "id": "storytime.shelf-little-bear.coat", "text": "coat", "parts": ["c", "oa", "t"], "emoji": "🧥", "note": "oa says long o, like in boat" },
+    { "id": "storytime.shelf-little-bear.pants", "text": "pants", "parts": ["p", "a", "n", "t", "s"], "emoji": "👖", "note": "all regular; n-t-s at the end" },
+    { "id": "storytime.shelf-little-bear.fur", "text": "fur", "parts": ["f", "ur"], "note": "ur says er, like in turn" },
+    { "id": "storytime.shelf-little-bear.soup", "text": "soup", "parts": ["s", "ou", "p"], "tricky": [1], "emoji": "🥣", "note": "ou says oo here: soop" },
+    { "id": "storytime.shelf-little-bear.birthday", "text": "birthday", "parts": ["b", "ir", "th", "d", "ay"], "emoji": "🎂", "note": "ir says er; th is one part; ay says long a; two parts: birth + day" },
+    { "id": "storytime.shelf-little-bear.cake", "text": "cake", "parts": ["c", "a", "k", "e"], "emoji": "🍰", "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-little-bear.hen", "text": "hen", "parts": ["h", "e", "n"], "emoji": "🐔", "note": "all regular: h-e-n" },
+    { "id": "storytime.shelf-little-bear.duck", "text": "duck", "parts": ["d", "u", "ck"], "emoji": "🦆", "note": "ck is one sound" },
+    { "id": "storytime.shelf-little-bear.moon", "text": "moon", "parts": ["m", "oo", "n"], "emoji": "🌙", "note": "oo says long oo" },
+    { "id": "storytime.shelf-little-bear.tree", "text": "tree", "parts": ["t", "r", "ee"], "emoji": "🌳", "note": "t-r blend; ee says long e" },
+    { "id": "storytime.shelf-little-bear.wish", "text": "wish", "parts": ["w", "i", "sh"], "emoji": "🌠", "note": "sh is one part" },
+    { "id": "storytime.shelf-little-bear.what", "text": "what", "parts": ["wh", "a", "t"], "tricky": [1], "note": "wh says w; a says u here: wut" }
+  ]
+}

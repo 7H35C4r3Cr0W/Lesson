@@ -36,6 +36,8 @@ DECK_MATH = {
 DECK_STORY = {
     "id": "s1", "subject": "reading", "group": "unit1", "title": "The Cat Nap", "emoji": "🐱", "kind": "qa", "order": 1,
     "readAloud": True, "readChoices": False,
+    "book": {"author": "Star Cards (made up for the tests)", "source": "written for this test",
+             "blurb": "Sam's cat takes a nap on the mat."},
     "passage": {"text": "Sam has a cat.\nThe cat is Max.\n\nMax naps on the mat.\nSam pats Max.",
                 "level": "unit1", "focus": ["short a"], "tricky": ["the", "a", "is", "has"]},
     "cards": [
@@ -60,6 +62,13 @@ DECK_SHELF = {
     "id": "r1", "subject": "reading", "group": "unit1", "title": "Words to meet", "kind": "read", "order": 3,
     "passage": {"text": "cat hat\nmap", "level": "open"},
     "cards": [{"id": "r1.cat", "text": "cat"}, {"id": "r1.hat", "text": "hat"}, {"id": "r1.map", "text": "map"}],
+}
+# A book to borrow from the library: a `book` key (with a link) and no story of its own. Not in the default
+# content; the Books tests add it to theirs.
+DECK_BOOK = {
+    "id": "b1", "subject": "reading", "group": "borrow", "title": "Ten Little Ducks", "kind": "read", "order": 9,
+    "book": {"author": "A. Writer", "borrow": "https://example.org/ducks", "blurb": "Ten ducks go out, one by one."},
+    "cards": [{"id": "b1.ducks", "text": "ducks"}, {"id": "b1.ten", "text": "ten"}],
 }
 
 
@@ -619,6 +628,131 @@ class Reads(ServerCase):
         self.call("DELETE", f"/api/profiles/{pid}")
 
 
+class Books(ServerCase):
+    """The book checklist: a grown-up ticks the books (and the stories) the family has read, per child."""
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        # A library book has a `book` key and no story of its own; only this class needs one in the content.
+        (cls.tmp / "content" / "decks" / "b1.json").write_text(json.dumps(DECK_BOOK), encoding="utf-8")
+        cls.server.app.content.refresh()
+
+    def kid(self, name):
+        _, out = self.call("POST", "/api/profiles", body={"name": name})
+        return out["profile"]["id"]
+
+    def tick(self, deck, read=True, profile=1):
+        return self.call("PUT", f"/api/books/{deck}", body={"profile": profile, "read": read})
+
+    def test_tick_untick_and_the_first_date_is_kept(self):
+        pid = self.kid("Book kid")
+        before = server.now_ms()
+        resp, out = self.tick("s1", profile=pid)
+        self.assertEqual(resp.status, 200, out)
+        self.assertEqual(set(out), {"books"})
+        self.assertEqual(list(out["books"]), ["s1"])
+        self.assertEqual(list(out["books"]["s1"]), ["read", "at"])
+        self.assertIs(out["books"]["s1"]["read"], True)
+        first = out["books"]["s1"]["at"]
+        self.assertTrue(before <= first <= server.now_ms())
+        # Ticked again (a retried request, or a second tap): the date of the first tick stands.
+        time.sleep(0.005)
+        _, again = self.tick("s1", profile=pid)
+        self.assertEqual(again["books"]["s1"], {"read": True, "at": first})
+        # Any level with a story can be ticked, with or without a `book` key, and so can a library book.
+        self.tick("s2", profile=pid)                                  # a story without a book key
+        self.tick("r1", profile=pid)                                  # a read deck with a word shelf
+        _, out = self.tick("b1", profile=pid)                         # a library book without a story
+        self.assertEqual(set(out["books"]), {"s1", "s2", "r1", "b1"})
+        self.assertEqual([b["read"] for b in out["books"].values()], [True] * 4)
+        # Unticked: the row goes (twice is fine), and a fresh tick later gets a fresh date.
+        _, out = self.tick("s1", read=False, profile=pid)
+        self.assertEqual(set(out["books"]), {"s2", "r1", "b1"})
+        _, out = self.tick("s1", read=False, profile=pid)
+        self.assertNotIn("s1", out["books"])
+        time.sleep(0.005)
+        _, out = self.tick("s1", profile=pid)
+        self.assertGreater(out["books"]["s1"]["at"], first)
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_validation(self):
+        pid = self.kid("Picky book kid")
+        for deck, body in (("nope", {"profile": pid, "read": True}),           # unknown deck
+                           ("w1", {"profile": pid, "read": True}),             # neither a book nor a story
+                           ("m1", {"profile": pid, "read": True}),
+                           ("s1", {"profile": pid, "read": 1}),                # read must be true or false
+                           ("s1", {"profile": pid, "read": "true"}),
+                           ("s1", {"profile": pid, "read": None}),
+                           ("s1", {"profile": pid}),
+                           ("s1", {"read": True}),                             # profile missing or not a number
+                           ("s1", {"profile": True, "read": True}),
+                           ("s1", {"profile": "1", "read": True})):
+            resp, out = self.call("PUT", f"/api/books/{deck}", body=body)
+            self.assertEqual(resp.status, 400, (deck, body, out))
+        _, out = self.call("PUT", "/api/books/w1", body={"profile": pid, "read": True})
+        self.assertEqual(out["error"], "Not a book")
+        self.assertEqual(self.call("PUT", "/api/books/s1", body={"profile": 99, "read": True})[0].status, 404)
+        self.assertEqual(self.call("GET", "/api/books/s1")[0].status, 405)                     # PUT only
+        self.assertEqual(self.call("POST", "/api/books/s1", body={"profile": pid, "read": True})[0].status, 405)
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(state["books"], {})                          # nothing slipped through
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_state_carries_books(self):
+        pid = self.kid("State book kid")
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(state["books"], {})
+        self.tick("s1", profile=pid)
+        self.tick("b1", profile=pid)
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(set(state["books"]), {"s1", "b1"})
+        self.assertEqual(list(state["books"]["s1"]), ["read", "at"])
+        self.assertIs(state["books"]["s1"]["read"], True)
+        self.assertIsInstance(state["books"]["b1"]["at"], int)
+        other = self.kid("Sibling")                                   # each child has their own list
+        _, state = self.call("GET", f"/api/state?profile={other}")
+        self.assertEqual(state["books"], {})
+        self.call("DELETE", f"/api/profiles/{pid}")
+        self.call("DELETE", f"/api/profiles/{other}")
+
+    def test_reset_clears_books(self):
+        pid = self.kid("Reset book kid")
+        self.tick("s1", profile=pid)
+        self.tick("s2", profile=pid)
+        self.tick("b1", profile=pid)
+        self.assertEqual(self.call("POST", f"/api/profiles/{pid}/reset", body={"scope": "deck", "deck": "s1"})[0].status, 200)
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(set(state["books"]), {"s2", "b1"})
+        self.call("POST", f"/api/profiles/{pid}/reset", body={"scope": "all"})
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(state["books"], {})
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_export_and_profile_delete_cover_books(self):
+        pid = self.kid("Export book kid")
+        _, out = self.tick("s1", profile=pid)
+        _, dump = self.call("GET", "/api/export")
+        rows = [r for r in dump["books"] if r["profile_id"] == pid]
+        self.assertEqual(rows, [{"profile_id": pid, "deck_id": "s1", "read": 1, "at": out["books"]["s1"]["at"]}])
+        self.call("DELETE", f"/api/profiles/{pid}")
+        _, dump = self.call("GET", "/api/export")
+        self.assertFalse(any(r["profile_id"] == pid for r in dump["books"]), "deleting a child removes their books")
+
+    def test_no_grown_up_token_needed(self):
+        """The tick lives on the grown-up pages, but like rounds and reads it is not behind the PIN."""
+        lock = self.server.app.parent
+        lock.set_pin("2468")
+        try:
+            self.assertEqual(self.call("GET", "/api/export")[0].status, 401)        # the PIN is on
+            resp, out = self.tick("s2")
+            self.assertEqual(resp.status, 200, out)
+            self.assertIn("s2", out["books"])
+            self.tick("s2", read=False)
+        finally:
+            lock.set_pin(None)
+
+
 class LegacyRounds(ServerCase):
     """Upgrading a Pi that already holds practice history: it is scored against the pass mark once."""
 
@@ -832,6 +966,26 @@ class FlagsAndProfiles(ServerCase):
 
         self.assertEqual(self.call("DELETE", f"/api/profiles/{pid}")[0].status, 200)
         self.assertEqual(self.call("GET", f"/api/state?profile={pid}")[0].status, 404)
+
+    def test_read_rate_pref(self):
+        """readRate: the story voice's speed (0.5 to 1.2), kept apart from the quiz voice's speechRate."""
+        _, out = self.call("POST", "/api/profiles", body={"name": "Slow reader"})
+        pid = out["profile"]["id"]
+        resp, out = self.call("PUT", f"/api/profiles/{pid}", body={"prefs": {"readRate": 0.7, "speechRate": 0.85}})
+        self.assertEqual(resp.status, 200, out)
+        self.assertEqual((out["profile"]["prefs"]["readRate"], out["profile"]["prefs"]["speechRate"]), (0.7, 0.85))
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(state["profile"]["prefs"]["readRate"], 0.7)
+        _, out = self.call("PUT", f"/api/profiles/{pid}", body={"prefs": {"readRate": 1.2}})       # the top of the range
+        self.assertEqual(out["profile"]["prefs"]["readRate"], 1.2)
+        _, out = self.call("PUT", f"/api/profiles/{pid}", body={"prefs": {"readRate": 0.666}})     # kept to two decimals
+        self.assertEqual(out["profile"]["prefs"]["readRate"], 0.67)
+        for prefs in ({"readRate": 1.5}, {"readRate": "fast"}, {"readRate": 0.49}, {"readRate": True}, {"readRate": None}):
+            resp, out = self.call("PUT", f"/api/profiles/{pid}", body={"prefs": prefs})
+            self.assertEqual((resp.status, out["error"]), (400, "Bad readRate"), prefs)
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(state["profile"]["prefs"]["readRate"], 0.67)                               # nothing slipped through
+        self.call("DELETE", f"/api/profiles/{pid}")
 
     def test_last_profile_cannot_be_deleted(self):
         _, out = self.call("GET", "/api/profiles")

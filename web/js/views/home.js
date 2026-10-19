@@ -25,6 +25,8 @@ export function mount(root, scope) {
   const profile = state.profile;
   const again = store.troubleList().filter((t) => canQuiz(t.card, t.deck));
   const streak = dayStreak(state.days, dayString(new Date()));
+  // 🔤 My words appears once he has read a story (the screen handles having no words yet anyway).
+  const hasRead = Object.values(state.reads || {}).some((r) => r && r.count > 0);
 
   const avatar = h('button', { class: 'avatar', type: 'button', 'aria-label': 'Change your buddy', onclick: tap(pickAvatar) },
     profile.avatar);
@@ -73,6 +75,10 @@ export function mount(root, scope) {
           ? h('button', { class: 'quick-btn again', type: 'button', onclick: tap(() => go('/practice/again')) },
             h('span', { class: 'quick-emoji' }, '🔁'), h('span', null, 'Try again'),
             h('span', { class: 'pill' }, String(again.length)))
+          : null,
+        hasRead
+          ? h('button', { class: 'quick-btn words', type: 'button', onclick: tap(() => go('/mywords')) },
+            h('span', { class: 'quick-emoji' }, '🔤'), h('span', null, 'My words'))
           : null),
       h('div', { class: 'foot-links' },
         h('button', { class: 'grownups-link', type: 'button', onclick: tap(() => go('/grownups'), null) },

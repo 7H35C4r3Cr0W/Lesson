@@ -1,0 +1,43 @@
+{
+  "id": "storytime.shelf-snowy-day",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 750,
+  "title": "The Snowy Day words",
+  "emoji": "⛄",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Peter wakes up to find his city covered in snow and spends the day making tracks, sliding down a hill and saving a snowball in his pocket for later. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him reading the snow words.",
+  "book": {
+    "author": "Ezra Jack Keats",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=The+Snowy+Day&searchType=title",
+    "blurb": "A small boy's quiet, happy day out in the first big snow of the winter."
+  },
+  "passage": {
+    "text": "Peter snow day red\ntracks stick hill slide\nsnowman snowball pocket bath\nmelt cold crunch friend\nout",
+    "level": "open",
+    "focus": ["ow", "ck", "i_e"],
+    "tricky": ["Peter", "snowball", "cold", "friend"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-snowy-day.peter", "text": "Peter", "parts": ["P", "e", "t", "er"], "tricky": [1], "emoji": "👦", "note": "capital P, it is his name; two parts: Pe + ter; the first e says ee: Pee-ter" },
+    { "id": "storytime.shelf-snowy-day.snow", "text": "snow", "parts": ["s", "n", "ow"], "emoji": "❄️", "note": "s-n blend; ow says long o, like in show" },
+    { "id": "storytime.shelf-snowy-day.day", "text": "day", "parts": ["d", "ay"], "emoji": "☀️", "note": "ay says long a" },
+    { "id": "storytime.shelf-snowy-day.red", "text": "red", "parts": ["r", "e", "d"], "emoji": "🔴", "note": "all regular: r-e-d" },
+    { "id": "storytime.shelf-snowy-day.tracks", "text": "tracks", "parts": ["t", "r", "a", "ck", "s"], "emoji": "👣", "note": "t-r blend; ck is one sound; the s says s" },
+    { "id": "storytime.shelf-snowy-day.stick", "text": "stick", "parts": ["s", "t", "i", "ck"], "note": "s-t blend; ck is one sound" },
+    { "id": "storytime.shelf-snowy-day.hill", "text": "hill", "parts": ["h", "i", "ll"], "note": "ll is two letters, one sound: l" },
+    { "id": "storytime.shelf-snowy-day.slide", "text": "slide", "parts": ["s", "l", "i", "d", "e"], "note": "s-l blend; magic e makes i say its name" },
+    { "id": "storytime.shelf-snowy-day.snowman", "text": "snowman", "parts": ["s", "n", "ow", "m", "a", "n"], "emoji": "⛄", "note": "two parts: snow + man; ow says long o" },
+    { "id": "storytime.shelf-snowy-day.snowball", "text": "snowball", "parts": ["s", "n", "ow", "b", "a", "ll"], "tricky": [4], "note": "two parts: snow + ball; the a says aw before ll" },
+    { "id": "storytime.shelf-snowy-day.pocket", "text": "pocket", "parts": ["p", "o", "ck", "e", "t"], "note": "two parts: pock + et; ck is one sound" },
+    { "id": "storytime.shelf-snowy-day.bath", "text": "bath", "parts": ["b", "a", "th"], "emoji": "🛁", "note": "th is one part" },
+    { "id": "storytime.shelf-snowy-day.melt", "text": "melt", "parts": ["m", "e", "l", "t"], "emoji": "💧", "note": "all regular; l-t at the end" },
+    { "id": "storytime.shelf-snowy-day.cold", "text": "cold", "parts": ["c", "o", "l", "d"], "tricky": [1], "emoji": "🥶", "note": "the o says its name here, like in old: kohld" },
+    { "id": "storytime.shelf-snowy-day.crunch", "text": "crunch", "parts": ["c", "r", "u", "n", "ch"], "note": "c-r blend; ch is one part" },
+    { "id": "storytime.shelf-snowy-day.friend", "text": "friend", "parts": ["f", "r", "ie", "n", "d"], "tricky": [2], "note": "ie says e: frend" },
+    { "id": "storytime.shelf-snowy-day.out", "text": "out", "parts": ["ou", "t"], "note": "ou says ow, like in ouch" }
+  ]
+}

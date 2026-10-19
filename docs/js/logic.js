@@ -440,6 +440,13 @@ export function addRead(summary, { mode, words, errors, seconds = null, at }) {
   };
 }
 
+// 👆 Follow along: where the pointer goes after a tap on word `tapped` (both are word indexes on
+// the page). Tapping the pointed-at word reads it and moves on; tapping an earlier word goes back
+// to it; tapping a word further ahead does nothing (the screen wobbles it instead).
+export function followStep(pointer, tapped) {
+  return tapped === pointer ? pointer + 1 : tapped < pointer ? tapped : pointer;
+}
+
 // ---- dates -----------------------------------------------------------------
 
 export function dayString(date) {

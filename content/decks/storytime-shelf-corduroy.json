@@ -1,0 +1,43 @@
+{
+  "id": "storytime.shelf-corduroy",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 660,
+  "title": "Corduroy words",
+  "emoji": "🧸",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Corduroy is a toy bear who waits on a store shelf for someone to take him home, and one night he wanders the store looking for the button that is missing from his overalls. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him reading the words he practised.",
+  "book": {
+    "author": "Don Freeman",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Corduroy&searchType=title",
+    "blurb": "A small bear with a missing button finds the friend he has been waiting for."
+  },
+  "passage": {
+    "text": "Corduroy Lisa bear store\nshelf toy button girl\nhome night lamp bed\nfell up money want\nlittle",
+    "level": "open",
+    "focus": ["oy", "ir", "o_e"],
+    "tricky": ["Lisa", "bear", "button", "money", "want", "little"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-corduroy.corduroy", "text": "Corduroy", "parts": ["C", "or", "d", "ur", "oy"], "emoji": "🧸", "note": "capital C, it is his name; three parts: Cor-dur-oy; or says or, ur says er and oy says oy" },
+    { "id": "storytime.shelf-corduroy.lisa", "text": "Lisa", "parts": ["L", "i", "s", "a"], "tricky": [1, 3], "note": "capital L, it is her name; the i says ee and the a at the end says uh: Lee-suh" },
+    { "id": "storytime.shelf-corduroy.bear", "text": "bear", "parts": ["b", "ear"], "tricky": [1], "emoji": "🐻", "note": "ear says air here, like in pear: bair" },
+    { "id": "storytime.shelf-corduroy.store", "text": "store", "parts": ["s", "t", "ore"], "emoji": "🏬", "note": "s-t blend; ore says or, like in more" },
+    { "id": "storytime.shelf-corduroy.shelf", "text": "shelf", "parts": ["sh", "e", "l", "f"], "note": "sh is one part; l-f at the end" },
+    { "id": "storytime.shelf-corduroy.toy", "text": "toy", "parts": ["t", "oy"], "note": "oy says oy, like in boy" },
+    { "id": "storytime.shelf-corduroy.button", "text": "button", "parts": ["b", "u", "tt", "o", "n"], "tricky": [3], "note": "tt is one t; two parts: but + ton, the o says u: but-un" },
+    { "id": "storytime.shelf-corduroy.girl", "text": "girl", "parts": ["g", "ir", "l"], "emoji": "👧", "note": "ir says er, like in bird" },
+    { "id": "storytime.shelf-corduroy.home", "text": "home", "parts": ["h", "o", "m", "e"], "emoji": "🏠", "note": "magic e makes o say its name" },
+    { "id": "storytime.shelf-corduroy.night", "text": "night", "parts": ["n", "igh", "t"], "emoji": "🌙", "note": "igh says long i, like in light" },
+    { "id": "storytime.shelf-corduroy.lamp", "text": "lamp", "parts": ["l", "a", "m", "p"], "emoji": "💡", "note": "all regular: l-a-m-p" },
+    { "id": "storytime.shelf-corduroy.bed", "text": "bed", "parts": ["b", "e", "d"], "emoji": "🛏️", "note": "all regular: b-e-d" },
+    { "id": "storytime.shelf-corduroy.fell", "text": "fell", "parts": ["f", "e", "ll"], "note": "ll is two letters, one sound: l" },
+    { "id": "storytime.shelf-corduroy.up", "text": "up", "parts": ["u", "p"], "emoji": "⬆️", "note": "all regular: u-p" },
+    { "id": "storytime.shelf-corduroy.money", "text": "money", "parts": ["m", "o", "n", "ey"], "tricky": [1, 3], "emoji": "💰", "note": "o says u and ey says ee: mun-ee" },
+    { "id": "storytime.shelf-corduroy.want", "text": "want", "parts": ["w", "a", "n", "t"], "tricky": [1], "note": "a says o after w: wont" },
+    { "id": "storytime.shelf-corduroy.little", "text": "little", "parts": ["l", "i", "tt", "le"], "tricky": [3], "note": "tt is one t; le says ul: lit-ul" }
+  ]
+}

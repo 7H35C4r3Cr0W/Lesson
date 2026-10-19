@@ -11,11 +11,14 @@
 // The per-story summaries (reads, best, last) come from store.state.reads; the full history and the
 // missed-word list come from the reading report, which loads after the page is drawn (like the
 // Levels page loads a level's rounds).
+//
+// Above the story tables sits the Books checklist: every deck with a `book` (a retold classic, a
+// shelf level), world by world, with a tick per child kept on the Pi (store.state.books).
 
 import { h, clear, appendAll } from '../../dom.js';
 import * as logic from '../../logic.js';
 import * as store from '../../store.js';
-import { dateTime, toast } from '../../ui.js';
+import { dateTime, shortDate, toast } from '../../ui.js';
 
 // ---- the shared word rules -------------------------------------------------
 
@@ -148,6 +151,112 @@ function storySubjects() {
   }).filter(Boolean);
 }
 
+// ---- the book checklist ----------------------------------------------------
+
+// The books ticked off for this child (deck id → { read, at }); {} on a build whose store does not carry them.
+function bookTicks() {
+  const books = store.state.books;
+  return books && typeof books === 'object' ? books : {};
+}
+
+function ticked(ticks, deckId) {
+  const entry = ticks[deckId];
+  return !!(entry && entry.read !== false);
+}
+
+// Every deck with a `book` (a retold classic, a shelf level), whichever subject holds it, grouped by
+// that subject's worlds in path order. A deck hidden from the child is listed, greyed, but not counted.
+function bookWorlds() {
+  const hidden = store.hiddenDecks();
+  const out = [];
+  for (const sub of store.state.subjects) {
+    const decks = store.decksOf(sub.id, { includeHidden: true }).filter((d) => d.book && typeof d.book === 'object');
+    if (!decks.length) continue;
+    const worlds = (sub.groups || []).map((group) => ({ sub, id: group.id, title: group.title, rows: [] }));
+    const other = { sub, id: null, title: sub.title, rows: [] };      // a book deck in no world of its subject
+    for (const deck of decks) {
+      const world = worlds.find((w) => w.id === deck.group) || other;
+      world.rows.push({ deck, hidden: hidden.has(deck.id) });
+    }
+    for (const world of worlds.concat(other)) if (world.rows.length) out.push(world);
+  }
+  return out;
+}
+
+// How many of the books on the child's path are ticked, and how many there are: "Books read: n of m".
+export function booksRead(worlds = bookWorlds(), ticks = bookTicks()) {
+  const rows = worlds.flatMap((w) => w.rows).filter((r) => !r.hidden);
+  return { read: rows.filter((r) => ticked(ticks, r.deck.id)).length, total: rows.length };
+}
+
+// The Books panel: one checklist per world. A tick is saved for this child with the day; the panel
+// draws itself again whenever the store's books change (the tick itself, then the Pi's reply). On a
+// build whose store cannot save a tick yet the box springs back and says so instead of throwing.
+function booksPanel(scope, name) {
+  const worlds = bookWorlds();
+  if (!worlds.length) return null;
+  const panel = h('div', { class: 'panel' });
+
+  const onTick = (deck, box) => {
+    const want = box.checked;
+    const back = () => { box.checked = ticked(bookTicks(), deck.id); };
+    if (typeof store.setBookRead !== 'function') {
+      back();
+      toast('Ticking books is not available on this build yet.');
+      return;
+    }
+    Promise.resolve().then(() => store.setBookRead(deck.id, want)).catch((err) => {
+      if (!scope.alive) return;
+      fail(err);
+      back();
+    });
+  };
+
+  const fill = () => {
+    const ticks = bookTicks();
+    const sums = summaries();
+    const { read, total } = booksRead(worlds, ticks);
+    clear(panel).append(
+      h('h2', null, 'Books'),
+      h('p', { class: 'muted' }, `Every classic retold on the tablet and every library book on the shelf, world by world. Tick a book once ${name} has read it, `,
+        'on the tablet, from the library or together; the date is the day it was ticked, and each child has his own list. Borrow opens the library catalogue.'),
+      h('p', null, h('strong', null, `Books read: ${read} of ${total}`)));
+    for (const world of worlds) {
+      const shown = world.rows.filter((r) => !r.hidden);
+      const done = shown.filter((r) => ticked(ticks, r.deck.id)).length;
+      panel.append(
+        h('div', { class: 'page-head' },
+          h('h3', { style: { margin: 0, fontSize: '17px' } }, `${world.sub.emoji || ''} ${world.title}`),
+          h('span', { class: 'muted small' }, `${done} of ${shown.length} read`)),
+        h('table', { class: 'table' },
+          h('thead', null, h('tr', null, ['Read', 'Book', 'Read on', 'Reads on the tablet', 'Borrow'].map((t) => h('th', null, t)))),
+          h('tbody', null, world.rows.map(({ deck, hidden }) => {
+            const book = deck.book;
+            const entry = ticks[deck.id];
+            const isRead = ticked(ticks, deck.id);
+            const box = h('input', { type: 'checkbox', checked: isRead, 'aria-label': `Mark ${deck.title} as read`,
+              onchange: () => onTick(deck, box) });
+            const s = sums[deck.id];
+            const borrow = typeof book.borrow === 'string' && /^https:\/\//i.test(book.borrow) ? book.borrow : '';
+            return h('tr', { class: hidden ? 'row-off' : '' },
+              h('td', null, box),
+              h('td', null,
+                h('a', { href: `#/grownups/level/${deck.id}` }, `${deck.emoji || ''} ${deck.title}`),
+                hidden ? [' ', h('span', { class: 'lvl lvl-hidden' }, 'hidden')] : null,
+                book.author ? h('div', { class: 'muted small' }, book.author) : null),
+              h('td', null, isRead ? shortDate(entry && entry.at) || 'read' : '–'),
+              h('td', null, s && s.count ? String(s.count) : '–'),
+              h('td', null, borrow ? h('a', { href: borrow, target: '_blank', rel: 'noopener' }, 'Borrow') : h('span', { class: 'muted' }, '–')));
+          }))));
+    }
+  };
+  fill();
+  scope.add(store.subscribe((what) => {
+    if ((what === 'books' || what === 'profile') && scope.alive) fill();
+  }));
+  return panel;
+}
+
 // ---- the page --------------------------------------------------------------
 
 function intro(name) {
@@ -188,8 +297,9 @@ export function draw(body, scope) {
   const latestBox = statBox(latestFromSums ? String(latestFromSums.wcpm) : '–',
     latestFromSums ? `latest words per minute · ${dateTime(latestFromSums.at)}` : 'latest words per minute');
   const wordsBox = statBox('…', 'words to practice');
+  const books = booksPanel(scope, name);           // null when no deck carries a book
 
-  // With one story subject the buttons go straight to it; with more (Stories, Story Time) to the lists.
+  // With one story subject the buttons go straight to it; with more (Read by Myself, Books) to the lists.
   const one = groups.length === 1 ? first : null;
   appendAll(body,
     h('div', { class: 'page-head' },
@@ -202,6 +312,7 @@ export function draw(body, scope) {
   if (!stories.length) {
     body.append(h('p', { class: 'muted' }, 'No story levels yet. A story is a deck with a passage (see CONTENT.md); ',
       'as soon as one is read, it shows up here with every read and the words to practice.'));
+    if (books) body.append(books);
     return;
   }
 
@@ -215,6 +326,7 @@ export function draw(body, scope) {
       statBox(bestAll == null ? '–' : String(bestAll), 'best words per minute'),
       latestBox,
       wordsBox),
+    books,
     h('div', { class: 'panel' },
       h('h2', null, 'Every story'),
       h('p', { class: 'muted' }, 'Reads counts every pass through a story, by himself or scored. WPM comes from scored reads only; ',
@@ -227,7 +339,7 @@ export function draw(body, scope) {
     wordsPanel);
 
   // The table from what is at hand; drawn again once the report brings the history. With more
-  // than one story subject (Stories, Story Time) each gets a header row.
+  // than one story subject (Read by Myself, Books) each gets a header row.
   const fillRows = (report) => {
     clear(tbody);
     const byDeck = report ? new Map((report.decks || []).map((e) => [e.deck, e])) : null;

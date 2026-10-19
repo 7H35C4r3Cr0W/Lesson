@@ -8,6 +8,7 @@
 // decodable words a story is built from.
 
 import * as speech from './speech.js';
+import { cleanWord, trimWord } from './logic.js';
 
 // What the voice says for each sound. Best-effort spellings the tablet's voice reads well;
 // a grown-up can tune them here. Keys ending in -soft / -long / y-ee / y-eye are picked by
@@ -146,6 +147,28 @@ export function splitSounds(word) {
   return parts.map((p) => ({ text: p.text, sound: p.key ? SOUNDS[p.key] || '' : '' }));
 }
 
+// A story word as the Word Card and 🎨 Show sounds draw it: the letters as written (the
+// punctuation around the token dropped, the case kept) cut into sound parts.
+//   text    the word as written: "Max's", "don't", "Sam"
+//   clean   the dictionary word (cleanWord): "max", "don't", "sam"
+//   tricky  true when the word is in the story's tricky list: drawn whole, no marks
+//   parts   [{ text, sound, kind }] with kind 'sound' (one letter, a dot under it), 'team'
+//           (a letter team, a line under it), 'silent' (a silent letter, greyed, no mark) or
+//           'punct' (an apostrophe or hyphen: shown, but not a sound and not a letter)
+export function wordParts(token, trickyList = []) {
+  const text = trimWord(token);
+  const clean = cleanWord(token);
+  const tricky = (Array.isArray(trickyList) ? trickyList : []).some((t) => cleanWord(t) === clean);
+  let at = 0;
+  const parts = splitSounds(text).map((p) => {
+    const piece = text.slice(at, at + p.text.length);     // splitSounds lower-cases; keep the case as written
+    at += p.text.length;
+    const kind = !/\p{L}/u.test(piece) ? 'punct' : !p.sound ? 'silent' : p.text.length > 1 ? 'team' : 'sound';
+    return { text: piece, sound: p.sound, kind };
+  });
+  return { text, clean, tricky, parts };
+}
+
 // What to say, in order: each sound that is not silent, then the whole word.
 export function soundOut(word) {
   return splitSounds(word).map((p) => p.sound).filter(Boolean).concat([String(word)]);
@@ -153,6 +176,8 @@ export function soundOut(word) {
 
 // Say the word sound by sound, then whole. onPart(i) gets the index into soundOut(word) as
 // each item starts, and -1 at the end. Resolves true when nothing cut it off.
-export function sayItOut(word, onPart) {
-  return speech.speakEach(soundOut(word), onPart);
+//   opts.rate   the voice's pace (the screens pass the readRate setting)
+//   opts.gapMs  the pause between sounds; longer than a sentence's so the sounds do not blur
+export function sayItOut(word, onPart, opts = {}) {
+  return speech.speakEach(soundOut(word), onPart, { gapMs: 320, ...opts });
 }

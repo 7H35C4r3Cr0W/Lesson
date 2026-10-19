@@ -1,0 +1,43 @@
+{
+  "id": "storytime.shelf-curious-george",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 670,
+  "title": "Curious George words",
+  "emoji": "🐒",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "A little monkey who has to know about everything leaves the jungle with a man in a big yellow hat, and his curiosity lands him in one scrape after another in the big city. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him reading the words he practised.",
+  "book": {
+    "author": "H. A. Rey",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Curious+George&searchType=title",
+    "blurb": "A curious little monkey, a yellow hat and a city full of trouble to get into."
+  },
+  "passage": {
+    "text": "George monkey curious man\nyellow hat ship city\nzoo balloons phone jump\nswim sea tree good\nwas",
+    "level": "open",
+    "focus": ["oo", "sh", "o_e"],
+    "tricky": ["George", "monkey", "curious", "city", "was"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-curious-george.george", "text": "George", "parts": ["George"], "tricky": [0], "emoji": "🐒", "note": "whole word, it is his name: say Jorj; the g says j at both ends" },
+    { "id": "storytime.shelf-curious-george.monkey", "text": "monkey", "parts": ["m", "o", "n", "k", "ey"], "tricky": [1, 4], "emoji": "🐵", "note": "o says u and ey says ee: mun-kee" },
+    { "id": "storytime.shelf-curious-george.curious", "text": "curious", "parts": ["c", "ur", "i", "ous"], "tricky": [1, 2, 3], "note": "three parts: cur-i-ous; ur says yoor here, i says ee and ous says us: kyoor-ee-us" },
+    { "id": "storytime.shelf-curious-george.man", "text": "man", "parts": ["m", "a", "n"], "emoji": "👨", "note": "all regular: m-a-n" },
+    { "id": "storytime.shelf-curious-george.yellow", "text": "yellow", "parts": ["y", "e", "ll", "ow"], "emoji": "💛", "note": "ll is one l; ow says long o, like in snow; two parts: yel-low" },
+    { "id": "storytime.shelf-curious-george.hat", "text": "hat", "parts": ["h", "a", "t"], "emoji": "🎩", "note": "all regular: h-a-t" },
+    { "id": "storytime.shelf-curious-george.ship", "text": "ship", "parts": ["sh", "i", "p"], "emoji": "🚢", "note": "sh is one part" },
+    { "id": "storytime.shelf-curious-george.city", "text": "city", "parts": ["c", "i", "t", "y"], "tricky": [0, 3], "emoji": "🏙️", "note": "c says s before i; y at the end says ee: sit-ee" },
+    { "id": "storytime.shelf-curious-george.zoo", "text": "zoo", "parts": ["z", "oo"], "note": "oo says long oo, like in moon" },
+    { "id": "storytime.shelf-curious-george.balloons", "text": "balloons", "parts": ["b", "a", "ll", "oo", "n", "s"], "emoji": "🎈", "note": "two parts: bal + loons; ll is one l; oo says long oo; the s says z" },
+    { "id": "storytime.shelf-curious-george.phone", "text": "phone", "parts": ["ph", "o", "n", "e"], "emoji": "☎️", "note": "ph says f; magic e makes o say its name" },
+    { "id": "storytime.shelf-curious-george.jump", "text": "jump", "parts": ["j", "u", "m", "p"], "note": "all regular: j-u-m-p" },
+    { "id": "storytime.shelf-curious-george.swim", "text": "swim", "parts": ["s", "w", "i", "m"], "emoji": "🏊", "note": "s-w blend" },
+    { "id": "storytime.shelf-curious-george.sea", "text": "sea", "parts": ["s", "ea"], "emoji": "🌊", "note": "ea says long e" },
+    { "id": "storytime.shelf-curious-george.tree", "text": "tree", "parts": ["t", "r", "ee"], "emoji": "🌳", "note": "t-r blend; ee says long e" },
+    { "id": "storytime.shelf-curious-george.good", "text": "good", "parts": ["g", "oo", "d"], "note": "oo says the short oo, like in book" },
+    { "id": "storytime.shelf-curious-george.was", "text": "was", "parts": ["w", "a", "s"], "tricky": [1, 2], "note": "a says u and s says z: wuz" }
+  ]
+}

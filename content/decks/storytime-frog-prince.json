@@ -1,0 +1,88 @@
+{
+  "id": "storytime.frog-prince",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 240,
+  "title": "The Frog Prince",
+  "emoji": "🐸",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The Brothers Grimm's tale of a princess who promises a frog her friendship if he fetches her golden ball from the well, then has to be reminded by her father the king that a promise is a promise; in the morning the frog turns out to be a prince. First graders enjoy the splash, the knock at the door and the frog at the dinner table, and the story ends with its lesson said plainly: keep your promises. This gentle retelling, without the thrown frog of some versions, is a public-domain story in first-grade words, five pages long.",
+  "tip": "Ask what the princess promised the frog, and what the king said when she did not want to keep it.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "the Brothers Grimm (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A golden ball, a deep well, and a promise to keep."
+  },
+  "passage": {
+    "text": "Once there was a princess.\nShe had a golden ball.\nIt was her best toy.\nEvery day she played by a deep well.\nShe tossed the ball up high.\nOne day she missed it.\nSplash!\nThe ball fell into the well.\n\"Oh no!\" cried the princess.\n\"My ball is gone!\"\nShe sat by the well and cried.\n***\n\"I can get it,\" said a voice.\nIt was a big green frog.\n\"But first you must promise,\" said the frog.\n\"Be my friend.\"\n\"Let me eat from your plate.\"\n\"Let me sleep on your pillow.\"\n\"Yes, yes, I promise!\" said the princess.\nThe frog dove down and got the ball.\nThe princess grabbed it and ran home.\nShe forgot all about the frog.\n***\nThat night, the princess sat down to eat.\nHop, hop, hop!\nSomething came up the steps.\nKnock, knock!\n\"Princess! Princess! You made a promise!\"\nIt was the frog.\nThe princess did not want to let him in.\n\"What is this?\" asked the king.\nShe told him about the promise.\n\"A promise is a promise,\" said the king.\n\"Let him in.\"\n***\nSo the frog sat at the table.\n\"Push your plate closer,\" said the frog.\nHe ate from her golden plate.\n\"Now take me to bed,\" said the frog.\nHe slept on her soft pillow.\nThe princess did not like it one bit.\nBut a promise is a promise.\nSo she kept it.\n***\nIn the morning, the frog was gone.\nA kind prince stood there instead.\n\"I was the frog,\" he said.\n\"Someone put a spell on me.\"\n\"You kept your promise.\"\n\"Now the spell is broken!\"\nThe princess smiled.\nFrom then on, they were the best of friends.\nIf you make a promise, keep it.",
+    "level": "open",
+    "focus": ["magic e", "ee", "-ed endings"],
+    "tricky": ["the", "a", "once", "there", "was", "her", "every", "one", "oh", "no", "my", "gone", "said", "voice", "you", "must", "be", "your", "from", "yes", "all", "about", "night", "to", "something", "came", "knock", "made", "what", "asked", "told", "so", "now", "take", "like", "kept", "morning", "instead", "someone", "put", "broken", "then", "were", "of", "friends", "if", "make", "keep", "princess", "golden", "played", "deep", "tossed", "splash", "cried", "green", "promise", "plate", "pillow", "dove", "grabbed", "forgot", "steps", "closer", "prince", "stood", "spell", "smiled"]
+  },
+  "cards": [
+    { "id": "storytime.frog-prince.ball-well",
+      "q": "What fell into the well?",
+      "a": "the golden ball",
+      "wrong": ["the golden crown", "the red shoe"],
+      "note": "She tossed it up high every day, and one day she missed: splash." },
+
+    { "id": "storytime.frog-prince.who-frog",
+      "q": "Who got the ball back for the princess?",
+      "a": "a frog",
+      "wrong": ["a fish", "a duck"],
+      "emoji": "🐸",
+      "note": "A big green frog in the well offered to dive for it, for a promise." },
+
+    { "id": "storytime.frog-prince.where-pillow",
+      "q": "Where did the frog sleep?",
+      "a": "on her pillow",
+      "wrong": ["in a tree", "on the roof"],
+      "note": "First her plate, then her pillow: the two things the frog asked for." },
+
+    { "id": "storytime.frog-prince.who-said-king",
+      "q": "Who said, 'A promise is a promise'?",
+      "a": "the king",
+      "wrong": ["the frog", "the princess"],
+      "emoji": "👑",
+      "note": "Her father the king would not let her wriggle out of it." },
+
+    { "id": "storytime.frog-prince.first",
+      "q": "What happened first in the story?",
+      "a": "she lost her ball",
+      "wrong": ["the frog knocked", "the spell was broken"],
+      "note": "The golden ball splashes into the deep well; everything else follows from that." },
+
+    { "id": "storytime.frog-prince.end",
+      "q": "What happened at the end of the story?",
+      "a": "the spell was broken",
+      "wrong": ["she lost her ball", "the frog knocked"],
+      "note": "The frog was a prince under a spell, and her kept promise broke it." },
+
+    { "id": "storytime.frog-prince.feel-sad",
+      "q": "How did the princess feel when the ball fell in?",
+      "a": "sad",
+      "wrong": ["happy", "sleepy"],
+      "note": "She sat by the well and cried; ask how she felt when the frog offered to help." },
+
+    { "id": "storytime.frog-prince.lesson",
+      "q": "What does this story teach?",
+      "a": "keep your promises",
+      "wrong": ["run away fast", "hide your toys"],
+      "note": "She did not want to, but she kept her word, and that is what broke the spell." },
+
+    { "id": "storytime.frog-prince.vocab-well",
+      "q": "In the story, what is a 'well'?",
+      "a": "a deep water hole",
+      "wrong": ["a tall tree", "a soft bed"],
+      "note": "A well is a deep hole dug down to water; a dropped ball is very hard to get back." },
+
+    { "id": "storytime.frog-prince.word-pillow",
+      "q": "Which word is in the story?",
+      "a": "pillow",
+      "wrong": ["yellow", "willow"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

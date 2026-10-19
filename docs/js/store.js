@@ -11,7 +11,8 @@ export const DEFAULT_PREFS = Object.freeze({
   sound: true,            // dings and pops
   speech: true,           // the reading voice (master switch)
   voiceMode: 'help',      // 'help' = only when needed; 'full' = read titles, questions and choices too
-  speechRate: 0.95,
+  speechRate: 0.85,       // the quiz voice (a six-year-old needs it slow; a saved value is kept)
+  readRate: 0.7,          // the story voice: Read to me, word taps, sounding out, the Word Card, My words
   readChoices: true,      // in 'full' mode: read answer choices aloud outside the reading subjects
   gamesNeedPractice: false,
   freeRoam: false,        // true = every level open; false = finish a level to open the next
@@ -37,6 +38,7 @@ export const state = {
   days: {},                 // 'YYYY-MM-DD' -> { total, correct }
   rounds: {},               // deck id -> { best, last, count, lastAt, lastCorrect, lastTotal, passed }
   reads: {},                // deck id -> { count, scored, best, lastAt, last } (story reads, see logic.addRead)
+  books: {},                // deck id -> { read: true, at } (books a grown-up ticked as read, see setBookRead)
   stars: 0,
   pinSet: false,
 };
@@ -133,6 +135,7 @@ function applyState(data) {
   state.days = data.days || {};
   state.rounds = data.rounds || {};
   state.reads = data.reads || {};
+  state.books = data.books || {};
   state.stars = data.stars || 0;
   state.pinSet = !!data.pinSet;
 }
@@ -335,6 +338,34 @@ function mergeReads(summary) {
 }
 
 export const getReadingReport = () => api.get(`/api/reading/report?profile=${state.profile.id}`);
+
+// ---- the book checklist ----------------------------------------------------
+
+// A grown-up ticks "we read this book" for this child (any level with a `book` or a story), or
+// unticks it. The screen updates at once; the Pi's list arrives a moment later and wins. If the Pi
+// says no, the tick goes back to what it was and the error is rethrown for the screen to show.
+export async function setBookRead(deckId, read) {
+  const pid = state.profile.id;
+  const before = state.books[deckId];
+  if (read) state.books[deckId] = { read: true, at: Date.now() };
+  else delete state.books[deckId];
+  emit('books');
+  let reply;
+  try {
+    reply = await api.put(`/api/books/${encodeURIComponent(deckId)}`, { profile: pid, read: !!read });
+  } catch (err) {
+    if (state.profile && state.profile.id === pid) {       // unless another child was picked meanwhile
+      if (before === undefined) delete state.books[deckId];
+      else state.books[deckId] = before;
+      emit('books');
+    }
+    throw err;
+  }
+  if (state.profile && state.profile.id === pid) {
+    state.books = reply.books || {};
+    emit('books');
+  }
+}
 
 // ---- tests -----------------------------------------------------------------
 

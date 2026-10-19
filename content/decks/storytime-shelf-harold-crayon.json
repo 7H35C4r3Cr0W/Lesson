@@ -1,0 +1,43 @@
+{
+  "id": "storytime.shelf-harold-crayon",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 740,
+  "title": "Harold and Crayon words",
+  "emoji": "🖍️",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "One night Harold sets off for a walk with nothing but a purple crayon, and everything he needs on the way, from the moon to a boat to his own bed, he simply draws for himself. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, then let him draw his own purple adventure.",
+  "book": {
+    "author": "Crockett Johnson",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Harold+and+the+Purple+Crayon&searchType=title",
+    "blurb": "A boy, a crayon and a whole world that appears one purple line at a time."
+  },
+  "passage": {
+    "text": "Harold crayon purple moon\nwalk draw path forest\napple dragon boat picnic\npie mountain balloon window\nroom",
+    "level": "open",
+    "focus": ["oo", "oa", "ay"],
+    "tricky": ["Harold", "purple", "walk", "apple", "mountain"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-harold-crayon.harold", "text": "Harold", "parts": ["H", "ar", "o", "l", "d"], "tricky": [2], "emoji": "👦", "note": "capital H, it is his name; ar says ar; the o says u: Har-uld" },
+    { "id": "storytime.shelf-harold-crayon.crayon", "text": "crayon", "parts": ["c", "r", "ay", "o", "n"], "emoji": "🖍️", "note": "c-r blend; ay says long a; two parts: cray + on" },
+    { "id": "storytime.shelf-harold-crayon.purple", "text": "purple", "parts": ["p", "ur", "p", "le"], "tricky": [3], "emoji": "💜", "note": "ur says er; le says ul: pur-pul" },
+    { "id": "storytime.shelf-harold-crayon.moon", "text": "moon", "parts": ["m", "oo", "n"], "emoji": "🌙", "note": "oo says long oo" },
+    { "id": "storytime.shelf-harold-crayon.walk", "text": "walk", "parts": ["w", "a", "l", "k"], "tricky": [1, 2], "emoji": "🚶", "note": "a says aw and the l makes no sound, like in talk: wawk" },
+    { "id": "storytime.shelf-harold-crayon.draw", "text": "draw", "parts": ["d", "r", "aw"], "emoji": "🎨", "note": "d-r blend; aw says aw, like in saw" },
+    { "id": "storytime.shelf-harold-crayon.path", "text": "path", "parts": ["p", "a", "th"], "note": "th is one part" },
+    { "id": "storytime.shelf-harold-crayon.forest", "text": "forest", "parts": ["f", "or", "e", "s", "t"], "emoji": "🌲", "note": "or says or; two parts: for + est" },
+    { "id": "storytime.shelf-harold-crayon.apple", "text": "apple", "parts": ["a", "pp", "le"], "tricky": [2], "emoji": "🍎", "note": "pp is one p; le says ul: ap-ul" },
+    { "id": "storytime.shelf-harold-crayon.dragon", "text": "dragon", "parts": ["d", "r", "a", "g", "o", "n"], "emoji": "🐉", "note": "d-r blend; two parts: drag + on" },
+    { "id": "storytime.shelf-harold-crayon.boat", "text": "boat", "parts": ["b", "oa", "t"], "emoji": "⛵", "note": "oa says long o" },
+    { "id": "storytime.shelf-harold-crayon.picnic", "text": "picnic", "parts": ["p", "i", "c", "n", "i", "c"], "emoji": "🧺", "note": "two parts: pic + nic; each c says k" },
+    { "id": "storytime.shelf-harold-crayon.pie", "text": "pie", "parts": ["p", "ie"], "emoji": "🥧", "note": "ie says long i, like in tie" },
+    { "id": "storytime.shelf-harold-crayon.mountain", "text": "mountain", "parts": ["m", "ou", "n", "t", "ai", "n"], "tricky": [4], "emoji": "⛰️", "note": "ou says ow; ai says short i here: moun-tin" },
+    { "id": "storytime.shelf-harold-crayon.balloon", "text": "balloon", "parts": ["b", "a", "ll", "oo", "n"], "emoji": "🎈", "note": "two parts: bal + loon; ll is one l; oo says long oo" },
+    { "id": "storytime.shelf-harold-crayon.window", "text": "window", "parts": ["w", "i", "n", "d", "ow"], "note": "two parts: win + dow; ow says long o, like in snow" },
+    { "id": "storytime.shelf-harold-crayon.room", "text": "room", "parts": ["r", "oo", "m"], "note": "oo says long oo, like in moon" }
+  ]
+}

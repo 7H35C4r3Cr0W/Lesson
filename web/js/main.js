@@ -13,6 +13,7 @@ import * as home from './views/home.js';
 import * as subject from './views/subject.js';
 import * as deck from './views/deck.js';
 import * as reader from './views/reader.js';
+import * as mywords from './views/mywords.js';
 import * as cards from './views/cards.js';
 import * as practice from './views/practice.js';
 import * as test from './views/test.js';
@@ -25,6 +26,7 @@ const ROUTES = [
   [/^\/$/, home],
   [/^\/subject\/([\w-]+)$/, subject],
   [/^\/read\/([\w.-]+)$/, reader],
+  [/^\/mywords$/, mywords],
   [/^\/deck\/([\w.-]+)$/, deck],
   [/^\/cards\/([\w.-]+)$/, cards],
   [/^\/practice\/(today|again)$/, practice],

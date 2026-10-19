@@ -1,0 +1,43 @@
+{
+  "id": "storytime.shelf-chicka-chicka",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 760,
+  "title": "Chicka Chicka words",
+  "emoji": "🌴",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "The lowercase letters of the alphabet race one another up a coconut tree until it bends and they all tumble down, and the grown-up capital letters hurry over to help. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, clapping the beat and naming each letter as it climbs.",
+  "book": {
+    "author": "Bill Martin Jr. and John Archambault",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Chicka+Chicka+Boom+Boom&searchType=title",
+    "blurb": "An alphabet adventure with a bouncy beat and a tree that cannot hold every letter at once."
+  },
+  "passage": {
+    "text": "tree coconut chicka letters\nclimb top boom bend\nfall pile bump sun\nknee up tooth dark\nmeet",
+    "level": "open",
+    "focus": ["oo", "ee", "ck"],
+    "tricky": ["coconut", "chicka", "climb", "fall", "knee"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-chicka-chicka.tree", "text": "tree", "parts": ["t", "r", "ee"], "emoji": "🌴", "note": "t-r blend; ee says long e" },
+    { "id": "storytime.shelf-chicka-chicka.coconut", "text": "coconut", "parts": ["c", "o", "c", "o", "n", "u", "t"], "tricky": [1], "emoji": "🥥", "note": "three parts: co-co-nut; the first o says its name: koh-kuh-nut" },
+    { "id": "storytime.shelf-chicka-chicka.chicka", "text": "chicka", "parts": ["ch", "i", "ck", "a"], "tricky": [3], "note": "ch is one part; ck is one sound; the a at the end says uh: chick-uh" },
+    { "id": "storytime.shelf-chicka-chicka.letters", "text": "letters", "parts": ["l", "e", "tt", "er", "s"], "emoji": "🔤", "note": "tt is one t; two parts: let + ters; the s says z" },
+    { "id": "storytime.shelf-chicka-chicka.climb", "text": "climb", "parts": ["c", "l", "i", "m", "b"], "tricky": [2, 4], "emoji": "🧗", "note": "c-l blend; the i says its name and the b is silent: klime" },
+    { "id": "storytime.shelf-chicka-chicka.top", "text": "top", "parts": ["t", "o", "p"], "note": "all regular: t-o-p" },
+    { "id": "storytime.shelf-chicka-chicka.boom", "text": "boom", "parts": ["b", "oo", "m"], "emoji": "💥", "note": "oo says long oo, like in moon" },
+    { "id": "storytime.shelf-chicka-chicka.bend", "text": "bend", "parts": ["b", "e", "n", "d"], "note": "all regular; n-d at the end" },
+    { "id": "storytime.shelf-chicka-chicka.fall", "text": "fall", "parts": ["f", "a", "ll"], "tricky": [1], "note": "a says aw before ll: fawl" },
+    { "id": "storytime.shelf-chicka-chicka.pile", "text": "pile", "parts": ["p", "i", "l", "e"], "note": "magic e makes i say its name" },
+    { "id": "storytime.shelf-chicka-chicka.bump", "text": "bump", "parts": ["b", "u", "m", "p"], "note": "all regular; m-p at the end" },
+    { "id": "storytime.shelf-chicka-chicka.sun", "text": "sun", "parts": ["s", "u", "n"], "emoji": "☀️", "note": "all regular: s-u-n" },
+    { "id": "storytime.shelf-chicka-chicka.knee", "text": "knee", "parts": ["kn", "ee"], "tricky": [0], "emoji": "🦵", "note": "kn says n, the k is silent; ee says long e: nee" },
+    { "id": "storytime.shelf-chicka-chicka.up", "text": "up", "parts": ["u", "p"], "emoji": "⬆️", "note": "all regular: u-p" },
+    { "id": "storytime.shelf-chicka-chicka.tooth", "text": "tooth", "parts": ["t", "oo", "th"], "emoji": "🦷", "note": "oo says long oo; th is one part" },
+    { "id": "storytime.shelf-chicka-chicka.dark", "text": "dark", "parts": ["d", "ar", "k"], "note": "ar says ar, like in car" },
+    { "id": "storytime.shelf-chicka-chicka.meet", "text": "meet", "parts": ["m", "ee", "t"], "note": "ee says long e" }
+  ]
+}
