@@ -1,0 +1,88 @@
+{
+  "id": "storytime.town-mouse-country-mouse",
+  "subject": "storytime",
+  "group": "fables",
+  "order": 70,
+  "title": "Town Mouse, Country Mouse",
+  "emoji": "🐁",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Aesop's fable of the country mouse who goes to town with the town mouse, enjoys a fancy feast until a big dog sends them running to hide, and decides his quiet home is best; in this telling nobody gets hurt. It gives first graders two very different settings to compare and a gentle lesson about what makes a home feel good. It is a public-domain story retold here in first-grade words, four pages long.",
+  "tip": "Ask: would you rather live in a busy town or on a quiet farm, and why?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Aesop (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Two mice, two very different homes, and one big dog."
+  },
+  "passage": {
+    "text": "Country Mouse lived on a farm.\nHis home was a little hole under a tree.\nIt was quiet and calm.\nHe ate seeds and nuts and corn.\nOne day, Town Mouse came to visit.\nShe looked at his food.\n\"Just seeds and nuts?\" she said.\n\"Come to town with me.\"\n\"In town, we eat cake and cheese!\"\n***\nSo the two mice went to town.\nTown Mouse lived in a big house.\nBang, clang, honk!\nTown was very loud.\nOn the table was a feast.\nThere was cake and cheese and jam.\n\"Yum!\" said Country Mouse.\nThe two mice began to eat.\n***\nThen a big dog ran in.\n\"Ruff! Ruff!\"\n\"Run!\" said Town Mouse.\nThe mice ran and hid in a hole.\nThey shook and shook.\nAt last the dog went away.\nThe mice were safe.\nBut Country Mouse did not want more cake.\n***\n\"Is it always like this?\" asked Country Mouse.\n\"Yes,\" said Town Mouse.\n\"Then I will go home,\" said Country Mouse.\n\"I like my seeds and nuts.\"\n\"I like my quiet home.\"\nSo he went back to his farm.\nHe ate his corn and slept well.\nA calm, simple home can be best.",
+    "level": "open",
+    "focus": ["ou and ow", "magic e", "ee"],
+    "tricky": ["the", "a", "was", "little", "he", "one", "to", "she", "said", "me", "we", "so", "two", "there", "they", "were", "is", "i", "go", "my", "be", "country", "quiet", "calm", "very", "table", "began", "away", "want", "more", "always"]
+  },
+  "cards": [
+    { "id": "storytime.town-mouse-country-mouse.who-town",
+      "q": "Who lived in a big house in town?",
+      "a": "Town Mouse",
+      "wrong": ["Country Mouse", "a little bird"],
+      "emoji": "🐭",
+      "note": "A town is a busy place with lots of houses, people and noise." },
+
+    { "id": "storytime.town-mouse-country-mouse.ate-home",
+      "q": "What did Country Mouse eat at home?",
+      "a": "seeds and nuts",
+      "wrong": ["cake and cheese", "fish and chips"],
+      "note": "Plain farm food, but he liked it; the cake and cheese were in town." },
+
+    { "id": "storytime.town-mouse-country-mouse.dog",
+      "q": "Who ran in while the mice were eating?",
+      "a": "a big dog",
+      "wrong": ["a big cat", "a little duck"],
+      "emoji": "🐕",
+      "note": "Ruff, ruff: in this telling the mice just run and hide, and nobody gets hurt." },
+
+    { "id": "storytime.town-mouse-country-mouse.hid",
+      "q": "What did the mice do when the dog came?",
+      "a": "ran and hid",
+      "wrong": ["sang a song", "ate more cake"],
+      "note": "They hid in a hole and stayed there until the dog went away." },
+
+    { "id": "storytime.town-mouse-country-mouse.first",
+      "q": "What happened first in the story?",
+      "a": "Town Mouse visited",
+      "wrong": ["a dog ran in", "the mice hid"],
+      "note": "The visit to the farm comes first, then the trip to town, then the dog." },
+
+    { "id": "storytime.town-mouse-country-mouse.end",
+      "q": "What happened at the end of the story?",
+      "a": "Country Mouse went home",
+      "wrong": ["the mice ate cake", "Town Mouse visited"],
+      "note": "He picked his quiet farm over the cake and the noise." },
+
+    { "id": "storytime.town-mouse-country-mouse.feel-scared",
+      "q": "How did the mice feel when the dog ran in?",
+      "a": "scared",
+      "wrong": ["proud", "bored"],
+      "note": "They shook and shook, which is how he can tell they were scared even though the story never says it." },
+
+    { "id": "storytime.town-mouse-country-mouse.lesson",
+      "q": "What does this story teach?",
+      "a": "simple can be best",
+      "wrong": ["cake is always best", "never visit friends"],
+      "note": "Country Mouse had plain food, but his home was calm, and that mattered more to him than cake." },
+
+    { "id": "storytime.town-mouse-country-mouse.vocab-feast",
+      "q": "In the story, what does 'feast' mean?",
+      "a": "a big meal",
+      "wrong": ["a big dog", "a little hole"],
+      "note": "A feast is lots of good food all at once, like a big holiday dinner." },
+
+    { "id": "storytime.town-mouse-country-mouse.word-cheese",
+      "q": "Which word is in the story?",
+      "a": "cheese",
+      "wrong": ["cheek", "geese"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

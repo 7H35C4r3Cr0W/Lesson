@@ -1,0 +1,88 @@
+{
+  "id": "storytime.fox-and-grapes",
+  "subject": "storytime",
+  "group": "fables",
+  "order": 40,
+  "title": "The Fox and the Grapes",
+  "emoji": "🍇",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Aesop's fable of the hungry fox who jumps and jumps for grapes he cannot reach, then sticks his nose in the air and says they were probably sour anyway. It gives first graders a lesson they can spot for themselves, and it explains a saying they will hear for the rest of their lives: sour grapes. It is a public-domain story retold here in first-grade words, three pages long.",
+  "tip": "Act it out: jump for a toy held up high, miss, then stick your nose in the air and say, I bet they are sour!",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Aesop (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A fox who cannot reach the grapes says he never wanted them."
+  },
+  "passage": {
+    "text": "A fox went for a walk one sunny day.\nHe was very hungry.\nThen he saw some grapes.\nThey hung on a vine, up high.\nThe grapes were big and ripe.\n\"Yum!\" said the fox.\n\"Those grapes look so sweet.\"\n\"I want them!\"\n***\nThe fox ran and jumped.\nUp, up, up!\nHe snapped at the grapes.\nThump!\nHe fell down.\nHe missed!\nHe ran and jumped again.\nUp, up, up!\nThump!\nHe missed again.\n\"Grr!\" said the fox.\nHe stamped his foot.\n***\nHe tried one more time.\nUp, up, up!\nThump!\nThe grapes were still too high.\nAt last the fox sat down.\nHe was hot and tired.\nThen he stuck his nose up in the air.\n\"I never wanted those grapes,\" he said.\n\"I bet they are sour.\"\nAnd off he went.\nBut he did want them.\nDo not pretend you never wanted what you cannot get.",
+    "level": "open",
+    "focus": ["-ed endings", "short u", "magic e"],
+    "tricky": ["the", "a", "one", "he", "was", "some", "they", "were", "said", "look", "so", "i", "down", "are", "do", "what", "you", "walk", "sunny", "very", "hungry", "want", "again", "tried", "more", "wanted"]
+  },
+  "cards": [
+    { "id": "storytime.fox-and-grapes.who-fox",
+      "q": "Who saw the grapes up on the vine?",
+      "a": "a fox",
+      "wrong": ["a bear", "a duck"],
+      "emoji": "🦊",
+      "note": "Real foxes do eat fruit, grapes and berries included, not just meat." },
+
+    { "id": "storytime.fox-and-grapes.where-vine",
+      "q": "Where were the grapes?",
+      "a": "up on a vine",
+      "wrong": ["in a box", "on a plate"],
+      "emoji": "🍇",
+      "note": "A vine is a plant that climbs, and grapes grow on it in bunches." },
+
+    { "id": "storytime.fox-and-grapes.missed",
+      "q": "What happened each time the fox jumped?",
+      "a": "he missed",
+      "wrong": ["he got grapes", "he flew away"],
+      "note": "Read the up, up, up, thump lines together and jump on every up." },
+
+    { "id": "storytime.fox-and-grapes.said-sour",
+      "q": "What did the fox say about the grapes at the end?",
+      "a": "they are sour",
+      "wrong": ["they are mine", "they are blue"],
+      "note": "Sour means sharp, like a lemon, and he only said it because he could not reach them." },
+
+    { "id": "storytime.fox-and-grapes.first",
+      "q": "What happened first in the story?",
+      "a": "the fox saw grapes",
+      "wrong": ["the fox sat down", "the fox missed"],
+      "note": "First he saw the grapes, then he jumped and jumped, then he gave up and walked off." },
+
+    { "id": "storytime.fox-and-grapes.end",
+      "q": "What happened at the end of the story?",
+      "a": "the fox walked away",
+      "wrong": ["the fox ate grapes", "the fox saw grapes"],
+      "note": "He never got a single grape; he just stuck his nose in the air and left." },
+
+    { "id": "storytime.fox-and-grapes.feel-mad",
+      "q": "How did the fox feel when he kept missing?",
+      "a": "mad",
+      "wrong": ["happy", "proud"],
+      "note": "The story never says the word, so the clues are the Grr and the stamped foot." },
+
+    { "id": "storytime.fox-and-grapes.lesson",
+      "q": "What does this story teach?",
+      "a": "be honest, don't pretend",
+      "wrong": ["grapes are always sour", "never go for walks"],
+      "note": "Calling something sour grapes means pretending you never wanted the thing you could not get." },
+
+    { "id": "storytime.fox-and-grapes.vocab-ripe",
+      "q": "In the story, what does 'ripe' mean?",
+      "a": "ready to eat",
+      "wrong": ["very cold", "very loud"],
+      "note": "Ripe fruit is soft, sweet and ready to pick, while a banana with green skin is not ripe yet." },
+
+    { "id": "storytime.fox-and-grapes.word-nose",
+      "q": "Which word is in the story?",
+      "a": "nose",
+      "wrong": ["rose", "note"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

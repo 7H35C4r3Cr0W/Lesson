@@ -1,0 +1,88 @@
+{
+  "id": "storytime.red-riding-hood",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 190,
+  "title": "Little Red Riding Hood",
+  "emoji": "🧺",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The old folk tale of the girl in the red hood and the wolf in Grandma's cap, told gently: Grandma hides in her closet, Red calls for help, a woodcutter chases the wolf far away, and nobody is eaten. The famous What big eyes you have lines are perfect for reading with expression, and the story carries a clear safety lesson about staying on the path and not talking to strangers. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Take turns being Red and the wolf on the big eyes, big ears, big teeth page, then ask what Red should have done in the woods.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale from Europe (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A red hood, a basket, and a wolf in Grandma's cap."
+  },
+  "passage": {
+    "text": "Once there was a girl named Little Red Riding Hood.\nShe always wore a red cape with a hood.\nOne day, Mom packed a basket of muffins.\n\"Take this to Grandma,\" said Mom.\n\"She is sick in bed.\"\n\"Stay on the path.\"\n\"And do not talk to strangers.\"\n\"Yes, Mom,\" said Red.\n***\nRed went into the woods.\nSoon she met a big gray wolf.\n\"Where are you going?\" asked the wolf.\nRed forgot what Mom said.\n\"To see Grandma,\" she said.\n\"Pick her some flowers,\" said the wolf.\nSo Red left the path to pick flowers.\nThe wolf ran off to Grandma's house.\n***\nGrandma looked out her window.\nShe saw the wolf coming!\nShe hid in her closet.\nThe wolf came in.\nHe put on Grandma's cap.\nHe got into her bed.\nHe pulled the covers up to his nose.\nKnock, knock!\n\"Come in, dear,\" said the wolf.\nRed came in with her flowers.\n***\n\"Grandma, what big eyes you have!\" said Red.\n\"All the better to see you with,\" said the wolf.\n\"Grandma, what big ears you have!\"\n\"All the better to hear you with.\"\n\"Grandma, what big teeth you have!\"\nRed looked again.\nThat was not Grandma!\nIt was the wolf!\n\"Help, help!\" she yelled.\n***\nA woodcutter was cutting wood near the house.\nHe heard Red yell and ran in.\nThe wolf jumped out of bed.\nHe ran out the door.\nThe woodcutter chased him far, far away.\nThe wolf never came back.\nThen Grandma came out of her closet.\nShe was safe!\nRed gave her a big hug.\nThey ate muffins together.\nStay on the path and do not talk to strangers.",
+    "level": "open",
+    "focus": ["oo", "ear", "short i"],
+    "tricky": ["the", "a", "once", "there", "was", "little", "always", "one", "of", "to", "said", "do", "into", "where", "are", "you", "going", "what", "some", "so", "out", "coming", "put", "pulled", "come", "eyes", "have", "all", "again", "heard", "door", "away", "they", "talk", "strangers", "wolf", "covers", "together"]
+  },
+  "cards": [
+    { "id": "storytime.red-riding-hood.who-wolf",
+      "q": "Who did Red meet in the woods?",
+      "a": "a gray wolf",
+      "wrong": ["a brown bear", "a red fox"],
+      "emoji": "🐺",
+      "note": "Red forgot what Mom said and talked to him, and he was a stranger." },
+
+    { "id": "storytime.red-riding-hood.where-grandma",
+      "q": "Where was Red taking the basket?",
+      "a": "to Grandma's house",
+      "wrong": ["to the store", "to her school"],
+      "emoji": "🧺",
+      "note": "Grandma was sick in bed, so Mom packed a basket of muffins for her." },
+
+    { "id": "storytime.red-riding-hood.hide-closet",
+      "q": "Where did Grandma hide from the wolf?",
+      "a": "in her closet",
+      "wrong": ["up a tree", "under a rug"],
+      "note": "She saw him coming from her window and hid in time; nobody gets eaten in this telling." },
+
+    { "id": "storytime.red-riding-hood.woodcutter",
+      "q": "What did the woodcutter do?",
+      "a": "chased the wolf away",
+      "wrong": ["ate the muffins", "took a nap"],
+      "note": "He chased the wolf far, far away, and it never came back." },
+
+    { "id": "storytime.red-riding-hood.first",
+      "q": "What happened first in the story?",
+      "a": "Mom packed a basket",
+      "wrong": ["Grandma hid", "Red hugged Grandma"],
+      "note": "The basket and Mom's two rules come first: stay on the path, and do not talk to strangers." },
+
+    { "id": "storytime.red-riding-hood.end",
+      "q": "What happened at the end of the story?",
+      "a": "Grandma came out safe",
+      "wrong": ["Red met the wolf", "Mom packed a basket"],
+      "note": "Grandma came out of the closet, and they ate the muffins together." },
+
+    { "id": "storytime.red-riding-hood.feel-happy",
+      "q": "How did Red feel when she saw Grandma was safe?",
+      "a": "happy",
+      "wrong": ["angry", "bored"],
+      "note": "She gave Grandma a big hug; ask how he feels when a scare is over." },
+
+    { "id": "storytime.red-riding-hood.lesson",
+      "q": "What does this story teach?",
+      "a": "stay on the path",
+      "wrong": ["talk to strangers", "go off alone"],
+      "note": "Stay on the path and do not talk to strangers; Red's trouble began when she forgot both." },
+
+    { "id": "storytime.red-riding-hood.vocab-strangers",
+      "q": "In the story, who are 'strangers'?",
+      "a": "people you don't know",
+      "wrong": ["your best friends", "your mom and dad"],
+      "note": "A stranger is anyone he does not know; it is a good moment to name his safe grown-ups." },
+
+    { "id": "storytime.red-riding-hood.word-path",
+      "q": "Which word is in the story?",
+      "a": "path",
+      "wrong": ["bath", "past"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

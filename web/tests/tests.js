@@ -331,6 +331,22 @@ test('splitSounds: letter teams, magic e, soft c, y at the end, silent letters',
   eq(P.soundOut('Cat'), ['kuh', 'aa', 'tuh', 'Cat']);
   eq(P.soundOut('I'), ['eye', 'I']);
 });
+test('splitSounds: g stays hard in get, give, girl and tiger, soft in gem and cage', () => {
+  const first = (w) => P.splitSounds(w)[0].sound;
+  for (const w of ['get', 'getting', 'give', 'giving', 'gives', 'gift', 'girl', 'girls', 'giggled']) eq(first(w), 'guh', w);
+  eq(P.splitSounds('tiger')[2].sound, 'guh', 'tiger');
+  eq(P.splitSounds('begin')[2].sound, 'guh', 'begin');
+  eq(first('gem'), 'juh', 'gem');
+  eq(first('giant'), 'juh', 'giant');
+  eq(first('gate'), 'guh', 'gate');
+});
+test('splitSounds: magic e works across a soft c or g (cage, race, ice)', () => {
+  const sounds = (w) => P.splitSounds(w).map((p) => p.sound);
+  eq(sounds('cage'), ['kuh', 'ay', 'juh', '']);
+  eq(sounds('race'), ['rrr', 'ay', 'sss', '']);
+  eq(sounds('ice'), ['eye', 'sss', '']);
+  eq(sounds('huge'), ['huh', 'you', 'juh', '']);
+});
 
 // ---- DOM and drawings ---------------------------------------------------------
 

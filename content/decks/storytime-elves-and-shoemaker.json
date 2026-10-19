@@ -1,0 +1,88 @@
+{
+  "id": "storytime.elves-and-shoemaker",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 180,
+  "title": "The Elves and the Shoemaker",
+  "emoji": "👞",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The Brothers Grimm's tale of a poor shoemaker who finds his shoes finished every morning, and of the thank-you he and his wife make for the two tiny elves who did the work. First graders love the secret night-time helpers and the night-then-morning pattern, and the ending is a gentle lesson in saying thank you. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Tap, tap, tap like the elves, then ask how the shoemaker and his wife said thank you.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "the Brothers Grimm (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Two tiny elves, a lot of shoes, and a big thank-you."
+  },
+  "passage": {
+    "text": "Once there was a kind shoemaker.\nHe and his wife were very poor.\nOne night, he had one last bit of leather.\nIt was just enough for one pair of shoes.\nHe cut it out and set it on his bench.\n\"I will make the shoes in the morning,\" he said.\nThen he went to bed.\n***\nIn the morning, he got a big surprise.\nThe shoes were all done!\nEvery stitch was neat and tiny.\nA man came in and bought them.\nHe paid a lot of money.\nNow the shoemaker could get leather for two pairs.\nThat night, he cut it out and went to bed.\nIn the morning, two pairs of shoes were done!\n***\nThis went on, night after night.\nSoon they were not poor at all.\n\"Who is making our shoes?\" asked his wife.\n\"Let's hide and see,\" said the shoemaker.\nAt midnight, two little elves came in.\nThey had no warm clothes.\nTap, tap, tap went their tiny hammers.\nThey made shoes all night long.\nThen they ran out into the cold.\n***\n\"The elves helped us,\" said the wife.\n\"But they looked so cold.\"\n\"Let's make them warm clothes to say thank you.\"\nShe made two tiny shirts and two tiny coats.\nHe made two pairs of tiny shoes.\nThat night, they set the gifts on the bench.\nThen they hid to watch.\n***\nAt midnight, the elves came in.\nThey saw the tiny clothes.\n\"Are these for us?\" they asked.\nThey put them on.\n\"Look at us!\" they sang.\nThey danced all over the room.\nThen they danced out the door.\nThe shoemaker and his wife smiled.\nWhen someone is kind to you, say thank you.",
+    "level": "open",
+    "focus": ["short e", "sh", "magic e"],
+    "tricky": ["the", "a", "once", "there", "was", "kind", "were", "very", "one", "of", "for", "out", "said", "to", "all", "done", "every", "now", "could", "two", "they", "who", "our", "little", "no", "warm", "their", "into", "cold", "so", "you", "are", "put", "over", "door", "someone", "shoemaker", "poor", "leather", "enough", "shoes", "surprise", "bought", "money", "clothes", "watch"]
+  },
+  "cards": [
+    { "id": "storytime.elves-and-shoemaker.who-elves",
+      "q": "Who made the shoes at night?",
+      "a": "two little elves",
+      "wrong": ["two little mice", "two big bears"],
+      "emoji": "👞",
+      "note": "The shoemaker and his wife hid and saw them come in at midnight." },
+
+    { "id": "storytime.elves-and-shoemaker.where-bench",
+      "q": "Where did the shoemaker set the leather?",
+      "a": "on his bench",
+      "wrong": ["in the oven", "under his bed"],
+      "note": "A shoemaker works at a bench, a strong table for cutting and sewing." },
+
+    { "id": "storytime.elves-and-shoemaker.surprise",
+      "q": "What was the big surprise in the morning?",
+      "a": "the shoes were done",
+      "wrong": ["the bench was gone", "the leather was wet"],
+      "note": "Every stitch neat and tiny, and nobody saw who did it." },
+
+    { "id": "storytime.elves-and-shoemaker.tiny-clothes",
+      "q": "What did the shoemaker and his wife make for the elves?",
+      "a": "tiny clothes",
+      "wrong": ["a big cake", "a tiny house"],
+      "emoji": "👕",
+      "note": "Tiny shirts, tiny coats and two pairs of tiny shoes, because the elves looked so cold." },
+
+    { "id": "storytime.elves-and-shoemaker.first",
+      "q": "What happened first in the story?",
+      "a": "he cut out leather",
+      "wrong": ["the elves danced away", "the wife made coats"],
+      "note": "One last bit of leather, cut out and left on the bench: that is where it all starts." },
+
+    { "id": "storytime.elves-and-shoemaker.end",
+      "q": "What happened at the end of the story?",
+      "a": "the elves danced away",
+      "wrong": ["he cut out leather", "a man bought shoes"],
+      "note": "Warm at last, the elves danced right out the door." },
+
+    { "id": "storytime.elves-and-shoemaker.feel-happy",
+      "q": "How did the elves feel in their new clothes?",
+      "a": "happy",
+      "wrong": ["sad", "grumpy"],
+      "note": "They sang and danced: the story shows it without saying the word." },
+
+    { "id": "storytime.elves-and-shoemaker.lesson",
+      "q": "What does this story teach?",
+      "a": "say thank you",
+      "wrong": ["keep all the shoes", "never help anyone"],
+      "note": "When someone is kind to you, say thank you; the tiny clothes were the shoemaker's thank-you." },
+
+    { "id": "storytime.elves-and-shoemaker.vocab-midnight",
+      "q": "In the story, what does 'midnight' mean?",
+      "a": "late at night",
+      "wrong": ["after lunch", "at breakfast"],
+      "note": "Midnight is twelve o'clock at night, the middle of the night, when everyone is asleep." },
+
+    { "id": "storytime.elves-and-shoemaker.word-bench",
+      "q": "Which word is in the story?",
+      "a": "bench",
+      "wrong": ["bunch", "beach"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

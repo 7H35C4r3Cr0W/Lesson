@@ -2,7 +2,7 @@
   "id": "storytime.shelf-mouse-cookie",
   "subject": "storytime",
   "group": "shelf",
-  "order": 100,
+  "order": 400,
   "title": "Mouse and Cookie words",
   "emoji": "🐭",
   "kind": "read",

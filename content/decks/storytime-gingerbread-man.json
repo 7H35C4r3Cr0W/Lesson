@@ -2,7 +2,7 @@
   "id": "storytime.gingerbread-man",
   "subject": "storytime",
   "group": "tales",
-  "order": 60,
+  "order": 120,
   "title": "The Gingerbread Man",
   "emoji": "🍪",
   "kind": "qa",

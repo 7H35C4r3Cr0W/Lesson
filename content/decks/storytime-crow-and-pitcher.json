@@ -1,0 +1,88 @@
+{
+  "id": "storytime.crow-and-pitcher",
+  "subject": "storytime",
+  "group": "fables",
+  "order": 60,
+  "title": "The Crow and the Pitcher",
+  "emoji": "🏺",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Aesop's fable of the thirsty crow who cannot reach the water at the bottom of a pitcher, until she stops to think and drops in stones, one by one, to bring the water up. It shows first graders that a hard problem gets solved by thinking it through and sticking with it, and the trick really works, so they can try it at the kitchen table. It is a public-domain story retold here in first-grade words, four pages long.",
+  "tip": "Try it: drop pebbles into a glass with a little water in it and watch the water climb, just like in the story.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Aesop (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A thirsty crow, a tall pitcher, and one clever idea."
+  },
+  "passage": {
+    "text": "The sun was hot, and the land was dry.\nA crow was very thirsty.\nShe flew and flew, looking for water.\nAt last she saw a pitcher.\nThere was some water in it!\nBut the water was down low.\nShe put her beak in.\nShe could not reach the water.\n***\n\"I will tip it over,\" said the crow.\nShe pushed and pushed.\nBut the pitcher was too heavy.\nIt did not tip.\n\"I will break it,\" she said.\nPeck, peck, peck!\nBut the pitcher was too strong.\nIt did not break.\nThe crow sat and thought.\n***\nThen she saw some little stones.\nShe had an idea!\nShe picked up a stone in her beak.\nPlop!\nShe dropped it in the pitcher.\nThe water came up a little.\nShe dropped in one more stone.\nPlop!\nThe water came up a little more.\n***\nPlop, plop, plop!\nStone after stone went in.\nBit by bit, the water came up.\nAt last it was at the top.\nThe crow drank and drank.\nWhat a clever crow!\nShe did not give up.\nThink it through, and keep on trying.",
+    "level": "open",
+    "focus": ["short o", "short i", "magic e"],
+    "tricky": ["the", "a", "was", "she", "there", "some", "down", "could", "i", "said", "little", "one", "by", "what", "dry", "very", "thirsty", "water", "put", "over", "pushed", "heavy", "break", "thought", "idea", "more", "through", "trying"]
+  },
+  "cards": [
+    { "id": "storytime.crow-and-pitcher.who-crow",
+      "q": "Who was very thirsty?",
+      "a": "a crow",
+      "wrong": ["a fish", "a frog"],
+      "emoji": "🐦",
+      "note": "Crows are some of the smartest birds, and real crows have solved this very puzzle in science tests." },
+
+    { "id": "storytime.crow-and-pitcher.found",
+      "q": "What did the crow find with water in it?",
+      "a": "a pitcher",
+      "wrong": ["a boot", "a hat"],
+      "emoji": "🏺",
+      "note": "There was water inside, but it was too far down for her beak to reach." },
+
+    { "id": "storytime.crow-and-pitcher.stones",
+      "q": "What did the crow drop into the pitcher?",
+      "a": "little stones",
+      "wrong": ["little sticks", "big leaves"],
+      "note": "Each stone takes up room at the bottom, so the water has to move up." },
+
+    { "id": "storytime.crow-and-pitcher.water-up",
+      "q": "What happened to the water each time a stone went in?",
+      "a": "it came up",
+      "wrong": ["it went away", "it got hot"],
+      "note": "Bit by bit, stone by stone, the water rose until it was at the top." },
+
+    { "id": "storytime.crow-and-pitcher.first",
+      "q": "What happened first in the story?",
+      "a": "she found a pitcher",
+      "wrong": ["she drank the water", "she dropped stones"],
+      "note": "She found the pitcher, tried to tip it, tried to break it, and only then thought of the stones." },
+
+    { "id": "storytime.crow-and-pitcher.end",
+      "q": "What happened at the end of the story?",
+      "a": "she drank the water",
+      "wrong": ["she pecked the pitcher", "she found a pitcher"],
+      "note": "After all that work she finally got her drink, and she drank and drank." },
+
+    { "id": "storytime.crow-and-pitcher.like-clever",
+      "q": "What was the crow like?",
+      "a": "clever",
+      "wrong": ["lazy", "mean"],
+      "note": "The story calls her a clever crow, because she stopped, thought, and found a better way." },
+
+    { "id": "storytime.crow-and-pitcher.lesson",
+      "q": "What does this story teach?",
+      "a": "think and keep trying",
+      "wrong": ["give up fast", "always break things"],
+      "note": "Pushing and pecking did not work, so she thought it through and kept going until it did." },
+
+    { "id": "storytime.crow-and-pitcher.vocab-pitcher",
+      "q": "In the story, what is a 'pitcher'?",
+      "a": "a jug for water",
+      "wrong": ["a kind of bird", "a big stone"],
+      "note": "A pitcher is a tall jug with a handle and a spout for pouring, like a lemonade jug." },
+
+    { "id": "storytime.crow-and-pitcher.word-plop",
+      "q": "Which word is in the story?",
+      "a": "plop",
+      "wrong": ["flop", "plot"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

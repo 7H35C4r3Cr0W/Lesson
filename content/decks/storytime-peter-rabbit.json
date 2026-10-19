@@ -2,7 +2,7 @@
   "id": "storytime.peter-rabbit",
   "subject": "storytime",
   "group": "classics",
-  "order": 90,
+  "order": 300,
   "title": "The Tale of Peter Rabbit",
   "emoji": "🐰",
   "kind": "qa",

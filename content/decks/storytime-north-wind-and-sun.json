@@ -1,0 +1,88 @@
+{
+  "id": "storytime.north-wind-and-sun",
+  "subject": "storytime",
+  "group": "fables",
+  "order": 80,
+  "title": "The North Wind and the Sun",
+  "emoji": "🌬️",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Aesop's fable of the bragging North Wind and the Sun, who have a contest to see which of them can get a man's coat off: the harder the Wind blows, the tighter the man holds on, but the Sun's gentle warmth does it easily. It gives first graders a clear lesson about being gentle instead of rough, and it is easy to act out. It is a public-domain story retold here in first-grade words, four pages long.",
+  "tip": "Act it out with a jacket: blow hard while he holds it tight, then be the warm sun and see what he does.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Aesop (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Who can get the coat off, the strong wind or the warm sun?"
+  },
+  "passage": {
+    "text": "The North Wind liked to brag.\n\"I am stronger than you,\" he said to the Sun.\n\"Let's find out,\" said the Sun.\nDown below, a man walked on a path.\nHe had on a big, warm coat.\n\"Who can get his coat off?\" asked the Sun.\n\"That is easy!\" said the Wind.\n\"I will go first.\"\n***\nThe Wind blew.\nWhoosh!\nThe man held on to his coat.\nThe Wind blew harder.\nWhoosh! Whoosh!\nThe man held his coat tight.\nThe Wind blew as hard as he could.\nLeaves flew off the trees.\nBut the man held his coat tighter and tighter.\nAt last the Wind gave up.\n***\nThen it was the Sun's turn.\nThe Sun did not blow.\nThe Sun just smiled and shone.\nThe man felt warm.\nHe let go of his coat.\nThe Sun shone some more.\n\"It is so hot!\" said the man.\nHe took off his coat.\nHe sat down in the shade to rest.\n***\nThe Sun had won!\nThe Wind's mouth fell open.\n\"How did you do that?\" he asked.\n\"I did not blow or push,\" said the Sun.\n\"I was just gentle and warm.\"\n\"Then the man took off his coat by himself.\"\nThe Wind did not brag after that.\nGentle and kind works better than rough and strong.",
+    "level": "open",
+    "focus": ["oa", "sh and wh", "magic e"],
+    "tricky": ["the", "a", "to", "i", "you", "he", "said", "out", "down", "who", "is", "go", "could", "was", "of", "some", "so", "how", "do", "by", "find", "below", "walked", "warm", "easy", "more", "won", "open", "push", "kind", "works", "rough"]
+  },
+  "cards": [
+    { "id": "storytime.north-wind-and-sun.who-brag",
+      "q": "Who said, 'I am stronger than you'?",
+      "a": "the North Wind",
+      "wrong": ["the Sun", "the man"],
+      "emoji": "🌬️",
+      "note": "The North Wind is the cold wind that blows down from the north in winter." },
+
+    { "id": "storytime.north-wind-and-sun.coat",
+      "q": "What did the Wind and the Sun want the man to take off?",
+      "a": "his coat",
+      "wrong": ["his hat", "his shoes"],
+      "note": "The coat is the whole contest: whoever gets it off wins." },
+
+    { "id": "storytime.north-wind-and-sun.held-tight",
+      "q": "What did the man do when the Wind blew?",
+      "a": "held his coat tight",
+      "wrong": ["sang a song", "jumped in a lake"],
+      "note": "The harder the wind blew, the tighter he held on, so the Wind only made things worse." },
+
+    { "id": "storytime.north-wind-and-sun.sun-shone",
+      "q": "What did the Sun do to win?",
+      "a": "shone on the man",
+      "wrong": ["blew on the man", "hid in a cloud"],
+      "emoji": "☀️",
+      "note": "The warm sunshine made the man so hot that he took the coat off by himself." },
+
+    { "id": "storytime.north-wind-and-sun.first",
+      "q": "What happened first in the story?",
+      "a": "the Wind bragged",
+      "wrong": ["the man got hot", "the Sun shone"],
+      "note": "The bragging starts it all, before the contest even begins." },
+
+    { "id": "storytime.north-wind-and-sun.end",
+      "q": "What happened at the end of the story?",
+      "a": "the Sun won",
+      "wrong": ["the Wind bragged", "the Wind blew"],
+      "note": "The man took his coat off for the Sun, so the Sun won and the Wind stopped bragging." },
+
+    { "id": "storytime.north-wind-and-sun.feel-surprised",
+      "q": "How did the Wind feel when the man took off his coat?",
+      "a": "surprised",
+      "wrong": ["sleepy", "hungry"],
+      "note": "His mouth fell open, so ask him to make the surprised face the Wind made." },
+
+    { "id": "storytime.north-wind-and-sun.lesson",
+      "q": "What does this story teach?",
+      "a": "be gentle and kind",
+      "wrong": ["be rough and loud", "always brag a lot"],
+      "note": "Pushing hard only made the man hold on tighter, but being gentle got the job done." },
+
+    { "id": "storytime.north-wind-and-sun.vocab-brag",
+      "q": "In the story, what does 'brag' mean?",
+      "a": "show off",
+      "wrong": ["fall asleep", "say sorry"],
+      "note": "To brag is to tell everyone how great you are, the way the Wind did at the start." },
+
+    { "id": "storytime.north-wind-and-sun.word-coat",
+      "q": "Which word is in the story?",
+      "a": "coat",
+      "wrong": ["goat", "boat"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

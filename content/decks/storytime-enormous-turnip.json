@@ -1,0 +1,88 @@
+{
+  "id": "storytime.enormous-turnip",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 160,
+  "title": "The Enormous Turnip",
+  "emoji": "🌱",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The Russian folk tale of a turnip so enormous that Grandpa, Grandma, a girl, a dog, a cat and at last a tiny mouse all have to pull together to get it out of the ground. The chain repeats and grows by one helper at a time, which makes it easy to read along, to retell in order and to see the lesson that even the smallest helper counts. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Line up stuffed animals and act it out, adding one helper at a time until the turnip pops out.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale from Russia (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A turnip so big that it takes everyone, even a mouse, to pull it up."
+  },
+  "passage": {
+    "text": "Grandpa planted a turnip seed.\n\"Grow, little turnip, grow!\" he said.\n\"Grow big and sweet!\"\nThe turnip grew and grew.\nIt grew big.\nIt grew bigger.\nIt grew enormous!\nOne day, Grandpa went to pull it up.\n***\nGrandpa pulled and pulled.\nBut the turnip did not come up.\nHe called Grandma to help.\nGrandma pulled Grandpa.\nGrandpa pulled the turnip.\nThey pulled and pulled.\nBut the turnip did not come up.\nGrandma called the girl to help.\n***\nThe girl pulled Grandma.\nGrandma pulled Grandpa.\nGrandpa pulled the turnip.\nThey pulled and pulled.\nBut the turnip did not come up.\nThe girl called the dog to help.\nThe dog pulled the girl.\nThe girl pulled Grandma.\nGrandma pulled Grandpa.\nGrandpa pulled the turnip.\nThey pulled and pulled.\nBut the turnip did not come up.\n***\nThe dog called the cat to help.\nThe cat pulled the dog.\nThe dog pulled the girl.\nThe girl pulled Grandma.\nGrandma pulled Grandpa.\nGrandpa pulled the turnip.\nThey pulled and pulled.\nBut the turnip did not come up!\nThe cat called a little mouse.\n\"I can help!\" said the mouse.\n***\nThe mouse pulled the cat.\nThe cat pulled the dog.\nThe dog pulled the girl.\nThe girl pulled Grandma.\nGrandma pulled Grandpa.\nGrandpa pulled the turnip.\nThey pulled and pulled and pulled.\nPop!\nUp came the turnip!\nThey all fell down in a heap.\n\"I helped!\" said the little mouse.\nThat night, they all had turnip soup.\nEven the smallest helper matters.",
+    "level": "open",
+    "focus": ["-ed endings", "blends", "short u"],
+    "tricky": ["the", "a", "little", "he", "said", "one", "to", "they", "i", "all", "down", "grandpa", "enormous", "pull", "pulled", "called", "grandma", "soup", "even", "smallest"]
+  },
+  "cards": [
+    { "id": "storytime.enormous-turnip.who-planted",
+      "q": "Who planted the turnip seed?",
+      "a": "Grandpa",
+      "wrong": ["the girl", "the mouse"],
+      "emoji": "🌱",
+      "note": "A turnip is a round root vegetable that grows under the ground, like a carrot." },
+
+    { "id": "storytime.enormous-turnip.last-helper",
+      "q": "Who came to help last?",
+      "a": "a little mouse",
+      "wrong": ["the dog", "Grandma"],
+      "emoji": "🐭",
+      "note": "The mouse is the smallest helper of all, and she comes last." },
+
+    { "id": "storytime.enormous-turnip.soup",
+      "q": "What did they all have that night?",
+      "a": "turnip soup",
+      "wrong": ["apple pie", "fish sticks"],
+      "note": "Turnips are often cooked in soups and stews." },
+
+    { "id": "storytime.enormous-turnip.fell-down",
+      "q": "What happened when the turnip came up?",
+      "a": "they all fell down",
+      "wrong": ["they all ran away", "it rolled away"],
+      "note": "Everyone tumbled into a heap, so act it out with a tug and a soft landing on a pillow." },
+
+    { "id": "storytime.enormous-turnip.first",
+      "q": "What happened first in the story?",
+      "a": "Grandpa planted a seed",
+      "wrong": ["the mouse helped", "they all fell down"],
+      "note": "A seed, then an enormous turnip, then one helper after another." },
+
+    { "id": "storytime.enormous-turnip.end",
+      "q": "What happened at the end of the story?",
+      "a": "the turnip came up",
+      "wrong": ["Grandpa planted a seed", "Grandma came to help"],
+      "note": "It took every helper, right down to the mouse, to pull it out." },
+
+    { "id": "storytime.enormous-turnip.feel-proud",
+      "q": "How did the mouse feel when the turnip came up?",
+      "a": "proud",
+      "wrong": ["sad", "sleepy"],
+      "note": "The mouse shouts that she helped, so ask him about a time he helped with a big job." },
+
+    { "id": "storytime.enormous-turnip.lesson",
+      "q": "What does this story teach?",
+      "a": "small helpers matter too",
+      "wrong": ["never ask for help", "only big ones help"],
+      "note": "The turnip only came up when the tiny mouse joined in." },
+
+    { "id": "storytime.enormous-turnip.vocab-enormous",
+      "q": "In the story, what does 'enormous' mean?",
+      "a": "very, very big",
+      "wrong": ["very small", "very old"],
+      "note": "Enormous is even bigger than big, so stretch your arms as wide as they will go." },
+
+    { "id": "storytime.enormous-turnip.word-heap",
+      "q": "Which word is in the story?",
+      "a": "heap",
+      "wrong": ["heat", "leap"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

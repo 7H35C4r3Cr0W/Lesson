@@ -1,0 +1,88 @@
+{
+  "id": "storytime.ugly-duckling",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 310,
+  "title": "The Ugly Duckling",
+  "emoji": "🦢",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Hans Christian Andersen's 1843 tale of the big gray duckling the others say looks odd, who waits out a cold winter alone and finds in spring that he has grown into a swan. It gives first graders a gentle way to talk about teasing, being different and being kind, and the moment he sees himself in the water is a joy to read aloud. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Ask: what could the other ducks have said to be kind to the gray duckling?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Hans Christian Andersen (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A duckling who looks odd grows up to be a swan."
+  },
+  "passage": {
+    "text": "A mother duck sat on her eggs.\nCrack, crack, crack!\nOut came her little ducklings.\nThey were small and yellow.\nBut one egg was very big.\nIt hatched last of all.\nOut came a big gray duckling.\nHe did not look like the others.\nHis mother loved him just the same.\n***\nThe ducklings went for a swim in the pond.\nThe big gray duckling swam the best of all.\nBut the other ducks said he looked odd.\nThat made him sad.\n\"Nobody wants to play with me,\" he said.\nSo he swam far away to find a new home.\n***\nSoon the leaves fell from the trees.\nThen cold winter came.\nSnow fell all around.\nThe duckling found a snug spot in the tall grass.\nHe waited for spring.\nHe dreamed of the warm sun.\n***\nAt last, spring came.\nThe sun was warm again.\nHe saw three white swans on a big lake.\n\"They are so beautiful,\" he said.\nHe swam over to them.\nThen he looked down into the water.\nHe saw a big white swan!\nIt was him!\nHe was a swan, too!\n***\n\"Come and swim with us!\" said the swans.\nThey swam all around him.\nThe young swan was so happy.\nHe had new friends at last.\nBe kind, because everyone grows in their own way.",
+    "level": "open",
+    "focus": ["ck", "short a", "s blends"],
+    "tricky": ["the", "a", "out", "little", "they", "were", "yellow", "one", "was", "very", "of", "all", "others", "for", "other", "said", "nobody", "wants", "to", "so", "away", "find", "from", "cold", "warm", "again", "are", "over", "down", "into", "water", "too", "come", "friends", "kind", "because", "everyone", "their", "mother", "loved", "swans", "beautiful", "swan", "young", "own"]
+  },
+  "cards": [
+    { "id": "storytime.ugly-duckling.who-mother",
+      "q": "Who sat on the eggs?",
+      "a": "a mother duck",
+      "wrong": ["a little hen", "a gray cat"],
+      "emoji": "🦆",
+      "note": "She sat on them until they hatched, one by one, and the big egg hatched last." },
+
+    { "id": "storytime.ugly-duckling.where-pond",
+      "q": "Where did the ducklings go for a swim?",
+      "a": "in the pond",
+      "wrong": ["in a bathtub", "in the sea"],
+      "note": "The gray duckling swam the best of all, even though the others said he looked odd." },
+
+    { "id": "storytime.ugly-duckling.big-egg",
+      "q": "What came out of the very big egg?",
+      "a": "a big gray duckling",
+      "wrong": ["a little yellow chick", "a tiny green frog"],
+      "note": "The other ducklings were small and yellow; this one was big and gray." },
+
+    { "id": "storytime.ugly-duckling.saw-swan",
+      "q": "What did the duckling see when he looked in the water?",
+      "a": "a white swan",
+      "wrong": ["a big fish", "a red ball"],
+      "emoji": "🦢",
+      "note": "It was his own reflection: he had grown into a swan." },
+
+    { "id": "storytime.ugly-duckling.first",
+      "q": "What happened first in the story?",
+      "a": "the eggs hatched",
+      "wrong": ["spring came", "he saw the swans"],
+      "note": "Crack, crack, crack: the story starts with the eggs hatching." },
+
+    { "id": "storytime.ugly-duckling.end",
+      "q": "What happened at the end of the story?",
+      "a": "he swam with swans",
+      "wrong": ["the eggs hatched", "winter came"],
+      "note": "The swans asked him to swim with them, and he had new friends at last." },
+
+    { "id": "storytime.ugly-duckling.feel-sad",
+      "q": "How did the duckling feel when the ducks said he looked odd?",
+      "a": "sad",
+      "wrong": ["proud", "excited"],
+      "note": "The story says it plainly; ask what he could do for someone who felt that way." },
+
+    { "id": "storytime.ugly-duckling.lesson",
+      "q": "What does this story teach?",
+      "a": "be kind to everyone",
+      "wrong": ["laugh at others", "only play with ducks"],
+      "note": "Be kind, because everyone grows in their own way; the last line says it." },
+
+    { "id": "storytime.ugly-duckling.vocab-hatched",
+      "q": "In the story, what does 'hatched' mean?",
+      "a": "came out of eggs",
+      "wrong": ["went to sleep", "swam in a pond"],
+      "note": "Baby birds hatch by cracking the shell open from the inside." },
+
+    { "id": "storytime.ugly-duckling.word-duck",
+      "q": "Which word is in the story?",
+      "a": "duck",
+      "wrong": ["dock", "luck"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

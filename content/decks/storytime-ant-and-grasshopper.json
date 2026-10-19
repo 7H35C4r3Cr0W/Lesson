@@ -1,0 +1,88 @@
+{
+  "id": "storytime.ant-and-grasshopper",
+  "subject": "storytime",
+  "group": "fables",
+  "order": 50,
+  "title": "The Ant and the Grasshopper",
+  "emoji": "🐜",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Aesop's fable of the ants who work all summer and the grasshopper who sings and plays, told gently: when winter comes the ants share their food, and the grasshopper learns to work and plan ahead. First graders know the pull between playing now and getting ready for later, which makes this an easy lesson to talk about. It is a public-domain story retold here in first-grade words, four pages long.",
+  "tip": "Ask: what is one thing you can do today to be ready for tomorrow, like packing your school bag?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Aesop (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A busy ant, a singing grasshopper, and a long, cold winter."
+  },
+  "passage": {
+    "text": "It was a warm summer day.\nA grasshopper hopped in the grass.\nHe sang and sang.\n\"La, la, la!\"\nAn ant went by.\nShe had a big seed on her back.\n\"Come and play!\" said the grasshopper.\n\"I can't,\" said the ant.\n\"I have work to do.\"\n\"I am saving food for the winter.\"\n***\n\"Winter is a long way off,\" said the grasshopper.\nAnd he sang some more.\nDay after day, the ants worked.\nThey carried seeds and corn to their nest.\nDay after day, the grasshopper played.\n\"Come and play!\" he said.\n\"We have work to do,\" said the ants.\nThe grasshopper just laughed.\n***\nThen the days got short and cold.\nSnow fell on the grass.\nThe grasshopper was cold and hungry.\nHe looked for food, but there was none.\nHe went to see the ants.\nKnock, knock!\n\"Please help me,\" he said.\n\"I have no food, and I am so cold.\"\n***\nThe ants had lots of food.\n\"Come in,\" they said.\n\"We will share with you.\"\nThey gave him seeds and corn.\nSoon he was warm and full.\n\"Thank you,\" said the grasshopper.\n\"Next summer, I will work, too.\"\nAnd he did!\nHe still sang, but he worked, too.\nIt is smart to work and plan ahead.",
+    "level": "open",
+    "focus": ["short a", "ay", "-ed endings"],
+    "tricky": ["the", "a", "was", "he", "by", "she", "said", "i", "have", "to", "do", "is", "some", "they", "their", "we", "there", "me", "no", "so", "of", "you", "warm", "work", "more", "worked", "carried", "laughed", "cold", "hungry", "none", "full", "ahead"]
+  },
+  "cards": [
+    { "id": "storytime.ant-and-grasshopper.who-sang",
+      "q": "Who sang and played in the grass?",
+      "a": "the grasshopper",
+      "wrong": ["the ant", "a bird"],
+      "emoji": "🦗",
+      "note": "A grasshopper is a green or brown bug with long back legs, made for hopping." },
+
+    { "id": "storytime.ant-and-grasshopper.seed",
+      "q": "What did the ant have on her back?",
+      "a": "a big seed",
+      "wrong": ["a red hat", "a big rock"],
+      "emoji": "🐜",
+      "note": "Real ants can carry things much heavier than their own bodies." },
+
+    { "id": "storytime.ant-and-grasshopper.saving",
+      "q": "What were the ants saving food for?",
+      "a": "the winter",
+      "wrong": ["the summer", "a party"],
+      "note": "In winter there is snow and no food to find, so the ants fill their nest while it is warm." },
+
+    { "id": "storytime.ant-and-grasshopper.went-ants",
+      "q": "Where did the grasshopper go when snow fell?",
+      "a": "to the ants",
+      "wrong": ["to the pond", "to the zoo"],
+      "note": "He knocked and asked the ants for help, even though he had laughed at their work." },
+
+    { "id": "storytime.ant-and-grasshopper.first",
+      "q": "What happened first in the story?",
+      "a": "the grasshopper sang",
+      "wrong": ["snow fell", "the ants shared"],
+      "note": "Summer comes first in this story, then winter, so ask him what the grasshopper did all summer." },
+
+    { "id": "storytime.ant-and-grasshopper.end",
+      "q": "What happened at the end of the story?",
+      "a": "the ants shared food",
+      "wrong": ["an ant went by", "snow fell"],
+      "note": "In the oldest tellings the ants send him away, but here they share and he learns to work." },
+
+    { "id": "storytime.ant-and-grasshopper.feel-thankful",
+      "q": "How did the grasshopper feel when the ants shared?",
+      "a": "thankful",
+      "wrong": ["grumpy", "bored"],
+      "note": "He said thank you, so ask him how it feels when someone shares with him." },
+
+    { "id": "storytime.ant-and-grasshopper.lesson",
+      "q": "What does this story teach?",
+      "a": "work and plan ahead",
+      "wrong": ["play all day long", "never share food"],
+      "note": "The ants worked while it was warm, so they had enough to share when it got cold." },
+
+    { "id": "storytime.ant-and-grasshopper.vocab-plan-ahead",
+      "q": "In the story, what does 'plan ahead' mean?",
+      "a": "get ready early",
+      "wrong": ["go to bed", "run very fast"],
+      "note": "The ants planned ahead when they saved food in the summer for the cold winter." },
+
+    { "id": "storytime.ant-and-grasshopper.word-snow",
+      "q": "Which word is in the story?",
+      "a": "snow",
+      "wrong": ["slow", "show"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

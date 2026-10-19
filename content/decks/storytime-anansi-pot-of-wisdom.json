@@ -1,0 +1,88 @@
+{
+  "id": "storytime.anansi-pot-of-wisdom",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 200,
+  "title": "Anansi and the Pot of Wisdom",
+  "emoji": "🕷️",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "A folk tale from Ghana about Anansi the spider, who tries to keep all the wisdom in the world in one pot at the top of a tree, until his little son shows him a better way to climb. Anansi stories are some of the best-loved folk tales of West Africa, and this one explains, the way folk tales do, why everyone has a little wisdom. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Let him tuck a pillow under his shirt and crawl across the room, then try it on his back, and ask whose idea worked better.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale from Ghana (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A clever spider tries to keep all the wisdom for himself."
+  },
+  "passage": {
+    "text": "Long ago, there was a spider named Anansi.\nAnansi wanted to be the smartest of all.\n\"I want all the wisdom in the world!\" he said.\nSo he went all over the land.\nHe took every bit of wisdom he could find.\nHe put it all in one big pot.\n***\n\"This wisdom is all for me,\" said Anansi.\n\"I will hide it at the top of a tree.\"\nHe tied the pot on his tummy.\nThen he began to climb.\nBump, bump, bump!\nThe pot hit his tummy.\nHe slid back down.\n***\nAnansi tried again.\nBump, bump, bump!\nHe slid back down again.\nHe tried and tried.\nAnansi got hot and grumpy.\nHis little son was watching.\n\"Father,\" said his son.\n\"Tie the pot on your back.\"\n\"Then you can climb up.\"\n***\nAnansi tied the pot on his back.\nUp, up, up he went!\nAt the top, he stopped.\n\"My little son had a good idea,\" he said.\n\"I do not have all the wisdom after all!\"\nAnansi was so surprised that he let go.\nThe pot fell down, down, down.\nCrash!\n***\nThe pot broke into bits.\nAll the wisdom spilled out.\nThe wind blew it all over the world.\nThat is why we all have a little wisdom.\nNobody knows everything, and good ideas can come from anyone.",
+    "level": "open",
+    "focus": ["short o", "short u", "ie"],
+    "tricky": ["the", "a", "there", "was", "wanted", "to", "of", "all", "want", "said", "so", "over", "every", "could", "find", "put", "one", "for", "down", "again", "little", "your", "you", "my", "do", "have", "go", "into", "out", "why", "nobody", "everything", "come", "from", "anyone", "ago", "anansi", "world", "climb", "son", "watching", "father", "idea", "surprised", "knows", "ideas"]
+  },
+  "cards": [
+    { "id": "storytime.anansi-pot-of-wisdom.who-anansi",
+      "q": "Who wanted all the wisdom in the world?",
+      "a": "Anansi the spider",
+      "wrong": ["a little mouse", "a big lion"],
+      "emoji": "🕷️",
+      "note": "Anansi stories come from Ghana, in West Africa, and Anansi is often a clever trickster." },
+
+    { "id": "storytime.anansi-pot-of-wisdom.where-tree",
+      "q": "Where did Anansi want to hide the pot?",
+      "a": "up a tree",
+      "wrong": ["under a rock", "in a river"],
+      "emoji": "🌳",
+      "note": "At the top of a tree, where nobody else could get it." },
+
+    { "id": "storytime.anansi-pot-of-wisdom.bump",
+      "q": "What kept bumping Anansi's tummy?",
+      "a": "the big pot",
+      "wrong": ["a red ball", "a busy bee"],
+      "note": "He tied the pot on his front, so it bumped him every time he tried to climb." },
+
+    { "id": "storytime.anansi-pot-of-wisdom.son-back",
+      "q": "Where did the little son say to tie the pot?",
+      "a": "on his back",
+      "wrong": ["on his head", "on his leg"],
+      "note": "With the pot on his back, Anansi could climb right up." },
+
+    { "id": "storytime.anansi-pot-of-wisdom.first",
+      "q": "What happened first in the story?",
+      "a": "Anansi filled a pot",
+      "wrong": ["the pot broke", "his son helped"],
+      "note": "He went all over the land and put every bit of wisdom in one big pot." },
+
+    { "id": "storytime.anansi-pot-of-wisdom.end",
+      "q": "What happened at the end of the story?",
+      "a": "the wisdom spilled out",
+      "wrong": ["Anansi filled a pot", "Anansi began to climb"],
+      "note": "The pot broke, and the wind blew the wisdom all over the world." },
+
+    { "id": "storytime.anansi-pot-of-wisdom.feel-surprised",
+      "q": "How did Anansi feel when he saw his son was right?",
+      "a": "surprised",
+      "wrong": ["sleepy", "hungry"],
+      "note": "So surprised he let go of the pot; ask why a little son's idea surprised him so much." },
+
+    { "id": "storytime.anansi-pot-of-wisdom.lesson",
+      "q": "What does this story teach?",
+      "a": "nobody knows everything",
+      "wrong": ["keep wisdom to yourself", "always climb tall trees"],
+      "note": "Nobody knows everything, and good ideas can come from anyone, even the littlest one." },
+
+    { "id": "storytime.anansi-pot-of-wisdom.vocab-wisdom",
+      "q": "In the story, what does 'wisdom' mean?",
+      "a": "being very smart",
+      "wrong": ["being very fast", "being very tall"],
+      "note": "Wisdom is knowing a lot and making good choices; Anansi wanted to be the smartest of all." },
+
+    { "id": "storytime.anansi-pot-of-wisdom.word-pot",
+      "q": "Which word is in the story?",
+      "a": "pot",
+      "wrong": ["pit", "dot"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

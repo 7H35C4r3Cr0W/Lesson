@@ -2,7 +2,7 @@
   "id": "storytime.little-red-hen",
   "subject": "storytime",
   "group": "tales",
-  "order": 40,
+  "order": 100,
   "title": "The Little Red Hen",
   "emoji": "🐔",
   "kind": "qa",

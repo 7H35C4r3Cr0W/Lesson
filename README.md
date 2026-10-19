@@ -19,7 +19,7 @@ Raspberry Pi on your home Wi-Fi and is used on an iPad in Safari. No accounts, n
 Everything is plain Python (standard library) and plain JavaScript. No build step, nothing to `pip install`.
 
 **What's inside:** 283 levels / ~4,900 cards across 9 subjects, plus two story subjects (12 stories and
-21 Story Time levels, below), built from the North Carolina Grade 1 standards and
+35 Story Time levels, below), built from the North Carolina Grade 1 standards and
 sized to last the whole school year: 🔤 Sounds (26), 📖 Words (54, in CKLA reading order, incl. all five CKLA
 tricky-word sets, three sight-word sets, prefixes/suffixes, contractions and silent letters), 💬 Sentences (36, incl.
 grammar and reading-comprehension levels), 🔢 Math (50), 🔬 Science (22), 🌎 My World / social studies (24), 💪 Healthy
@@ -35,8 +35,8 @@ vegetables, grains/protein/dairy, drinks and water, everyday and sometimes foods
 on NC Healthful Living 1.NPA/1.PCH and Science LS.1.1.1; the inside-the-body levels are bridge topics).
 📚 Stories (12 decodable stories in the CKLA Grade 1 Skills unit order, so each uses only the sound-spellings and
 tricky words taught so far; every story has a Read screen and 8–12 questions about it, NC RF.1.4 and RL.1.1–1.3) and
-📖 Story Time (21 levels: public-domain classics — Aesop's fables, fairy tales, Beatrix Potter's Peter Rabbit,
-nursery rhymes — retold at first-grade level and read page by page, plus a shelf of famous library books such as
+📖 Story Time (35 levels: 23 public-domain classics — Aesop's fables, folk and fairy tales from around the world,
+Hans Christian Andersen and Beatrix Potter — retold at first-grade level and read page by page, plus a shelf of famous library books such as
 *If You Give a Mouse a Cookie*, *Frog and Toad* and *Elephant & Piggie*, where each level is the words you will meet in
 that book, with a link to borrow it). The app never copies a published book's text or pictures; it teaches the words
 and links to the library.
@@ -60,7 +60,7 @@ Build the demo copy yourself with `python tools/build_static.py` (writes `docs/`
 
 ## For teachers
 
-- **What it is:** 283 short levels across nine subjects, plus 12 decodable stories and 21 Story
+- **What it is:** 283 short levels across nine subjects, plus 12 decodable stories and 35 Story
   Time levels, written to the NC Standard Course of Study for Grade 1, reading in the CKLA Grade 1 Skills order.
   Each level = talking flashcards (Look) + a tap-the-answer round (Play); a story level adds a Read screen first.
 - **Reading fluency:** on a story's Read screen the child reads from the tablet and taps any word he needs (the

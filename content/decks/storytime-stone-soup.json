@@ -1,0 +1,88 @@
+{
+  "id": "storytime.stone-soup",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 170,
+  "title": "Stone Soup",
+  "emoji": "🍲",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The folk tale of three hungry travelers who make soup from a stone, until the whole town has added a carrot, an onion, some beans and more, and everyone sits down to eat together. The same lines repeat as each new food goes in, so the story is easy to predict and read, and it opens a good talk about sharing. It is a public-domain story retold here in first-grade words, four pages long.",
+  "tip": "Make a pretend pot of stone soup together and ask what he would put in to share.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "One stone, one pot, and a whole town that shares."
+  },
+  "passage": {
+    "text": "Three hungry travelers walked down a long road.\nThey came to a little town.\n\"May we have some food?\" they asked.\n\"We have no food,\" said the people.\nThey shut their doors.\nBut the people did have food.\nThey just did not want to share.\n\"Then we will make stone soup!\" said the travelers.\n***\nThey got a big pot.\nThey filled it with water.\nThey made a fire under it.\nThen they dropped in one round stone.\nThe people came out to look.\n\"What are you making?\" asked a girl.\n\"Stone soup,\" said the travelers.\n\"It is very good.\"\n\"But it is better with a carrot.\"\n\"I have a carrot!\" said the girl.\nIn went the carrot!\n***\n\"It is better with an onion,\" said the travelers.\n\"I have an onion!\" said a man.\nIn went the onion!\n\"It is better with some beans.\"\n\"I have beans!\" said a woman.\nIn went the beans!\nThen a boy came with potatoes.\nA grandma came with salt.\nOne by one, the people came.\nEach one put in a little bit.\nThe soup smelled so good!\n***\nAt last the soup was ready.\nThe people got bowls and spoons.\nThey all sat down at one long table.\nThere was lots of soup for everyone.\nThey ate and sang and laughed.\n\"This is the best soup!\" said the girl.\n\"And it is made from a stone!\"\nThe travelers just smiled.\nWhen everyone shares a little, there is plenty for all.",
+    "level": "open",
+    "focus": ["magic e", "-ed endings", "oo"],
+    "tricky": ["the", "a", "down", "they", "to", "little", "have", "some", "no", "said", "people", "their", "doors", "want", "water", "one", "out", "what", "are", "you", "very", "by", "put", "so", "was", "all", "there", "of", "for", "everyone", "laughed", "from", "walked", "soup", "onion", "woman", "ready"]
+  },
+  "cards": [
+    { "id": "storytime.stone-soup.who-travelers",
+      "q": "Who came walking down the long road?",
+      "a": "hungry travelers",
+      "wrong": ["a king and queen", "three little pigs"],
+      "note": "A traveler is someone on a trip; these three had walked a long road and were very hungry." },
+
+    { "id": "storytime.stone-soup.where-town",
+      "q": "Where did the travelers make their soup?",
+      "a": "in a little town",
+      "wrong": ["on a big ship", "at the beach"],
+      "note": "The setting is a little town where everyone has food but nobody wants to share it." },
+
+    { "id": "storytime.stone-soup.make-soup",
+      "q": "What did the travelers say they would make?",
+      "a": "stone soup",
+      "wrong": ["apple pie", "corn bread"],
+      "emoji": "🍲",
+      "note": "Stone soup sounds silly, and that is just what made the people come out to look." },
+
+    { "id": "storytime.stone-soup.girl-carrot",
+      "q": "What did the girl put in the soup?",
+      "a": "a carrot",
+      "wrong": ["a cake", "a fish"],
+      "emoji": "🥕",
+      "note": "First a carrot, then an onion, beans, potatoes and salt: each person adds one thing." },
+
+    { "id": "storytime.stone-soup.first",
+      "q": "What happened first in the story?",
+      "a": "travelers came to town",
+      "wrong": ["they all ate soup", "a boy brought potatoes"],
+      "note": "The travelers ask for food first, and the people say they have none." },
+
+    { "id": "storytime.stone-soup.end",
+      "q": "What happened at the end of the story?",
+      "a": "they all ate soup",
+      "wrong": ["travelers came to town", "people shut their doors"],
+      "note": "The whole town sat down at one long table and shared the soup." },
+
+    { "id": "storytime.stone-soup.feel-happy",
+      "q": "How did everyone feel at the long table?",
+      "a": "happy",
+      "wrong": ["sad", "angry"],
+      "note": "They ate and sang and laughed: the story shows it without saying the word." },
+
+    { "id": "storytime.stone-soup.lesson",
+      "q": "What does this story teach?",
+      "a": "sharing helps everyone",
+      "wrong": ["keep food for yourself", "always eat alone"],
+      "note": "When everyone shares a little, there is plenty for all; the last line says it." },
+
+    { "id": "storytime.stone-soup.vocab-plenty",
+      "q": "In the story, what does 'plenty' mean?",
+      "a": "more than enough",
+      "wrong": ["just one bite", "a tiny crumb"],
+      "note": "Plenty means more than enough, like a pot of soup big enough for a whole town." },
+
+    { "id": "storytime.stone-soup.word-stone",
+      "q": "Which word is in the story?",
+      "a": "stone",
+      "wrong": ["stove", "store"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

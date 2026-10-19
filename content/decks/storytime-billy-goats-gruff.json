@@ -1,0 +1,88 @@
+{
+  "id": "storytime.billy-goats-gruff",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 150,
+  "title": "The Three Billy Goats Gruff",
+  "emoji": "🐐",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.3", "RF.1.4"],
+  "about": "The Norwegian folk tale of three goats who must cross a grumpy troll's bridge to reach the green grass on the hill; in this telling the big goat butts the troll into the river, and he simply floats away. Three crossings with the same trip, trap and the same questions make it easy to read with expression and to retell in order. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Read the goats in three voices, tiny, middle and big, and stamp out every trip, trap with your feet.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale from Norway (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Three goats, one bridge, and one very grumpy troll."
+  },
+  "passage": {
+    "text": "Once there were three billy goats named Gruff.\nOne was little.\nOne was middle-sized.\nOne was big.\nThey wanted the green grass on the hill.\nTo get there, they had to cross a bridge.\nAnd under the bridge lived a grumpy troll.\n***\nThe little goat went first.\nTrip, trap! Trip, trap!\n\"Who is that on my bridge?\" roared the troll.\n\"It is me, the little goat.\"\n\"I will gobble you up!\" said the troll.\n\"Please do not eat me,\" said the little goat.\n\"Wait for my brother.\"\n\"He is much bigger.\"\n\"Then go,\" said the troll.\nAnd over he went.\n***\nNext the middle goat went.\nTrip, trap! Trip, trap!\n\"Who is that on my bridge?\" roared the troll.\n\"It is me, the middle goat.\"\n\"I will gobble you up!\" said the troll.\n\"Please do not eat me,\" said the middle goat.\n\"Wait for my big brother.\"\n\"He is much, much bigger.\"\n\"Then go,\" said the troll.\nAnd over he went.\n***\nThen the big goat went.\nTrip, trap! Trip, trap!\nThe bridge shook.\n\"Who is that on my bridge?\" roared the troll.\n\"It is me, the big goat!\"\n\"I will gobble you up!\" said the troll.\n\"Come and try!\" said the big goat.\nUp jumped the troll.\nThe big goat put down his horns.\nBump!\nHe butted the troll off the bridge.\n***\nSplash!\nThe troll fell into the river.\nHe floated far, far away.\nThe big goat trip-trapped over the bridge.\nAll three goats went up the hill.\nThey ate and ate the sweet green grass.\nMunch, munch, munch!\nAnd the grumpy troll never came back.",
+    "level": "open",
+    "focus": ["blends", "short i", "short u"],
+    "tricky": ["the", "a", "once", "there", "were", "three", "one", "was", "little", "they", "to", "who", "is", "my", "me", "i", "you", "said", "do", "he", "go", "down", "all", "billy", "wanted", "grumpy", "troll", "brother", "over", "try", "put", "into", "away"]
+  },
+  "cards": [
+    { "id": "storytime.billy-goats-gruff.who-troll",
+      "q": "Who said, 'Who is that on my bridge?'",
+      "a": "the troll",
+      "wrong": ["the big goat", "the little goat"],
+      "note": "The troll asks the same thing three times, so read it in a big, grumpy voice." },
+
+    { "id": "storytime.billy-goats-gruff.want-grass",
+      "q": "What did the goats want to eat?",
+      "a": "green grass",
+      "wrong": ["red apples", "hot soup"],
+      "emoji": "🐐",
+      "note": "The best grass was on the hill, and the only way there was over the troll's bridge." },
+
+    { "id": "storytime.billy-goats-gruff.wait-brother",
+      "q": "What did the little goat tell the troll to do?",
+      "a": "wait for his brother",
+      "wrong": ["build a house", "sing a song"],
+      "note": "The two smaller goats each send the troll on to a bigger brother, which is a clever way to get across." },
+
+    { "id": "storytime.billy-goats-gruff.fell-river",
+      "q": "Where did the troll fall?",
+      "a": "into the river",
+      "wrong": ["into a hole", "onto the grass"],
+      "emoji": "🌊",
+      "note": "Splash: in this telling he just floats far away and never comes back." },
+
+    { "id": "storytime.billy-goats-gruff.first",
+      "q": "What happened first in the story?",
+      "a": "the little goat crossed",
+      "wrong": ["the troll fell in", "the goats ate grass"],
+      "note": "Little, then middle, then big: the goats cross from smallest to biggest." },
+
+    { "id": "storytime.billy-goats-gruff.end",
+      "q": "What happened at the end of the story?",
+      "a": "the goats ate grass",
+      "wrong": ["the little goat crossed", "the troll roared"],
+      "note": "All three goats got to the hill at last and ate the sweet green grass." },
+
+    { "id": "storytime.billy-goats-gruff.like-troll",
+      "q": "What was the troll like?",
+      "a": "grumpy and loud",
+      "wrong": ["kind and quiet", "shy and sleepy"],
+      "note": "The story calls him grumpy, and he roars every time a goat steps on his bridge." },
+
+    { "id": "storytime.billy-goats-gruff.where-troll",
+      "q": "Where did the troll live?",
+      "a": "under the bridge",
+      "wrong": ["in a castle", "up a tree"],
+      "note": "Most of the story happens on that bridge, so ask him to draw it with the troll underneath." },
+
+    { "id": "storytime.billy-goats-gruff.vocab-butted",
+      "q": "In the story, what does 'butted' mean?",
+      "a": "pushed with his horns",
+      "wrong": ["ran away fast", "gave a hug"],
+      "note": "Goats butt with their heads and horns; press your forehead gently on his hand to show him." },
+
+    { "id": "storytime.billy-goats-gruff.word-grass",
+      "q": "Which word is in the story?",
+      "a": "grass",
+      "wrong": ["glass", "class"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

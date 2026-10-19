@@ -1,0 +1,89 @@
+{
+  "id": "storytime.benjamin-bunny",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 330,
+  "title": "The Tale of Benjamin Bunny",
+  "emoji": "🐇",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.3", "RF.1.4"],
+  "about": "Beatrix Potter's 1904 sequel to Peter Rabbit: Peter's cousin Benjamin takes him back to Mr. McGregor's garden to get his jacket and shoes off the scarecrow, and old Mr. Benjamin Bunny shoos away the cat that keeps them stuck under a basket. This is a gentle retelling in first-grade words where nobody is hurt, and it keeps Potter's trit-trot of the pony; the book itself is in the public domain, so he can meet the real one at the library afterwards. Five pages long.",
+  "tip": "Ask: what did Benjamin put in the red hanky, and who was it for?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Beatrix Potter (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Peter and his cousin go back for his jacket and shoes."
+  },
+  "passage": {
+    "text": "One morning, a little rabbit sat on a grassy bank.\nHis name was Benjamin Bunny.\nTrit-trot, trit-trot!\nA pony and cart went down the road.\nMr. and Mrs. McGregor sat in the cart.\n\"They are going out for the day!\" said Benjamin.\nHe hopped off to find his cousin Peter.\n***\nPeter sat all alone.\nHe had lost his jacket and shoes.\nSo he was wrapped up in a red hanky.\n\"Mr. McGregor put my things on his scarecrow,\" said Peter.\n\"Let's go get them back!\" said Benjamin.\nSo they hopped to the garden wall.\nThey climbed down a pear tree into the garden.\n***\nThere was the scarecrow!\nIt had on Peter's blue jacket and his shoes.\nPeter put them on.\nThe shoes were full of rain.\nSquish, squish!\nThen Benjamin filled the red hanky with onions.\n\"A gift for your mother,\" he said.\nPeter was worried.\nHe kept hearing noises.\n***\nThe two bunnies came around a corner.\nThey stopped.\nThere sat a big cat!\nThey ran and hid under a big basket.\nThe cat came over and sat on top of it!\nShe sat there for five long hours.\nPeter and Benjamin did not make a peep.\n***\nThen old Mr. Benjamin Bunny came along the wall.\nHe was Benjamin's father.\nHe saw the cat on the basket.\n\"Shoo, cat, shoo!\" he said.\nThe cat ran far away.\nHe lifted the basket.\nOut hopped Peter and Benjamin.\nThen he took them home.\nPeter gave the onions to his mother.\nShe was glad to have his jacket and shoes back.",
+    "level": "open",
+    "focus": ["short a", "ar", "-ed endings"],
+    "tricky": ["the", "a", "one", "little", "was", "down", "they", "are", "going", "out", "for", "said", "to", "find", "all", "so", "put", "my", "go", "into", "there", "blue", "were", "full", "of", "your", "two", "over", "old", "away", "have", "mr.", "mrs.", "cousin", "shoes", "climbed", "pear", "onions", "mother", "worried", "hours", "father"]
+  },
+  "cards": [
+    { "id": "storytime.benjamin-bunny.who-shoo",
+      "q": "Who shooed the cat away?",
+      "a": "old Mr. Benjamin Bunny",
+      "wrong": ["Mr. McGregor", "Peter's mother"],
+      "emoji": "🐇",
+      "note": "Benjamin's father came looking for his son and sent the cat running." },
+
+    { "id": "storytime.benjamin-bunny.scarecrow-wore",
+      "q": "What was the scarecrow wearing?",
+      "a": "Peter's jacket and shoes",
+      "wrong": ["a pink dress", "a long scarf"],
+      "note": "Peter lost them in The Tale of Peter Rabbit, and Mr. McGregor dressed his scarecrow in them." },
+
+    { "id": "storytime.benjamin-bunny.onions",
+      "q": "What did Benjamin put in the red hanky?",
+      "a": "onions",
+      "wrong": ["carrots", "apples"],
+      "emoji": "🧅",
+      "note": "A gift for Peter's mother; a hanky is a small square of cloth, like a napkin." },
+
+    { "id": "storytime.benjamin-bunny.hide-basket",
+      "q": "Where did the bunnies hide from the cat?",
+      "a": "under a basket",
+      "wrong": ["under a bed", "in a pot"],
+      "emoji": "🐈",
+      "note": "Then the cat sat on top of the basket for five long hours." },
+
+    { "id": "storytime.benjamin-bunny.first",
+      "q": "What happened first in the story?",
+      "a": "a cart went by",
+      "wrong": ["the cat sat down", "Peter got his shoes"],
+      "note": "Trit-trot, trit-trot: with the McGregors gone for the day, the bunnies dare to visit the garden." },
+
+    { "id": "storytime.benjamin-bunny.end",
+      "q": "What happened at the end of the story?",
+      "a": "they went home",
+      "wrong": ["a cart went by", "they found the scarecrow"],
+      "note": "Old Mr. Benjamin Bunny took them home, and Peter gave his mother the onions." },
+
+    { "id": "storytime.benjamin-bunny.feel-worried",
+      "q": "How did Peter feel in the garden?",
+      "a": "worried",
+      "wrong": ["sleepy", "proud"],
+      "note": "He kept hearing noises; after his last visit to that garden, who could blame him?" },
+
+    { "id": "storytime.benjamin-bunny.setting-garden",
+      "q": "Where does most of this story happen?",
+      "a": "in Mr. McGregor's garden",
+      "wrong": ["in a big city", "on a sandy beach"],
+      "note": "The setting is where a story happens; this is the same garden as in Peter Rabbit." },
+
+    { "id": "storytime.benjamin-bunny.vocab-scarecrow",
+      "q": "In the story, what does a 'scarecrow' do?",
+      "a": "scares birds away",
+      "wrong": ["waters the plants", "feeds the cat"],
+      "note": "Scare plus crow: a pretend person in old clothes that keeps birds off the plants." },
+
+    { "id": "storytime.benjamin-bunny.word-wall",
+      "q": "Which word is in the story?",
+      "a": "wall",
+      "wrong": ["well", "ball"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

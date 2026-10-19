@@ -1,0 +1,88 @@
+{
+  "id": "storytime.princess-and-pea",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 320,
+  "title": "The Princess and the Pea",
+  "emoji": "👑",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.3", "RF.1.4"],
+  "about": "Hans Christian Andersen's 1835 tale of the soaking-wet girl who says she is a real princess, and the queen who tests her with one little pea under twenty mattresses. It is short, silly and easy to picture, with a funny ending, and a good story for talking about where and when a story happens. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Ask: could you feel one little pea under twenty mattresses, and why did the queen think only a real princess could?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Hans Christian Andersen (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Twenty mattresses, one little pea, and one very real princess."
+  },
+  "passage": {
+    "text": "Once upon a time, there was a prince.\nHe lived in a castle with his mother, the queen.\nHe wanted to marry a real princess.\nHe looked all around the land.\nHe met lots of princesses.\nBut he could not tell if they were real.\nSo he went back home, feeling sad.\n***\nOne night, there was a big storm.\nThe rain came down and the wind blew.\nKnock, knock, knock!\nA girl stood at the castle door.\nShe was very wet.\nWater dripped from her hair.\nWater ran out of her shoes!\n\"I am a real princess,\" she said.\n\"We will see about that,\" said the queen.\n***\nThe queen went to get a bed ready.\nShe put one little green pea on the bed.\nShe did not tell the girl.\nOn top of the pea, she put a mattress.\nThen another, and another, and another!\nSoon there were twenty mattresses.\nThe bed was so tall!\nThe girl climbed a ladder to the top.\n\"Good night!\" said the queen.\n***\nIn the morning, the queen asked, \"How did you sleep?\"\n\"Oh, very badly!\" said the girl.\n\"Something hard was in my bed.\"\n\"I tossed and turned all night.\"\n\"Now I am sore all over!\"\nThe queen smiled a big smile.\nOnly a real princess could feel one little pea!\n***\nThe prince was so happy.\nHe had found a real princess at last!\nSoon they got married.\nAnd the little green pea?\nIt went in a glass box for all to see.\nAfter that, the princess slept on just one mattress.",
+    "level": "open",
+    "focus": ["ee", "short e", "-ed endings"],
+    "tricky": ["the", "a", "once", "there", "was", "wanted", "to", "all", "of", "could", "they", "were", "so", "one", "down", "door", "very", "water", "from", "out", "said", "put", "little", "another", "how", "you", "oh", "something", "my", "now", "over", "only", "for", "castle", "mother", "shoes", "ready", "climbed"]
+  },
+  "cards": [
+    { "id": "storytime.princess-and-pea.who-girl",
+      "q": "Who knocked at the castle door?",
+      "a": "a very wet girl",
+      "wrong": ["a little old man", "a big brown dog"],
+      "emoji": "👑",
+      "note": "Water ran out of her shoes, but she said she was a real princess." },
+
+    { "id": "storytime.princess-and-pea.where-pea",
+      "q": "Where did the queen hide the pea?",
+      "a": "under the mattresses",
+      "wrong": ["in a teacup", "in her crown"],
+      "note": "One little pea at the bottom, then twenty mattresses piled on top of it." },
+
+    { "id": "storytime.princess-and-pea.ladder",
+      "q": "What did the girl climb to get to the top?",
+      "a": "a ladder",
+      "wrong": ["a tree", "a rope"],
+      "note": "Twenty mattresses make a bed so tall you need a ladder to get in." },
+
+    { "id": "storytime.princess-and-pea.how-know",
+      "q": "How did the queen know she was a real princess?",
+      "a": "she felt the pea",
+      "wrong": ["she slept well", "she ate the pea"],
+      "note": "Only a real princess, the queen thought, could feel one little pea through all those mattresses." },
+
+    { "id": "storytime.princess-and-pea.first",
+      "q": "What happened first in the story?",
+      "a": "the prince looked around",
+      "wrong": ["the girl climbed up", "they got married"],
+      "note": "The prince looked all around the land for a real princess before the stormy night." },
+
+    { "id": "storytime.princess-and-pea.end",
+      "q": "What happened at the end of the story?",
+      "a": "they got married",
+      "wrong": ["a storm came", "the prince felt sad"],
+      "note": "And the pea went in a glass box for all to see." },
+
+    { "id": "storytime.princess-and-pea.feel-sore",
+      "q": "How did the girl feel in the morning?",
+      "a": "sore all over",
+      "wrong": ["cozy and warm", "silly and giggly"],
+      "note": "She tossed and turned all night; ask him how one little pea could feel so big." },
+
+    { "id": "storytime.princess-and-pea.setting-night",
+      "q": "When did the girl come to the castle?",
+      "a": "on a stormy night",
+      "wrong": ["on a sunny day", "on a snowy morning"],
+      "emoji": "🌧️",
+      "note": "The setting is when and where a story happens: a castle, on a stormy night." },
+
+    { "id": "storytime.princess-and-pea.vocab-mattress",
+      "q": "In the story, what is a 'mattress'?",
+      "a": "a soft bed pad",
+      "wrong": ["a tiny green pea", "a tall ladder"],
+      "note": "A mattress is the thick, soft part of a bed that you sleep on." },
+
+    { "id": "storytime.princess-and-pea.word-pea",
+      "q": "Which word is in the story?",
+      "a": "pea",
+      "wrong": ["pen", "tea"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}
