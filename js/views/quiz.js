@@ -12,6 +12,7 @@ import * as speech from '../speech.js';
 import * as sfx from '../sfx.js';
 import * as help from '../help.js';
 import { confirmDialog, frontFace, go, icon, sizeClass, starCounter, tap, wake } from '../ui.js';
+import { soundSwitch, storyElement, wordSpeaker } from './reader.js';
 
 const PRAISE = ['Yes!', 'You got it!', 'Great!', 'Nice work!', 'Super!', 'Way to go!'];
 
@@ -52,6 +53,24 @@ export function runQuiz(root, scope, opts) {
     h('header', { class: 'bar' }, closeBtn, segments,
       isTest ? h('span', { class: 'bar-spacer' }) : starCounter(scope, { link: false })),
     stage, foot));
+
+  // 📖 Story (practice only): the story behind a comprehension question, in a sheet over the
+  // quiz. Tap a word to hear it; the sheet goes away on Close or when the screen changes.
+  function peekStory(deck) {
+    speech.stop();
+    let soundingOut = false;
+    const close = () => {
+      speech.stop();
+      overlay.remove();
+    };
+    const overlay = h('div', { class: 'overlay', onclick: (e) => { if (e.target === overlay) close(); } },
+      h('div', { class: 'dialog story-dialog', role: 'dialog', 'aria-modal': 'true', 'aria-label': deck.title },
+        h('div', { class: 'story-scroll scroll' }, storyElement(deck, { onWordTap: wordSpeaker(deck, () => soundingOut) })),
+        h('div', { class: 'story-dialog-foot' },
+          canSpeak ? soundSwitch(() => soundingOut, (on) => { soundingOut = on; }) : null,
+          h('button', { class: 'btn primary big', type: 'button', onclick: tap(close) }, icon('close'), 'Close'))));
+    document.body.append(overlay);
+  }
 
   function drawSegments() {
     clear(segments);
@@ -126,6 +145,8 @@ export function runQuiz(root, scope, opts) {
       foot.append(h('button', { class: 'btn ghost dont-know', type: 'button', onclick: tap(() => {
         if (!locked) settle(null, null);
       }) }, '🤷 I don’t know'));
+    } else if (deck.passage && deck.passage.text) {
+      foot.append(h('button', { class: 'btn ghost story-peek', type: 'button', onclick: tap(() => peekStory(deck)) }, '📖 Story'));
     }
 
     // Choices wake up after a beat so a leftover tap from the last question cannot answer this one.

@@ -167,7 +167,7 @@ function deckPage(body, deck, redraw) {
         h('a', { class: 'btn small', href: `#/cards/${deck.id}` }, 'Open as flashcards'),
         deck.quiz === false ? null : h('a', { class: 'btn small', href: `#/practice/deck/${deck.id}` }, 'Open practice round'),
         h('button', { class: 'btn small', type: 'button', onclick: () =>
-          confirmDialog('Start this deck over?', 'Stars are kept, but every card in this deck goes back to “new”.', 'Start over', () => {
+          confirmDialog('Start this deck over?', deck.passage ? 'Every card in this deck goes back to “new” and its story reads are forgotten. Stars from answering are kept; the stars from reading this story go with its reads.' : 'Stars are kept, but every card in this deck goes back to “new”.', 'Start over', () => {
             store.resetProgress('deck', deck.id).then(redraw).catch(fail);
           }, true) }, 'Start this deck over'))),
     h('div', { class: 'panel' }, h('table', { class: 'table' },

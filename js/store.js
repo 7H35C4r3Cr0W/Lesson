@@ -3,7 +3,7 @@
 // never talk to the server themselves.
 
 import * as api from './api.js';
-import { addRound, applyResult, dayString, isTrouble } from './logic.js';
+import { addRead, addRound, applyResult, dayString, isTrouble } from './logic.js';
 
 export const DEFAULT_PREFS = Object.freeze({
   sessionSize: 10,        // questions in one practice round
@@ -36,6 +36,7 @@ export const state = {
   tests: [],                // tests waiting to be taken
   days: {},                 // 'YYYY-MM-DD' -> { total, correct }
   rounds: {},               // deck id -> { best, last, count, lastAt, lastCorrect, lastTotal, passed }
+  reads: {},                // deck id -> { count, scored, best, lastAt, last } (story reads, see logic.addRead)
   stars: 0,
   pinSet: false,
 };
@@ -43,6 +44,7 @@ export const state = {
 const PROFILE_KEY = 'starcards.profile';
 const FINISH_KEY = 'starcards.finishes.v1';
 const ROUNDS_KEY = 'starcards.rounds.v1';
+const READS_KEY = 'starcards.reads.v1';
 
 const listeners = new Set();
 export function subscribe(fn) {
@@ -130,6 +132,7 @@ function applyState(data) {
   state.tests = data.tests || [];
   state.days = data.days || {};
   state.rounds = data.rounds || {};
+  state.reads = data.reads || {};
   state.stars = data.stars || 0;
   state.pinSet = !!data.pinSet;
 }
@@ -146,6 +149,7 @@ export async function boot() {
   api.flush();
   flushFinishes();
   flushRounds();
+  flushReads();
 }
 
 export async function loadProfile(id) {
@@ -184,7 +188,8 @@ function mergeServerStats(reply) {
   for (const [card, stat] of Object.entries(reply.stats || {})) {
     if (!waiting.has(card)) state.stats[card] = stat;
   }
-  if (!waiting.size && typeof reply.stars === 'number') state.stars = reply.stars;
+  // A star is a right answer or a story read: the Pi's count is only right once both queues are empty.
+  if (!waiting.size && !readsWaiting() && typeof reply.stars === 'number') state.stars = reply.stars;
 }
 
 api.onQueueSynced((profileId, reply) => {
@@ -258,6 +263,79 @@ function mergeRounds(summary) {
 export const getDeckReport = (deckId) =>
   api.get(`/api/decks/${encodeURIComponent(deckId)}/report?profile=${state.profile.id}`);
 
+// ---- story reads -----------------------------------------------------------
+
+// A finished read of a story on the Read screen. Every read earns one star. Like rounds, the
+// screen updates at once from our own copy of the rule and the read goes to the Pi from a
+// queue in the tablet's storage, so a Wi-Fi blip cannot lose it.
+//   mode: 'self' (the child read it; errors = words he tapped for help) or
+//         'scored' (a grown-up timed it and tapped the words read wrong; seconds required)
+//   missed: the words (lower-case) tapped for help or marked wrong
+export function recordRead({ deck, mode, words, errors, seconds = null, missed = [] }) {
+  const now = Date.now();
+  const secs = mode === 'scored' ? seconds : null;
+  state.reads[deck] = addRead(state.reads[deck], { mode, words, errors, seconds: secs, at: now });
+  state.stars += 1;
+  const waiting = api.storage.get(READS_KEY, []);
+  const list = Array.isArray(waiting) ? waiting : [];
+  list.push({ profile: state.profile.id, read: {
+    uid: api.newUid(), deck, mode, words, errors, seconds: secs, missed: missed.slice(0, 60), at: now, day: dayString(new Date(now)),
+  } });
+  api.storage.set(READS_KEY, list.slice(-200));
+  emit('stats');
+  flushReads();
+  return state.reads[deck];
+}
+
+let sendingReads = false;
+export async function flushReads() {
+  if (sendingReads) return;
+  sendingReads = true;
+  try {
+    for (;;) {
+      const waiting = api.storage.get(READS_KEY, []);
+      if (!Array.isArray(waiting) || !waiting.length) return;
+      const item = waiting[0];
+      let reply = null;
+      try {
+        reply = await api.post('/api/reads', { profile: item.profile, ...item.read });
+      } catch (err) {
+        if (err.status === 0 || err.status >= 500) return;        // the Pi is away; try again later
+        console.warn('Dropping a read the server refused:', err.message);
+      }
+      // Re-read before removing: a new read may have joined the queue while we were sending.
+      const now = api.storage.get(READS_KEY, []);
+      const left = (Array.isArray(now) ? now : []).filter((w) => w.read.uid !== item.read.uid);
+      api.storage.set(READS_KEY, left);
+      if (reply && state.profile && item.profile === state.profile.id) {
+        if (reply.reads) mergeReads(reply.reads);
+        // The Pi's star count is right once it has seen everything: no reads left in this
+        // queue and no answers still waiting in theirs (a star is an answer or a read).
+        if (typeof reply.stars === 'number' && !left.length && !api.queueLength()) state.stars = reply.stars;
+        emit('stats');
+      }
+    }
+  } finally {
+    sendingReads = false;
+  }
+}
+
+// Reads still waiting for the Pi: their stars are on the screen but not in the Pi's count yet.
+function readsWaiting() {
+  const waiting = api.storage.get(READS_KEY, []);
+  return Array.isArray(waiting) ? waiting.length : 0;
+}
+
+// The Pi's summary wins, except it cannot know yet about reads still waiting in the queue.
+function mergeReads(summary) {
+  for (const [deck, s] of Object.entries(summary)) {
+    const mine = state.reads[deck];
+    state.reads[deck] = mine && mine.count > s.count ? mine : s;
+  }
+}
+
+export const getReadingReport = () => api.get(`/api/reading/report?profile=${state.profile.id}`);
+
 // ---- tests -----------------------------------------------------------------
 
 // Hand in a finished test. If the Pi cannot be reached the result is kept on the
@@ -321,9 +399,9 @@ export async function checkForUpdate() {
 
 // A test handed in while the Pi was unreachable is kept on the tablet; send it as soon as
 // the Pi is back, not only on the next full page load.
-window.addEventListener('online', () => { flushFinishes(); flushRounds(); });
+window.addEventListener('online', () => { flushFinishes(); flushRounds(); flushReads(); });
 document.addEventListener('visibilitychange', () => {
-  if (!document.hidden) { flushFinishes(); flushRounds(); }
+  if (!document.hidden) { flushFinishes(); flushRounds(); flushReads(); }
 });
 
 export const listTests = () => api.get(`/api/tests?profile=${state.profile.id}`).then((r) => r.tests);

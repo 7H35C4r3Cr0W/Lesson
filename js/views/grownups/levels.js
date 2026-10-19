@@ -5,6 +5,7 @@ import { h, clear, appendAll } from '../../dom.js';
 import { PASS_MARK, canQuiz, deckProgress, levelPassed, levelPath, needToPass } from '../../logic.js';
 import * as store from '../../store.js';
 import { confirmDialog, dateTime, go, toast } from '../../ui.js';
+import * as readingPage from './reading.js';
 
 const PASS_PCT = Math.round(PASS_MARK * 100);
 
@@ -132,6 +133,9 @@ export function detail(body, scope, deckId, redraw) {
 
   const roundsBox = h('div', { class: 'panel' }, h('h2', null, 'Rounds'), h('p', { class: 'muted' }, 'Loading…'));
   const missBox = h('div', { class: 'panel' }, h('h2', null, `What ${name} got wrong`), h('p', { class: 'muted' }, 'Loading…'));
+  // A story level also keeps every read of its story (the Read screen) next to its rounds.
+  const read = deck.passage ? readingPage.summaries()[deck.id] || null : null;
+  const readsBox = deck.passage ? h('div', { class: 'panel' }, h('h2', null, 'Reads'), h('p', { class: 'muted' }, 'Loading…')) : null;
 
   appendAll(body,
     h('div', { class: 'page-head' },
@@ -142,6 +146,7 @@ export function detail(body, scope, deckId, redraw) {
       h('span', { class: 'spacer' }),
       h('a', { class: 'btn', href: `#/grownups/levels/${deck.subject}` }, 'All levels'),
       h('a', { class: 'btn', href: `#/grownups/cards/${deck.id}` }, 'Cards in this deck'),
+      deck.passage ? h('a', { class: 'btn', href: `#/read/${deck.id}` }, 'Read the story') : null,
       deck.quiz === false ? null : h('a', { class: 'btn primary', href: `#/practice/deck/${deck.id}` }, 'Play a round')),
     h('div', { class: 'stat-row' },
       h('div', { class: 'stat-box' }, h('div', { class: 'stat-value' }, statusChip(standing)), h('div', { class: 'stat-label' }, 'status')),
@@ -151,12 +156,15 @@ export function detail(body, scope, deckId, redraw) {
       statBox(`${p.mastered} / ${p.total}`, 'cards mastered'),
       deck.quiz === false
         ? statBox('👀', 'look-only level: passed once every card is seen')
-        : statBox(`${need} of ${n}`, `right answers to pass (${PASS_PCT}%)`)),
+        : statBox(`${need} of ${n}`, `right answers to pass (${PASS_PCT}%)`),
+      deck.passage ? statBox(String(read ? read.count || 0 : 0), 'reads of the story') : null,
+      deck.passage ? statBox(read && typeof read.best === 'number' ? String(read.best) : '–', 'best words per minute') : null),
     roundsBox,
+    readsBox,
     missBox,
     h('div', { class: 'form-actions' },
       h('button', { class: 'btn small', type: 'button', onclick: () =>
-        confirmDialog('Start this level over?', 'Its rounds are forgotten and every card in it goes back to “new”. Stars already earned are kept.',
+        confirmDialog('Start this level over?', deck.passage ? 'Its rounds and story reads are forgotten and every card in it goes back to “new”. Stars from answering are kept; the stars from reading this story go with its reads.' : 'Its rounds are forgotten and every card in it goes back to “new”. Stars already earned are kept.',
           'Start over', () => { store.resetProgress('deck', deck.id).then(redraw).catch(fail); }, true) }, 'Start this level over')));
 
   store.getDeckReport(deck.id).then((report) => {
@@ -212,6 +220,24 @@ export function detail(body, scope, deckId, redraw) {
         h('table', { class: 'table' },
           h('thead', null, h('tr', null, ['Card', 'Answer', 'Chose', 'Times wrong', 'Right / tries', 'Last missed'].map((t) => h('th', null, t)))),
           h('tbody', null, rows)));
+    }
+  }).catch((err) => {
+    if (scope.alive) fail(err);
+  });
+
+  if (!readsBox) return;
+  readingPage.loadReport().then((report) => {
+    if (!scope.alive) return;
+    clear(readsBox).append(h('h2', null, 'Reads'));
+    const entry = report ? (report.decks || []).find((e) => e.deck === deck.id) : null;
+    const reads = entry ? entry.reads || [] : [];
+    if (!report) readsBox.append(h('p', { class: 'muted' }, 'The read history is not available on this server yet.'));
+    else if (!reads.length) readsBox.append(h('p', { class: 'muted' }, 'Not read on the tablet yet.'));
+    else {
+      readsBox.append(
+        h('p', { class: 'muted' }, 'Every pass through the story, newest first. “Missed / words” is the words tapped for help (self) or marked wrong (scored); ',
+          'WPM is words correct per minute on a scored read. The full picture is under ', h('a', { href: '#/grownups/reading' }, 'Reading'), '.'),
+        readingPage.readsTable(reads));
     }
   }).catch((err) => {
     if (scope.alive) fail(err);

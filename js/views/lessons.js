@@ -11,6 +11,8 @@ import { h, appendAll } from '../dom.js';
 import { PASS_MARK, needToPass } from '../logic.js';
 import * as store from '../store.js';
 import { go } from '../ui.js';
+// The story helpers (word count, pages, paragraphs) live with the grown-up Reading page.
+import { passagePages, passageParagraphs, wordCount } from './grownups/reading.js';
 
 const PASS_PCT = Math.round(PASS_MARK * 100);
 
@@ -75,13 +77,66 @@ function jumpMenu(shown) {
 const KIND = {
   read: { label: 'Reading cards', blurb: 'words or sentences the child reads; the quiz shows and says one and the child finds it among look-alikes' },
   qa: { label: 'Question cards', blurb: 'a question with one right answer among three choices' },
+  story: { label: 'Story + questions', blurb: 'a story the child reads on the tablet, then questions about it with one right answer among three choices' },
+  bookwords: { label: 'Book words + reading cards', blurb: 'the words the child will meet in a library book, read on the tablet, then found among look-alikes' },
 };
+
+// A deck with a passage is a story level (or, for a read deck, the words to meet in a library book).
+function kindOf(deck) {
+  if (deck.passage) return deck.kind === 'read' ? KIND.bookwords : KIND.story;
+  return KIND[deck.kind] || KIND.qa;
+}
+
+// The reading steps a story level starts with: the Read screen, then optional scoring.
+const READ_STEP = 'Read: cold read first — the child reads the story to you once (tap any word he needs; it is remembered under Grown-ups → Reading). Then a warm read: read it to him or with him, finger under the words. Then a hot read: he reads it again. Three reads of the same story is the fastest way to smooth reading.';
+const SCORE_STEP = 'Score it (optional): Grown-up: score this read → Start → tap each word read wrong → Finished. The tablet works out words correct per minute and keeps every read; the child only sees stars.';
+const BOOK_STEP = 'Read: the words he will meet in this book, laid out on the Read screen. He reads the list to you (tap any word he needs; it is remembered under Grown-ups → Reading), then borrow the book and spot the words in it.';
 
 // The teaching routine the app is built around, in the order a lesson runs.
 function steps(deck) {
   const base = baseSteps(deck);
+  if (deck.passage) {
+    if (deck.kind === 'read') return [BOOK_STEP, ...base];
+    return [READ_STEP, SCORE_STEP,
+      'Read along: the tablet reads each question out loud; the answer choices are words from the story, so the child reads those himself (read them with him if he is stuck), then read the note on the card back after the answer.',
+      ...base];
+  }
   if (!deck.readAloud) return base;
   return ['Read along: this level is written to be read together. The tablet reads each question and the choices out loud, you read along and talk it through, then read the note on the card back after the answer.', ...base];
+}
+
+// The story itself, page by page (pages are split on `***` lines), then its sounds and tricky words.
+function storyBlock(deck) {
+  const passage = deck.passage;
+  const pages = passagePages(passage.text);
+  const list = deck.kind === 'read';
+  return [
+    h('p', null, h('strong', null, list ? 'The words:' : 'The story:'),
+      pages.length > 1 ? h('span', { class: 'muted small' }, ` ${pages.length} pages`) : null),
+    h('blockquote', { class: 'lesson-passage' }, pages.map((page, i) => [
+      i ? h('hr') : null,
+      passageParagraphs(page).map((lines, j) => [j ? h('br') : null, lines.map((line) => h('div', null, line))]),
+    ])),
+    Array.isArray(passage.focus) && passage.focus.length ? h('p', null, h('strong', null, 'Sounds: '), passage.focus.join(', ')) : null,
+    Array.isArray(passage.tricky) && passage.tricky.length ? h('p', null, h('strong', null, 'Tricky words: '), passage.tricky.join(', ')) : null,
+    passage.level === 'open'
+      ? h('p', { class: 'muted small' }, 'A retold classic: not limited to the sound-spellings taught so far, so read it together.')
+      : null,
+  ];
+}
+
+// The library book a level points at. The app never carries a published book's own text or pictures:
+// it teaches the words and links to the library.
+function bookBlock(book) {
+  if (!book || typeof book !== 'object') return null;
+  const by = [book.author ? `By ${book.author}` : '', book.source || ''].filter(Boolean).join(' · ');
+  const borrow = typeof book.borrow === 'string' && /^https:\/\//.test(book.borrow)
+    ? h('a', { href: book.borrow, target: '_blank', rel: 'noopener' }, 'Borrow it')
+    : null;
+  return [
+    h('p', null, h('strong', null, 'The book: '), by, by && borrow ? ' · ' : '', borrow),
+    book.blurb ? h('p', { class: 'muted' }, book.blurb) : null,
+  ];
 }
 
 function baseSteps(deck) {
@@ -108,21 +163,25 @@ function example(card, deck) {
 }
 
 function levelCard(deck, index, total) {
-  const kind = KIND[deck.kind] || KIND.qa;
+  const kind = kindOf(deck);
+  const passage = deck.passage && typeof deck.passage.text === 'string' ? deck.passage : null;
   return h('article', { class: 'lesson-card', id: `lesson-${deck.id}` },
     h('header', { class: 'lesson-head' },
       h('span', { class: 'lesson-emoji', 'aria-hidden': 'true' }, deck.emoji || ''),
       h('div', null,
         h('h4', null, `Level ${index + 1} of ${total}: ${deck.title}`),
-        h('div', { class: 'muted small' }, `${kind.label} · ${deck.cards.length} cards`,
+        h('div', { class: 'muted small' }, `${kind.label} · ${passage ? `${wordCount(passage.text)} words · ` : ''}${deck.cards.length} cards`,
           (deck.standards || []).length ? ' · ' + deck.standards.map((c) => (c.startsWith('NC.') ? c : 'NC ' + c)).join(', ') : ''))),
     h('p', null, h('strong', null, 'Teaches: '), deck.about || ''),
     deck.tip ? h('p', null, h('strong', null, 'Say this while teaching: '), deck.tip) : null,
+    passage ? storyBlock(deck) : null,
+    bookBlock(deck.book),
     h('p', null, h('strong', null, 'How the lesson runs:')),
     h('ol', { class: 'lesson-steps' }, steps(deck).map((s) => h('li', null, s))),
     h('p', null, h('strong', null, 'Example cards:')),
     h('ul', { class: 'lesson-examples' }, deck.cards.slice(0, 3).map((c) => example(c, deck))),
     h('p', { class: 'lesson-links' },
+      passage ? [h('a', { href: `#/read/${deck.id}` }, 'Read the story'), ' · '] : null,
       h('a', { href: `#/cards/${deck.id}` }, 'Open the flashcards'), ' · ',
       deck.quiz === false ? null : h('a', { href: `#/practice/deck/${deck.id}` }, 'Play a round'), ' · ',
       h('button', { class: 'toc-link', type: 'button', onclick: () => jumpTo('lesson-top') }, '↑ Contents')));
@@ -168,6 +227,12 @@ export function mount(root, scope, subjectId = '') {
         'easy to hard, that runs through the school year; the grown-up "about" text of each level says when it fits and whether it steps past the Grade 1 code.'),
       h('ul', { class: 'lesson-steps' },
         h('li', null, h('strong', null, 'Look, then Play. '), 'Every level has flashcards that talk (Look) and a short tap-the-answer round (Play). The child hears the word or question, so a beginning reader can work alone.'),
+        state.decks.some((d) => d.passage)
+          ? h('li', null, h('strong', null, 'Stories. '), 'Decodable stories in the class\'s CKLA unit order; the child reads them on the tablet (tap a word to hear it), a grown-up can score a read, and the questions after each story check understanding.',
+            state.decks.some((d) => d.book)
+              ? ' Story Time retells classics page by page and, for library books, teaches the words to meet and links to the library; no published book\'s text is ever copied.'
+              : '')
+          : null,
         h('li', null, h('strong', null, `Pass mark ${PASS_PCT}%. `), `A level is passed, and the next one opens, when a round scores ${PASS_PCT}% or better (9 of 10). Under that the child sees exactly what to aim for and tries again; the best round is kept, so a bad day never closes a level.`),
         h('li', null, h('strong', null, 'Testing out. '), `A child who already knows a subject taps a locked level: one round drawn from every level up to it, and ${PASS_PCT}% opens them all at once (a grown-up switch can turn this off).`),
         h('li', null, h('strong', null, 'Spaced practice. '), 'Each card keeps its own record: three right answers in a row across days make it mastered, a miss brings it back sooner, and cards missed two of the last three times are collected in Needs practice and come first in every round.'),
