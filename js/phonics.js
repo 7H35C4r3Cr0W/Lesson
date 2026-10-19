@@ -41,8 +41,30 @@ const TEAMS = ['eigh', 'tch', 'dge', 'igh', 'air', 'are', 'ear', 'ore',
 const START_ONLY = new Set(['kn', 'wr']);    // the silent letter is only silent at the front
 const VOWELS = 'aeiou';
 
+// Words where g stays hard before e, i or y (get, give, girl, tiger). English has no rule for
+// these, so the common ones are listed; a word with an ending is checked by its base word
+// (gives, giving, getting, giggled, beginning).
+const HARD_G = new Set(['get', 'give', 'given', 'gift', 'girl', 'begin', 'forget', 'forgive', 'together',
+  'tiger', 'geese', 'gear', 'giggle', 'gill', 'gig', 'giddy', 'gecko', 'gibbon', 'gimme', 'girth', 'gizmo',
+  'target', 'eager', 'burger', 'hamburger', 'bogey', 'gilded']);
+const G_ENDINGS = ['s', 'es', 'd', 'ed', 'ing', 'er', 'ers', 'est', 'y'];
+
+function hardG(word) {
+  const w = word.replace(/[^a-z]/g, '');
+  if (HARD_G.has(w)) return true;
+  return G_ENDINGS.some((end) => {
+    if (!w.endsWith(end) || w.length <= end.length + 1) return false;
+    const base = w.slice(0, -end.length);
+    return HARD_G.has(base) || HARD_G.has(`${base}e`)                       // gives, giving
+      || (base.length > 2 && base[base.length - 1] === base[base.length - 2]
+        && HARD_G.has(base.slice(0, -1)));                                    // getting, beginning
+  });
+}
+
 const isVowelKey = (key) => !!key && (VOWELS.includes(key[0]) || key.startsWith('y-'));
-const isSingleConsonant = (key) => !!key && key.length === 1 && /[a-z]/.test(key) && !VOWELS.includes(key) && key !== 'y';
+// A soft c or g is still one consonant letter, so magic e works across it (cage, race, ice).
+const isSingleConsonant = (key) => !!key && (key === 'c-soft' || key === 'g-soft'
+  || (key.length === 1 && /[a-z]/.test(key) && !VOWELS.includes(key) && key !== 'y'));
 
 // The word as [{ text, sound }]: text is the letters of one sound, sound is what the voice
 // says for it ('' for a silent letter, such as the e in "cake" or an apostrophe).
@@ -62,11 +84,12 @@ export function splitSounds(word) {
     }
   }
   const n = parts.length;
-  // c and g are soft before e, i or y (city, giant, gym).
+  // c and g are soft before e, i or y (city, giant, gym), except the hard-g words above.
+  const keepHardG = hardG(w);
   for (let k = 0; k < n - 1; k++) {
     const next = parts[k + 1].text[0];
     if (parts[k].key === 'c' && 'eiy'.includes(next)) parts[k].key = 'c-soft';
-    else if (parts[k].key === 'g' && 'eiy'.includes(next)) parts[k].key = 'g-soft';
+    else if (parts[k].key === 'g' && 'eiy'.includes(next) && !keepHardG) parts[k].key = 'g-soft';
   }
   // y: a consonant at the front (yes), a vowel at the end (my, happy), short i in the middle (gym).
   parts.forEach((p, k) => {
