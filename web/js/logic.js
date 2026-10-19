@@ -370,6 +370,76 @@ export function stickersEarned(stars, max) {
   return n;
 }
 
+// ---- stories (passages) ----------------------------------------------------
+
+// A story deck carries `passage.text`: one line per "\n", a new paragraph after a blank line.
+// The word rules are shared with tools/decodability.py and the server's wcpm, so all three
+// agree on how many words a story has: split on whitespace; strip leading and trailing
+// characters that are not letters, digits or apostrophes; a token is a word if it has a letter.
+const WORD_EDGES = /^[^\p{L}\p{N}'’]+|[^\p{L}\p{N}'’]+$/gu;
+const HAS_LETTER = /\p{L}/u;
+
+const PAGE_BREAK = '***';
+
+// Pages: a line that is exactly *** turns the page. A text without breaks is one page.
+export function passagePages(text) {
+  return String(text || '').replace(/\r\n?/g, '\n').split(/^[ \t]*\*\*\*[ \t]*$/m)
+    .map((page) => page.trim()).filter(Boolean);
+}
+
+// One page's paragraphs of trimmed lines, empties dropped:
+// [['Sam has a cat.', 'The cat is Max.'], ['Max naps on the mat.']]
+export function passageParagraphs(text) {
+  return String(text || '').replace(/\r\n?/g, '\n').split(/\n[ \t]*\n/)
+    .map((par) => par.split('\n').map((line) => line.trim()).filter((line) => line && line !== PAGE_BREAK))
+    .filter((lines) => lines.length);
+}
+
+export function passageTokens(line) {
+  return String(line || '').split(/\s+/).filter(Boolean);
+}
+
+// The token without the punctuation around it, as written ("Hi!" → Hi, Max's → Max's).
+export function trimWord(token) {
+  return String(token || '').replace(WORD_EDGES, '');
+}
+
+export function countsAsWord(token) {
+  return HAS_LETTER.test(trimWord(token));
+}
+
+// The token as a dictionary word: trimmed, lower-case, no possessive (Max's → max).
+export function cleanWord(token) {
+  return trimWord(token).toLowerCase().replace(/['’]s$/, '');
+}
+
+export function wordCount(text) {
+  return passageTokens(text).filter(countsAsWord).length;
+}
+
+// Words correct per minute, the number a teacher's running record gives (null without a time).
+export function wcpmOf(words, errors, seconds) {
+  if (!(seconds > 0)) return null;
+  return Math.max(0, Math.round(((words - errors) / seconds) * 60));
+}
+
+// Fold one finished read into a deck's read summary (the shape the server sends as state.reads).
+//   mode 'self'    the child read it himself; errors = words he tapped for help
+//   mode 'scored'  a grown-up timed it and tapped the words read wrong; wcpm comes from the time
+export function addRead(summary, { mode, words, errors, seconds = null, at }) {
+  const s = summary || { count: 0, scored: 0, best: null, lastAt: 0, last: null };
+  const scored = mode === 'scored';
+  const wcpm = scored ? wcpmOf(words, errors, seconds) : null;
+  const best = wcpm == null ? (s.best ?? null) : Math.max(s.best ?? 0, wcpm);
+  return {
+    count: s.count + 1,
+    scored: s.scored + (scored ? 1 : 0),
+    best,
+    lastAt: at,
+    last: { mode, words, errors, seconds: scored ? seconds : null, wcpm, at },
+  };
+}
+
 // ---- dates -----------------------------------------------------------------
 
 export function dayString(date) {

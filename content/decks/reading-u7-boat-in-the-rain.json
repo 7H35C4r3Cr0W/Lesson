@@ -1,0 +1,92 @@
+{
+  "id": "reading.u7-boat-in-the-rain",
+  "subject": "reading",
+  "group": "unit7",
+  "order": 120,
+  "title": "A Boat in the Rain",
+  "emoji": "⛵",
+  "kind": "qa",
+  "standards": ["RF.1.4", "RL.1.1", "RL.1.2", "RL.1.3"],
+  "about": "Rain keeps Gail and Ray inside, so they fix up a toy boat and float it in a rain pool once the sky clears. The story practises the Unit 7 vowel teams ai (rain, Gail, wait, sail, snail, paints, drain), ay (Ray, play, day) and oa (boat, road, floats, raincoat), plus the compound words outside and raincoat. It is decodable at CKLA Unit 7, which the class usually reaches in May.",
+  "tip": "Ask him which two letters make the long a in rain and in Ray, then the long o in boat: three teams, one sound each.",
+  "readAloud": true,
+  "readChoices": false,
+  "passage": {
+    "text": "Rain taps on the roof.\nGail and Ray wait for it to stop.\n\"I wish we could play outside,\" says Gail.\n\"Let's fix up my boat,\" says Ray.\n\nGail makes a sail from a rag.\nRay paints a snail on the sail.\nAt last the rain stops.\n\n***\nGail gets her raincoat and boots.\nRain has made a pool by the road.\nThey set the boat in the pool.\nIt floats!\n\nA gust of wind tips it.\nThe boat drifts to the drain!\nRay grabs a stick.\nHe hooks the boat and drags it back.\n\"That was close,\" says Gail.\n\"Rain or shine, it's a good day,\" says Ray.",
+    "level": "unit7",
+    "focus": ["ai", "ay", "oa", "compound words"],
+    "tricky": ["the", "to", "i", "we", "could", "says", "my", "a", "from", "by", "they", "of", "he", "was"]
+  },
+  "cards": [
+    {
+      "id": "reading.u7-boat-in-the-rain.who-paints",
+      "q": "Who paints a snail on the sail?",
+      "a": "Ray",
+      "wrong": ["Gail", "Joan"],
+      "note": "Gail makes the sail; Ray paints the snail on it."
+    },
+    {
+      "id": "reading.u7-boat-in-the-rain.what-taps",
+      "q": "What taps on the roof?",
+      "a": "rain",
+      "wrong": ["hail", "a toad"],
+      "note": "The first line says rain taps on the roof."
+    },
+    {
+      "id": "reading.u7-boat-in-the-rain.what-sail",
+      "q": "What does Gail make from a rag?",
+      "a": "a sail",
+      "wrong": ["a coat", "a hat"],
+      "note": "Gail makes a sail for the boat from a rag."
+    },
+    {
+      "id": "reading.u7-boat-in-the-rain.where-boat",
+      "q": "Where do they set the boat?",
+      "a": "in the pool",
+      "wrong": ["in the tub", "in the bay"],
+      "note": "Rain made a pool by the road, and the boat goes in it."
+    },
+    {
+      "id": "reading.u7-boat-in-the-rain.first",
+      "q": "What do Gail and Ray do first, fix the boat or float it?",
+      "a": "fix the boat",
+      "wrong": ["float the boat", "hook the boat"],
+      "note": "They fix up the boat inside while it rains; the floating comes after the rain stops."
+    },
+    {
+      "id": "reading.u7-boat-in-the-rain.end-day",
+      "q": "At the end, what does Ray say about the day?",
+      "a": "it's a good day",
+      "wrong": ["it's a bad day", "it's a long day"],
+      "note": "The last line is Rain or shine, it's a good day."
+    },
+    {
+      "id": "reading.u7-boat-in-the-rain.feel-floats",
+      "q": "How do Gail and Ray feel when the boat floats?",
+      "a": "glad",
+      "wrong": ["sad", "cross"],
+      "note": "The story shouts It floats! so they are glad; the drain gives them a scare a moment later."
+    },
+    {
+      "id": "reading.u7-boat-in-the-rain.lesson",
+      "q": "What is the lesson of the story?",
+      "a": "rain can be fun",
+      "wrong": ["rain spoils the day", "boats sink in rain"],
+      "note": "Rain or shine, Gail and Ray find a way to have a good day."
+    },
+    {
+      "id": "reading.u7-boat-in-the-rain.vocab-drifts",
+      "q": "What does drifts mean in the story?",
+      "a": "floats off",
+      "wrong": ["sinks fast", "stops still"],
+      "note": "The boat drifts when the wind pushes it so it floats off on its own."
+    },
+    {
+      "id": "reading.u7-boat-in-the-rain.word-boat",
+      "q": "Which word is in the story?",
+      "a": "boat",
+      "wrong": ["goat", "moat"],
+      "note": "Boat, goat and moat all have oa; only boat is in the story."
+    }
+  ]
+}

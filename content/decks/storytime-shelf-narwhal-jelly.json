@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-narwhal-jelly",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 120,
+  "title": "Narwhal and Jelly words",
+  "emoji": "🐳",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Narwhal is a cheerful whale with a long horn and Jelly is a jellyfish who worries; the two meet in the sea and become the best of friends. This level teaches the words the child will meet in the comics, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow a Narwhal and Jelly book from the library and read the comic panels together.",
+  "book": {
+    "author": "Ben Clanton",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A sunny undersea comic about a narwhal, a jellyfish and a friendship that turns everything into fun."
+  },
+  "passage": {
+    "text": "narwhal Jelly sea deep\nhorn tusk waffle pod\nswim fish shark crab\nwhale fun silly best\nwhere friends",
+    "level": "open",
+    "focus": ["ar", "sh", "wh"],
+    "tricky": ["narwhal", "jelly", "waffle", "silly", "where", "friends"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-narwhal-jelly.narwhal", "text": "narwhal", "parts": ["n", "ar", "wh", "a", "l"], "tricky": [3], "emoji": "🐳", "note": "ar says ar; wh says w; the a says u: nar-wul" },
+    { "id": "storytime.shelf-narwhal-jelly.jelly", "text": "Jelly", "parts": ["J", "e", "ll", "y"], "tricky": [3], "note": "capital J, it is her name; ll is one sound; y at the end says ee: Jel-ly" },
+    { "id": "storytime.shelf-narwhal-jelly.sea", "text": "sea", "parts": ["s", "ea"], "emoji": "🌊", "note": "ea says long e, right at the end; the sea is the ocean" },
+    { "id": "storytime.shelf-narwhal-jelly.deep", "text": "deep", "parts": ["d", "ee", "p"], "note": "ee says long e" },
+    { "id": "storytime.shelf-narwhal-jelly.horn", "text": "horn", "parts": ["h", "or", "n"], "note": "or says or, like fork" },
+    { "id": "storytime.shelf-narwhal-jelly.tusk", "text": "tusk", "parts": ["t", "u", "s", "k"], "note": "all regular; a tusk is a long tooth" },
+    { "id": "storytime.shelf-narwhal-jelly.waffle", "text": "waffle", "parts": ["w", "a", "ff", "le"], "tricky": [1, 3], "emoji": "🧇", "note": "a says o as in hot, like in wash; ff is one f; le says ul: wof-ul" },
+    { "id": "storytime.shelf-narwhal-jelly.pod", "text": "pod", "parts": ["p", "o", "d"], "note": "all regular; a pod is a group of whales" },
+    { "id": "storytime.shelf-narwhal-jelly.swim", "text": "swim", "parts": ["s", "w", "i", "m"], "emoji": "🏊", "note": "s-w blend" },
+    { "id": "storytime.shelf-narwhal-jelly.fish", "text": "fish", "parts": ["f", "i", "sh"], "emoji": "🐟", "note": "sh is one part, at the end" },
+    { "id": "storytime.shelf-narwhal-jelly.shark", "text": "shark", "parts": ["sh", "ar", "k"], "emoji": "🦈", "note": "sh is one part; ar says ar" },
+    { "id": "storytime.shelf-narwhal-jelly.crab", "text": "crab", "parts": ["c", "r", "a", "b"], "emoji": "🦀", "note": "c-r blend" },
+    { "id": "storytime.shelf-narwhal-jelly.whale", "text": "whale", "parts": ["wh", "a", "l", "e"], "note": "wh says w; magic e makes a say its name" },
+    { "id": "storytime.shelf-narwhal-jelly.fun", "text": "fun", "parts": ["f", "u", "n"], "note": "all regular: f-u-n" },
+    { "id": "storytime.shelf-narwhal-jelly.silly", "text": "silly", "parts": ["s", "i", "ll", "y"], "tricky": [3], "emoji": "🤪", "note": "ll is one sound; y at the end says ee: sil-ly" },
+    { "id": "storytime.shelf-narwhal-jelly.best", "text": "best", "parts": ["b", "e", "s", "t"], "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-narwhal-jelly.where", "text": "where", "parts": ["wh", "ere"], "tricky": [0, 1], "note": "wh says w, ere says air" },
+    { "id": "storytime.shelf-narwhal-jelly.friends", "text": "friends", "parts": ["f", "r", "ie", "n", "d", "s"], "tricky": [2], "note": "ie says e; the s says z: frendz" }
+  ]
+}

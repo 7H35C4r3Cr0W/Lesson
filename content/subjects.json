@@ -82,6 +82,70 @@
     ]
   },
   {
+    "id": "reading",
+    "title": "Stories",
+    "emoji": "📚",
+    "color": "#b8860b",
+    "tint": "#fbf0cf",
+    "about": "Short decodable stories in the order of the CKLA Grade 1 Skills units, so every story uses only the sound-spellings and tricky words the class has learned so far. The child reads each story on the tablet (tap a word to hear it), a grown-up can score a read to track words correct per minute, and a short round of questions checks understanding. NC RF.1.4 (read with accuracy and fluency to support comprehension) and RL.1.1-1.3 (key details, retelling, characters, settings and events). Read these together: a cold read by the child, a warm read with you, a hot read by the child again.",
+    "groups": [
+      {
+        "id": "unit1",
+        "title": "Unit 1: short vowels"
+      },
+      {
+        "id": "unit2",
+        "title": "Unit 2: magic e and ee"
+      },
+      {
+        "id": "unit3",
+        "title": "Unit 3: oo, ou, oi, aw"
+      },
+      {
+        "id": "unit4",
+        "title": "Unit 4: er, ar, or"
+      },
+      {
+        "id": "unit5",
+        "title": "Unit 5: tch, ge, ve, wr"
+      },
+      {
+        "id": "unit6",
+        "title": "Unit 6: ce, kn, wh"
+      },
+      {
+        "id": "unit7",
+        "title": "Unit 7: ai, ay, oa"
+      }
+    ]
+  },
+  {
+    "id": "storytime",
+    "title": "Story Time",
+    "emoji": "🏰",
+    "color": "#2a6f97",
+    "tint": "#dcebf5",
+    "about": "Classic stories every first grader meets, retold in first-grade words: fables, fairy tales and folk tales, and classic books that are in the public domain, read page by page on the tablet (tap any word to hear it said or sounded out), each with questions about the story. The Books to borrow shelf teaches the words a child will meet in favorite library books and links to the library list; the app never copies a published book. NC RL.1.1-1.3 (key details, retelling, characters, settings and events), RL.1.2 (the lesson of a story) and RF.1.4 (fluency).",
+    "groups": [
+      {
+        "id": "fables",
+        "title": "Fables"
+      },
+      {
+        "id": "tales",
+        "title": "Fairy tales and folk tales"
+      },
+      {
+        "id": "classics",
+        "title": "Classic books"
+      },
+      {
+        "id": "shelf",
+        "title": "Books to borrow"
+      }
+    ]
+  },
+  {
     "id": "math",
     "title": "Math",
     "emoji": "🔢",

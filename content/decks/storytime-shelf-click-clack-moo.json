@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-click-clack-moo",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 130,
+  "title": "Click Clack Moo words",
+  "emoji": "🐄",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "The cows on Farmer Brown's farm find an old typewriter and start leaving him notes, and soon the hens and the ducks have ideas of their own. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him reading the animal words.",
+  "book": {
+    "author": "Doreen Cronin",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A barnyard of animals who learn to type and find out just how much one little note can do."
+  },
+  "passage": {
+    "text": "cows farm barn farmer\nmoo hens eggs ducks\npond milk click type\nnote clack cold blankets\nwant please",
+    "level": "open",
+    "focus": ["ar", "ck", "oo"],
+    "tricky": ["cows", "type", "cold", "want", "please"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-click-clack-moo.cows", "text": "cows", "parts": ["c", "ow", "s"], "tricky": [1], "emoji": "🐮", "note": "ow says ou as in out, like in cow; the s says z" },
+    { "id": "storytime.shelf-click-clack-moo.farm", "text": "farm", "parts": ["f", "ar", "m"], "emoji": "🚜", "note": "ar says ar, like car" },
+    { "id": "storytime.shelf-click-clack-moo.barn", "text": "barn", "parts": ["b", "ar", "n"], "note": "ar says ar, like car" },
+    { "id": "storytime.shelf-click-clack-moo.farmer", "text": "farmer", "parts": ["f", "ar", "m", "er"], "note": "two parts: farm + er; ar says ar, er says er" },
+    { "id": "storytime.shelf-click-clack-moo.moo", "text": "moo", "parts": ["m", "oo"], "emoji": "🐄", "note": "oo says long oo, like moon" },
+    { "id": "storytime.shelf-click-clack-moo.hens", "text": "hens", "parts": ["h", "e", "n", "s"], "emoji": "🐔", "note": "the s says z" },
+    { "id": "storytime.shelf-click-clack-moo.eggs", "text": "eggs", "parts": ["e", "gg", "s"], "emoji": "🥚", "note": "gg is one sound; the s says z" },
+    { "id": "storytime.shelf-click-clack-moo.ducks", "text": "ducks", "parts": ["d", "u", "ck", "s"], "emoji": "🦆", "note": "ck is one sound; the s says s" },
+    { "id": "storytime.shelf-click-clack-moo.pond", "text": "pond", "parts": ["p", "o", "n", "d"], "note": "all regular: p-o-n-d" },
+    { "id": "storytime.shelf-click-clack-moo.milk", "text": "milk", "parts": ["m", "i", "l", "k"], "emoji": "🥛", "note": "all regular: m-i-l-k" },
+    { "id": "storytime.shelf-click-clack-moo.click", "text": "click", "parts": ["c", "l", "i", "ck"], "note": "c-l blend; ck is one sound" },
+    { "id": "storytime.shelf-click-clack-moo.type", "text": "type", "parts": ["t", "y", "p", "e"], "tricky": [1], "note": "y says long i here, like in my, and the e is magic e: tipe" },
+    { "id": "storytime.shelf-click-clack-moo.note", "text": "note", "parts": ["n", "o", "t", "e"], "emoji": "📝", "note": "magic e: the e makes o say its name" },
+    { "id": "storytime.shelf-click-clack-moo.clack", "text": "clack", "parts": ["c", "l", "a", "ck"], "note": "c-l blend; ck is one sound" },
+    { "id": "storytime.shelf-click-clack-moo.cold", "text": "cold", "parts": ["c", "o", "l", "d"], "tricky": [1], "emoji": "❄️", "note": "the o says its name, like in old" },
+    { "id": "storytime.shelf-click-clack-moo.blankets", "text": "blankets", "parts": ["b", "l", "a", "n", "k", "e", "t", "s"], "note": "b-l blend; n says ng before k; two parts: blan + kets" },
+    { "id": "storytime.shelf-click-clack-moo.want", "text": "want", "parts": ["w", "a", "n", "t"], "tricky": [1], "note": "a says o as in hot: wont" },
+    { "id": "storytime.shelf-click-clack-moo.please", "text": "please", "parts": ["p", "l", "ea", "se"], "tricky": [2, 3], "emoji": "🙏", "note": "ea says long e, se says z: pleez" }
+  ]
+}

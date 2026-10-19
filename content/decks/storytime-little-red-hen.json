@@ -1,0 +1,88 @@
+{
+  "id": "storytime.little-red-hen",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 40,
+  "title": "The Little Red Hen",
+  "emoji": "🐔",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The folk tale of the hard-working hen whose friends will not help plant, cut or bake, and then all want to eat the bread. Most first graders already know it from kindergarten read-alouds, which makes it a good story to read on their own: a known plot and lines that repeat on every page. It is a public-domain story retold here in first-grade words, four pages long.",
+  "tip": "Let him be the cat, the dog and the pig and say Not I in a different lazy voice each time.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Nobody wants to help, but everybody wants bread."
+  },
+  "passage": {
+    "text": "A little red hen lived on a farm.\nShe lived with a cat, a dog, and a pig.\nOne day she found some wheat seeds.\n\"Who will help me plant the wheat?\" she asked.\n\"Not I,\" said the cat.\n\"Not I,\" said the dog.\n\"Not I,\" said the pig.\n\"Then I will do it myself,\" said the hen.\nAnd she did.\n***\nThe wheat grew tall.\n\"Who will help me cut the wheat?\" she asked.\n\"Not I,\" said the cat.\n\"Not I,\" said the dog.\n\"Not I,\" said the pig.\n\"Then I will do it myself,\" said the hen.\nAnd she did.\nShe took the wheat to the mill.\nThe mill made it into flour.\n***\n\"Who will help me bake the bread?\" she asked.\n\"Not I,\" said the cat.\n\"Not I,\" said the dog.\n\"Not I,\" said the pig.\n\"Then I will do it myself,\" said the hen.\nAnd she did.\nThe bread smelled so good.\n***\n\"Who will help me eat the bread?\" she asked.\n\"I will!\" said the cat.\n\"I will!\" said the dog.\n\"I will!\" said the pig.\n\"No,\" said the hen.\n\"You did not help me.\"\n\"So I will eat it myself.\"\nAnd she did.\nShe ate it with her little chicks.\nYum!\nIf you want to share, you have to help.",
+    "level": "open",
+    "focus": ["short e", "ea", "magic e"],
+    "tricky": ["the", "a", "said", "to", "who", "some", "one", "you", "do", "no", "so", "into", "want", "have", "little", "found", "flour", "bread"]
+  },
+  "cards": [
+    { "id": "storytime.little-red-hen.who-hen",
+      "q": "Who found the wheat seeds?",
+      "a": "the little red hen",
+      "wrong": ["the cat", "the pig"],
+      "emoji": "🐔",
+      "note": "Everything in the story starts with the hen finding those seeds." },
+
+    { "id": "storytime.little-red-hen.not-i",
+      "q": "What did the cat say when the hen asked for help?",
+      "a": "Not I",
+      "wrong": ["Me too", "Yes, please"],
+      "note": "The cat, the dog and the pig all say the same two words, every time." },
+
+    { "id": "storytime.little-red-hen.where-farm",
+      "q": "Where did the little red hen live?",
+      "a": "on a farm",
+      "wrong": ["in a city", "on a boat"],
+      "note": "A farm is where wheat can be planted and grown." },
+
+    { "id": "storytime.little-red-hen.bread",
+      "q": "What did the hen make with the flour?",
+      "a": "bread",
+      "wrong": ["soup", "cake"],
+      "emoji": "🍞",
+      "note": "Seeds, then wheat, then flour, then bread: ask him to say the steps in order." },
+
+    { "id": "storytime.little-red-hen.first",
+      "q": "What happened first in the story?",
+      "a": "the hen found seeds",
+      "wrong": ["the hen baked bread", "the wheat grew tall"],
+      "note": "First seeds, then tall wheat, then flour, then bread." },
+
+    { "id": "storytime.little-red-hen.end",
+      "q": "What happened at the end of the story?",
+      "a": "the hen ate bread",
+      "wrong": ["the cat ate bread", "the hen planted seeds"],
+      "note": "She shared it with her chicks, not with the friends who would not help." },
+
+    { "id": "storytime.little-red-hen.lazy",
+      "q": "How did the cat, dog and pig act when asked to help?",
+      "a": "lazy",
+      "wrong": ["kind", "helpful"],
+      "note": "Ask what the three friends could have done differently." },
+
+    { "id": "storytime.little-red-hen.lesson",
+      "q": "What does this story teach?",
+      "a": "help with the work",
+      "wrong": ["let others do it", "never share bread"],
+      "note": "If you want to share the good part, you have to share the work." },
+
+    { "id": "storytime.little-red-hen.vocab-mill",
+      "q": "In the story, what is a 'mill'?",
+      "a": "where flour is made",
+      "wrong": ["a kind of hen", "a soft bed"],
+      "note": "A mill grinds wheat seeds into flour; long ago a big wheel did the grinding." },
+
+    { "id": "storytime.little-red-hen.word-hen",
+      "q": "Which word is in the story?",
+      "a": "hen",
+      "wrong": ["hem", "ten"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

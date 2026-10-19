@@ -1,0 +1,88 @@
+{
+  "id": "storytime.three-little-pigs",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 50,
+  "title": "The Three Little Pigs",
+  "emoji": "🐷",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The folk tale of three pigs and their houses of straw, sticks and bricks, told gently: the wolf runs out of puff and runs away, and nobody is eaten. Every first grader knows it, and the repeating chant is perfect for practicing reading with expression (RF.1.4). It is a public-domain story retold here in first-grade words, four pages long.",
+  "tip": "Read the wolf's lines together in a big huffy voice, then ask which house he would build and why.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Three houses and one puffed-out wolf."
+  },
+  "passage": {
+    "text": "Once there were three little pigs.\nIt was time to make their own homes.\nThe first pig made a house of straw.\nIt was quick to make.\nThe second pig made a house of sticks.\nIt was quick to make, too.\nThe third pig made a house of bricks.\nIt took a long time.\nBut it was strong.\n***\nA wolf came to the straw house.\n\"Little pig, little pig, let me in!\"\n\"No, no, not by the hair on my chin!\"\n\"Then I'll huff and puff and blow your house in!\"\nThe wolf huffed and puffed.\nThe straw house fell down.\nThe first pig ran to the stick house.\n***\nThe wolf came to the stick house.\n\"Little pig, little pig, let me in!\"\n\"No, no, not by the hair on my chin!\"\n\"Then I'll huff and puff and blow your house in!\"\nThe wolf huffed and puffed.\nThe stick house fell down.\nThe two pigs ran to the brick house.\n***\nThe wolf came to the brick house.\n\"Little pig, little pig, let me in!\"\n\"No, no, not by the hair on my chin!\"\n\"Then I'll huff and puff and blow your house in!\"\nThe wolf huffed and puffed.\nThe brick house did not fall!\nThe wolf was all out of puff.\nHe ran away.\nThe pigs were safe and snug.\nTake your time and do the job well.",
+    "level": "open",
+    "focus": ["short i", "ck", "blends"],
+    "tricky": ["the", "a", "was", "to", "of", "their", "own", "there", "were", "once", "little", "your", "my", "by", "two", "all", "do", "no", "out", "too", "down", "away", "i'll", "wolf"]
+  },
+  "cards": [
+    { "id": "storytime.three-little-pigs.who-bricks",
+      "q": "Who made a house of bricks?",
+      "a": "the third pig",
+      "wrong": ["the first pig", "the wolf"],
+      "emoji": "🐷",
+      "note": "The third pig took the longest, and his house was the strongest." },
+
+    { "id": "storytime.three-little-pigs.straw",
+      "q": "What was the first pig's house made of?",
+      "a": "straw",
+      "wrong": ["bricks", "sticks"],
+      "note": "Straw is dry yellow grass stems; it is quick to build with but very light." },
+
+    { "id": "storytime.three-little-pigs.blew",
+      "q": "What did the wolf do to the straw house?",
+      "a": "blew it down",
+      "wrong": ["painted it", "slept in it"],
+      "note": "One huff and one puff and the straw house fell down." },
+
+    { "id": "storytime.three-little-pigs.brick",
+      "q": "Which house stayed up?",
+      "a": "the brick house",
+      "wrong": ["the straw house", "the stick house"],
+      "emoji": "🧱",
+      "note": "Bricks are heavy blocks of baked clay, far too heavy to blow over." },
+
+    { "id": "storytime.three-little-pigs.first",
+      "q": "What happened first in the story?",
+      "a": "the pigs built houses",
+      "wrong": ["the wolf ran away", "the straw house fell"],
+      "note": "All three houses are built on the first page, before the wolf shows up." },
+
+    { "id": "storytime.three-little-pigs.end",
+      "q": "What happened at the end of the story?",
+      "a": "the wolf ran away",
+      "wrong": ["the pigs built houses", "the stick house fell"],
+      "note": "In this telling the wolf just runs out of puff and leaves." },
+
+    { "id": "storytime.three-little-pigs.feel-safe",
+      "q": "How did the pigs feel inside the brick house?",
+      "a": "safe",
+      "wrong": ["scared", "cold"],
+      "note": "The story says safe and snug; ask what makes him feel safe and snug at home." },
+
+    { "id": "storytime.three-little-pigs.lesson",
+      "q": "What does this story teach?",
+      "a": "take time, work hard",
+      "wrong": ["quick is always best", "never build a house"],
+      "note": "The quick houses fell; the one that took time and work stood up." },
+
+    { "id": "storytime.three-little-pigs.vocab-huffed",
+      "q": "In the story, what does 'huffed and puffed' mean?",
+      "a": "blew very hard",
+      "wrong": ["ate a lot", "took a nap"],
+      "note": "Huff and puff together at a tissue and watch it fly, then try it on a book." },
+
+    { "id": "storytime.three-little-pigs.word-huff",
+      "q": "Which word is in the story?",
+      "a": "huff",
+      "wrong": ["hug", "hush"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

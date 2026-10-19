@@ -1,0 +1,88 @@
+{
+  "id": "storytime.goldilocks",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 70,
+  "title": "Goldilocks and the Bears",
+  "emoji": "🐻",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The tale of the girl who tries three bowls, three chairs and three beds in the bears' house, with a gentle ending: Goldilocks says sorry and learns to ask first. First graders know this story well, and the big, middle and little pattern makes every page easy to predict and read. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Ask him to retell it on three fingers: three bowls, three chairs, three beds, and what happened to each.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Three bowls, three chairs, three beds and one sorry girl."
+  },
+  "passage": {
+    "text": "Three bears lived in a house in the woods.\nThere was a big Papa Bear.\nThere was a middle-sized Mama Bear.\nAnd there was a wee little Baby Bear.\nOne morning, Mama Bear made porridge.\nIt was too hot to eat.\nSo the three bears went for a walk.\n***\nA girl named Goldilocks came by.\nShe peeked in the window.\nNo one was home.\nSo she went in.\nShe saw three bowls of porridge.\nShe tasted the big bowl.\n\"Too hot!\"\nShe tasted the middle bowl.\n\"Too cold!\"\nShe tasted the little bowl.\n\"Just right!\"\nAnd she ate it all up.\n***\nThen she saw three chairs.\nThe big chair was too hard.\nThe middle chair was too soft.\nThe little chair was just right.\nCrack!\nIt broke.\nThen she saw three beds.\nThe big bed was too hard.\nThe middle bed was too soft.\nThe little bed was just right.\nGoldilocks fell fast asleep.\n***\nThe three bears came home.\n\"Someone ate my porridge,\" said Papa Bear.\n\"Someone ate my porridge,\" said Mama Bear.\n\"Someone ate all of my porridge!\" said Baby Bear.\n\"Someone sat in my chair,\" said Papa Bear.\n\"Someone broke my chair!\" said Baby Bear.\n\"Someone slept in my bed,\" said Papa Bear.\n\"Someone is in my bed right now!\" said Baby Bear.\n***\nGoldilocks woke up.\nShe saw the three bears.\n\"Oh my!\" she said.\nShe jumped out of bed.\nShe ran all the way home.\n\"I am sorry,\" she said to her mom.\n\"That house was not mine.\"\nAsk before you use what is not yours.",
+    "level": "open",
+    "focus": ["short o", "ee", "ch"],
+    "tricky": ["the", "a", "was", "there", "one", "of", "too", "to", "so", "no", "for", "now", "said", "someone", "my", "all", "oh", "out", "what", "you", "yours", "little", "cold", "right", "walk", "porridge"]
+  },
+  "cards": [
+    { "id": "storytime.goldilocks.who-bears",
+      "q": "Who lived in the house in the woods?",
+      "a": "three bears",
+      "wrong": ["three pigs", "three cats"],
+      "emoji": "🐻",
+      "note": "Papa Bear, Mama Bear and Baby Bear: big, middle and little." },
+
+    { "id": "storytime.goldilocks.where-woods",
+      "q": "Where was the bears' house?",
+      "a": "in the woods",
+      "wrong": ["by the sea", "in a city"],
+      "note": "The setting is where a story happens; this one is a house in the woods." },
+
+    { "id": "storytime.goldilocks.porridge",
+      "q": "What did Goldilocks do with Baby Bear's porridge?",
+      "a": "ate it all up",
+      "wrong": ["put it away", "gave it away"],
+      "note": "Too hot, too cold, just right, and then it was gone." },
+
+    { "id": "storytime.goldilocks.chair",
+      "q": "What happened to the little chair?",
+      "a": "it broke",
+      "wrong": ["it got lost", "it got wet"],
+      "emoji": "🪑",
+      "note": "Crack! It was just right, until it was not." },
+
+    { "id": "storytime.goldilocks.first",
+      "q": "What happened first in the story?",
+      "a": "Mama Bear made porridge",
+      "wrong": ["Goldilocks fell asleep", "the bears came home"],
+      "note": "The hot porridge is why the bears went out, and that is why the house was empty." },
+
+    { "id": "storytime.goldilocks.end",
+      "q": "What happened at the end of the story?",
+      "a": "Goldilocks ran home",
+      "wrong": ["Mama Bear made porridge", "Goldilocks ate porridge"],
+      "note": "She ran home and said sorry to her mom." },
+
+    { "id": "storytime.goldilocks.feel-scared",
+      "q": "How did Goldilocks feel when she saw the three bears?",
+      "a": "scared",
+      "wrong": ["sleepy", "proud"],
+      "note": "Oh my! Ask how the bears felt too, coming home to a stranger in a bed." },
+
+    { "id": "storytime.goldilocks.lesson",
+      "q": "What does this story teach?",
+      "a": "ask before using things",
+      "wrong": ["eat all the porridge", "never say sorry"],
+      "note": "Ask before you use what is not yours; the last line says it." },
+
+    { "id": "storytime.goldilocks.vocab-wee",
+      "q": "In the story, what does 'wee' mean?",
+      "a": "very small",
+      "wrong": ["very loud", "very hot"],
+      "note": "Wee is an old word for tiny; Baby Bear is the wee one." },
+
+    { "id": "storytime.goldilocks.word-chair",
+      "q": "Which word is in the story?",
+      "a": "chair",
+      "wrong": ["cheer", "chain"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

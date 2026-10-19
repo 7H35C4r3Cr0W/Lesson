@@ -1,0 +1,144 @@
+{
+  "id": "reading.u2-grans-cake",
+  "subject": "reading",
+  "group": "unit2",
+  "order": 50,
+  "title": "Gran's Cake",
+  "emoji": "🎂",
+  "kind": "qa",
+  "standards": [
+    "RF.1.4",
+    "RL.1.1",
+    "RL.1.3"
+  ],
+  "about": "June bakes a cake that tips off the plate, and Gran shows her how to fix it. Practises magic e in a_e (bake, cake, plate), u_e (June, cubes, tune), o_e (home) and i_e (fine), ee (sweet) and the -es ending (mixes), plus the tricky words she, we, they, so, of, is and says. Decodable at CKLA Unit 2, so he can read it alone.",
+  "tip": "Cold read first, then read it to him, then let him read it again; ask what he would do with a cake that fell off the plate.",
+  "readAloud": true,
+  "readChoices": false,
+  "passage": {
+    "text": "June is at Gran's home.\nGran naps.\nJune will bake a cake.\nShe mixes eggs and milk.\nShe adds a bit of jam.\nMom helps with the hot oven.\nThe cake bakes.\nIt smells so sweet!\n\nThen the cake tips off the plate.\nSplat!\nJune is sad.\n\nGran wakes up.\n\"We can fix it,\" she says.\nThey cut the cake in cubes.\n\"It is still a fine cake!\" says Gran.\nJune grins and hums a tune.",
+    "level": "unit2",
+    "focus": [
+      "magic e a_e",
+      "magic e u_e",
+      "magic e o_e",
+      "magic e i_e",
+      "ee",
+      "ll",
+      "-es ending"
+    ],
+    "tricky": [
+      "is",
+      "a",
+      "she",
+      "of",
+      "so",
+      "the",
+      "we",
+      "says",
+      "they"
+    ]
+  },
+  "cards": [
+    {
+      "id": "reading.u2-grans-cake.who",
+      "q": "Who bakes the cake?",
+      "a": "June",
+      "wrong": [
+        "Gran",
+        "Mom"
+      ],
+      "note": "June bakes the cake while Gran naps."
+    },
+    {
+      "id": "reading.u2-grans-cake.where",
+      "q": "Where is June?",
+      "a": "at Gran's home",
+      "wrong": [
+        "at the lake",
+        "at the shop"
+      ],
+      "note": "The first line says June is at Gran's home."
+    },
+    {
+      "id": "reading.u2-grans-cake.what",
+      "q": "What happens to the cake?",
+      "a": "it tips and splats",
+      "wrong": [
+        "it melts",
+        "it gets lost"
+      ],
+      "note": "The cake tips off the plate with a splat."
+    },
+    {
+      "id": "reading.u2-grans-cake.fix",
+      "q": "What does Gran do to fix the cake?",
+      "a": "cuts it in cubes",
+      "wrong": [
+        "makes a big mess",
+        "dips it in milk"
+      ],
+      "note": "Gran and June cut the cake in cubes."
+    },
+    {
+      "id": "reading.u2-grans-cake.first",
+      "q": "What does June do first?",
+      "a": "mixes eggs and milk",
+      "wrong": [
+        "cuts the cake",
+        "hums a tune"
+      ],
+      "note": "First she mixes eggs and milk, then adds jam."
+    },
+    {
+      "id": "reading.u2-grans-cake.end",
+      "q": "What happens at the end?",
+      "a": "June hums a tune",
+      "wrong": [
+        "Gran naps",
+        "the cake tips"
+      ],
+      "note": "The last line is June grins and hums a tune."
+    },
+    {
+      "id": "reading.u2-grans-cake.feel",
+      "q": "How does June feel when the cake tips off the plate?",
+      "a": "sad",
+      "wrong": [
+        "glad",
+        "mad"
+      ],
+      "note": "The story says June is sad."
+    },
+    {
+      "id": "reading.u2-grans-cake.why",
+      "q": "Why is June sad?",
+      "a": "the cake tips off",
+      "wrong": [
+        "Gran naps",
+        "the jam is hot"
+      ],
+      "note": "The cake tips off the plate and splats."
+    },
+    {
+      "id": "reading.u2-grans-cake.vocab",
+      "q": "What are cubes?",
+      "a": "little blocks",
+      "wrong": [
+        "big plates",
+        "wet rags"
+      ],
+      "note": "A cube is a block with six square sides, like dice."
+    },
+    {
+      "id": "reading.u2-grans-cake.word",
+      "q": "Which word is in the story?",
+      "a": "cake",
+      "wrong": [
+        "cape",
+        "came"
+      ],
+      "note": "Cake is in the story; cape and came are look-alikes that are not."
+    }
+  ]
+}

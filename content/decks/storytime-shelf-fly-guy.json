@@ -1,0 +1,42 @@
+{
+  "id": "storytime.shelf-fly-guy",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 110,
+  "title": "Fly Guy words",
+  "emoji": "🐝",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "A boy catches a fly in a jar to enter in a pet show, and the fly turns out to be far smarter than anyone expected. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him reading the words he practised.",
+  "book": {
+    "author": "Tedd Arnold",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A boy and a fly become an unlikely pair of best friends in the first Fly Guy book."
+  },
+  "passage": {
+    "text": "fly guy boy jar\npet bug buzz wings\ntrash smart catch show\nprize hi said friend",
+    "level": "open",
+    "focus": ["ar", "oy", "tch"],
+    "tricky": ["fly", "guy", "hi", "said", "friend"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-fly-guy.fly", "text": "fly", "parts": ["f", "l", "y"], "tricky": [2], "note": "f-l blend; y at the end says long i, like in my" },
+    { "id": "storytime.shelf-fly-guy.guy", "text": "guy", "parts": ["g", "uy"], "tricky": [1], "note": "uy says long i, like in buy: it sounds like g + eye" },
+    { "id": "storytime.shelf-fly-guy.boy", "text": "boy", "parts": ["b", "oy"], "emoji": "👦", "note": "oy says oy, like toy" },
+    { "id": "storytime.shelf-fly-guy.jar", "text": "jar", "parts": ["j", "ar"], "note": "ar says ar, like car" },
+    { "id": "storytime.shelf-fly-guy.pet", "text": "pet", "parts": ["p", "e", "t"], "note": "all regular: p-e-t" },
+    { "id": "storytime.shelf-fly-guy.bug", "text": "bug", "parts": ["b", "u", "g"], "emoji": "🐛", "note": "all regular: b-u-g" },
+    { "id": "storytime.shelf-fly-guy.buzz", "text": "buzz", "parts": ["b", "u", "zz"], "note": "zz is two letters, one sound: z" },
+    { "id": "storytime.shelf-fly-guy.wings", "text": "wings", "parts": ["w", "i", "ng", "s"], "note": "ng is one sound; the s says z" },
+    { "id": "storytime.shelf-fly-guy.trash", "text": "trash", "parts": ["t", "r", "a", "sh"], "emoji": "🗑️", "note": "t-r blend; sh is one part" },
+    { "id": "storytime.shelf-fly-guy.smart", "text": "smart", "parts": ["s", "m", "ar", "t"], "note": "s-m blend, then ar says ar" },
+    { "id": "storytime.shelf-fly-guy.catch", "text": "catch", "parts": ["c", "a", "tch"], "note": "tch is one sound, like ch" },
+    { "id": "storytime.shelf-fly-guy.show", "text": "show", "parts": ["sh", "ow"], "note": "sh is one part; ow says long o, like snow" },
+    { "id": "storytime.shelf-fly-guy.prize", "text": "prize", "parts": ["p", "r", "i", "z", "e"], "emoji": "🏆", "note": "p-r blend; magic e: the e makes i say its name" },
+    { "id": "storytime.shelf-fly-guy.hi", "text": "hi", "parts": ["h", "i"], "tricky": [1], "emoji": "👋", "note": "the i says its name, like in I" },
+    { "id": "storytime.shelf-fly-guy.said", "text": "said", "parts": ["s", "ai", "d"], "tricky": [1], "note": "the ai says e: sed" },
+    { "id": "storytime.shelf-fly-guy.friend", "text": "friend", "parts": ["f", "r", "ie", "n", "d"], "tricky": [2], "note": "ie says e: frend" }
+  ]
+}

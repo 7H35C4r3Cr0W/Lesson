@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-pete-the-cat",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 200,
+  "title": "Pete the Cat words",
+  "emoji": "🐱",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Pete the cat walks along in his brand-new white shoes and keeps on singing no matter what he steps in or what color they turn. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read it together, with him reading the color words.",
+  "book": {
+    "author": "Eric Litwin and James Dean",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Pete+the+Cat+I+Love+My+White+Shoes&searchType=title",
+    "blurb": "A cool cat, a new pair of shoes and a song that does not stop for strawberries or mud."
+  },
+  "passage": {
+    "text": "Pete cat shoes white\nred blue brown wet\nmud bucket water walk\ncool step keep love\nmy new",
+    "level": "open",
+    "focus": ["i_e", "ue", "oo"],
+    "tricky": ["shoes", "brown", "water", "walk", "love", "my"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-pete-the-cat.pete", "text": "Pete", "parts": ["P", "e", "t", "e"], "emoji": "🐱", "note": "capital P, it is his name; magic e makes the first e say its name" },
+    { "id": "storytime.shelf-pete-the-cat.cat", "text": "cat", "parts": ["c", "a", "t"], "note": "all regular: c-a-t" },
+    { "id": "storytime.shelf-pete-the-cat.shoes", "text": "shoes", "parts": ["sh", "oe", "s"], "tricky": [1, 2], "emoji": "👟", "note": "sh is one part; oe says oo here and the s says z: shooz" },
+    { "id": "storytime.shelf-pete-the-cat.white", "text": "white", "parts": ["wh", "i", "t", "e"], "emoji": "⬜", "note": "wh says w; magic e makes i say its name" },
+    { "id": "storytime.shelf-pete-the-cat.red", "text": "red", "parts": ["r", "e", "d"], "emoji": "🔴", "note": "all regular: r-e-d" },
+    { "id": "storytime.shelf-pete-the-cat.blue", "text": "blue", "parts": ["b", "l", "ue"], "emoji": "🔵", "note": "b-l blend, then ue says oo" },
+    { "id": "storytime.shelf-pete-the-cat.brown", "text": "brown", "parts": ["b", "r", "ow", "n"], "tricky": [2], "note": "b-r blend; ow says ou as in out, like in cow" },
+    { "id": "storytime.shelf-pete-the-cat.wet", "text": "wet", "parts": ["w", "e", "t"], "emoji": "💦", "note": "all regular: w-e-t" },
+    { "id": "storytime.shelf-pete-the-cat.mud", "text": "mud", "parts": ["m", "u", "d"], "note": "all regular: m-u-d" },
+    { "id": "storytime.shelf-pete-the-cat.bucket", "text": "bucket", "parts": ["b", "u", "ck", "e", "t"], "note": "two parts: buck + et; ck is one sound" },
+    { "id": "storytime.shelf-pete-the-cat.water", "text": "water", "parts": ["w", "a", "t", "er"], "tricky": [1], "emoji": "💧", "note": "a says aw here, like in walk: waw-ter" },
+    { "id": "storytime.shelf-pete-the-cat.walk", "text": "walk", "parts": ["w", "a", "l", "k"], "tricky": [1, 2], "emoji": "🚶", "note": "a says aw and the l makes no sound, like in talk: wawk" },
+    { "id": "storytime.shelf-pete-the-cat.cool", "text": "cool", "parts": ["c", "oo", "l"], "emoji": "😎", "note": "oo says long oo, like moon" },
+    { "id": "storytime.shelf-pete-the-cat.step", "text": "step", "parts": ["s", "t", "e", "p"], "emoji": "👣", "note": "s-t blend" },
+    { "id": "storytime.shelf-pete-the-cat.keep", "text": "keep", "parts": ["k", "ee", "p"], "note": "ee says long e" },
+    { "id": "storytime.shelf-pete-the-cat.love", "text": "love", "parts": ["l", "o", "ve"], "tricky": [1], "emoji": "❤️", "note": "o says u; ve says v: luv" },
+    { "id": "storytime.shelf-pete-the-cat.my", "text": "my", "parts": ["m", "y"], "tricky": [1], "note": "the y says long i" },
+    { "id": "storytime.shelf-pete-the-cat.new", "text": "new", "parts": ["n", "ew"], "note": "ew says oo, with a little y: nyoo or noo, both are right" }
+  ]
+}

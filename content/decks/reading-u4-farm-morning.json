@@ -1,0 +1,92 @@
+{
+  "id": "reading.u4-farm-morning",
+  "subject": "reading",
+  "group": "unit4",
+  "order": 80,
+  "title": "A Farm Morning",
+  "emoji": "🐴",
+  "kind": "qa",
+  "standards": ["RF.1.4", "RL.1.1", "RL.1.3"],
+  "about": "A farm morning: Carl finds the corn bin empty and feeds his horse Star carrots from the garden instead. The story practises the vowel-plus-r spellings er, ar and or (morning, barn, corn, garden, carrots, perfect), two-syllable and compound words (sunrise, forgot, helpless) and the endings -ing and -less, with the Unit 4 tricky words today, yesterday, tomorrow and Monday. It is decodable at CKLA Unit 4, which the class usually reaches in January to February.",
+  "tip": "When he stalls on barn, corn or her, cover the rest of the word and ask what the vowel and the r say together, then blend.",
+  "readAloud": true,
+  "readChoices": false,
+  "passage": {
+    "text": "Today is Monday.\nCarl gets up at sunrise.\nHe runs to the barn.\nStar is his horse.\n\"Morning, Star!\" says Carl.\n\nStar is snorting and stomping.\nCarl looks in the corn bin.\nIt has no corn in it!\nYesterday Carl forgot to fill it.\n\nBut Carl is not helpless.\nHe drags a cart to the garden.\nHe picks lots of carrots.\nStar munches and crunches them.\nCarl brushes her soft back.\nStar rubs her nose on his arm.\n\"Tomorrow I will get corn,\" says Carl.\nWhat a perfect morning!",
+    "level": "unit4",
+    "focus": ["er", "ar", "or", "two-syllable words", "compound words", "-ing", "-less"],
+    "tricky": ["today", "is", "monday", "he", "to", "the", "says", "no", "yesterday", "a", "of", "tomorrow", "i", "what"]
+  },
+  "cards": [
+    {
+      "id": "reading.u4-farm-morning.who-sunrise",
+      "q": "Who gets up at sunrise?",
+      "a": "Carl",
+      "wrong": ["Mark", "Bert"],
+      "note": "The second line says Carl gets up at sunrise."
+    },
+    {
+      "id": "reading.u4-farm-morning.where-runs",
+      "q": "Where does Carl run to?",
+      "a": "the barn",
+      "wrong": ["the shed", "the park"],
+      "note": "Carl runs to the barn, where Star is."
+    },
+    {
+      "id": "reading.u4-farm-morning.what-star",
+      "q": "What is Star?",
+      "a": "a horse",
+      "wrong": ["a dog", "a hen"],
+      "note": "Star is Carl's horse."
+    },
+    {
+      "id": "reading.u4-farm-morning.what-munch",
+      "q": "What does Star munch and crunch?",
+      "a": "carrots",
+      "wrong": ["eggs", "nuts"],
+      "note": "Carl picks carrots from the garden because the corn bin is empty."
+    },
+    {
+      "id": "reading.u4-farm-morning.first",
+      "q": "What does Carl do first in the story?",
+      "a": "gets up",
+      "wrong": ["brushes Star", "picks carrots"],
+      "note": "First Carl gets up at sunrise; the carrots and the brushing come later."
+    },
+    {
+      "id": "reading.u4-farm-morning.end-tomorrow",
+      "q": "At the end, what does Carl say he will get tomorrow?",
+      "a": "corn",
+      "wrong": ["milk", "eggs"],
+      "note": "The last thing Carl says is that he will get corn tomorrow."
+    },
+    {
+      "id": "reading.u4-farm-morning.feel-star",
+      "q": "How does Star feel when the bin has no corn?",
+      "a": "upset",
+      "wrong": ["glad", "snug"],
+      "note": "Snorting and stomping show Star is upset; the story does not say it in words."
+    },
+    {
+      "id": "reading.u4-farm-morning.why-carrots",
+      "q": "Why does Carl pick carrots?",
+      "a": "Star has no corn",
+      "wrong": ["to feed the hens", "to sell them"],
+      "note": "The corn bin is empty, so Carl finds Star something else to munch."
+    },
+    {
+      "id": "reading.u4-farm-morning.vocab-helpless",
+      "q": "In the story, what does the word helpless mean?",
+      "a": "cannot help at all",
+      "wrong": ["big and strong", "fast and glad"],
+      "note": "Help plus -less means without any help; Carl can help Star, so he is not helpless."
+    },
+    {
+      "id": "reading.u4-farm-morning.word-barn",
+      "q": "Which word is in the story?",
+      "a": "barn",
+      "wrong": ["born", "bark"],
+      "note": "Barn, born and bark all have a vowel plus r; only barn is in the story."
+    }
+  ]
+}

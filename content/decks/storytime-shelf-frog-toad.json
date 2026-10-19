@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-frog-toad",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 180,
+  "title": "Frog and Toad words",
+  "emoji": "🐸",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Frog and Toad are two best friends who share five little stories: a spring wake-up, a lost button, a swim, a story and a letter in the mail. This level teaches the words the child will meet in the stories, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read one of the five stories together each night.",
+  "book": {
+    "author": "Arnold Lobel",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Frog+and+Toad+Are+Friends&searchType=title",
+    "blurb": "Five small, warm stories about two friends who look after each other."
+  },
+  "passage": {
+    "text": "Frog Toad spring bed\nwake hop button pocket\njacket letter mail snail\nwait sad sick friends\nare said",
+    "level": "open",
+    "focus": ["ai", "oa", "ck"],
+    "tricky": ["button", "friends", "are", "said"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-frog-toad.frog", "text": "Frog", "parts": ["F", "r", "o", "g"], "emoji": "🐸", "note": "capital F, it is his name; f-r blend" },
+    { "id": "storytime.shelf-frog-toad.toad", "text": "Toad", "parts": ["T", "oa", "d"], "note": "capital T, it is his name; oa says long o, like boat" },
+    { "id": "storytime.shelf-frog-toad.spring", "text": "spring", "parts": ["s", "p", "r", "i", "ng"], "emoji": "🌱", "note": "s-p-r blend; ng is one sound" },
+    { "id": "storytime.shelf-frog-toad.bed", "text": "bed", "parts": ["b", "e", "d"], "emoji": "🛏️", "note": "all regular: b-e-d" },
+    { "id": "storytime.shelf-frog-toad.wake", "text": "wake", "parts": ["w", "a", "k", "e"], "note": "magic e: the e makes a say its name" },
+    { "id": "storytime.shelf-frog-toad.hop", "text": "hop", "parts": ["h", "o", "p"], "note": "all regular: h-o-p" },
+    { "id": "storytime.shelf-frog-toad.button", "text": "button", "parts": ["b", "u", "tt", "o", "n"], "tricky": [3], "note": "tt is one t; two parts: but + ton, the o says u: but-un" },
+    { "id": "storytime.shelf-frog-toad.pocket", "text": "pocket", "parts": ["p", "o", "ck", "e", "t"], "note": "two parts: pock + et; ck is one sound" },
+    { "id": "storytime.shelf-frog-toad.jacket", "text": "jacket", "parts": ["j", "a", "ck", "e", "t"], "emoji": "🧥", "note": "two parts: jack + et; ck is one sound" },
+    { "id": "storytime.shelf-frog-toad.letter", "text": "letter", "parts": ["l", "e", "tt", "er"], "emoji": "✉️", "note": "tt is one t; two parts: let + ter; er says er" },
+    { "id": "storytime.shelf-frog-toad.mail", "text": "mail", "parts": ["m", "ai", "l"], "emoji": "📬", "note": "ai says long a" },
+    { "id": "storytime.shelf-frog-toad.snail", "text": "snail", "parts": ["s", "n", "ai", "l"], "emoji": "🐌", "note": "s-n blend, then ai says long a" },
+    { "id": "storytime.shelf-frog-toad.wait", "text": "wait", "parts": ["w", "ai", "t"], "note": "ai says long a" },
+    { "id": "storytime.shelf-frog-toad.sad", "text": "sad", "parts": ["s", "a", "d"], "emoji": "😢", "note": "all regular: s-a-d" },
+    { "id": "storytime.shelf-frog-toad.sick", "text": "sick", "parts": ["s", "i", "ck"], "emoji": "🤒", "note": "ck is one sound" },
+    { "id": "storytime.shelf-frog-toad.friends", "text": "friends", "parts": ["f", "r", "ie", "n", "d", "s"], "tricky": [2], "note": "ie says e; the s says z: frendz" },
+    { "id": "storytime.shelf-frog-toad.are", "text": "are", "parts": ["are"], "tricky": [0], "note": "whole word: say ar" },
+    { "id": "storytime.shelf-frog-toad.said", "text": "said", "parts": ["s", "ai", "d"], "tricky": [1], "note": "the ai says e here, not long a: sed" }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "storytime.gingerbread-man",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 60,
+  "title": "The Gingerbread Man",
+  "emoji": "🍪",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.3", "RF.1.4"],
+  "about": "The folk tale of the cookie who runs away from everyone until a sly fox offers him a ride across the river, told lightly: the fox eats the cookie in one bite and says yum. The repeating chant Run, run, as fast as you can makes it one of the easiest stories to read with expression. It is a public-domain story retold here in first-grade words, four pages long.",
+  "tip": "Ask: why did the Gingerbread Man trust the fox when he ran away from everyone else?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A runaway cookie meets a sly fox."
+  },
+  "passage": {
+    "text": "A little old woman made a cookie.\nIt was a gingerbread man.\nShe put him in the oven to bake.\nWhen she opened the oven, he jumped out!\nHe ran out the door.\n\"Run, run, as fast as you can!\"\n\"You can't catch me, I'm the Gingerbread Man!\"\nThe old woman ran after him.\nBut she could not catch him.\n***\nHe ran past a cow.\n\"Stop!\" said the cow.\n\"I want a bite!\"\n\"Run, run, as fast as you can!\"\n\"You can't catch me, I'm the Gingerbread Man!\"\nThe cow ran after him.\nBut she could not catch him.\n***\nHe ran past a horse.\n\"Stop!\" said the horse.\n\"I want a bite!\"\n\"Run, run, as fast as you can!\"\n\"You can't catch me, I'm the Gingerbread Man!\"\nThe horse ran after him.\nBut he could not catch him.\nThen he came to a river.\nHe could not swim.\n***\nA fox came by.\n\"Hop on my tail,\" said the fox.\n\"I will take you across.\"\nHe hopped on.\n\"The water is deep,\" said the fox.\n\"Hop up on my back.\"\n\"Now hop up on my nose.\"\nHe hopped up on the fox's nose.\nSnap!\nThe fox gobbled him up in one bite.\n\"Yum!\" said the fox.\nAnd that was the end of the Gingerbread Man.",
+    "level": "open",
+    "focus": ["short u", "magic e", "ai"],
+    "tricky": ["the", "a", "was", "to", "you", "put", "out", "could", "said", "want", "one", "water", "my", "by", "now", "old", "little", "i'm", "can't", "woman", "door", "oven", "of"]
+  },
+  "cards": [
+    { "id": "storytime.gingerbread-man.who-woman",
+      "q": "Who made the Gingerbread Man?",
+      "a": "a little old woman",
+      "wrong": ["a cow", "a fox"],
+      "emoji": "🍪",
+      "note": "Gingerbread is a cookie made with ginger, a spice; smell some if you have it." },
+
+    { "id": "storytime.gingerbread-man.jumped",
+      "q": "What did the Gingerbread Man do when the oven opened?",
+      "a": "he jumped out",
+      "wrong": ["he took a nap", "he ate a bite"],
+      "note": "Out of the oven, out the door, and the chase begins." },
+
+    { "id": "storytime.gingerbread-man.cow",
+      "q": "What did the cow want?",
+      "a": "a bite",
+      "wrong": ["a nap", "a hat"],
+      "emoji": "🐄",
+      "note": "The cow, the horse and the fox all want the same thing." },
+
+    { "id": "storytime.gingerbread-man.fox-tail",
+      "q": "What did the fox tell the Gingerbread Man to do?",
+      "a": "hop on his tail",
+      "wrong": ["run away fast", "bake a cake"],
+      "note": "Tail, then back, then nose: each hop brings the cookie closer to the fox's mouth." },
+
+    { "id": "storytime.gingerbread-man.first",
+      "q": "What happened first in the story?",
+      "a": "the cookie was baked",
+      "wrong": ["the fox ate him", "he met a cow"],
+      "note": "Baked, ran, cow, horse, river, fox: ask him to say the order on his fingers." },
+
+    { "id": "storytime.gingerbread-man.end",
+      "q": "What happened at the end of the story?",
+      "a": "the fox ate him",
+      "wrong": ["the cookie was baked", "the cow ate him"],
+      "note": "Snap, one bite, yum; that is how the story has always ended." },
+
+    { "id": "storytime.gingerbread-man.fox-tricky",
+      "q": "What was the fox like in the story?",
+      "a": "tricky",
+      "wrong": ["sleepy", "shy"],
+      "note": "The fox did not chase; he was sly and got the cookie to come to him." },
+
+    { "id": "storytime.gingerbread-man.where-river",
+      "q": "Where did the Gingerbread Man meet the fox?",
+      "a": "at the river",
+      "wrong": ["in the oven", "at the shop"],
+      "note": "The river is the problem: a cookie cannot swim, and that is why he needed the fox." },
+
+    { "id": "storytime.gingerbread-man.vocab-gobbled",
+      "q": "In the story, what does 'gobbled' mean?",
+      "a": "ate up fast",
+      "wrong": ["ran away", "took a nap"],
+      "note": "To gobble is to eat something fast and all at once, like a hungry turkey." },
+
+    { "id": "storytime.gingerbread-man.word-fox",
+      "q": "Which word is in the story?",
+      "a": "fox",
+      "wrong": ["fix", "box"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "storytime.shelf-strega-nona",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 140,
+  "title": "Strega Nona words",
+  "emoji": "🍝",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Strega Nona has a magic pot that cooks pasta when she sings to it, and her helper Big Anthony learns the hard way that he does not know the whole trick. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read it together, with him reading the words he knows.",
+  "book": {
+    "author": "Tomie dePaola",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "An old favorite about a magic pasta pot, a kind grandma witch and a helper who should have listened."
+  },
+  "passage": {
+    "text": "Nona pasta pot magic\nsing song kiss help\nstreet fork full witch\ngrandma stop three again",
+    "level": "open",
+    "focus": ["ng", "ee", "or"],
+    "tricky": ["nona", "pasta", "full", "grandma", "again"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-strega-nona.nona", "text": "Nona", "parts": ["N", "o", "n", "a"], "tricky": [1, 3], "note": "capital N, it is her name; the o says its name and the last a says u: No-nuh" },
+    { "id": "storytime.shelf-strega-nona.pasta", "text": "pasta", "parts": ["p", "a", "s", "t", "a"], "tricky": [4], "emoji": "🍝", "note": "two parts: pas + ta; the last a says u: pas-tuh" },
+    { "id": "storytime.shelf-strega-nona.pot", "text": "pot", "parts": ["p", "o", "t"], "note": "all regular: p-o-t" },
+    { "id": "storytime.shelf-strega-nona.magic", "text": "magic", "parts": ["m", "a", "g", "i", "c"], "emoji": "✨", "note": "two parts: mag-ic; the g says j" },
+    { "id": "storytime.shelf-strega-nona.sing", "text": "sing", "parts": ["s", "i", "ng"], "emoji": "🎤", "note": "ng is one sound" },
+    { "id": "storytime.shelf-strega-nona.song", "text": "song", "parts": ["s", "o", "ng"], "emoji": "🎵", "note": "ng is one sound" },
+    { "id": "storytime.shelf-strega-nona.kiss", "text": "kiss", "parts": ["k", "i", "ss"], "note": "ss is two letters, one sound" },
+    { "id": "storytime.shelf-strega-nona.help", "text": "help", "parts": ["h", "e", "l", "p"], "emoji": "🤝", "note": "all regular; l-p at the end" },
+    { "id": "storytime.shelf-strega-nona.street", "text": "street", "parts": ["s", "t", "r", "ee", "t"], "note": "s-t-r blend, then ee says long e" },
+    { "id": "storytime.shelf-strega-nona.fork", "text": "fork", "parts": ["f", "or", "k"], "emoji": "🍴", "note": "or says or, like fork" },
+    { "id": "storytime.shelf-strega-nona.full", "text": "full", "parts": ["f", "u", "ll"], "tricky": [1], "note": "u says oo as in book, like in pull; ll is one l" },
+    { "id": "storytime.shelf-strega-nona.witch", "text": "witch", "parts": ["w", "i", "tch"], "emoji": "🧙", "note": "tch is one sound, like ch; Strega means witch" },
+    { "id": "storytime.shelf-strega-nona.grandma", "text": "grandma", "parts": ["g", "r", "a", "n", "d", "m", "a"], "tricky": [6], "emoji": "👵", "note": "two words: grand + ma; the last a says ah: grand-mah" },
+    { "id": "storytime.shelf-strega-nona.stop", "text": "stop", "parts": ["s", "t", "o", "p"], "emoji": "🛑", "note": "s-t blend" },
+    { "id": "storytime.shelf-strega-nona.three", "text": "three", "parts": ["th", "r", "ee"], "emoji": "3️⃣", "note": "th is one part; ee says long e" },
+    { "id": "storytime.shelf-strega-nona.again", "text": "again", "parts": ["a", "g", "ai", "n"], "tricky": [0, 2], "emoji": "🔁", "note": "a says u and ai says e, like in said: uh-gen" }
+  ]
+}

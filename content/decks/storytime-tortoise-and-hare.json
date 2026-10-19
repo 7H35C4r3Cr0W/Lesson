@@ -1,0 +1,88 @@
+{
+  "id": "storytime.tortoise-and-hare",
+  "subject": "storytime",
+  "group": "fables",
+  "order": 20,
+  "title": "The Tortoise and the Hare",
+  "emoji": "🐢",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Aesop's fable of the boastful hare who stops for a nap and the slow tortoise who keeps going and wins the race. Fables are the first read-aloud domain of the NC/CKLA Grade 1 year (Fables and Stories), and this one gives him a line he will hear for the rest of his life: slow and steady wins the race. It is a public-domain story retold here in first-grade words, three pages long.",
+  "tip": "Act it out: you be the hare and take a nap while he plods past you saying step, step, step.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Aesop (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A race between the fastest and the slowest."
+  },
+  "passage": {
+    "text": "A hare liked to run fast.\nHe liked to brag, too.\n\"I am the fastest of all!\" he said.\nA tortoise was slow.\nHe walked step by step.\n\"Let's have a race,\" said the tortoise.\nThe hare laughed and laughed.\n\"You want to race me?\"\n\"Yes, let's race!\"\n***\nA fox said, \"Ready, set, go!\"\nThe hare ran off like the wind.\nThe tortoise plodded along.\nStep, step, step.\nSoon the hare was far ahead.\nHe looked back.\nHe could not see the tortoise at all.\n\"I have lots of time,\" said the hare.\n\"I will take a little nap.\"\nHe lay down under a tree.\nSoon he was fast asleep.\n***\nThe tortoise did not stop.\nStep, step, step.\nHe went past the sleeping hare.\nStep, step, step.\nHe got close to the finish line.\nThe hare woke up.\nHe saw the tortoise at the line!\nHe ran as fast as he could.\nBut it was too late.\nThe tortoise won the race!\n\"Slow and steady wins the race,\" said the fox.",
+    "level": "open",
+    "focus": ["magic e", "ee", "st blend"],
+    "tricky": ["the", "a", "to", "said", "of", "all", "you", "was", "have", "could", "little", "too", "by", "down", "go", "laughed", "ready", "steady", "want"]
+  },
+  "cards": [
+    { "id": "storytime.tortoise-and-hare.who-brag",
+      "q": "Who liked to brag about being fast?",
+      "a": "the hare",
+      "wrong": ["the tortoise", "the fox"],
+      "emoji": "🐇",
+      "note": "A hare is a big rabbit with long legs, built for speed." },
+
+    { "id": "storytime.tortoise-and-hare.who-go",
+      "q": "Who said 'Ready, set, go'?",
+      "a": "the fox",
+      "wrong": ["the hare", "the tortoise"],
+      "note": "The fox starts the race and says the lesson at the end." },
+
+    { "id": "storytime.tortoise-and-hare.nap",
+      "q": "What did the hare do under the tree?",
+      "a": "took a nap",
+      "wrong": ["ate a snack", "sang a song"],
+      "note": "He was so sure he would win that he stopped trying." },
+
+    { "id": "storytime.tortoise-and-hare.steps",
+      "q": "How did the tortoise move in the race?",
+      "a": "step by step",
+      "wrong": ["hop by hop", "fast as the wind"],
+      "emoji": "🐢",
+      "note": "Slow, but he never stopped; that is what steady means." },
+
+    { "id": "storytime.tortoise-and-hare.first",
+      "q": "What happened first in the story?",
+      "a": "the hare bragged",
+      "wrong": ["the hare napped", "the tortoise won"],
+      "note": "The bragging comes before the race even starts." },
+
+    { "id": "storytime.tortoise-and-hare.end",
+      "q": "What happened at the end of the story?",
+      "a": "the tortoise won",
+      "wrong": ["the hare won", "the fox won"],
+      "note": "The hare woke up too late to catch him." },
+
+    { "id": "storytime.tortoise-and-hare.feel-line",
+      "q": "How did the hare feel when he saw the tortoise at the line?",
+      "a": "surprised",
+      "wrong": ["sleepy", "proud"],
+      "note": "He thought the race was his, so seeing the tortoise there was a shock." },
+
+    { "id": "storytime.tortoise-and-hare.lesson",
+      "q": "What does this story teach?",
+      "a": "slow and steady wins",
+      "wrong": ["fast is always best", "naps win races"],
+      "note": "Keep going and do not quit, even if you are not the fastest." },
+
+    { "id": "storytime.tortoise-and-hare.vocab-plodded",
+      "q": "In the story, what does 'plodded' mean?",
+      "a": "walked slowly",
+      "wrong": ["ran fast", "jumped high"],
+      "note": "To plod is to walk slowly with heavy steps; plod across the room together." },
+
+    { "id": "storytime.tortoise-and-hare.word-race",
+      "q": "Which word is in the story?",
+      "a": "race",
+      "wrong": ["rice", "rake"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

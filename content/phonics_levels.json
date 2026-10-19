@@ -1,0 +1,45 @@
+{
+  "_about": "Cumulative sound-spelling inventory per CKLA Grade 1 Skills unit (Amplify / Core Knowledge, 2013-2024 editions agree). Used by tools/decodability.py to warn when a story uses a spelling the class has not met yet. Each level lists EVERYTHING a reader who has finished that unit can decode: Kindergarten code + units 1..N. 'graphemes' are spellings (a_e = magic e: vowel, one consonant, final e; g_j = soft g before e/i/y; c_s = soft c before e/i/y; n_ng = n before k). 'tricky' are words taught whole (Kindergarten list, 2018 Amplify edition, plus each unit's additions; 'go' added as a practical sight word). 'endings' are suffixes the checker may peel off a base word (with drop-e / double-consonant bases). Sources: research/ckla_g1_units.md (CKLA G1 Scope & Sequence 2013/2018/2023, Amplify tricky-word list, U1/U7 teacher guides).",
+  "unit1": {
+    "title": "Unit 1 (Snap Shots): the Kindergarten code reviewed - short vowels, consonants, ch sh th ng qu, ck and double letters",
+    "graphemes": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "a", "e", "i", "o", "u", "ch", "sh", "th", "ng", "ck", "bb", "cc", "dd", "ff", "gg", "ll", "mm", "nn", "pp", "rr", "ss", "tt", "zz"],
+    "endings": ["s", "es", "ing"],
+    "tricky": ["one", "two", "three", "the", "a", "blue", "yellow", "look", "i", "are", "little", "down", "out", "of", "funny", "all", "from", "was", "when", "word", "why", "to", "where", "no", "what", "so", "which", "once", "said", "says", "were", "here", "there", "he", "she", "we", "be", "me", "they", "their", "my", "by", "you", "your", "is", "some", "have", "do", "who", "go"]
+  },
+  "unit2": {
+    "title": "Unit 2 (Gran): long vowels with magic e and ee",
+    "graphemes": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "a", "e", "i", "o", "u", "ch", "sh", "th", "ng", "ck", "bb", "cc", "dd", "ff", "gg", "ll", "mm", "nn", "pp", "rr", "ss", "tt", "zz", "ee", "a_e", "i_e", "o_e", "u_e"],
+    "endings": ["s", "es", "ing"],
+    "tricky": ["one", "two", "three", "the", "a", "blue", "yellow", "look", "i", "are", "little", "down", "out", "of", "funny", "all", "from", "was", "when", "word", "why", "to", "where", "no", "what", "so", "which", "once", "said", "says", "were", "here", "there", "he", "she", "we", "be", "me", "they", "their", "my", "by", "you", "your", "is", "some", "have", "do", "who", "go"]
+  },
+  "unit3": {
+    "title": "Unit 3 (Fables): oo (soon, look), ou, oi, aw",
+    "graphemes": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "a", "e", "i", "o", "u", "ch", "sh", "th", "ng", "ck", "bb", "cc", "dd", "ff", "gg", "ll", "mm", "nn", "pp", "rr", "ss", "tt", "zz", "ee", "a_e", "i_e", "o_e", "u_e", "oo", "ou", "oi", "aw"],
+    "endings": ["s", "es", "ing"],
+    "tricky": ["one", "two", "three", "the", "a", "blue", "yellow", "look", "i", "are", "little", "down", "out", "of", "funny", "all", "from", "was", "when", "word", "why", "to", "where", "no", "what", "so", "which", "once", "said", "says", "were", "here", "there", "he", "she", "we", "be", "me", "they", "their", "my", "by", "you", "your", "is", "some", "have", "do", "who", "go", "because", "could", "should", "would"]
+  },
+  "unit4": {
+    "title": "Unit 4 (The Green Fern Zoo): er, ar, or; two-syllable and compound words; endings -ed -ing -ness -less",
+    "graphemes": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "a", "e", "i", "o", "u", "ch", "sh", "th", "ng", "ck", "bb", "cc", "dd", "ff", "gg", "ll", "mm", "nn", "pp", "rr", "ss", "tt", "zz", "ee", "a_e", "i_e", "o_e", "u_e", "oo", "ou", "oi", "aw", "er", "ar", "or"],
+    "endings": ["s", "es", "ing", "ed", "ness", "less"],
+    "tricky": ["one", "two", "three", "the", "a", "blue", "yellow", "look", "i", "are", "little", "down", "out", "of", "funny", "all", "from", "was", "when", "word", "why", "to", "where", "no", "what", "so", "which", "once", "said", "says", "were", "here", "there", "he", "she", "we", "be", "me", "they", "their", "my", "by", "you", "your", "is", "some", "have", "do", "who", "go", "because", "could", "should", "would", "yesterday", "today", "tomorrow", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+  },
+  "unit5": {
+    "title": "Unit 5 (Kate's Book): tch, soft g and ge, -ed as /t/ and /d/, ve, wr; plurals -s -es",
+    "graphemes": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "a", "e", "i", "o", "u", "ch", "sh", "th", "ng", "ck", "bb", "cc", "dd", "ff", "gg", "ll", "mm", "nn", "pp", "rr", "ss", "tt", "zz", "ee", "a_e", "i_e", "o_e", "u_e", "oo", "ou", "oi", "aw", "er", "ar", "or", "tch", "ge", "g_j", "ve", "wr"],
+    "endings": ["s", "es", "ing", "ed", "ness", "less"],
+    "tricky": ["one", "two", "three", "the", "a", "blue", "yellow", "look", "i", "are", "little", "down", "out", "of", "funny", "all", "from", "was", "when", "word", "why", "to", "where", "no", "what", "so", "which", "once", "said", "says", "were", "here", "there", "he", "she", "we", "be", "me", "they", "their", "my", "by", "you", "your", "is", "some", "have", "do", "who", "go", "because", "could", "should", "would", "yesterday", "today", "tomorrow", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "how", "coach", "stagecoach", "picture"]
+  },
+  "unit6": {
+    "title": "Unit 6 (Grace): soft c, ce, se, kn, wh, n before k",
+    "graphemes": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "a", "e", "i", "o", "u", "ch", "sh", "th", "ng", "ck", "bb", "cc", "dd", "ff", "gg", "ll", "mm", "nn", "pp", "rr", "ss", "tt", "zz", "ee", "a_e", "i_e", "o_e", "u_e", "oo", "ou", "oi", "aw", "er", "ar", "or", "tch", "ge", "g_j", "ve", "wr", "c_s", "ce", "se", "kn", "wh", "n_ng"],
+    "endings": ["s", "es", "ing", "ed", "ness", "less"],
+    "tricky": ["one", "two", "three", "the", "a", "blue", "yellow", "look", "i", "are", "little", "down", "out", "of", "funny", "all", "from", "was", "when", "word", "why", "to", "where", "no", "what", "so", "which", "once", "said", "says", "were", "here", "there", "he", "she", "we", "be", "me", "they", "their", "my", "by", "you", "your", "is", "some", "have", "do", "who", "go", "because", "could", "should", "would", "yesterday", "today", "tomorrow", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "how", "coach", "stagecoach", "picture", "cow"]
+  },
+  "unit7": {
+    "title": "Unit 7 (Kay and Martez): ai, ay, oa",
+    "graphemes": ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "qu", "r", "s", "t", "v", "w", "x", "y", "z", "a", "e", "i", "o", "u", "ch", "sh", "th", "ng", "ck", "bb", "cc", "dd", "ff", "gg", "ll", "mm", "nn", "pp", "rr", "ss", "tt", "zz", "ee", "a_e", "i_e", "o_e", "u_e", "oo", "ou", "oi", "aw", "er", "ar", "or", "tch", "ge", "g_j", "ve", "wr", "c_s", "ce", "se", "kn", "wh", "n_ng", "ai", "ay", "oa"],
+    "endings": ["s", "es", "ing", "ed", "ness", "less"],
+    "tricky": ["one", "two", "three", "the", "a", "blue", "yellow", "look", "i", "are", "little", "down", "out", "of", "funny", "all", "from", "was", "when", "word", "why", "to", "where", "no", "what", "so", "which", "once", "said", "says", "were", "here", "there", "he", "she", "we", "be", "me", "they", "their", "my", "by", "you", "your", "is", "some", "have", "do", "who", "go", "because", "could", "should", "would", "yesterday", "today", "tomorrow", "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "how", "coach", "stagecoach", "picture", "cow"]
+  }
+}

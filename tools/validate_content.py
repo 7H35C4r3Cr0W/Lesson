@@ -14,13 +14,34 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))      # so `import decodability` works from any folder
+from decodability import load_levels, pages, undecodable, word_tokens  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
+LEVELS_FILE = CONTENT / "phonics_levels.json"      # per-unit sound-spelling inventory (see decodability.py)
 
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9.-]*$")
 STANDARD_RE = re.compile(r"^(NC\.)?[A-Z0-9][A-Z0-9.-]*(\.[a-z0-9]+)*$")   # also NC CS codes like K2-CS-01
 DECK_KEYS = {"id", "subject", "group", "order", "title", "emoji", "kind", "standards", "about", "tip", "quiz",
-             "readChoices", "speakFront", "sayTitle", "readAloud", "cards", "notes"}
+             "readChoices", "speakFront", "sayTitle", "readAloud", "cards", "notes", "passage", "book"}
+PASSAGE_KEYS = {"text", "level", "focus", "tricky"}
+BOOK_KEYS = {"author", "source", "borrow", "blurb"}
+# A story is letters, spaces, line breaks and plain punctuation: the reader shows every token as a tap-able
+# word, the voice reads it, and curly quotes would make the word rules in logic.js disagree with ours.
+PASSAGE_CHARS_RE = re.compile(r"^[A-Za-z .,!?\"'\n-]*$")
+OPEN_LEVEL = "open"                # a retold classic, not a decodable story: no decodability check
+PASSAGE_WORDS = (30, 120)          # one-page story: hard limits (error) ...
+PASSAGE_WORDS_BEST = (40, 90)      # ... and what reads best (warning)
+PAGE_WORDS = (20, 120)             # per page of a multi-page book (error) ...
+PAGE_WORDS_BEST = (30, 90)         # ... and what reads best (warning)
+LIST_WORDS = (8, 120)              # a read deck's passage: the words of the level laid out as a shelf
+MAX_PAGES = 10
+MAX_STORY_WORDS = 600              # server.py MAX_PASSAGE_WORDS: POST /api/reads refuses a longer story's reads
+PASSAGE_CARDS = (8, 12)            # questions after a story
+SENTENCE_WORDS = 12
+LINE_WORDS = 14
+ANSWER_WORDS = 4
 READ_CARD_KEYS = {"id", "text", "parts", "tricky", "emoji", "note", "say", "quiz", "tags"}
 QA_CARD_KEYS = {"id", "q", "a", "wrong", "emoji", "visual", "note", "sayQ", "sayA", "quiz", "tags"}
 
@@ -190,6 +211,130 @@ def check_qa_card(card: dict, where: str, rep: Report) -> None:
         check_visual(card["visual"], where, rep)
 
 
+_levels = None
+_levels_state = "unloaded"     # unloaded / ok / missing / broken
+
+
+def phonics_levels(rep: Report):
+    """content/phonics_levels.json, read once. None when it is not there (each story then gets one warning,
+    not an error: the file is written separately and a story is still fine without the check)."""
+    global _levels, _levels_state
+    if _levels_state == "unloaded":
+        try:
+            _levels = load_levels(LEVELS_FILE)
+            _levels_state = "ok"
+        except OSError:
+            _levels_state = "missing"
+        except ValueError as e:
+            rep.err(LEVELS_FILE.name, f"cannot use: {e}")
+            _levels_state = "broken"
+    return _levels if _levels_state == "ok" else None
+
+
+def check_book(book, where: str, rep: Report) -> None:
+    """The real book behind a Story Time level: who wrote it, where it came from, where to borrow it."""
+    if not isinstance(book, dict) or any(not isinstance(v, str) for v in book.values()):
+        return rep.err(where, "'book' must be an object of strings (author, source, borrow, blurb)")
+    for key in book:
+        if key not in BOOK_KEYS:
+            rep.warn(where, f"unknown book key {key!r}")
+    if "borrow" in book and not book["borrow"].startswith("https://"):
+        rep.err(where, "book 'borrow' must be an https:// link")
+
+
+def check_passage(deck: dict, where: str, rep: Report, levels=None) -> None:
+    """A story deck: the passage the child reads before the cards. Shape mistakes fail the run; length,
+    readability and decodability are warnings, because the writer may judge a word worth keeping.
+    `levels` overrides the phonics level table (tests); None loads content/phonics_levels.json once."""
+    passage = deck.get("passage")
+    if not isinstance(passage, dict):
+        return rep.err(where, "'passage' must be an object with 'text' and 'level'")
+    for key in passage:
+        if key not in PASSAGE_KEYS:
+            rep.warn(where, f"unknown passage key {key!r}")
+    text = passage.get("text")
+    if not isinstance(text, str) or not text.strip():
+        return rep.err(where, "passage 'text' must be a non-empty string")
+    level = passage.get("level")
+    if not isinstance(level, str) or not level:
+        rep.err(where, "passage 'level' must be a string: a reading unit such as unit1, or open")
+        level = None
+    book = pages(text)
+    if not book:
+        return rep.err(where, "passage has no text between its page breaks")
+    body = "\n".join(book)                      # the story without its *** page-break lines
+    if not PASSAGE_CHARS_RE.match(body):
+        bad = sorted({ch for ch in body if not PASSAGE_CHARS_RE.match(ch)})
+        rep.err(where, "passage text may only use letters, spaces, line breaks and . , ! ? \" ' - "
+                       f"(a page break is a line of ***); found {', '.join(repr(ch) for ch in bad)}")
+    if len(book) > MAX_PAGES:
+        rep.err(where, f"{len(book)} pages; a book is {MAX_PAGES} pages at most")
+    total = len(word_tokens(body))
+    if total > MAX_STORY_WORDS:
+        rep.err(where, f"{total} words in all; the Pi keeps reads of stories up to {MAX_STORY_WORDS} words")
+    kind = deck.get("kind")
+    word_list = kind == "read"                  # a read deck's passage is a shelf of its words, not a story
+    if word_list:
+        lo, hi, best, what = LIST_WORDS[0], LIST_WORDS[1], None, "a word list"
+    elif len(book) == 1:
+        lo, hi, best, what = PASSAGE_WORDS[0], PASSAGE_WORDS[1], PASSAGE_WORDS_BEST, "a first-grade story"
+    else:
+        lo, hi, best, what = PAGE_WORDS[0], PAGE_WORDS[1], PAGE_WORDS_BEST, "a page"
+    for i, page in enumerate(book, 1):
+        n = len(word_tokens(page))
+        part = f"page {i}" if len(book) > 1 else "passage"
+        if not lo <= n <= hi:
+            rep.err(where, f"{part} has {n} words; {what} is {lo} to {hi} words")
+        elif best and not best[0] <= n <= best[1]:
+            rep.warn(where, f"{part} has {n} words; {best[0]} to {best[1]} reads best")
+    if not word_list:                           # a word list has no sentences and is laid out on purpose
+        for sentence in re.split(r"[.!?]+", body):
+            words = word_tokens(sentence)
+            if len(words) > SENTENCE_WORDS:
+                rep.warn(where, f"a sentence of {len(words)} words ({' '.join(words[:5])} ...); "
+                                f"keep sentences to {SENTENCE_WORDS} words")
+        for line in body.split("\n"):
+            n = len(word_tokens(line))
+            if n > LINE_WORDS:
+                rep.warn(where, f"a line of {n} words; break lines at {LINE_WORDS} words or fewer (one sentence per line)")
+    for key in ("focus", "tricky"):
+        val = passage.get(key)
+        if val is None:
+            rep.warn(where, f"passage has no '{key}' list (grown-ups see it on the level page and lesson plan)")
+        elif not isinstance(val, list) or not all(isinstance(x, str) and x.strip() for x in val):
+            rep.err(where, f"passage '{key}' must be a list of non-empty strings")
+    kind = deck.get("kind")
+    cards = deck.get("cards") if isinstance(deck.get("cards"), list) else []
+    if len(cards) < PASSAGE_CARDS[0]:
+        rep.err(where, f"a story needs at least {PASSAGE_CARDS[0]} cards, has {len(cards)}")
+    if kind == "qa":                            # a read deck's passage is a shelf of its words: no questions
+        if len(cards) > PASSAGE_CARDS[1]:
+            rep.warn(where, f"{len(cards)} questions; {PASSAGE_CARDS[0]} to {PASSAGE_CARDS[1]} keeps the round short")
+        if deck.get("readAloud") is not True:
+            rep.warn(where, "a story deck should set \"readAloud\": true so every question is read out")
+        if deck.get("readChoices") is not False:
+            rep.warn(where, "a story deck should set \"readChoices\": false (the choices are story words the child reads)")
+        for n, card in enumerate(cards):
+            if not isinstance(card, dict):
+                continue
+            cw = f"{where} {card.get('id') or f'card {n + 1}'}"
+            wrong = card.get("wrong") if isinstance(card.get("wrong"), list) else []
+            for answer in [card.get("a"), *wrong]:
+                if isinstance(answer, str) and len(answer.split()) > ANSWER_WORDS:
+                    rep.warn(cw, f"answer {answer!r} is over {ANSWER_WORDS} words; the child reads the choices himself")
+    if level is None or level == OPEN_LEVEL:
+        return
+    table = phonics_levels(rep) if levels is None else levels
+    if table is None:
+        rep.warn(where, f"decodability not checked: {LEVELS_FILE.name} is not there yet")
+    elif level not in table:
+        rep.warn(where, f"decodability not checked: level {level!r} is not in {LEVELS_FILE.name}")
+    else:
+        hard = undecodable(text, table[level])
+        if hard:
+            rep.warn(where, f"{len(hard)} word{'s' if len(hard) != 1 else ''} not decodable at {level}: {', '.join(hard)}")
+
+
 def check_deck(deck, path: Path, subjects: dict, seen_cards: Counter, seen_decks: set, rep: Report) -> None:
     where = path.name
     if not isinstance(deck, dict):
@@ -269,6 +414,10 @@ def check_deck(deck, path: Path, subjects: dict, seen_cards: Counter, seen_decks
     for text, n in answers.items():
         if n > 1 and text:
             rep.warn(where, f"{text!r} appears {n} times")
+    if "book" in deck:
+        check_book(deck["book"], where, rep)
+    if "passage" in deck:
+        check_passage(deck, where, rep)
     if kind == "read" and deck.get("quiz", True):
         distinct = {str(c.get("text", "")) for c in cards if isinstance(c, dict)}
         if len(distinct) < 3:
@@ -295,6 +444,7 @@ def main(argv: list[str]) -> int:
     seen_decks: set = set()
     decks_ok = 0
     cards_total = 0
+    stories = 0
     per_subject: Counter = Counter()
     for path in files:
         deck = load_json(path, rep)
@@ -305,12 +455,15 @@ def main(argv: list[str]) -> int:
         if len(rep.errors) == before:
             decks_ok += 1
             cards_total += len(deck.get("cards", []))
+            stories += "passage" in deck
             per_subject[deck.get("subject")] += 1
     for line in rep.warnings:
         print("WARN ", line)
     for line in rep.errors:
         print("ERROR", line)
-    print(f"\n{decks_ok}/{len(files)} decks valid, {cards_total} cards, {len(rep.errors)} errors, {len(rep.warnings)} warnings")
+    tally = f"{stories} stories, " if stories else ""
+    print(f"\n{decks_ok}/{len(files)} decks valid, {cards_total} cards, {tally}{len(rep.errors)} errors, "
+          f"{len(rep.warnings)} warnings")
     if per_subject:
         print("decks per subject:", ", ".join(f"{k}={v}" for k, v in sorted(per_subject.items())))
     return 1 if rep.errors else 0

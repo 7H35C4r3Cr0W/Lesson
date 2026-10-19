@@ -1,0 +1,88 @@
+{
+  "id": "storytime.lion-and-mouse",
+  "subject": "storytime",
+  "group": "fables",
+  "order": 10,
+  "title": "The Lion and the Mouse",
+  "emoji": "🦁",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Aesop's fable of the mighty lion who lets a tiny mouse go and is later set free by her when he is caught in a trap. Fables are the first read-aloud domain of the NC/CKLA Grade 1 year (Fables and Stories), where children learn that a fable is a short story with a lesson, and this is one of the gentlest. It is a public-domain story retold here in first-grade words, three pages long.",
+  "tip": "After the last page, ask: who turned out to be the stronger friend, and how?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Aesop (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A tiny mouse pays back a big favor."
+  },
+  "passage": {
+    "text": "A big lion slept in the sun.\nA little mouse ran up his back.\nThe lion woke up.\nHe grabbed the mouse with his big paw.\n\"Please let me go,\" said the mouse.\n\"One day I will help you.\"\nThe lion laughed.\n\"You are too little to help me!\"\nBut he let the mouse go.\n***\nOne day, some men came to the woods.\nThey set a trap.\nIt was a big net.\nThe lion ran into the net.\nHe could not get out.\nHe roared and roared.\n\"Help! Help!\"\nThe little mouse heard him.\nShe ran as fast as she could.\n***\n\"I will help you,\" said the mouse.\nShe nibbled the net with her sharp teeth.\nNibble, nibble, nibble.\nSnap!\nThe net fell apart.\nThe lion was free!\n\"Thank you, little friend,\" said the lion.\n\"You were right.\"\n\"You did help me.\"\nLittle friends can be big friends.",
+    "level": "open",
+    "focus": ["short e", "ee", "magic e"],
+    "tricky": ["the", "a", "was", "said", "to", "you", "are", "one", "little", "some", "they", "into", "out", "go", "could", "were", "heard", "right", "friend", "friends", "too", "laughed"]
+  },
+  "cards": [
+    { "id": "storytime.lion-and-mouse.who-mouse",
+      "q": "Who ran up the lion's back?",
+      "a": "a little mouse",
+      "wrong": ["a big dog", "a little bird"],
+      "emoji": "🐭",
+      "note": "The mouse is tiny next to the lion, which is the whole point of the story." },
+
+    { "id": "storytime.lion-and-mouse.where-sun",
+      "q": "Where was the lion sleeping at the start?",
+      "a": "in the sun",
+      "wrong": ["in the snow", "in a pool"],
+      "note": "Ask him to find the line on the first page that tells you." },
+
+    { "id": "storytime.lion-and-mouse.trap",
+      "q": "What did the men set in the woods?",
+      "a": "a trap",
+      "wrong": ["a tent", "a fire"],
+      "note": "The trap was a big net, and the lion ran right into it." },
+
+    { "id": "storytime.lion-and-mouse.roared",
+      "q": "How did the lion call for help?",
+      "a": "he roared",
+      "wrong": ["he sang", "he whispered"],
+      "emoji": "🦁",
+      "note": "Have him roar like the lion, then squeak like the mouse." },
+
+    { "id": "storytime.lion-and-mouse.first",
+      "q": "What happened first in the story?",
+      "a": "the lion napped",
+      "wrong": ["the net fell apart", "men set a trap"],
+      "note": "Retelling in order is a Grade 1 skill: first, next, last." },
+
+    { "id": "storytime.lion-and-mouse.end",
+      "q": "What happened at the end of the story?",
+      "a": "the lion got free",
+      "wrong": ["the lion napped", "the men came"],
+      "note": "The mouse chewed through the net and the lion was free." },
+
+    { "id": "storytime.lion-and-mouse.feel-stuck",
+      "q": "How did the lion feel when he was stuck in the net?",
+      "a": "scared",
+      "wrong": ["happy", "sleepy"],
+      "note": "The story never says the word, so he has to work it out from all the roaring." },
+
+    { "id": "storytime.lion-and-mouse.lesson",
+      "q": "What does this story teach?",
+      "a": "little friends can help",
+      "wrong": ["big is always best", "never help anyone"],
+      "note": "A fable is a short story with a lesson at the end; this one is the last line." },
+
+    { "id": "storytime.lion-and-mouse.vocab-nibbled",
+      "q": "In the story, what does 'nibbled' mean?",
+      "a": "took tiny bites",
+      "wrong": ["ran very fast", "took a nap"],
+      "note": "Mice nibble with small, quick bites; show him with a cracker." },
+
+    { "id": "storytime.lion-and-mouse.word-net",
+      "q": "Which word is in the story?",
+      "a": "net",
+      "wrong": ["nut", "nest"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

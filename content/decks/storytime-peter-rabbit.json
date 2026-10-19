@@ -1,0 +1,88 @@
+{
+  "id": "storytime.peter-rabbit",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 90,
+  "title": "The Tale of Peter Rabbit",
+  "emoji": "🐰",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.3", "RF.1.4"],
+  "about": "Beatrix Potter's 1902 classic about the naughty bunny who sneaks into Mr. McGregor's garden, loses his shoes and his jacket, and gets home to bed with a cup of tea. This is a short retelling in first-grade words that keeps a few of Potter's own famous lines; the book itself is in the public domain, so he can meet the real one at the library afterwards. Five pages long.",
+  "tip": "Ask: what did Peter's mother tell him, and what did he do instead?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Beatrix Potter (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A naughty bunny in Mr. McGregor's garden."
+  },
+  "passage": {
+    "text": "Once upon a time there were four little rabbits.\nTheir names were Flopsy, Mopsy, Cotton-tail, and Peter.\nThey lived under a big fir tree.\n\"Now run along,\" said Mrs. Rabbit.\n\"But do not go into Mr. McGregor's garden.\"\n\"And don't get into mischief.\"\nFlopsy, Mopsy, and Cotton-tail were good little bunnies.\nThey went to pick blackberries.\nBut Peter was very naughty.\nHe ran straight to Mr. McGregor's garden!\n***\nFirst he ate some lettuces.\nThen he ate some beans.\nThen he ate some radishes.\nHe felt rather sick.\nSo he went to look for some parsley.\nAt the end of the row was Mr. McGregor!\nMr. McGregor jumped up.\nHe ran after Peter, waving a rake.\n\"Stop, thief!\" he called.\n***\nPeter was very scared.\nHe ran all over the garden.\nHe lost one shoe in the cabbages.\nHe lost the other in the potatoes.\nThen he ran into a net!\nThe big buttons on his jacket got stuck.\nHe shed big tears.\nSome sparrows flew to him.\n\"Try, try again!\" they said.\n***\nMr. McGregor came with a sieve.\nHe tried to pop it on Peter.\nBut Peter wriggled out just in time.\nHe left his jacket behind.\nHe ran into the tool shed.\nHe hid in a can of water!\nThen Peter sneezed.\nMr. McGregor heard him.\nHe ran after Peter again.\nPeter jumped out of a window.\nMr. McGregor got tired of running.\nHe went back to his work.\n***\nPeter ran and ran.\nHe did not stop till he got home.\nHe flopped down on the soft sand.\nHe was not very well that evening.\nHis mother put him to bed.\nShe made him a cup of tea.\nBut Flopsy, Mopsy, and Cotton-tail had bread and milk.\nAnd blackberries for supper.",
+    "level": "open",
+    "focus": ["short a", "ck", "ea and ee"],
+    "tricky": ["the", "a", "once", "there", "were", "four", "their", "to", "into", "do", "don't", "some", "so", "of", "was", "said", "one", "all", "very", "little", "mother", "again", "they", "water", "out", "over", "down", "for", "go", "now", "other", "work", "put", "heard", "shoe", "bread", "naughty", "straight", "thief", "sieve"]
+  },
+  "cards": [
+    { "id": "storytime.peter-rabbit.who-peter",
+      "q": "Who was the naughty little rabbit?",
+      "a": "Peter",
+      "wrong": ["Flopsy", "Mopsy"],
+      "emoji": "🐰",
+      "note": "Four bunnies: Flopsy, Mopsy, Cotton-tail and Peter, and only one of them is naughty." },
+
+    { "id": "storytime.peter-rabbit.garden",
+      "q": "Which place did Mrs. Rabbit say to stay out of?",
+      "a": "Mr. McGregor's garden",
+      "wrong": ["the fir tree", "the blackberry bushes"],
+      "note": "His mother said it plainly, and he went straight there anyway." },
+
+    { "id": "storytime.peter-rabbit.chased",
+      "q": "What did Mr. McGregor do when he saw Peter?",
+      "a": "ran after him",
+      "wrong": ["gave him a hug", "went to sleep"],
+      "note": "Stop, thief! A thief is someone who takes what is not theirs, like Peter and the lettuces." },
+
+    { "id": "storytime.peter-rabbit.lost",
+      "q": "What did Peter lose in the garden?",
+      "a": "his shoes and jacket",
+      "wrong": ["his hat and bag", "his tail and ears"],
+      "emoji": "👟",
+      "note": "One shoe in the cabbages, one in the potatoes, and the jacket caught on the net." },
+
+    { "id": "storytime.peter-rabbit.first",
+      "q": "What happened first in the story?",
+      "a": "Mother said be good",
+      "wrong": ["Peter lost his shoes", "Peter went to bed"],
+      "note": "Mrs. Rabbit's warning comes first, which is what makes Peter naughty." },
+
+    { "id": "storytime.peter-rabbit.end",
+      "q": "What happened at the end of the story?",
+      "a": "Peter went to bed",
+      "wrong": ["Peter ate radishes", "Peter met Mr. McGregor"],
+      "note": "Peter got tea in bed; the good bunnies got bread, milk and blackberries." },
+
+    { "id": "storytime.peter-rabbit.feel-scared",
+      "q": "How did Peter feel when he saw Mr. McGregor?",
+      "a": "scared",
+      "wrong": ["happy", "bored"],
+      "note": "So scared he ran the wrong way and lost both shoes." },
+
+    { "id": "storytime.peter-rabbit.where-tree",
+      "q": "Where did the four little rabbits live?",
+      "a": "under a fir tree",
+      "wrong": ["in a tool shed", "in a garden"],
+      "note": "In the book they live in a sand bank under the roots of a very big fir tree." },
+
+    { "id": "storytime.peter-rabbit.vocab-mischief",
+      "q": "In the story, what does 'mischief' mean?",
+      "a": "naughty trouble",
+      "wrong": ["a yummy snack", "a soft bed"],
+      "note": "Getting into mischief is doing naughty things; it is Potter's own word." },
+
+    { "id": "storytime.peter-rabbit.word-rake",
+      "q": "Which word is in the story?",
+      "a": "rake",
+      "wrong": ["rack", "lake"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

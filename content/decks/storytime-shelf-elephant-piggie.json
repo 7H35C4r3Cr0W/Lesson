@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-elephant-piggie",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 190,
+  "title": "Elephant and Piggie words",
+  "emoji": "🐘",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Gerald the elephant finds a bird on his head, then two birds, then a nest, and his friend Piggie helps him work out what to do. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, one of you as Gerald and one as Piggie.",
+  "book": {
+    "author": "Mo Willems",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=There+Is+a+Bird+on+Your+Head&searchType=title",
+    "blurb": "A funny speech-bubble story about an elephant, a pig and a very busy head."
+  },
+  "passage": {
+    "text": "Gerald Piggie elephant pig\nbird head nest egg\nhatch chicks glasses big\nbest sit two ask\nthere your",
+    "level": "open",
+    "focus": ["ch", "ck", "ea"],
+    "tricky": ["gerald", "piggie", "head", "two", "there", "your"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-elephant-piggie.gerald", "text": "Gerald", "parts": ["G", "er", "a", "l", "d"], "tricky": [2], "emoji": "🐘", "note": "capital G, it is his name; the g says j before e and the a says u: Jer-uld" },
+    { "id": "storytime.shelf-elephant-piggie.piggie", "text": "Piggie", "parts": ["P", "i", "gg", "ie"], "tricky": [3], "emoji": "🐷", "note": "capital P, it is her name; gg is one g; ie says ee: Pig-ee" },
+    { "id": "storytime.shelf-elephant-piggie.elephant", "text": "elephant", "parts": ["e", "l", "e", "ph", "a", "n", "t"], "note": "ph says f; three parts: el-e-phant" },
+    { "id": "storytime.shelf-elephant-piggie.pig", "text": "pig", "parts": ["p", "i", "g"], "emoji": "🐖", "note": "all regular: p-i-g" },
+    { "id": "storytime.shelf-elephant-piggie.bird", "text": "bird", "parts": ["b", "ir", "d"], "emoji": "🐦", "note": "ir says er, like in her" },
+    { "id": "storytime.shelf-elephant-piggie.head", "text": "head", "parts": ["h", "ea", "d"], "tricky": [1], "note": "ea says short e here, like in bread: hed" },
+    { "id": "storytime.shelf-elephant-piggie.nest", "text": "nest", "parts": ["n", "e", "s", "t"], "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-elephant-piggie.egg", "text": "egg", "parts": ["e", "gg"], "emoji": "🥚", "note": "gg is two letters, one sound" },
+    { "id": "storytime.shelf-elephant-piggie.hatch", "text": "hatch", "parts": ["h", "a", "tch"], "emoji": "🐣", "note": "tch is one sound, like ch" },
+    { "id": "storytime.shelf-elephant-piggie.chicks", "text": "chicks", "parts": ["ch", "i", "ck", "s"], "emoji": "🐤", "note": "ch is one part; ck is one sound; the s says s" },
+    { "id": "storytime.shelf-elephant-piggie.glasses", "text": "glasses", "parts": ["g", "l", "a", "ss", "es"], "emoji": "👓", "note": "g-l blend; ss is one sound; es says iz" },
+    { "id": "storytime.shelf-elephant-piggie.big", "text": "big", "parts": ["b", "i", "g"], "note": "all regular: b-i-g" },
+    { "id": "storytime.shelf-elephant-piggie.best", "text": "best", "parts": ["b", "e", "s", "t"], "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-elephant-piggie.sit", "text": "sit", "parts": ["s", "i", "t"], "note": "all regular: s-i-t" },
+    { "id": "storytime.shelf-elephant-piggie.two", "text": "two", "parts": ["t", "w", "o"], "tricky": [1, 2], "emoji": "2️⃣", "note": "no w sound; o says oo" },
+    { "id": "storytime.shelf-elephant-piggie.ask", "text": "ask", "parts": ["a", "s", "k"], "emoji": "❓", "note": "all regular: a-s-k" },
+    { "id": "storytime.shelf-elephant-piggie.there", "text": "there", "parts": ["th", "ere"], "tricky": [1], "note": "ere says air" },
+    { "id": "storytime.shelf-elephant-piggie.your", "text": "your", "parts": ["y", "our"], "tricky": [1], "note": "our says or" }
+  ]
+}

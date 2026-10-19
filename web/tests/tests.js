@@ -265,6 +265,73 @@ test('day streak counts back from today or yesterday', () => {
   eq(L.dayStreak({}, '2026-10-11'), 0);
 });
 
+// ---- stories ------------------------------------------------------------------
+
+group('Stories');
+const story = 'Sam has a cat.\nThe cat is Max.\n\nMax naps on the mat.\nSam pats Max.';
+test('wordCount follows the shared word rules', () => {
+  eq(L.wordCount(story), 16);
+  eq(L.wordCount('"Hi!" - 3 ... Max\'s cat-nap'), 3);     // Hi, Max's, cat-nap; the dash, dots and digit do not count
+  eq(L.wordCount(''), 0);
+  eq(L.wordCount('***\nSam ran.\n***\nSam sat.'), 4);     // page breaks are not words
+});
+test('cleanWord trims punctuation, lower-cases and drops a possessive', () => {
+  eq(L.cleanWord("Max's"), 'max');
+  eq(L.cleanWord('"Hi!"'), 'hi');
+  eq(L.cleanWord("don't"), "don't");
+  eq(L.cleanWord('cat-nap,'), 'cat-nap');
+  eq(L.trimWord('"Hi!"'), 'Hi');
+  eq([L.countsAsWord('-'), L.countsAsWord('3'), L.countsAsWord('a.')], [false, false, true]);
+});
+test('passageParagraphs: paragraphs of trimmed lines, blanks dropped', () => {
+  eq(L.passageParagraphs(story), [['Sam has a cat.', 'The cat is Max.'], ['Max naps on the mat.', 'Sam pats Max.']]);
+  eq(L.passageParagraphs('  One.  \r\n\r\n\r\nTwo.\n'), [['One.'], ['Two.']]);
+  eq(L.passageParagraphs(''), []);
+  eq(L.passageTokens('  Sam  has a cat. '), ['Sam', 'has', 'a', 'cat.']);
+});
+test('passagePages: *** on its own line turns the page', () => {
+  eq(L.passagePages('Page one.\n***\nPage two.\n\nMore.'), ['Page one.', 'Page two.\n\nMore.']);
+  eq(L.passagePages(story), [story]);
+  eq(L.passagePages('***\nOnly.\n***'), ['Only.']);
+  eq(L.passageParagraphs('A.\n***\nB.'), [['A.', 'B.']]);     // the break itself is never a line
+});
+test('wcpmOf: 58 words, 3 errors, 72 seconds → 46; no time → null; never below 0', () => {
+  eq(L.wcpmOf(58, 3, 72), 46);
+  eq(L.wcpmOf(58, 3, 0), null);
+  eq(L.wcpmOf(58, 3, null), null);
+  eq(L.wcpmOf(10, 12, 30), 0);
+});
+test('addRead keeps the count, the scored count, the best wcpm and the last read', () => {
+  let s = L.addRead(null, { mode: 'self', words: 58, errors: 2, at: 100 });
+  eq(s, { count: 1, scored: 0, best: null, lastAt: 100, last: { mode: 'self', words: 58, errors: 2, seconds: null, wcpm: null, at: 100 } });
+  s = L.addRead(s, { mode: 'scored', words: 58, errors: 3, seconds: 72, at: 200 });
+  eq([s.count, s.scored, s.best, s.lastAt, s.last.wcpm, s.last.seconds], [2, 1, 46, 200, 46, 72]);
+  s = L.addRead(s, { mode: 'scored', words: 58, errors: 10, seconds: 90, at: 300 });
+  eq([s.count, s.scored, s.best, s.last.wcpm], [3, 2, 46, 32]);
+  s = L.addRead(s, { mode: 'self', words: 58, errors: 0, seconds: 50, at: 400 });     // a self read never carries a time
+  eq([s.count, s.scored, s.best, s.last.seconds, s.last.wcpm], [4, 2, 46, null, null]);
+});
+const P = await import('/js/phonics.js');
+test('splitSounds: letter teams, magic e, soft c, y at the end, silent letters', () => {
+  const letters = (w) => P.splitSounds(w).map((p) => p.text);
+  const sounds = (w) => P.splitSounds(w).map((p) => p.sound);
+  eq(letters('ship'), ['sh', 'i', 'p']);
+  eq(letters('thack'), ['th', 'a', 'ck']);
+  eq(letters('match'), ['m', 'a', 'tch']);
+  eq(letters('bridge'), ['b', 'r', 'i', 'dge']);
+  eq(letters('darkness'), ['d', 'ar', 'k', 'n', 'e', 'ss']);      // kn only at the front of a word
+  eq(sounds('cake'), ['kuh', 'ay', 'kuh', '']);
+  eq(sounds('city'), ['sss', 'ih', 'tuh', 'ee']);
+  eq(sounds('my'), ['mmm', 'eye']);
+  eq(sounds('yes'), ['yuh', 'eh', 'sss']);
+  eq(sounds('go'), ['guh', 'oh']);
+  eq(sounds('know'), ['nnn', 'ow']);
+  eq(sounds('apple'), ['aa', 'puh', 'lll', '']);
+  eq(sounds("don't"), ['duh', 'ah', 'nnn', '', 'tuh']);
+  eq(P.soundOut('Cat'), ['kuh', 'aa', 'tuh', 'Cat']);
+  eq(P.soundOut('I'), ['eye', 'I']);
+});
+
 // ---- DOM and drawings ---------------------------------------------------------
 
 group('Safety of the page builder');
@@ -361,6 +428,36 @@ if (bundle) {
     for (const d of bundle.decks) {
       if (d.kind !== 'read') continue;
       for (const c of d.cards) if (c.parts) eq(c.parts.join(''), c.text, c.id);
+    }
+  });
+  // Mirrors check_passage() in tools/validate_content.py: a one-page story is 30-120 words, a book
+  // is up to 10 pages of 20-120 words each, and a story has 8 or more questions, read aloud.
+  test('story levels: 30–120 words (20–120 a page), 8 or more cards, a level, questions read aloud, and every card builds', () => {
+    for (const d of bundle.decks) {
+      if (!d.passage) continue;
+      ok(d.passage && typeof d.passage.text === 'string' && d.passage.text.trim(), `${d.id}: no story text`);
+      const pages = L.passagePages(d.passage.text);
+      ok(pages.length >= 1 && pages.length <= 10, `${d.id}: ${pages.length} pages`);
+      ok(d.cards.length >= 8, `${d.id}: only ${d.cards.length} cards`);
+      ok(typeof d.passage.level === 'string' && d.passage.level, `${d.id}: passage.level missing`);
+      if (d.kind === 'qa') {          // a read deck's passage is a shelf of its words: no questions, any length
+        if (pages.length === 1) {
+          const n = L.wordCount(d.passage.text);
+          ok(n >= 30 && n <= 120, `${d.id}: ${n} words`);
+        } else {
+          pages.forEach((page, i) => {
+            const n = L.wordCount(page);
+            ok(n >= 20 && n <= 120, `${d.id}: page ${i + 1} has ${n} words`);
+          });
+        }
+        ok(d.readAloud === true, `${d.id}: readAloud should be true`);
+        ok(d.readChoices === false, `${d.id}: readChoices should be false`);
+      }
+      for (const c of d.cards) {
+        if (d.quiz === false || c.quiz === false) continue;
+        const q = L.buildQuestion(c, d, Math.random, 3);
+        ok(q.choices.includes(q.answer) && q.choices.length >= 2, `${c.id}: question does not build`);
+      }
     }
   });
 }

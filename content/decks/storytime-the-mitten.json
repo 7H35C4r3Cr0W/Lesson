@@ -1,0 +1,88 @@
+{
+  "id": "storytime.the-mitten",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 80,
+  "title": "The Mitten",
+  "emoji": "🧤",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.3", "RF.1.4"],
+  "about": "The Ukrainian folk tale of an old man who drops a mitten in the snow and the animals who squeeze in one by one, until his dog barks and they all jump out again. It is a cumulative tale with a line that repeats, which makes it easy to read and great for retelling in order. This retelling follows the traditional public-domain folk tale, not any one picture book, in first-grade words, four pages long.",
+  "tip": "Count the animals on your fingers as they squeeze in, then ask who jumped out first.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "a folk tale (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "How many animals fit in one lost mitten?"
+  },
+  "passage": {
+    "text": "An old man walked in the snowy woods.\nHis dog walked with him.\nThe old man dropped a mitten.\nHe did not see it fall.\nHe kept on walking.\nA little mouse ran by.\nShe saw the mitten in the snow.\n\"This looks snug,\" she said.\nShe crept in.\n***\nA frog hopped by.\n\"Who is in this mitten?\" he asked.\n\"A mouse,\" said the mouse.\n\"Let me in, too!\"\n\"Come in, there is room for one more.\"\nA rabbit hopped by.\n\"Who is in this mitten?\" he asked.\n\"A mouse and a frog.\"\n\"Let me in, too!\"\n\"Come in, there is room for one more.\"\n***\nA fox trotted by.\n\"Who is in this mitten?\" she asked.\n\"A mouse, a frog, and a rabbit.\"\n\"Let me in, too!\"\n\"Come in, there is room for one more.\"\nA wolf came by.\nThen a big bear came by.\n\"Let us in, too!\"\n\"Come in, there is room for one more.\"\nThe mitten was very, very full.\nIt was warm and snug.\n***\nThe old man looked at his hands.\n\"Oh no!\"\n\"I lost my mitten!\"\nHe went back to find it.\nHis dog ran ahead.\n\"Woof! Woof!\"\nOut jumped the bear.\nOut jumped the wolf and the fox.\nOut jumped the rabbit, the frog, and the mouse.\nThey all ran off into the woods.\nThe old man picked up his mitten.\nIt was stretched, but still warm.",
+    "level": "open",
+    "focus": ["short o", "blends", "-ed endings"],
+    "tricky": ["the", "a", "was", "old", "to", "said", "who", "come", "there", "one", "more", "for", "too", "no", "out", "into", "all", "oh", "my", "very", "full", "warm", "little", "they", "wolf"]
+  },
+  "cards": [
+    { "id": "storytime.the-mitten.who-man",
+      "q": "Who dropped the mitten in the snow?",
+      "a": "an old man",
+      "wrong": ["a mouse", "a bear"],
+      "emoji": "🧤",
+      "note": "He did not even notice; he just kept on walking." },
+
+    { "id": "storytime.the-mitten.said-snug",
+      "q": "What did the mouse say when she saw the mitten?",
+      "a": "This looks snug",
+      "wrong": ["This looks wet", "This looks big"],
+      "emoji": "🐭",
+      "note": "The mouse is first in; she gets the whole mitten to herself for a minute." },
+
+    { "id": "storytime.the-mitten.dog",
+      "q": "What did the old man's dog do?",
+      "a": "it barked",
+      "wrong": ["it napped", "it sang"],
+      "note": "Woof! Woof! The barking is what sends all the animals running." },
+
+    { "id": "storytime.the-mitten.jumped",
+      "q": "What happened when the animals heard the dog?",
+      "a": "they jumped out",
+      "wrong": ["they fell asleep", "they sang a song"],
+      "note": "Out they came, biggest first, and ran off into the woods." },
+
+    { "id": "storytime.the-mitten.first",
+      "q": "What happened first in the story?",
+      "a": "the mitten was lost",
+      "wrong": ["the bear came by", "the dog barked"],
+      "note": "Lost mitten, then mouse, frog, rabbit, fox, wolf, bear, then the dog." },
+
+    { "id": "storytime.the-mitten.end",
+      "q": "What happened at the end of the story?",
+      "a": "the mitten was found",
+      "wrong": ["the mouse crept in", "the frog hopped by"],
+      "note": "The old man got his mitten back, stretched out but still warm." },
+
+    { "id": "storytime.the-mitten.feel-upset",
+      "q": "How did the old man feel when he lost his mitten?",
+      "a": "upset",
+      "wrong": ["glad", "sleepy"],
+      "note": "Oh no! Ask how he feels when he loses a glove or a toy." },
+
+    { "id": "storytime.the-mitten.where-snow",
+      "q": "Where did the mouse find the mitten?",
+      "a": "in the snow",
+      "wrong": ["in a shop", "on a boat"],
+      "note": "Snowy woods in winter; that is why a warm mitten is such a find." },
+
+    { "id": "storytime.the-mitten.vocab-snug",
+      "q": "In the story, what does 'snug' mean?",
+      "a": "warm and tight",
+      "wrong": ["cold and wet", "big and loud"],
+      "note": "Snug is warm and cozy with no room to spare, like a sleeping bag zipped up." },
+
+    { "id": "storytime.the-mitten.word-mitten",
+      "q": "Which word is in the story?",
+      "a": "mitten",
+      "wrong": ["kitten", "bitten"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

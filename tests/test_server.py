@@ -20,7 +20,8 @@ sys.path.insert(0, str(ROOT))
 
 import server  # noqa: E402
 
-SUBJECTS = [{"id": "words", "title": "Words", "emoji": "📖"}, {"id": "math", "title": "Math", "emoji": "🔢"}]
+SUBJECTS = [{"id": "words", "title": "Words", "emoji": "📖"}, {"id": "math", "title": "Math", "emoji": "🔢"},
+            {"id": "reading", "title": "Stories", "emoji": "📚"}]
 DECK_WORDS = {
     "id": "w1", "subject": "words", "title": "Short a", "kind": "read", "order": 1,
     "cards": [{"id": "w1.cat", "text": "cat"}, {"id": "w1.hat", "text": "hat"}, {"id": "w1.map", "text": "map"}],
@@ -30,9 +31,39 @@ DECK_MATH = {
     "cards": [{"id": "m1.1p1", "q": "1 + 1", "a": "2", "wrong": ["1", "3"]},
               {"id": "m1.2p2", "q": "2 + 2", "a": "4", "wrong": ["3", "5"]}],
 }
+# A story: a passage the child reads, then questions about it (16 words; the validator's length rules
+# are not the server's business).
+DECK_STORY = {
+    "id": "s1", "subject": "reading", "group": "unit1", "title": "The Cat Nap", "emoji": "🐱", "kind": "qa", "order": 1,
+    "readAloud": True, "readChoices": False,
+    "passage": {"text": "Sam has a cat.\nThe cat is Max.\n\nMax naps on the mat.\nSam pats Max.",
+                "level": "unit1", "focus": ["short a"], "tricky": ["the", "a", "is", "has"]},
+    "cards": [
+        {"id": "s1.who", "q": "Who has a cat?", "a": "Sam", "wrong": ["Max", "Mom"]},
+        {"id": "s1.name", "q": "What is the cat's name?", "a": "Max", "wrong": ["Sam", "Mat"]},
+        {"id": "s1.where", "q": "Where does Max nap?", "a": "on the mat", "wrong": ["on the bed", "in a box"]},
+        {"id": "s1.does", "q": "What does Sam do?", "a": "pats Max", "wrong": ["runs", "naps"]},
+        {"id": "s1.first", "q": "What happens first?", "a": "Sam has a cat", "wrong": ["Max naps", "Sam pats Max"]},
+        {"id": "s1.last", "q": "What happens last?", "a": "Sam pats Max", "wrong": ["Max naps", "Sam has a cat"]},
+        {"id": "s1.nap", "q": "What does 'nap' mean?", "a": "a short sleep", "wrong": ["a run", "a snack"]},
+        {"id": "s1.word", "q": "Which word is in the story?", "a": "mat", "wrong": ["dog", "sun"]},
+    ],
+}
+DECK_STORY2 = {
+    "id": "s2", "subject": "reading", "group": "unit1", "title": "Big Pig", "emoji": "🐷", "kind": "qa", "order": 2,
+    "passage": {"text": "The pig is big.\nThe pig digs.", "level": "unit1"},
+    "cards": [{"id": "s2.who", "q": "Who digs?", "a": "the pig", "wrong": ["the cat", "Sam"]},
+              {"id": "s2.size", "q": "The pig is...", "a": "big", "wrong": ["small", "red"]}],
+}
+# A read deck may carry a passage too: the shelf of words the level teaches, laid out as lines.
+DECK_SHELF = {
+    "id": "r1", "subject": "reading", "group": "unit1", "title": "Words to meet", "kind": "read", "order": 3,
+    "passage": {"text": "cat hat\nmap", "level": "open"},
+    "cards": [{"id": "r1.cat", "text": "cat"}, {"id": "r1.hat", "text": "hat"}, {"id": "r1.map", "text": "map"}],
+}
 
 
-def write_content(folder: Path, decks=(DECK_WORDS, DECK_MATH)) -> None:
+def write_content(folder: Path, decks=(DECK_WORDS, DECK_MATH, DECK_STORY, DECK_STORY2, DECK_SHELF)) -> None:
     (folder / "decks").mkdir(parents=True, exist_ok=True)
     (folder / "subjects.json").write_text(json.dumps(SUBJECTS), encoding="utf-8")
     for deck in decks:
@@ -151,9 +182,11 @@ class StaticFiles(ServerCase):
     def test_content_bundle(self):
         resp, body = self.call("GET", "/content.json")
         self.assertEqual(resp.status, 200)
-        self.assertEqual([s["id"] for s in body["subjects"]], ["words", "math"])
-        self.assertEqual([d["id"] for d in body["decks"]], ["w1", "m1"])
+        self.assertEqual([s["id"] for s in body["subjects"]], ["words", "math", "reading"])
+        self.assertEqual([d["id"] for d in body["decks"]], ["w1", "m1", "s1", "s2", "r1"])
         self.assertTrue(body["version"])
+        story = next(d for d in body["decks"] if d["id"] == "s1")
+        self.assertEqual(story["passage"]["level"], "unit1")                # the passage rides along in the bundle
         resp2, _ = self.call("GET", "/content.json", headers={"If-None-Match": resp.getheader("ETag")})
         self.assertEqual(resp2.status, 304)
 
@@ -397,6 +430,192 @@ class Rounds(ServerCase):
         self.call("POST", f"/api/profiles/{pid}/reset", body={"scope": "all"})
         _, state = self.call("GET", f"/api/state?profile={pid}")
         self.assertEqual(state["rounds"], {})
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+
+class Reads(ServerCase):
+    """Stories: every read of a passage is kept; a grown-up's scored read carries words correct per minute."""
+
+    def kid(self, name):
+        _, out = self.call("POST", "/api/profiles", body={"name": name})
+        return out["profile"]["id"]
+
+    def post_read(self, uid, deck, mode, words, errors, profile=1, **extra):
+        body = {"profile": profile, "uid": uid, "deck": deck, "mode": mode, "words": words, "errors": errors,
+                "at": server.now_ms(), **extra}
+        return self.call("POST", "/api/reads", body=body)
+
+    def test_post_and_summary(self):
+        pid = self.kid("Reader")
+        resp, out = self.post_read("read-000001", "s1", "self", 16, 2, profile=pid, missed=["naps", "pats"])
+        self.assertEqual(resp.status, 200, out)
+        self.assertEqual(set(out), {"reads", "stars"})
+        s = out["reads"]["s1"]
+        self.assertEqual(list(s), ["count", "scored", "best", "lastAt", "last"])
+        self.assertEqual((s["count"], s["scored"], s["best"]), (1, 0, None))
+        self.assertEqual(s["last"], {"mode": "self", "words": 16, "errors": 2, "seconds": None, "wcpm": None,
+                                     "at": s["lastAt"]})
+        resp, out = self.post_read("read-000002", "s1", "scored", 58, 3, profile=pid, seconds=72)
+        s = out["reads"]["s1"]
+        self.assertEqual((s["count"], s["scored"], s["best"], s["last"]["wcpm"]), (2, 1, 46, 46))   # 55/72*60 = 45.8
+        self.assertEqual(s["last"]["seconds"], 72)
+        resp, out = self.post_read("read-000003", "s1", "scored", 58, 10, profile=pid, seconds=90)   # 48/90*60 = 32
+        s = out["reads"]["s1"]
+        self.assertEqual((s["count"], s["scored"], s["best"], s["last"]["wcpm"]), (3, 2, 46, 32))
+        self.assertEqual(list(out["reads"]), ["s1"])                       # the reply covers this story only
+        # Two reads stamped the same millisecond: the later one posted is the latest (ordered by at, then id).
+        at = server.now_ms()
+        self.post_read("read-000004", "s1", "scored", 58, 3, profile=pid, seconds=60, at=at)     # 55
+        _, out = self.post_read("read-000005", "s1", "scored", 58, 3, profile=pid, seconds=120, at=at)   # 27.5 -> 28
+        s = out["reads"]["s1"]
+        self.assertEqual((s["count"], s["best"], s["last"]["wcpm"], s["last"]["seconds"]), (5, 55, 28, 120))
+        # A read deck with a passage (a word shelf) can be read too.
+        resp, out = self.post_read("read-000006", "r1", "self", 3, 0, profile=pid)
+        self.assertEqual(resp.status, 200, out)
+        self.assertEqual(out["reads"]["r1"]["count"], 1)
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_wcpm_rounds_like_the_tablet(self):
+        self.assertEqual(server.wcpm_of(58, 3, 72), 46)
+        self.assertEqual(server.wcpm_of(22, 3, 40), 29)      # 28.5: half up like Math.round, not Python's half to even
+        self.assertEqual(server.wcpm_of(10, 10, 30), 0)
+        self.assertIsNone(server.wcpm_of(10, 0, 0))
+        self.assertIsNone(server.wcpm_of(10, 0, None))
+
+    def test_replayed_uid_counts_once(self):
+        pid = self.kid("Retry kid")
+        _, first = self.post_read("read-dup-00001", "s1", "self", 16, 0, profile=pid)
+        _, again = self.post_read("read-dup-00001", "s1", "scored", 16, 4, profile=pid, seconds=30)
+        self.assertEqual(again["reads"]["s1"]["count"], 1)
+        self.assertEqual(again["reads"]["s1"]["last"]["mode"], "self")     # the first post stands
+        self.assertEqual((first["stars"], again["stars"]), (1, 1))
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_validation(self):
+        pid = self.kid("Picky kid")
+        good = {"profile": pid, "uid": "read-bad-00001", "deck": "s1", "mode": "self", "words": 16, "errors": 1,
+                "at": server.now_ms()}
+        for bad in ({**good, "deck": "nope"},                        # unknown deck
+                    {**good, "deck": "w1"},                          # a level without a story
+                    {**good, "mode": "fast"},                        # bad mode
+                    {**good, "mode": None},
+                    {**good, "errors": 17},                          # more errors than words
+                    {**good, "mode": "scored"},                      # scored needs a time
+                    {**good, "mode": "scored", "seconds": 0},
+                    {**good, "mode": "scored", "seconds": 1801},
+                    {**good, "mode": "scored", "seconds": "72"},
+                    {**good, "words": 0}, {**good, "words": 601}, {**good, "words": "16"}, {**good, "errors": -1},
+                    {**good, "uid": "x"}, {**good, "missed": "naps"}):
+            resp, out = self.call("POST", "/api/reads", body=bad)
+            self.assertEqual(resp.status, 400, (bad, out))
+        self.assertEqual(self.call("POST", "/api/reads", body={**good, "profile": 99})[0].status, 404)
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(state["reads"], {})                          # nothing slipped through
+        resp, out = self.call("POST", "/api/reads", body={**good, "words": 600, "errors": 600})   # a long book, all wrong
+        self.assertEqual(resp.status, 200, out)
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_state_carries_reads(self):
+        pid = self.kid("State kid")
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(state["reads"], {})
+        self.post_read("read-st-00001", "s1", "self", 16, 0, profile=pid)
+        self.post_read("read-st-00002", "s2", "scored", 7, 1, profile=pid, seconds=10)   # 6/10*60 = 36
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(set(state["reads"]), {"s1", "s2"})
+        self.assertEqual(state["reads"]["s2"]["best"], 36)
+        self.assertEqual(state["reads"]["s1"]["last"]["mode"], "self")
+        self.assertEqual(state["stars"], 2)
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_reading_report_and_words_to_practise(self):
+        pid = self.kid("Report kid")
+        _, rep = self.call("GET", f"/api/reading/report?profile={pid}")
+        self.assertEqual(rep, {"decks": [], "missed": [], "stars": 0})
+        t0 = server.now_ms() - 3000
+        self.post_read("read-rep-00001", "s1", "self", 16, 2, profile=pid, missed=["naps", " Pats"], at=t0)
+        self.post_read("read-rep-00002", "s1", "scored", 16, 1, profile=pid, seconds=20, missed=["naps"], at=t0 + 1000)  # 45
+        self.post_read("read-rep-00003", "s2", "self", 7, 3, profile=pid, at=t0 + 2000,
+                       missed=["The", 5, "x" * 50, "", "naps", "the"])
+        resp, rep = self.call("GET", f"/api/reading/report?profile={pid}")
+        self.assertEqual(resp.status, 200, rep)
+        self.assertEqual(set(rep), {"decks", "missed", "stars"})
+        self.assertEqual(rep["stars"], 3)
+        self.assertEqual([d["deck"] for d in rep["decks"]], ["s2", "s1"])          # latest read first
+        decks = {d["deck"]: d for d in rep["decks"]}
+        self.assertEqual((decks["s1"]["summary"]["count"], decks["s1"]["summary"]["best"]), (2, 45))
+        reads = decks["s1"]["reads"]
+        self.assertEqual([r["mode"] for r in reads], ["scored", "self"])            # newest first
+        self.assertEqual(list(reads[0]), ["mode", "words", "errors", "seconds", "wcpm", "missed", "day", "at"])
+        self.assertEqual((reads[0]["wcpm"], reads[0]["seconds"], reads[0]["missed"]), (45, 20, ["naps"]))
+        self.assertEqual(reads[1]["missed"], ["naps", "pats"])                     # stored lower-case and trimmed
+        self.assertEqual(decks["s2"]["reads"][0]["missed"], ["the", "x" * 40, "naps"])   # non-words out, 40 chars, no dupes
+        self.assertEqual(rep["missed"][0], {"word": "naps", "times": 3, "lastAt": t0 + 2000})
+        self.assertEqual([m["word"] for m in rep["missed"]][1:], ["the", "x" * 40, "pats"])   # then latest, then a-z
+        # At most 60 missed words are kept per read and 50 reads shown per story (the summary counts them all).
+        self.post_read("read-rep-00004", "s1", "self", 16, 16, profile=pid, missed=[f"w{i}" for i in range(70)])
+        for i in range(52):
+            self.post_read(f"read-rep-many-{i:04d}", "s2", "self", 7, 0, profile=pid)
+        _, rep = self.call("GET", f"/api/reading/report?profile={pid}")
+        decks = {d["deck"]: d for d in rep["decks"]}
+        self.assertEqual(len(decks["s1"]["reads"][0]["missed"]), 60)
+        self.assertEqual(len(decks["s2"]["reads"]), 50)
+        self.assertEqual(decks["s2"]["summary"]["count"], 53)
+        self.assertEqual(len(rep["missed"]), 60)
+        self.assertEqual(rep["missed"][0]["word"], "naps")
+        self.assertEqual(self.call("GET", "/api/reading/report")[0].status, 400)
+        self.assertEqual(self.call("GET", "/api/reading/report?profile=99")[0].status, 404)
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_every_read_earns_a_star(self):
+        pid = self.kid("Star kid")
+        self.call("POST", "/api/attempts", body={"profile": pid, "attempts": [
+            self.attempt("read-star-att01", "m1.1p1", True), self.attempt("read-star-att02", "m1.2p2", False)]})
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(state["stars"], 1)
+        _, out = self.post_read("read-star-00001", "s1", "self", 16, 16, profile=pid)    # every word wrong: still a star
+        self.assertEqual(out["stars"], 2)
+        _, out = self.post_read("read-star-00002", "s1", "scored", 16, 0, profile=pid, seconds=30)
+        self.assertEqual(out["stars"], 3)
+        _, out = self.call("POST", "/api/attempts", body={"profile": pid, "attempts": [
+            self.attempt("read-star-att03", "m1.1p1", True)]})
+        self.assertEqual(out["stars"], 4)                                           # answers and reads add up
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual(state["stars"], 4)
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_reset_clears_reads(self):
+        pid = self.kid("Reset kid")
+        self.post_read("read-rst-00001", "s1", "self", 16, 0, profile=pid)
+        self.post_read("read-rst-00002", "s2", "self", 7, 0, profile=pid)
+        self.call("POST", "/api/rounds", body={"profile": pid, "uid": "read-rst-round1", "deck": "m1",
+                                               "total": 2, "correct": 2, "at": server.now_ms()})
+        self.assertEqual(self.call("POST", f"/api/profiles/{pid}/reset", body={"scope": "deck", "deck": "s1"})[0].status, 200)
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual((set(state["reads"]), state["stars"], set(state["rounds"])), ({"s2"}, 1, {"m1"}))
+        self.call("POST", f"/api/profiles/{pid}/reset", body={"scope": "all"})
+        _, state = self.call("GET", f"/api/state?profile={pid}")
+        self.assertEqual((state["reads"], state["stars"], state["rounds"]), ({}, 0, {}))
+        self.call("DELETE", f"/api/profiles/{pid}")
+
+    def test_export_and_profile_delete_cover_reads(self):
+        pid = self.kid("Export reader")
+        self.post_read("read-exp-00001", "s1", "scored", 16, 1, profile=pid, seconds=20, missed=["naps"])
+        _, dump = self.call("GET", "/api/export")
+        row = next(r for r in dump["reads"] if r["uid"] == "read-exp-00001")
+        self.assertEqual((row["profile_id"], row["deck_id"], row["mode"], row["wcpm"], json.loads(row["missed"])),
+                         (pid, "s1", "scored", 45, ["naps"]))
+        self.call("DELETE", f"/api/profiles/{pid}")
+        _, dump = self.call("GET", "/api/export")
+        self.assertFalse(any(r["profile_id"] == pid for r in dump["reads"]), "deleting a child removes their reads")
+
+    def test_day_and_clock_are_sanitised(self):
+        pid = self.kid("Clock reader")
+        self.post_read("read-clock-0001", "s1", "self", 16, 0, profile=pid, at=5, day="1999-01-01", seconds=50)
+        row = self.server.app.db.read("SELECT day, at, seconds, wcpm FROM reads WHERE uid='read-clock-0001'")[0]
+        self.assertEqual(row["day"], server.local_day())
+        self.assertLess(abs(row["at"] - server.now_ms()), 60_000)
+        self.assertEqual((row["seconds"], row["wcpm"]), (None, None))          # a self read keeps no time
         self.call("DELETE", f"/api/profiles/{pid}")
 
 
@@ -789,8 +1008,8 @@ class ContentLoading(unittest.TestCase):
                                                           encoding="utf-8")
             logs = []
             content = server.Content(tmp, log=logs.append)
-            self.assertEqual(sorted(content.decks), ["m1", "w1"])      # dupe card ids, bad json, bad subject: skipped
-            self.assertEqual(len(content.cards), 5)
+            self.assertEqual(sorted(content.decks), ["m1", "r1", "s1", "s2", "w1"])   # dupe card ids, bad json, bad subject: skipped
+            self.assertEqual(len(content.cards), 18)
             self.assertEqual(sum("skipping" in line for line in logs), 3)
             first = content.etag
 
@@ -801,6 +1020,28 @@ class ContentLoading(unittest.TestCase):
             content.refresh()
             self.assertIn("w2.sun", content.cards)
             self.assertNotEqual(content.etag, first)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_story_decks_need_a_passage_with_text(self):
+        tmp = Path(tempfile.mkdtemp(prefix="starcards-story-"))
+        try:
+            write_content(tmp)
+
+            def story(deck_id, passage):
+                return {**DECK_STORY2, "id": deck_id, "passage": passage,
+                        "cards": [{"id": f"{deck_id}.q", "q": "Who?", "a": "Sam", "wrong": ["Max"]}]}
+            (tmp / "decks" / "s7.json").write_text(json.dumps(story("s7", {"text": "Sam sat.", "level": "unit1"})), encoding="utf-8")
+            (tmp / "decks" / "s8.json").write_text(json.dumps(story("s8", "oops")), encoding="utf-8")
+            (tmp / "decks" / "s9.json").write_text(json.dumps(story("s9", {"text": "  "})), encoding="utf-8")
+            logs = []
+            content = server.Content(tmp, log=logs.append)
+            self.assertIn("s7", content.decks)
+            self.assertNotIn("s8", content.decks)
+            self.assertNotIn("s9", content.decks)
+            self.assertEqual(sum("skipping" in line for line in logs), 2)
+            self.assertEqual(content.decks["s1"]["passage"]["level"], "unit1")   # passages ride along in the bundle
+            self.assertEqual(content.decks["r1"]["kind"], "read")                # a read deck may carry one too
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
 

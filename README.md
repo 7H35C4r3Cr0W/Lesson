@@ -7,15 +7,19 @@ Raspberry Pi on your home Wi-Fi and is used on an iPad in Safari. No accounts, n
 - **For the child:** tap a subject → a winding path of levels → each level is a deck you can **Look** through
   (flashcards that talk) or **Play** (a short round of tap-the-answer). A level is passed with **85% or better**
   on a round (three stars), which opens the next one. Games pull questions from the levels reached. Right
-  answers earn stars, stars earn stickers.
+  answers earn stars, stars earn stickers. Story levels add a **Read** screen: the child reads the story from
+  the tablet, taps any word to hear it (🔤 *Sound it out* says it sound by sound), and earns a star for
+  reading it before the questions.
 - **For the grown-up:** a locked area with progress, a **Levels** page (every level, its best and latest score,
-  passed or not, and every wrong answer), "needs practice" cards, a test builder (pick decks, how many
-  questions, which cards), test history with question-by-question results, flags for cards that are wrong,
-  deck on/off switches, settings, export.
+  passed or not, and every wrong answer), a **Reading** page (every read of every story, words correct per
+  minute, accuracy, the words to practice) with a scoring mode on the Read screen, "needs practice" cards, a
+  test builder (pick decks, how many questions, which cards), test history with question-by-question results,
+  flags for cards that are wrong, deck on/off switches, settings, export.
 
 Everything is plain Python (standard library) and plain JavaScript. No build step, nothing to `pip install`.
 
-**What's inside:** 283 levels / ~4,900 cards across 9 subjects, built from the North Carolina Grade 1 standards and
+**What's inside:** 283 levels / ~4,900 cards across 9 subjects, plus two story subjects (12 stories and
+21 Story Time levels, below), built from the North Carolina Grade 1 standards and
 sized to last the whole school year: 🔤 Sounds (26), 📖 Words (54, in CKLA reading order, incl. all five CKLA
 tricky-word sets, three sight-word sets, prefixes/suffixes, contractions and silent letters), 💬 Sentences (36, incl.
 grammar and reading-comprehension levels), 🔢 Math (50), 🔬 Science (22), 🌎 My World / social studies (24), 💪 Healthy
@@ -29,6 +33,13 @@ toe, the five senses, skin/hair/nails, joints, bones, muscles, heart and blood, 
 eyes and ears, growing up, how the body fights germs, rest and movement, then healthy eating — food as fuel, fruits and
 vegetables, grains/protein/dairy, drinks and water, everyday and sometimes foods, meals and snacks, trying new foods —
 on NC Healthful Living 1.NPA/1.PCH and Science LS.1.1.1; the inside-the-body levels are bridge topics).
+📚 Stories (12 decodable stories in the CKLA Grade 1 Skills unit order, so each uses only the sound-spellings and
+tricky words taught so far; every story has a Read screen and 8–12 questions about it, NC RF.1.4 and RL.1.1–1.3) and
+📖 Story Time (21 levels: public-domain classics — Aesop's fables, fairy tales, Beatrix Potter's Peter Rabbit,
+nursery rhymes — retold at first-grade level and read page by page, plus a shelf of famous library books such as
+*If You Give a Mouse a Cookie*, *Frog and Toad* and *Elephant & Piggie*, where each level is the words you will meet in
+that book, with a link to borrow it). The app never copies a published book's text or pictures; it teaches the words
+and links to the library.
 Computers and My Body are **read-along** subjects: their levels carry `readAloud: true`, so the tablet reads every
 question and answer out loud even in "only when needed" voice mode, and the lesson plans tell the grown-up to read
 along. Plus 8 mini-games. Every deck was written from fact-checked research on the NC standards and then
@@ -49,8 +60,14 @@ Build the demo copy yourself with `python tools/build_static.py` (writes `docs/`
 
 ## For teachers
 
-- **What it is:** 283 short levels across nine subjects, written to the NC Standard Course of Study for Grade 1,
-  reading in the CKLA Grade 1 Skills order. Each level = talking flashcards (Look) + a tap-the-answer round (Play).
+- **What it is:** 283 short levels across nine subjects, plus 12 decodable stories and 21 Story
+  Time levels, written to the NC Standard Course of Study for Grade 1, reading in the CKLA Grade 1 Skills order.
+  Each level = talking flashcards (Look) + a tap-the-answer round (Play); a story level adds a Read screen first.
+- **Reading fluency:** on a story's Read screen the child reads from the tablet and taps any word he needs (the
+  tablet says it and remembers it). A grown-up can score a read instead: *Grown-up: score this read* → *Start* →
+  tap each word read wrong → *Finished*. The tablet records words correct per minute, the same measure as the
+  mCLASS/DIBELS check, and accuracy; the child only ever sees stars. Grown-ups → Reading keeps every read of
+  every story and the words to practice. Read each story three times (cold, warm, hot) and watch the number climb.
 - **How it teaches:** a level is passed at 85% or better on a round (9 of 10), which opens the next one; missed cards
   come back first and are collected under Needs practice; three right answers in a row across days make a card
   mastered; eight mini-games reuse the levels already reached. Nothing has a timer, lives or a game-over.
@@ -134,7 +151,12 @@ PIN in Settings and the Pi itself will refuse grown-up changes without it.
 - **Levels**: every level in every subject with its status (passed / not yet / locked), best score, last round,
   rounds played, cards missed and cards mastered. Open a level for every round played on it (score, pass or
   not) and **what he got wrong**: each missed card, the answer, what he chose and how often, when. *Start this
-  level over* forgets its rounds and resets its cards.
+  level over* forgets its rounds and resets its cards. A story level also lists every read of its story.
+- **Reading**: how to score a read and what the numbers mean, then stories read, reads in all, best and latest
+  words per minute and the words to practice; a table of every story (reads, last read and whether it was by
+  himself or scored, last and best WPM, accuracy of the last scored read, most-missed words), every read of each
+  story (when, mode, missed / words, time, WPM, the words), and **Words to practice**: every word tapped for help
+  or marked wrong, most often first.
 - **Tests**: *Make a test* → name, how many questions, which cards (all / already seen / needs practice / missed /
   new), decks to draw from, and whether to show right/wrong after each question. Saved tests appear as a
   "Test time!" button on the child's home screen. History lists every finished test with score and time; open one
@@ -160,7 +182,8 @@ closes a level again. Rounds under the mark are kept on the grown-up Levels page
 end-of-round screen says exactly what it takes ("Get 9 out of 10 for 3 stars") and offers *Try again*. Look-only
 levels (no Play button) are passed by flipping and sorting every card in the flashcards. "Mix it up", "Try again",
 tests and games never pass a level; only a round on the level itself does. A level once passed stays open even if
-the one before it is not (passed under *Open every level*, or while a deck was hidden).
+the one before it is not (passed under *Open every level*, or while a deck was hidden). A story level is passed by
+its Play round like any other; every finished read of the story earns a star but never passes the level.
 
 **Testing out.** A child who already knows a subject taps a locked level on the map and is offered a test-out: one
 round drawn evenly from every level between the first unpassed one and that level. 85% opens them all at once (the
@@ -209,16 +232,18 @@ https://starcards.local/ to the Home Screen). The 🙋 button then listens for a
 
 ## Editing the cards
 
-Decks are JSON files in `content/decks/`; the format and rules are in `CONTENT.md`. Edit on Windows, run
-`python tools/validate_content.py`, then deploy again. (To edit on the Pi itself, copy `content/` to
+Decks are JSON files in `content/decks/`; the format and rules are in `CONTENT.md` (including the `passage` object
+that makes a level a story, and `content/phonics_levels.json`, the sound-spellings and tricky words each CKLA unit
+has taught). Edit on Windows, run `python tools/validate_content.py` (it also warns when a story uses a word its
+unit has not taught yet), then deploy again. (To edit on the Pi itself, copy `content/` to
 `/var/lib/starcards/content` and set `STARCARDS_ARGS=--content-dir /var/lib/starcards/content`.) Saved files are
 picked up on the next page load, no restart needed.
 
 ## Tests
 
 ```bash
-python -m unittest discover -s tests        # server: API, lock, tests, flags, backups, static files
-python tools/validate_content.py            # every deck against the content rules
+python -m unittest discover -s tests        # server: API, lock, tests, flags, reads, backups, static files; decodability
+python tools/validate_content.py            # every deck against the content rules, every story's decodability
 ```
 
 In the browser, open `/tests/` (also linked from Grown-ups → Settings → About) to run the learning-rule tests,
@@ -234,8 +259,8 @@ tenth of a landscape screen, child-facing text at least 17 px, icon buttons labe
 ```
 server.py            the whole server: static files, content bundle, API, SQLite, PIN lock, Help proxy, backups
 web/                 the app  (js/main.js router, js/views/* screens, js/games/* games, css/app.css)
-content/             subjects.json + decks/*.json
-tools/               validate_content.py, make_icons.py, make_cert.sh
+content/             subjects.json + decks/*.json + phonics_levels.json (what each CKLA unit has taught, for the story checks)
+tools/               validate_content.py, decodability.py, make_icons.py, make_cert.sh
 tests/               server tests;  web/tests/ browser self-check
 deploy/              systemd unit, install.sh, deploy-from-windows.ps1, default settings file
 ```

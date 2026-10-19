@@ -52,6 +52,12 @@ DAY_MS = 86_400_000
 
 MODES = ("learn", "practice", "test", "game")
 FLAG_KINDS = ("practice", "issue")
+READ_MODES = ("self", "scored")   # a story read by the child alone, or timed and marked by a grown-up
+MAX_PASSAGE_WORDS = 600           # a multi-page book can be long
+MAX_READ_SECONDS = 1800
+MAX_MISSED_WORDS = 60             # words kept per read for the "words to practise" list
+MAX_MISSED_CHARS = 40
+MAX_REPORT_READS = 50             # per story in the reading report
 UID_RE = re.compile(r"^[A-Za-z0-9_-]{8,64}$")
 DAY_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 PIN_RE = re.compile(r"^\d{4,8}$")
@@ -157,6 +163,21 @@ CREATE TABLE IF NOT EXISTS rounds(
   at INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS rounds_profile_deck ON rounds(profile_id, deck_id);
+CREATE TABLE IF NOT EXISTS reads(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  uid TEXT NOT NULL UNIQUE,
+  profile_id INTEGER NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  deck_id TEXT NOT NULL,
+  mode TEXT NOT NULL,
+  words INTEGER NOT NULL,
+  errors INTEGER NOT NULL,
+  seconds INTEGER,
+  wcpm INTEGER,
+  missed TEXT NOT NULL DEFAULT '[]',
+  day TEXT NOT NULL,
+  at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS reads_profile_deck ON reads(profile_id, deck_id);
 CREATE TABLE IF NOT EXISTS settings(
   key TEXT PRIMARY KEY,
   value TEXT NOT NULL
@@ -219,6 +240,24 @@ def clip(val, max_len: int) -> str:
     return val[:max_len] if isinstance(val, str) else ""
 
 
+def clean_missed(raw) -> list[str]:
+    """The words a read went wrong on, as lower-case text: non-words dropped, at most 60 of 40 characters."""
+    if raw is None:
+        return []
+    if not isinstance(raw, list):
+        raise ApiError(400, "'missed' must be a list of words")
+    out: list[str] = []
+    for word in raw:
+        if not isinstance(word, str):
+            continue
+        word = word.strip().lower()[:MAX_MISSED_CHARS]
+        if word and word not in out:
+            out.append(word)
+        if len(out) >= MAX_MISSED_WORDS:
+            break
+    return out
+
+
 # -------------------------------------------------------------- learning math
 
 def apply_result(stat: dict, correct: bool, at: int) -> dict:
@@ -254,6 +293,17 @@ EMPTY_STAT = {"seen": 0, "correct": 0, "wrong": 0, "streak": 0, "box": 0, "recen
 def card_answer(card: dict, kind: str) -> str:
     """The one right answer for a card: the text itself for read decks, 'a' for question decks."""
     return card.get("text", "") if kind == "read" else card.get("a", "")
+
+
+def wcpm_of(words: int, errors: int, seconds) -> int | None:
+    """Words correct per minute, the fluency number schools use (mCLASS/DIBELS); None without a time.
+
+    Mirrors wcpmOf() in web/js/logic.js, so it rounds half up like Math.round (Python's round()
+    goes to the even number and would disagree with the tablet on a .5).
+    """
+    if not isinstance(seconds, int) or isinstance(seconds, bool) or seconds <= 0:
+        return None
+    return max(0, int((words - errors) / seconds * 60 + 0.5))
 
 
 # -------------------------------------------------------------------- content
@@ -351,6 +401,12 @@ class Content:
             raise ValueError("order must be a whole number")
         if not isinstance(deck["cards"], list) or not deck["cards"]:
             raise ValueError("deck has no cards")
+        if "passage" in deck:
+            # A story the child reads before the cards (any kind). The reader and the reading routes
+            # trust passage.text to be there, so a deck with a broken one is left out of the bundle.
+            passage = deck["passage"]
+            if not isinstance(passage, dict) or not isinstance(passage.get("text"), str) or not passage["text"].strip():
+                raise ValueError("passage must be an object with a 'text'")
         seen = set()
         for card in deck["cards"]:
             cid = card["id"]
@@ -665,10 +721,12 @@ class App:
             ("GET", r"/api/state", self.h_state, False),
             ("GET", r"/api/report", self.h_report, False),
             ("GET", r"/api/decks/([\w.-]+)/report", self.h_deck_report, False),
+            ("GET", r"/api/reading/report", self.h_reading_report, False),
             ("GET", r"/api/tests", self.h_tests, False),
             ("GET", r"/api/tests/(\d+)", self.h_test_get, False),
             ("POST", r"/api/attempts", self.h_attempts, False),
             ("POST", r"/api/rounds", self.h_rounds, False),
+            ("POST", r"/api/reads", self.h_reads, False),
             ("POST", r"/api/tests/(\d+)/finish", self.h_test_finish, False),
             ("POST", r"/api/profiles/(\d+)/avatar", self.h_avatar, False),
             ("POST", r"/api/parent/unlock", self.h_unlock, False),
@@ -739,8 +797,10 @@ class App:
         return {"id": row["id"], "name": row["name"], "avatar": row["avatar"], "prefs": prefs}
 
     def stars(self, profile_id: int) -> int:
+        """Right answers plus stories read: every finished read earns a star, however it went."""
         return self.db.read(
-            "SELECT COUNT(*) FROM attempts WHERE profile_id=? AND correct=1", (profile_id,))[0][0]
+            "SELECT (SELECT COUNT(*) FROM attempts WHERE profile_id=? AND correct=1) + "
+            "(SELECT COUNT(*) FROM reads WHERE profile_id=?)", (profile_id, profile_id))[0][0]
 
     PASS_MARK = 0.85     # a level is passed with 85% or better on a practice round (mirrored in logic.js)
     ROUND_MODES = ("practice", "testout", "learn")   # testout = one round that covers several levels
@@ -762,6 +822,29 @@ class App:
             s.update(last=score, lastAt=r["at"], lastCorrect=r["correct"], lastTotal=r["total"])
         for s in out.values():
             s["passed"] = s["best"] >= self.PASS_MARK
+        return out
+
+    def read_summary(self, profile_id: int, deck_id: str | None = None) -> dict:
+        """Per story: how often it was read, the best words-per-minute of the scored reads, the latest read.
+
+        Mirrors readSummary() in web/js/static-api.js and addRead() in web/js/logic.js.
+        """
+        sql = "SELECT deck_id, mode, words, errors, seconds, wcpm, at FROM reads WHERE profile_id=?"
+        args: list = [profile_id]
+        if deck_id is not None:
+            sql += " AND deck_id=?"
+            args.append(deck_id)
+        out: dict = {}
+        for r in self.db.read(sql + " ORDER BY at, id", args):
+            s = out.setdefault(r["deck_id"], {"count": 0, "scored": 0, "best": None, "lastAt": 0, "last": None})
+            s["count"] += 1
+            if r["mode"] == "scored":
+                s["scored"] += 1
+                if r["wcpm"] is not None:
+                    s["best"] = r["wcpm"] if s["best"] is None else max(s["best"], r["wcpm"])
+            s["lastAt"] = r["at"]
+            s["last"] = {"mode": r["mode"], "words": r["words"], "errors": r["errors"], "seconds": r["seconds"],
+                         "wcpm": r["wcpm"], "at": r["at"]}
         return out
 
     LEGACY_GAP_MS = 20 * 60 * 1000     # answers further apart than this were different sittings
@@ -957,7 +1040,7 @@ class App:
         return {
             "profile": self.profile_json(profile), "stats": stats, "flags": flags, "tests": tests,
             "days": days, "stars": self.stars(pid), "pinSet": self.parent.pin_is_set(),
-            "today": local_day(), "rounds": self.round_summary(pid),
+            "today": local_day(), "rounds": self.round_summary(pid), "reads": self.read_summary(pid),
         }
 
     def h_report(self, req: Request):
@@ -1021,6 +1104,70 @@ class App:
             "WHERE profile_id=? AND deck_id=? AND correct=0 AND mode!='game' ORDER BY at DESC LIMIT 500", (pid, deck_id))]
         return {"deck": deck_id, "rounds": rounds, "misses": misses,
                 "summary": self.round_summary(pid, deck_id).get(deck_id), "passMark": self.PASS_MARK}
+
+    def h_reads(self, req: Request):
+        """One finished read of a story: by the child alone ('self': words tapped for help count as errors)
+        or marked and timed by a grown-up ('scored': words correct per minute is worked out here)."""
+        pid = want_int(req.body, "profile", 1, 10**9)
+        self.profile_row(pid)
+        uid = req.body.get("uid")
+        if not isinstance(uid, str) or not UID_RE.match(uid):
+            raise ApiError(400, "Bad read id")
+        deck_id = req.body.get("deck")
+        deck = self.content.decks.get(deck_id) if isinstance(deck_id, str) else None
+        if not deck:
+            raise ApiError(400, "Unknown deck")
+        if not deck.get("passage"):
+            raise ApiError(400, "This level has no story")
+        mode = req.body.get("mode")
+        if mode not in READ_MODES:
+            raise ApiError(400, "Bad read mode")
+        words = want_int(req.body, "words", 1, MAX_PASSAGE_WORDS)
+        errors = want_int(req.body, "errors", 0, MAX_PASSAGE_WORDS)
+        if errors > words:
+            raise ApiError(400, "errors cannot be more than words")
+        seconds = want_int(req.body, "seconds", 1, MAX_READ_SECONDS) if mode == "scored" else None
+        wcpm = wcpm_of(words, errors, seconds) if mode == "scored" else None
+        missed = clean_missed(req.body.get("missed"))
+        at = self.clean_at(req.body.get("at"))
+        day = self.clean_day(req.body.get("day"), at)
+        with self.db.tx() as c:
+            c.execute(
+                "INSERT OR IGNORE INTO reads(uid, profile_id, deck_id, mode, words, errors, seconds, wcpm, missed, "
+                "day, at) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+                (uid, pid, deck_id, mode, words, errors, seconds, wcpm, json.dumps(missed, ensure_ascii=False),
+                 day, at))
+        return {"reads": self.read_summary(pid, deck_id), "stars": self.stars(pid)}
+
+    def h_reading_report(self, req: Request):
+        """Every story read, for the grown-up Reading page: the reads per story (newest first, stories in
+        order of their latest read) and the words to practise, counted across every read."""
+        pid = req.q_int("profile", 1, 10**9)
+        self.profile_row(pid)
+        summaries = self.read_summary(pid)
+        per_deck: dict[str, list] = {}
+        times: dict[str, int] = {}
+        last_at: dict[str, int] = {}
+        for r in self.db.read(
+                "SELECT deck_id, mode, words, errors, seconds, wcpm, missed, day, at FROM reads "
+                "WHERE profile_id=? ORDER BY at DESC, id DESC", (pid,)):
+            try:
+                missed = [w for w in json.loads(r["missed"]) if isinstance(w, str)]
+            except ValueError:
+                missed = []
+            for w in missed:
+                times[w] = times.get(w, 0) + 1
+                last_at[w] = max(last_at.get(w, 0), r["at"])
+            reads = per_deck.setdefault(r["deck_id"], [])
+            if len(reads) < MAX_REPORT_READS:
+                reads.append({"mode": r["mode"], "words": r["words"], "errors": r["errors"], "seconds": r["seconds"],
+                              "wcpm": r["wcpm"], "missed": missed, "day": r["day"], "at": r["at"]})
+        words = sorted(times, key=lambda w: (-times[w], -last_at[w], w))[:MAX_MISSED_WORDS]
+        return {
+            "decks": [{"deck": d, "summary": summaries.get(d), "reads": reads} for d, reads in per_deck.items()],
+            "missed": [{"word": w, "times": times[w], "lastAt": last_at[w]} for w in words],
+            "stars": self.stars(pid),
+        }
 
     def h_attempts(self, req: Request):
         pid = want_int(req.body, "profile", 1, 10**9)
@@ -1310,7 +1457,7 @@ class App:
         scope = req.body.get("scope")
         with self.db.tx() as c:
             if scope == "all":
-                for table in ("card_stats", "attempts", "tests", "rounds"):
+                for table in ("card_stats", "attempts", "tests", "rounds", "reads"):
                     c.execute(f"DELETE FROM {table} WHERE profile_id=?", (pid,))
                 c.execute("DELETE FROM flags WHERE profile_id=? AND kind='practice'", (pid,))
             elif scope == "deck":
@@ -1320,20 +1467,23 @@ class App:
                     for card in deck["cards"]:
                         c.execute("DELETE FROM card_stats WHERE profile_id=? AND card_id=?", (pid, card["id"]))
                 elif isinstance(deck_id, str) and deck_id and c.execute(
-                        "SELECT 1 FROM attempts WHERE profile_id=? AND deck_id=? LIMIT 1", (pid, deck_id)).fetchone():
+                        "SELECT 1 FROM attempts WHERE profile_id=? AND deck_id=? "
+                        "UNION ALL SELECT 1 FROM reads WHERE profile_id=? AND deck_id=? LIMIT 1",
+                        (pid, deck_id, pid, deck_id)).fetchone():
                     # A deck since removed from the content: its cards are known only from the history.
                     c.execute("DELETE FROM card_stats WHERE profile_id=? AND card_id IN "
                               "(SELECT card_id FROM attempts WHERE profile_id=? AND deck_id=?)", (pid, pid, deck_id))
                 else:
                     raise ApiError(400, "Unknown deck")
                 c.execute("DELETE FROM rounds WHERE profile_id=? AND deck_id=?", (pid, deck_id))
+                c.execute("DELETE FROM reads WHERE profile_id=? AND deck_id=?", (pid, deck_id))
             else:
                 raise ApiError(400, "Bad scope")
         return {"ok": True}
 
     def h_export(self, req: Request):
         out = {"app": APP_NAME, "version": VERSION, "exported": now_ms()}
-        for table in ("profiles", "card_stats", "attempts", "flags", "tests", "rounds"):
+        for table in ("profiles", "card_stats", "attempts", "flags", "tests", "rounds", "reads"):
             out[table] = [dict(r) for r in self.db.read(f"SELECT * FROM {table}")]
         return out
 

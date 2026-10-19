@@ -35,6 +35,8 @@ Edit a file, save, reload the page on the tablet. No restart. Run `python tools/
   "readAloud": true,                 // optional (qa only). true = the quiz and games always read the question (and choices,
                                      //   unless readChoices is false), even in "only when needed" voice mode: for read-along
                                      //   subjects a first-grader cannot read alone yet (Computers, My Body)
+  "passage": { ... },                // optional: makes this level a story with a Read screen (see Stories below)
+  "book": { ... },                   // optional: the library book this level points at (see Stories below)
   "cards": [ ... ]                   // 8 to 30 cards
 }
 ```
@@ -89,6 +91,103 @@ word can still answer. Write `q` the way you would say it. Math symbols are spok
 | `numberline` | `from`, `to` (1-20 steps), `mark` | a dot on `mark` |
 | `measure` | `len` 1-12, `emoji` | an object over unit blocks |
 | `graph` | `rows`: 2-4 of `{ "label": "🍎", "n": 3 }` | picture graph |
+
+## Stories (a deck with a `passage`)
+
+A story level is an ordinary deck with one extra object, `passage`. Everything else (the rules, Look, Play, the
+games, tests and grown-up pages) works unchanged. The level gains a **📖 Read** screen the child reads the text
+from (tap a word to hear it; 🔤 *Sound it out* says it sound by sound), a grown-up scoring mode that measures words
+correct per minute, and its Play round is the comprehension check (the normal 85% rule). Every finished read
+earns a star; only the Play round passes the level.
+
+```json
+{
+  "id": "reading.u1-the-cat-nap", "subject": "reading", "group": "unit1", "order": 10,
+  "title": "The Cat Nap", "emoji": "🐱", "kind": "qa",
+  "standards": ["RF.1.4", "RL.1.1", "RL.1.3"],
+  "about": "...", "tip": "...",
+  "readAloud": true, "readChoices": false,
+  "passage": {
+    "text": "Sam has a cat.\nThe cat is Max.\n\nMax naps on the mat.\nSam pats Max.",
+    "level": "unit1",
+    "focus": ["short a", "short i", "ck"],
+    "tricky": ["the", "a", "is", "has"]
+  },
+  "cards": [
+    { "id": "reading.u1-the-cat-nap.who", "q": "Who has a cat?", "a": "Sam", "wrong": ["Max", "Mom"],
+      "note": "The first line says so." }
+  ]
+}
+```
+
+- `passage.text` — the story. `\n` is a line break (one sentence per line is the norm for beginners), `\n\n` starts
+  a new paragraph, and a line that is exactly `***` is a page break: the Read screen shows one page at a time.
+  Letters, apostrophes, spaces and `. , ! ? " ' -` only. A one-page story (no `***`) is 30–120 words (an error
+  outside that), 40–90 preferred (a warning); a book of several pages is checked page by page, 20–120 words each,
+  10 pages at most. Sentences of 12 words or fewer and lines of 14 or fewer (warnings).
+- `passage.level` (required) — the decodability level the words are checked against: a group id of the Stories
+  subject (`unit1` … `unit7`), looked up in `content/phonics_levels.json` (below). `"open"` skips the check, for
+  retold classics and anything else meant to be read together rather than decoded alone.
+- `passage.focus` / `passage.tricky` — short strings for grown-ups: the sound-spellings the story practises
+  (`"short a"`, `"ck"`) and the tricky words it uses. Optional but expected; the level page, the lesson plan and
+  Grown-ups → Reading show them.
+- `cards` — 8 to 12 `qa` cards that check understanding: who / where / what happened / first and last / why /
+  how did X feel / what a word means / which word is in the story. `a` and each `wrong` at most 4 words. The round
+  uses the usual round length (10 questions → 9 right passes).
+- `readAloud: true` (the tablet reads each question even in "only when needed" voice mode) and
+  `readChoices: false` (the choices are story words the child reads himself; read along if he is stuck).
+- A `kind: "read"` deck may carry a `passage` too. Story Time's shelf levels are "the words you will meet in this
+  book": the passage lays those words out as lines, the cards are the same words, and the deck also carries `book`.
+
+### `book` (optional, any deck)
+
+```json
+"book": { "author": "Arnold Lobel", "source": "Frog and Toad Are Friends, 1970",
+          "borrow": "https://www.worldcat.org/...", "blurb": "Two friends and five very short stories." }
+```
+
+`borrow` must be an `https` link (the library catalogue, WorldCat, Open Library). The app never copies a published
+book's text or pictures: a shelf level teaches the words and links to the library. Public-domain classics (Aesop's
+fables, fairy tales, Peter Rabbit, nursery rhymes) are retold at first-grade level in the app's own words, with
+`passage.level: "open"`.
+
+### How words are counted
+
+One rule, run the same way in Python (`tools/decodability.py`, the validator and the server's words-per-minute)
+and in JavaScript (`web/js/logic.js`): split the text on whitespace; strip from each token every leading and
+trailing character that is not a letter, digit or apostrophe; drop empty tokens; a token counts as a word if it
+contains a letter (so `***`, `-` and `12` do not). `cleanWord(token)` is that stripped token lower-cased with a
+trailing `'s` removed (`Max's` → `max`); missed words are stored and listed that way.
+
+### Decodability warnings and `content/phonics_levels.json`
+
+`python tools/validate_content.py` checks every passage (shape, characters, length, card count, `kind`,
+`readAloud` / `readChoices`) and then its **decodability**: every word should be readable with the sound-spellings
+and tricky words taught by `passage.level`. The inventory lives in `content/phonics_levels.json`:
+
+```json
+{ "unit1": { "title": "Unit 1: short vowels",
+             "graphemes": ["a", "b", "c", "ck", "..."],
+             "endings": ["s", "es", "ed", "ing", "er", "est", "'s", "ly"],
+             "tricky": ["the", "a", "of", "..."] },
+  "unit2": { "...": "each unit lists its FULL cumulative inventory; nothing is inherited" } }
+```
+
+A word is decodable if it is a tricky word of that level, or if it (optionally minus one ending from `endings`,
+with the usual doubled-consonant or dropped-e base: `hopping` → `hop`, `hoping` → `hope`) can be spelled entirely
+from the level's `graphemes`. Digits are never decodable; a hyphenated word is checked as its parts; an apostrophe
+is silent (`can't` is checked as c-a-n-t). The validator
+prints one WARN per story listing the words that are not (`3 words not decodable at unit1: beautiful, house, said`).
+It is a warning, not an error, so you can judge: swap the word; or, if the class has learned it as a tricky word,
+add it to that unit's `tricky` list (and to `passage.tricky` so grown-ups see it); or keep it and plan to read it
+together. A missing level file or an unknown level is one warning per story. `tools/decodability.py` is importable
+from your own scripts (`load_levels`, `is_decodable`, `undecodable`, `word_tokens`, `clean_word`).
+
+### The sound-it-out voice (`web/js/phonics.js`)
+
+🔤 *Sound it out* on the Read screen says a word one sound at a time. What the voice says for each sound-spelling
+is the `SOUNDS` table exported from `web/js/phonics.js`; a grown-up can tune an entry there (say, what short `a`
+sounds like) by editing that file. It is plain JavaScript, no build step: save, reload the tablet.
 
 ## Rules for writing cards
 

@@ -1362,6 +1362,93 @@ textarea.input { min-height: 90px; resize: vertical; }
 .switch { width: 28px; height: 28px; accent-color: var(--blue); }
 .child-row { display: flex; align-items: center; gap: 10px; padding: 4px 0; }
 
+/* ---- Stories: the Read screen ---- */
+/* A story on a paper page: big rounded reading type, one sentence per line when it fits, lots
+   of air between the lines, and dark ink on paper in both themes. Every word is a button that
+   does not look like one (no border, no shadow) and glows softly when tapped. --read-size and
+   --read-leading are set from script only when a page would not fit the stage (reader.js fitStory). */
+.read-body { flex: 1; min-height: 0; display: flex; align-items: stretch; gap: 12px; }
+.read-body .nav-arrow { align-self: center; }
+.read-stage { display: flex; flex-direction: column; }
+.bar-title-wrap { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.bar-title-wrap .bar-title { flex: none; width: 100%; }
+.read-page-label { font-size: 17px; font-weight: 800; color: var(--muted-bg); line-height: 1.1; }
+.story {
+  margin: auto;                                     /* centred when it fits, top-aligned when it scrolls */
+  width: 100%; max-width: 36ch;
+  padding: 26px 30px 30px;
+  border: 3px solid var(--line); border-radius: 30px;
+  background: var(--card); color: var(--ink); box-shadow: var(--shadow);
+  font-family: var(--font-read); font-weight: 700;
+  font-size: var(--read-size, clamp(26px, 3.6vw, 36px));
+  line-height: var(--read-leading, 1.8);
+  word-spacing: 0.18em; letter-spacing: 0.01em;
+  text-align: left;
+}
+.story-par { margin: 0 0 0.6em; }
+.story-par:last-child { margin-bottom: 0; }
+.story-line { display: block; }                   /* one sentence on its own line when it fits */
+.story-break { text-align: center; color: var(--edge); font-size: 0.8em; line-height: 1.2; margin: 0.5em 0; }
+.w, .w-plain { display: inline-block; vertical-align: baseline; }
+.w {
+  padding: 2px 6px; margin: 0;
+  border: 0; border-radius: 10px; background: transparent;
+  font: inherit; color: inherit; line-height: inherit; letter-spacing: inherit;
+  text-align: inherit; transition: background 0.15s;
+}
+.w:active, .w.said { background: var(--gold-soft); }
+.w.reading { background: rgba(245, 185, 66, 0.55); }
+.w.help {
+  text-decoration-line: underline; text-decoration-style: dotted; text-decoration-color: var(--gold);
+  text-decoration-thickness: 3px; text-underline-offset: 0.12em;
+}
+.w.miss {
+  background: var(--orange-soft);
+  text-decoration-line: underline; text-decoration-style: solid; text-decoration-color: var(--orange);
+  text-decoration-thickness: 4px; text-underline-offset: 0.12em;
+}
+/* Sounding a word out: its letters split into sound parts with the flashcards' dots and lines
+   (.part / .team), the part being said lit up, then the whole word. */
+.w.sounding { background: var(--gold-soft); }
+.w .part { padding-bottom: 0.22em; margin-bottom: -0.22em; border-radius: 6px; transition: background 0.1s; }
+.w .part.silent { color: var(--muted); }
+.w .part.silent::after { display: none; }
+.w .part.now, .w.whole .part { background: var(--gold); }
+
+.read-foot { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 0 max(20px, 9vh); }
+.read-foot-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+.read-foot .btn.big { min-height: 80px; padding: 0 26px; font-size: 28px; }
+.read-hint { font-size: 17px; font-weight: 700; color: var(--muted-bg); text-align: center; }
+.read-mode-toggle { min-height: 44px; font-size: 16px; color: var(--muted-bg); }
+.read-bubble {
+  position: absolute; left: 50%; top: 0; z-index: 2; transform: translate(-50%, -100%);
+  max-width: 90%; padding: 10px 22px; border-radius: 999px; white-space: nowrap;
+  background: var(--gold-soft); border: 2px solid var(--gold); color: var(--ink);
+  font-size: 22px; font-weight: 800; text-align: center; animation: pop-in 0.3s ease-out;
+}
+.reader-done .grownup-note { color: var(--muted); align-items: center; margin-top: 6px; }
+.word-chips { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; }
+.word-chip {
+  display: inline-block; padding: 3px 12px; border-radius: 999px;
+  background: var(--orange-soft); color: var(--ink);
+  font-family: var(--font-read); font-weight: 700; font-size: 17px;
+}
+/* the level page's small print: a library link reads on the dark screen too */
+.grownup-note a { color: #8fb4ff; }
+body[data-theme="day"] .grownup-note a { color: var(--blue-edge); }
+/* 📖 Story in the quiz: the story in a sheet over the question */
+.story-peek { min-height: 64px; font-size: 22px; color: var(--muted-bg); }
+.story-dialog { width: min(940px, 100%); max-height: 92%; overflow: hidden; align-items: center; }
+.story-dialog .story-scroll { width: 100%; display: flex; flex-direction: column; }
+.story-dialog .story { box-shadow: none; }
+.story-dialog-foot { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; flex: none; }
+.story-dialog-foot .btn.big { min-height: 80px; font-size: 28px; }
+@media (max-width: 600px) {
+  .story { font-size: var(--read-size, clamp(24px, 3.6vw, 36px)); padding: 18px 16px 20px; border-radius: 22px; }
+  .read-foot .btn.big { min-height: 72px; font-size: 24px; padding: 0 18px; }
+  .read-body { gap: 0; }
+}
+
 /* ---- ergonomics audit overlay (only with ?audit in the address) ----------- */
 
 .audit-panel {

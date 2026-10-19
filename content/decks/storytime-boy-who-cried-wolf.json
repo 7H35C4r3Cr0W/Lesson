@@ -1,0 +1,87 @@
+{
+  "id": "storytime.boy-who-cried-wolf",
+  "subject": "storytime",
+  "group": "fables",
+  "order": 30,
+  "title": "The Boy Who Cried Wolf",
+  "emoji": "🐑",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Aesop's fable of the bored shepherd boy who yells Wolf! for fun until nobody believes him; in this telling the real wolf only scatters the sheep and nobody gets hurt. It is one of the fables in the NC/CKLA Grade 1 Fables and Stories domain, and the clearest first-grade example of a story with a lesson. It is a public-domain story retold here in first-grade words, three pages long.",
+  "tip": "Ask: why did nobody come the third time, and what could the boy do to be trusted again?",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Aesop (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A boy who tricks the village one time too many."
+  },
+  "passage": {
+    "text": "A boy kept the sheep on a hill.\nAll day he sat and sat.\nIt was not much fun.\n\"I know,\" he said.\n\"I will play a trick.\"\nHe ran down the hill.\n\"Wolf! Wolf!\" he yelled.\n\"A wolf is after the sheep!\"\nThe people from the village ran up the hill.\nThere was no wolf.\nThe boy just laughed.\n***\nThe next day, the boy did it again.\n\"Wolf! Wolf!\" he yelled.\nThe people ran up the hill.\nThere was no wolf.\nThe boy laughed and laughed.\nThe people were upset.\n\"Do not trick us,\" they said.\n\"Tell the truth.\"\n***\nThen one day, a real wolf came.\nIt ran at the sheep.\n\"Wolf! Wolf!\" the boy yelled.\n\"Help! It is a real wolf!\"\nBut no one came.\nThey thought it was a trick again.\nThe wolf chased the sheep all over the hill.\nThe boy felt very sad.\nIt took all day to get the sheep back.\nTell the truth, so people will trust you.",
+    "level": "open",
+    "focus": ["short i", "ee", "ch"],
+    "tricky": ["the", "a", "was", "said", "to", "they", "there", "one", "people", "from", "again", "do", "no", "so", "all", "over", "down", "know", "thought", "you", "very", "were", "laughed", "wolf"]
+  },
+  "cards": [
+    { "id": "storytime.boy-who-cried-wolf.who-boy",
+      "q": "Who kept the sheep on the hill?",
+      "a": "a boy",
+      "wrong": ["a girl", "a dog"],
+      "emoji": "🐑",
+      "note": "Someone who looks after sheep is called a shepherd." },
+
+    { "id": "storytime.boy-who-cried-wolf.where-hill",
+      "q": "Where were the sheep?",
+      "a": "on a hill",
+      "wrong": ["on a boat", "in a shop"],
+      "note": "The village is down below, so the people have to run up the hill each time." },
+
+    { "id": "storytime.boy-who-cried-wolf.yell",
+      "q": "What did the boy yell to trick the people?",
+      "a": "Wolf! Wolf!",
+      "wrong": ["Fire! Fire!", "Run! Run!"],
+      "note": "That yell is why the story is called The Boy Who Cried Wolf; cried means yelled here." },
+
+    { "id": "storytime.boy-who-cried-wolf.chased",
+      "q": "What did the real wolf do to the sheep?",
+      "a": "chased them all over",
+      "wrong": ["sang to them", "gave them hay"],
+      "note": "In this telling the sheep are only scattered; it takes all day to get them back." },
+
+    { "id": "storytime.boy-who-cried-wolf.first",
+      "q": "What happened first in the story?",
+      "a": "the boy tricked people",
+      "wrong": ["a real wolf came", "the boy felt sad"],
+      "note": "He was bored, so he played a trick, and then he played it again." },
+
+    { "id": "storytime.boy-who-cried-wolf.end",
+      "q": "What happened at the end of the story?",
+      "a": "the boy felt sad",
+      "wrong": ["the boy laughed", "the people came"],
+      "note": "The third time nobody came, and the boy had to gather the sheep himself." },
+
+    { "id": "storytime.boy-who-cried-wolf.feel-upset",
+      "q": "How did the people feel when they were tricked again?",
+      "a": "upset",
+      "wrong": ["glad", "sleepy"],
+      "note": "Ask how he feels when someone tricks him; that is why they stopped coming." },
+
+    { "id": "storytime.boy-who-cried-wolf.lesson",
+      "q": "What does this story teach?",
+      "a": "always tell the truth",
+      "wrong": ["tricks are fun", "never help people"],
+      "note": "If you tell lies, people stop trusting you, even when you tell the truth." },
+
+    { "id": "storytime.boy-who-cried-wolf.vocab-village",
+      "q": "In the story, what does 'village' mean?",
+      "a": "a small town",
+      "wrong": ["a big wolf", "a kind of hill"],
+      "note": "A village is a small town where the people all know each other." },
+
+    { "id": "storytime.boy-who-cried-wolf.word-trick",
+      "q": "Which word is in the story?",
+      "a": "trick",
+      "wrong": ["truck", "track"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

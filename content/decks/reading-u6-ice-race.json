@@ -1,0 +1,92 @@
+{
+  "id": "reading.u6-ice-race",
+  "subject": "reading",
+  "group": "unit6",
+  "order": 110,
+  "title": "The Ice Race",
+  "emoji": "⛸️",
+  "kind": "qa",
+  "standards": ["RF.1.4", "RL.1.1", "RL.1.3"],
+  "about": "Grace and Vince race on the ice rink, but first there is a knot in Grace's skate lace to undo. The story practises the Unit 6 spellings soft c and ce (ice, race, lace, fence, nice, Grace, Vince), se (house), kn (knit, knot, kneels), wh (when, whiz) and n before k (rink, pink, thinks, thanks). It is decodable at CKLA Unit 6, which the class usually reaches in April.",
+  "tip": "Point at the kn in knot and knit and remind him the k is silent, then let him hunt for every word that ends in ce.",
+  "readAloud": true,
+  "readChoices": false,
+  "passage": {
+    "text": "Grace and Vince are at the ice rink.\nGrace has on a pink hat that Gran knit.\n\"Let's race!\" says Vince.\n\"When I yell, we race to the fence.\"\n\nBut Grace has a knot in her lace!\nVince kneels on the ice and picks at the knot.\n\"Thanks, Vince!\" says Grace.\n\n***\nVince yells, and off they go!\nThey whiz past the bench.\nGrace thinks Vince will win.\nThey get to the fence at the same time!\n\n\"We win at the same time,\" says Grace.\n\"Nice race!\" says Vince.\nThen they go to Grace's house for hot milk.",
+    "level": "unit6",
+    "focus": ["soft c and ce", "se", "kn", "wh", "n before k"],
+    "tricky": ["are", "the", "a", "says", "when", "i", "we", "to", "they", "go"]
+  },
+  "cards": [
+    {
+      "id": "reading.u6-ice-race.who-rink",
+      "q": "Who is at the ice rink?",
+      "a": "Grace and Vince",
+      "wrong": ["Kate and Carl", "Bert and Gran"],
+      "note": "Grace and Vince are at the rink; Gran only knit the hat."
+    },
+    {
+      "id": "reading.u6-ice-race.what-hat",
+      "q": "What did Gran knit for Grace?",
+      "a": "a pink hat",
+      "wrong": ["a red sock", "a white cap"],
+      "note": "Grace has on a pink hat that Gran knit."
+    },
+    {
+      "id": "reading.u6-ice-race.what-lace",
+      "q": "What is in Grace's lace?",
+      "a": "a knot",
+      "wrong": ["a bug", "a stick"],
+      "note": "A knot in her skate lace is the problem."
+    },
+    {
+      "id": "reading.u6-ice-race.where-race",
+      "q": "Where do they race to?",
+      "a": "the fence",
+      "wrong": ["the gate", "the shed"],
+      "note": "Vince says they race to the fence."
+    },
+    {
+      "id": "reading.u6-ice-race.first",
+      "q": "What happens first, the knot or the race?",
+      "a": "the knot",
+      "wrong": ["the race", "the hot milk"],
+      "note": "Vince fixes the knot before the race starts."
+    },
+    {
+      "id": "reading.u6-ice-race.end-milk",
+      "q": "At the end, what do they drink at Grace's house?",
+      "a": "hot milk",
+      "wrong": ["ice pops", "hot buns"],
+      "note": "They go to Grace's house for hot milk after the race."
+    },
+    {
+      "id": "reading.u6-ice-race.feel-grace",
+      "q": "How does Grace feel when Vince fixes the knot?",
+      "a": "glad",
+      "wrong": ["mad", "sad"],
+      "note": "She says thanks, so she is glad."
+    },
+    {
+      "id": "reading.u6-ice-race.why-kneel",
+      "q": "Why does Vince kneel on the ice?",
+      "a": "to fix the knot",
+      "wrong": ["to rest his legs", "to pick up ice"],
+      "note": "He kneels to pick at the knot in Grace's lace."
+    },
+    {
+      "id": "reading.u6-ice-race.vocab-rink",
+      "q": "What is a rink?",
+      "a": "a place to skate",
+      "wrong": ["a place to nap", "a place to dig"],
+      "note": "An ice rink is a flat sheet of ice made for skating."
+    },
+    {
+      "id": "reading.u6-ice-race.word-knot",
+      "q": "Which word is in the story?",
+      "a": "knot",
+      "wrong": ["knob", "knock"],
+      "note": "All three start with the silent k of kn; only knot is in the story."
+    }
+  ]
+}

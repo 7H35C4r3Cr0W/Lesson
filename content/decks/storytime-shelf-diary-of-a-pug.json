@@ -1,0 +1,42 @@
+{
+  "id": "storytime.shelf-diary-of-a-pug",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 210,
+  "title": "Diary of a Pug words",
+  "emoji": "🐶",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Bub the pug writes a diary about life with his best friend Bella, her big project, and the squirrel and cat who keep getting in his way. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read a few diary pages together each day.",
+  "book": {
+    "author": "Kyla May",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A pug's own diary, full of snacks, naps and one big adventure that ends with a blast-off."
+  },
+  "passage": {
+    "text": "pug diary blast off\nrocket bath snacks treats\nnap sniff wag fetch\ncuddle girl because today",
+    "level": "open",
+    "focus": ["ck", "ff", "ea"],
+    "tricky": ["diary", "cuddle", "because", "today"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-diary-of-a-pug.pug", "text": "pug", "parts": ["p", "u", "g"], "emoji": "🐶", "note": "all regular: p-u-g" },
+    { "id": "storytime.shelf-diary-of-a-pug.diary", "text": "diary", "parts": ["d", "i", "ar", "y"], "tricky": [1, 3], "emoji": "📔", "note": "three parts: di-ar-y; the i says its name and y at the end says ee: dye-ar-ee" },
+    { "id": "storytime.shelf-diary-of-a-pug.blast", "text": "blast", "parts": ["b", "l", "a", "s", "t"], "emoji": "💥", "note": "b-l blend; s-t at the end" },
+    { "id": "storytime.shelf-diary-of-a-pug.off", "text": "off", "parts": ["o", "ff"], "note": "ff is two letters, one sound" },
+    { "id": "storytime.shelf-diary-of-a-pug.rocket", "text": "rocket", "parts": ["r", "o", "ck", "e", "t"], "emoji": "🚀", "note": "two parts: rock + et; ck is one sound" },
+    { "id": "storytime.shelf-diary-of-a-pug.bath", "text": "bath", "parts": ["b", "a", "th"], "emoji": "🛁", "note": "th is one part" },
+    { "id": "storytime.shelf-diary-of-a-pug.snacks", "text": "snacks", "parts": ["s", "n", "a", "ck", "s"], "emoji": "🥨", "note": "s-n blend; ck is one sound; the s says s" },
+    { "id": "storytime.shelf-diary-of-a-pug.treats", "text": "treats", "parts": ["t", "r", "ea", "t", "s"], "emoji": "🦴", "note": "t-r blend; ea says long e; the s says s" },
+    { "id": "storytime.shelf-diary-of-a-pug.nap", "text": "nap", "parts": ["n", "a", "p"], "emoji": "😴", "note": "all regular: n-a-p" },
+    { "id": "storytime.shelf-diary-of-a-pug.sniff", "text": "sniff", "parts": ["s", "n", "i", "ff"], "note": "s-n blend; ff is one f" },
+    { "id": "storytime.shelf-diary-of-a-pug.wag", "text": "wag", "parts": ["w", "a", "g"], "note": "all regular; dogs wag their tails" },
+    { "id": "storytime.shelf-diary-of-a-pug.fetch", "text": "fetch", "parts": ["f", "e", "tch"], "emoji": "🎾", "note": "tch is one sound, like ch" },
+    { "id": "storytime.shelf-diary-of-a-pug.cuddle", "text": "cuddle", "parts": ["c", "u", "dd", "le"], "tricky": [3], "emoji": "🤗", "note": "dd is one d; le says ul: cud-ul" },
+    { "id": "storytime.shelf-diary-of-a-pug.girl", "text": "girl", "parts": ["g", "ir", "l"], "emoji": "👧", "note": "ir says er, like in her" },
+    { "id": "storytime.shelf-diary-of-a-pug.because", "text": "because", "parts": ["b", "e", "c", "au", "se"], "tricky": [1, 3, 4], "note": "e says ee, au says u, se says z: be-cuz" },
+    { "id": "storytime.shelf-diary-of-a-pug.today", "text": "today", "parts": ["t", "o", "d", "ay"], "tricky": [1], "emoji": "📆", "note": "o says u; ay says long a: tuh-day" }
+  ]
+}

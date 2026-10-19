@@ -1,0 +1,92 @@
+{
+  "id": "reading.u5-kate-and-the-wren",
+  "subject": "reading",
+  "group": "unit5",
+  "order": 100,
+  "title": "Kate and the Wren",
+  "emoji": "🐦",
+  "kind": "qa",
+  "standards": ["RF.1.4", "RL.1.1", "RL.1.3"],
+  "about": "A wren gets stuck in the kitchen, and Kate catches it in a cage only to set it free in the garden. The story practises the Unit 5 spellings tch (kitchen, latched, unlatched), soft g and ge (large, cage), ve (five, live, have) and wr (wren, wrapped), plus past-tense -ed read as /t/ (flapped, bumped, hopped) and as /d/ (grinned, waved), with the tricky word how. It is decodable at CKLA Unit 5, which the class usually reaches in March.",
+  "tip": "Have him read the -ed words aloud and listen: flapped ends in /t/, waved ends in /d/, and lifted adds a whole extra syllable.",
+  "readAloud": true,
+  "readChoices": false,
+  "passage": {
+    "text": "On Tuesday a wren flapped in from the porch.\nIt was stuck in the kitchen.\nIt bumped the lamp.\n\"How did a wren get in?\" said Kate.\n\nKate got a large cage.\nShe set five seeds in it.\nThe wren hopped in.\nKate latched the cage.\nShe wrapped a cloth on the cage.\nThe wren sat still.\n\n***\nKate lifted the cage.\nShe took it to the garden.\nShe unlatched the cage.\nThe wren flapped up to a branch.\nIt sang and sang.\n\nKate grinned and waved.\n\"Have fun, little wren!\" she said.\n\"You can live in the garden.\"",
+    "level": "unit5",
+    "focus": ["tch", "soft g and ge", "-ed as /t/ and /d/", "ve", "wr"],
+    "tricky": ["tuesday", "a", "from", "the", "was", "how", "said", "she", "to", "have", "little", "you"]
+  },
+  "cards": [
+    {
+      "id": "reading.u5-kate-and-the-wren.who-cage",
+      "q": "Who got a large cage?",
+      "a": "Kate",
+      "wrong": ["Jade", "Gran"],
+      "note": "Kate gets the cage to catch the wren."
+    },
+    {
+      "id": "reading.u5-kate-and-the-wren.where-stuck",
+      "q": "Where was the wren stuck?",
+      "a": "in the kitchen",
+      "wrong": ["in the barn", "in the shed"],
+      "note": "The wren flapped in from the porch and got stuck in the kitchen."
+    },
+    {
+      "id": "reading.u5-kate-and-the-wren.what-seeds",
+      "q": "What did Kate set in the cage?",
+      "a": "five seeds",
+      "wrong": ["five bugs", "six nuts"],
+      "note": "Five seeds tempt the wren to hop in."
+    },
+    {
+      "id": "reading.u5-kate-and-the-wren.what-cloth",
+      "q": "What did Kate wrap on the cage?",
+      "a": "a cloth",
+      "wrong": ["a belt", "a sock"],
+      "note": "A cloth over the cage helps a bird sit still."
+    },
+    {
+      "id": "reading.u5-kate-and-the-wren.first",
+      "q": "What happened first in the story?",
+      "a": "a wren flapped in",
+      "wrong": ["Kate waved", "the wren sang"],
+      "note": "The wren flapping in from the porch is the very first thing that happens."
+    },
+    {
+      "id": "reading.u5-kate-and-the-wren.end-branch",
+      "q": "At the end, where does the wren go?",
+      "a": "up to a branch",
+      "wrong": ["back in the cage", "up to the shelf"],
+      "note": "Kate unlatches the cage and the wren flaps up to a branch."
+    },
+    {
+      "id": "reading.u5-kate-and-the-wren.feel-kate",
+      "q": "How did Kate feel when the wren sang?",
+      "a": "glad",
+      "wrong": ["sad", "cross"],
+      "note": "Grinning and waving show that Kate is glad."
+    },
+    {
+      "id": "reading.u5-kate-and-the-wren.why-garden",
+      "q": "Why did Kate take the cage to the garden?",
+      "a": "to free the wren",
+      "wrong": ["to get seeds", "to dig a bed"],
+      "note": "Kate catches the wren only to carry it outside and let it go."
+    },
+    {
+      "id": "reading.u5-kate-and-the-wren.vocab-latched",
+      "q": "What does latched mean in the story?",
+      "a": "shut and locked",
+      "wrong": ["lifted up", "filled up"],
+      "note": "To latch a cage is to shut its little lock so the door stays closed."
+    },
+    {
+      "id": "reading.u5-kate-and-the-wren.word-wren",
+      "q": "Which word is in the story?",
+      "a": "wren",
+      "wrong": ["wrist", "wreck"],
+      "note": "All three start with the silent w of wr; only wren is in the story."
+    }
+  ]
+}

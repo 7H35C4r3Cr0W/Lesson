@@ -8,6 +8,7 @@ import { dayString, dayStreak, deckProgress, levelPath, sumProgress } from '../.
 import * as store from '../../store.js';
 import { dateTime, duration, go, meter, pct, toast } from '../../ui.js';
 import * as levelsPage from './levels.js';
+import * as readingPage from './reading.js';
 import * as testsPage from './tests.js';
 import * as cardsPage from './cards.js';
 import * as settingsPage from './settings.js';
@@ -24,6 +25,7 @@ export function lock() {
 const TABS = [
   ['overview', 'Overview'],
   ['levels', 'Levels'],
+  ['reading', 'Reading'],
   ['tests', 'Tests'],
   ['practice', 'Needs practice'],
   ['cards', 'Cards'],
@@ -35,6 +37,7 @@ const PAGES = {
   overview: { tab: 'overview', draw: overview },
   levels: { tab: 'levels', draw: levelsPage.list },
   level: { tab: 'levels', draw: levelsPage.detail },
+  reading: { tab: 'reading', draw: readingPage.draw },
   tests: { tab: 'tests', draw: testsPage.list },
   newtest: { tab: 'tests', draw: testsPage.builder },
   test: { tab: 'tests', draw: testsPage.detail },
@@ -168,6 +171,7 @@ function overview(body, scope) {
   const levelsAll = Array.from(paths.values()).reduce((n, lv) => n + lv.length, 0);
   const passedAll = Array.from(paths.values()).reduce((n, lv) => n + lv.filter((l) => l.passed).length, 0);
   const trouble = store.troubleList();
+  const storyDecks = state.decks.filter((d) => d.passage).length;     // story levels, if the content has any
   const week = lastDays(7).reduce((acc, day) => {
     const d = state.days[day];
     return d ? { total: acc.total + d.total, correct: acc.correct + d.correct } : acc;
@@ -217,6 +221,7 @@ function overview(body, scope) {
       statBox(`${all.mastered} / ${all.total}`, 'cards mastered'),
       statBox(pct(week.correct, week.total), `right this week (${week.total} answers)`),
       statBox(String(trouble.length), 'need practice'),
+      storyDecks ? statBox(`${readingPage.storiesRead()} / ${storyDecks}`, 'stories read') : null,
       timeBox),
     h('div', { class: 'panel' }, h('h2', null, 'Last 14 days'),
       h('p', { class: 'muted' }, 'Bar height is how many answers; the green part is how many were right.'), chart),

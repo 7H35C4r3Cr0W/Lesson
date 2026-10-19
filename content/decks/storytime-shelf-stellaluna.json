@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-stellaluna",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 160,
+  "title": "Stellaluna words",
+  "emoji": "🦇",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "A baby fruit bat lands in a nest of birds and tries to live the way they do, until she finds her own kind and learns that friends can be different. This level teaches the words the child will meet in the story, so the library copy is easier to read on his own.",
+  "tip": "After the level, borrow the book from the library and read it together, with him reading the words he practised.",
+  "book": {
+    "author": "Janell Cannon",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/list/display/72113334/72793860",
+    "blurb": "A lost baby bat raised by birds finds out who she really is and keeps her friends anyway."
+  },
+  "passage": {
+    "text": "Stellaluna bat mother owl\nnest birds bugs fruit\nhang upside down night\nflap feet tree dark\nsleep like",
+    "level": "open",
+    "focus": ["ee", "igh", "ow"],
+    "tricky": ["stellaluna", "mother", "owl", "fruit", "down"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-stellaluna.stellaluna", "text": "Stellaluna", "parts": ["Stel", "la", "lu", "na"], "tricky": [2], "emoji": "🦇", "note": "capital S, it is her name; four parts: Stel-la-lu-na, the lu says loo" },
+    { "id": "storytime.shelf-stellaluna.bat", "text": "bat", "parts": ["b", "a", "t"], "emoji": "🦇", "note": "all regular: b-a-t" },
+    { "id": "storytime.shelf-stellaluna.mother", "text": "mother", "parts": ["m", "o", "th", "er"], "tricky": [1], "emoji": "👩", "note": "o says u, like in other: muth-er" },
+    { "id": "storytime.shelf-stellaluna.owl", "text": "owl", "parts": ["ow", "l"], "tricky": [0], "emoji": "🦉", "note": "ow says ou as in out, like in cow" },
+    { "id": "storytime.shelf-stellaluna.nest", "text": "nest", "parts": ["n", "e", "s", "t"], "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-stellaluna.birds", "text": "birds", "parts": ["b", "ir", "d", "s"], "emoji": "🐦", "note": "ir says er, like in her; the s says z" },
+    { "id": "storytime.shelf-stellaluna.bugs", "text": "bugs", "parts": ["b", "u", "g", "s"], "emoji": "🐛", "note": "the s says z" },
+    { "id": "storytime.shelf-stellaluna.fruit", "text": "fruit", "parts": ["f", "r", "ui", "t"], "tricky": [2], "emoji": "🍇", "note": "f-r blend; ui says oo, like in moon: froot" },
+    { "id": "storytime.shelf-stellaluna.hang", "text": "hang", "parts": ["h", "a", "ng"], "note": "ng is one sound" },
+    { "id": "storytime.shelf-stellaluna.upside", "text": "upside", "parts": ["u", "p", "s", "i", "d", "e"], "note": "two words: up + side; magic e makes i say its name" },
+    { "id": "storytime.shelf-stellaluna.down", "text": "down", "parts": ["d", "ow", "n"], "tricky": [1], "emoji": "⬇️", "note": "ow says ou as in out" },
+    { "id": "storytime.shelf-stellaluna.night", "text": "night", "parts": ["n", "igh", "t"], "emoji": "🌙", "note": "igh is one part and says long i" },
+    { "id": "storytime.shelf-stellaluna.flap", "text": "flap", "parts": ["f", "l", "a", "p"], "note": "f-l blend" },
+    { "id": "storytime.shelf-stellaluna.feet", "text": "feet", "parts": ["f", "ee", "t"], "emoji": "🦶", "note": "ee says long e" },
+    { "id": "storytime.shelf-stellaluna.tree", "text": "tree", "parts": ["t", "r", "ee"], "emoji": "🌳", "note": "t-r blend, then ee says long e" },
+    { "id": "storytime.shelf-stellaluna.dark", "text": "dark", "parts": ["d", "ar", "k"], "emoji": "🌑", "note": "ar says ar, like car" },
+    { "id": "storytime.shelf-stellaluna.sleep", "text": "sleep", "parts": ["s", "l", "ee", "p"], "emoji": "😴", "note": "s-l blend, then ee says long e" },
+    { "id": "storytime.shelf-stellaluna.like", "text": "like", "parts": ["l", "i", "k", "e"], "note": "magic e: the e makes i say its name" }
+  ]
+}

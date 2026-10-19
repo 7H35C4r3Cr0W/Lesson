@@ -1,0 +1,92 @@
+{
+  "id": "reading.u4-garden-storm",
+  "subject": "reading",
+  "group": "unit4",
+  "order": 90,
+  "title": "The Garden Storm",
+  "emoji": "⛈️",
+  "kind": "qa",
+  "standards": ["RF.1.4", "RL.1.1", "RL.1.2", "RL.1.3"],
+  "about": "Bert and Gran are planting the garden when a storm rolls in, and the drops turn out to be just what the plants needed. The story practises er, ar and or (Bert, her, garden, carrots, dark, storm, porch, thunder), two-syllable words and the endings -ing, -ed and -ness (splashing, booming, harmed, helped, darkness), with the day names Saturday and Sunday. It is decodable at CKLA Unit 4, which the class usually reaches in January to February.",
+  "tip": "Ask him to find every word with an -ing, -ed or -ness ending and say the base word underneath: harm in harmed, dark in darkness.",
+  "readAloud": true,
+  "readChoices": false,
+  "passage": {
+    "text": "It is Saturday.\nBert helps Gran in her garden.\nGran plants corn and carrots.\nBert digs in the soil.\n\nThen dark clouds drift in.\nThe wind picks up.\n\"A storm!\" says Gran.\nDrops are splashing on the garden.\nThunder is booming.\nBert and Gran rush to the porch.\nThey are safe and snug.\n\nAfter the storm, the darkness lifts.\nThe plants are wet but not harmed.\n\"The storm helped us!\" says Bert.\n\"The garden got lots of drops.\"\nGran grins.\n\"On Sunday we will check for sprouts.\"",
+    "level": "unit4",
+    "focus": ["er", "ar", "or", "two-syllable words", "-ing", "-ed", "-ness"],
+    "tricky": ["is", "saturday", "the", "a", "says", "are", "to", "they", "of", "sunday", "we"]
+  },
+  "cards": [
+    {
+      "id": "reading.u4-garden-storm.who-helps",
+      "q": "Who helps Gran in her garden?",
+      "a": "Bert",
+      "wrong": ["Carl", "Mark"],
+      "note": "The second line says Bert helps Gran."
+    },
+    {
+      "id": "reading.u4-garden-storm.what-plants",
+      "q": "What does Gran plant?",
+      "a": "corn and carrots",
+      "wrong": ["plums and figs", "rocks and sticks"],
+      "note": "Gran plants corn and carrots while Bert digs in the soil."
+    },
+    {
+      "id": "reading.u4-garden-storm.where-rush",
+      "q": "Where do Bert and Gran rush to?",
+      "a": "the porch",
+      "wrong": ["the barn", "the shed"],
+      "note": "They rush to the porch when the storm hits."
+    },
+    {
+      "id": "reading.u4-garden-storm.what-booms",
+      "q": "What is booming in the storm?",
+      "a": "thunder",
+      "wrong": ["a drum", "a truck"],
+      "note": "Thunder is booming while the drops splash on the garden."
+    },
+    {
+      "id": "reading.u4-garden-storm.first",
+      "q": "What happens first in the story?",
+      "a": "they plant the garden",
+      "wrong": ["the storm hits", "the darkness lifts"],
+      "note": "Planting comes first; the storm comes after the dark clouds drift in."
+    },
+    {
+      "id": "reading.u4-garden-storm.end-sunday",
+      "q": "At the end, what will they check for on Sunday?",
+      "a": "sprouts",
+      "wrong": ["storms", "snacks"],
+      "note": "Gran says they will check for sprouts on Sunday."
+    },
+    {
+      "id": "reading.u4-garden-storm.feel-porch",
+      "q": "How do Bert and Gran feel on the porch?",
+      "a": "safe and snug",
+      "wrong": ["wet and sad", "mad and cross"],
+      "note": "The story says they are safe and snug on the porch."
+    },
+    {
+      "id": "reading.u4-garden-storm.lesson",
+      "q": "What is the lesson of the story?",
+      "a": "a storm can help",
+      "wrong": ["a storm spoils plants", "never plant a garden"],
+      "note": "Bert sees that the drops helped the garden, so a storm can be a good thing."
+    },
+    {
+      "id": "reading.u4-garden-storm.vocab-sprouts",
+      "q": "What are sprouts?",
+      "a": "little plants",
+      "wrong": ["big rocks", "dark clouds"],
+      "note": "Sprouts are the first little plants that pop up from seeds."
+    },
+    {
+      "id": "reading.u4-garden-storm.word-storm",
+      "q": "Which word is in the story?",
+      "a": "storm",
+      "wrong": ["stork", "stem"],
+      "note": "Storm, stork and stem look alike; only storm is in the story."
+    }
+  ]
+}

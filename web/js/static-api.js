@@ -33,7 +33,7 @@ const seenUids = new Map();  // profile id -> Set of attempt uids (not persisted
 // ---- storage ---------------------------------------------------------------
 
 function emptyData() {
-  return { stats: {}, attempts: [], rounds: [], tests: [], flags: [], stars: 0 };
+  return { stats: {}, attempts: [], rounds: [], reads: [], tests: [], flags: [], stars: 0 };
 }
 
 function fresh() {
@@ -50,7 +50,8 @@ function load() {
     db = null;
   }
   if (!db || !Array.isArray(db.profiles) || !db.profiles.length) db = fresh();
-  for (const p of db.profiles) if (!db.data[p.id]) db.data[p.id] = emptyData();
+  // A visitor's saved data may predate a list (reads came after rounds): fill in whatever is missing.
+  for (const p of db.profiles) db.data[p.id] = Object.assign(emptyData(), db.data[p.id] || {});
 }
 
 function save() {
@@ -133,6 +134,25 @@ function cardAnswer(card, kind) {
   return kind === 'read' ? card.text : card.a;
 }
 
+// Words correct per minute (same as wcpm_of in server.py and wcpmOf in logic.js); null without a time.
+function wcpmOf(words, errors, seconds) {
+  return isInt(seconds) && seconds > 0 ? Math.max(0, Math.round(((words - errors) / seconds) * 60)) : null;
+}
+
+// The words a read went wrong on: lower-case text only, at most 60 of 40 characters (as server.py keeps them).
+function cleanMissed(raw) {
+  if (raw === undefined || raw === null) return [];
+  if (!Array.isArray(raw)) throw new StaticError(400, "'missed' must be a list of words");
+  const out = [];
+  for (const w of raw) {
+    if (typeof w !== 'string') continue;
+    const s = w.trim().toLowerCase().slice(0, 40);
+    if (s && !out.includes(s)) out.push(s);
+    if (out.length >= 60) break;
+  }
+  return out;
+}
+
 function findProfile(pid) {
   const p = db.profiles.find((x) => x.id === pid);
   if (!p) throw new StaticError(404, 'No such profile');
@@ -196,6 +216,25 @@ function roundSummary(d, deckId = null) {
   return out;
 }
 
+// Per story: reads so far, best words per minute of the scored ones, the latest read. Same shape as
+// read_summary() in server.py and addRead() in logic.js. Reads go in time order (sort is stable, so
+// two reads with the same stamp keep their arrival order, like the server's "ORDER BY at, id").
+function readSummary(d, deckId = null) {
+  const out = {};
+  const reads = d.reads.filter((r) => deckId === null || r.deck === deckId).sort((a, b) => a.at - b.at);
+  for (const r of reads) {
+    const s = out[r.deck] || (out[r.deck] = { count: 0, scored: 0, best: null, lastAt: 0, last: null });
+    s.count += 1;
+    if (r.mode === 'scored') {
+      s.scored += 1;
+      if (r.wcpm !== null && (s.best === null || r.wcpm > s.best)) s.best = r.wcpm;
+    }
+    s.lastAt = r.at;
+    s.last = { mode: r.mode, words: r.words, errors: r.errors, seconds: r.seconds, wcpm: r.wcpm, at: r.at };
+  }
+  return out;
+}
+
 function flagsOf(pid) {
   const d = dataOf(pid);
   return d.flags.concat(db.issueFlags).slice().sort((a, b) => b.at - a.at)
@@ -239,6 +278,7 @@ function stateOf(pid) {
     tests: d.tests.filter((t) => t.status === 'assigned')
       .map((t) => ({ id: t.id, title: t.title, config: t.config, cards: t.cards, created: t.created })),
     days, stars: d.stars, pinSet: !!db.pin, today: dayString(new Date()), rounds: roundSummary(d),
+    reads: readSummary(d),
   };
 }
 
@@ -282,9 +322,39 @@ function deckReport(pid, deckId) {
   return { deck: deckId, rounds, misses, summary: roundSummary(d, deckId)[deckId] || null, passMark: PASS_MARK };
 }
 
+// Every story read, for the grown-up Reading page: reads per story newest first (stories in order of
+// their latest read, at most 50 reads each) and the words to practise, counted over every read.
+function readingReport(pid) {
+  const d = dataOf(pid);
+  const summaries = readSummary(d);
+  const perDeck = new Map();
+  const words = new Map();
+  // Newest first; reverse before the stable sort so same-stamp reads come latest-arrived first ("at DESC, id DESC").
+  for (const r of d.reads.slice().reverse().sort((a, b) => b.at - a.at)) {
+    for (const w of r.missed) {
+      const x = words.get(w) || { word: w, times: 0, lastAt: 0 };
+      x.times += 1;
+      x.lastAt = Math.max(x.lastAt, r.at);
+      words.set(w, x);
+    }
+    if (!perDeck.has(r.deck)) perDeck.set(r.deck, []);
+    const reads = perDeck.get(r.deck);
+    if (reads.length < 50) {
+      reads.push({ mode: r.mode, words: r.words, errors: r.errors, seconds: r.seconds, wcpm: r.wcpm,
+        missed: r.missed.slice(), day: r.day, at: r.at });
+    }
+  }
+  const missed = Array.from(words.values())
+    .sort((a, b) => b.times - a.times || b.lastAt - a.lastAt || (a.word < b.word ? -1 : a.word > b.word ? 1 : 0))
+    .slice(0, 60);
+  const decks = Array.from(perDeck, ([deck, reads]) => ({ deck, summary: summaries[deck] || null, reads }));
+  return { decks, missed, stars: d.stars };
+}
+
 function exportAll() {
   const out = { app: APP, version: VERSION, exported: now(), profiles: db.profiles.map(profileJson),
-    card_stats: [], attempts: [], flags: db.issueFlags.map((f) => ({ ...f, profile_id: 0 })), tests: [], rounds: [] };
+    card_stats: [], attempts: [], flags: db.issueFlags.map((f) => ({ ...f, profile_id: 0 })), tests: [], rounds: [],
+    reads: [] };
   for (const p of db.profiles) {
     const d = dataOf(p.id);
     for (const [card, s] of Object.entries(d.stats)) out.card_stats.push({ profile_id: p.id, card_id: card, ...s });
@@ -292,6 +362,7 @@ function exportAll() {
     out.flags.push(...d.flags.map((f) => ({ profile_id: p.id, ...f })));
     out.tests.push(...d.tests.map((t) => ({ profile_id: p.id, ...t })));
     out.rounds.push(...d.rounds.map((r) => ({ profile_id: p.id, ...r })));
+    out.reads.push(...d.reads.map((r) => ({ profile_id: p.id, ...r })));
   }
   return out;
 }
@@ -340,6 +411,32 @@ function postRound(body) {
     save();
   }
   return { rounds: roundSummary(d, body.deck) };
+}
+
+// One finished read of a story (same checks as h_reads in server.py). A replayed uid changes nothing.
+function postRead(body) {
+  const pid = wantInt(body, 'profile', 1, 1e9);
+  const d = dataOf(pid);
+  if (typeof body.uid !== 'string' || !UID_RE.test(body.uid)) throw new StaticError(400, 'Bad read id');
+  const deck = typeof body.deck === 'string' ? content.decks.get(body.deck) : null;
+  if (!deck) throw new StaticError(400, 'Unknown deck');
+  if (!deck.passage || typeof deck.passage !== 'object') throw new StaticError(400, 'This level has no story');
+  const mode = body.mode;
+  if (mode !== 'self' && mode !== 'scored') throw new StaticError(400, 'Bad read mode');
+  const words = wantInt(body, 'words', 1, 600);
+  const errors = wantInt(body, 'errors', 0, 600);
+  if (errors > words) throw new StaticError(400, 'errors cannot be more than words');
+  const seconds = mode === 'scored' ? wantInt(body, 'seconds', 1, 1800) : null;
+  const wcpm = mode === 'scored' ? wcpmOf(words, errors, seconds) : null;
+  const missed = cleanMissed(body.missed);
+  const at = cleanAt(body.at);
+  if (!d.reads.some((r) => r.uid === body.uid)) {
+    d.reads.push({ uid: body.uid, deck: deck.id, mode, words, errors, seconds, wcpm, missed,
+      day: cleanDay(body.day, at), at });
+    d.stars += 1;                 // every finished read earns a star, however it went
+    save();
+  }
+  return { reads: readSummary(d, deck.id), stars: d.stars };
 }
 
 function finishTest(testId, body) {
@@ -530,6 +627,9 @@ function resetProfile(pid, body) {
     if (!deck) throw new StaticError(400, 'Unknown deck');
     for (const card of deck.cards) delete d.stats[card.id];
     d.rounds = d.rounds.filter((r) => r.deck !== deck.id);
+    const kept = d.reads.filter((r) => r.deck !== deck.id);
+    d.stars = Math.max(0, d.stars - (d.reads.length - kept.length));   // those reads' stars go with them
+    d.reads = kept;
   } else {
     throw new StaticError(400, 'scope must be all or deck');
   }
@@ -581,6 +681,7 @@ export async function handle(method, path, body) {
     if (p === '/api/state') return stateOf(qInt(q, 'profile'));
     if (p === '/api/report') return report(qInt(q, 'profile'), qInt(q, 'days', 30, 1, 366));
     if ((r = p.match(/^\/api\/decks\/([\w.-]+)\/report$/))) return deckReport(qInt(q, 'profile'), r[1]);
+    if (p === '/api/reading/report') return readingReport(qInt(q, 'profile'));
     if (p === '/api/tests') {
       const d = dataOf(qInt(q, 'profile'));
       return { tests: d.tests.slice().sort((x, y) => (y.finished || y.created) - (x.finished || x.created))
@@ -591,6 +692,7 @@ export async function handle(method, path, body) {
   } else if (method === 'POST') {
     if (p === '/api/attempts') return postAttempts(b);
     if (p === '/api/rounds') return postRound(b);
+    if (p === '/api/reads') return postRead(b);
     if ((r = p.match(/^\/api\/tests\/(\d+)\/finish$/))) return finishTest(Number(r[1]), b);
     if ((r = p.match(/^\/api\/profiles\/(\d+)\/avatar$/))) return setAvatar(Number(r[1]), b);
     if ((r = p.match(/^\/api\/profiles\/(\d+)\/reset$/))) return resetProfile(Number(r[1]), b);
