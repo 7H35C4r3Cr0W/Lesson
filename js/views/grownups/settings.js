@@ -84,6 +84,25 @@ export function draw(body, scope, arg, redraw) {
         speech.speak('The cat sat on the mat.');
       }).catch(fail);
     } });
+  // The story screens (Read to me, tapping a word, sounding out) have their own, slower speed.
+  const readRateNow = Number(prefs.readRate) || 0.7;
+  const readRate = h('input', { type: 'range', min: '0.5', max: '1.1', step: '0.05', value: String(readRateNow),
+    'aria-label': 'Story reading speed', onchange: (e) => {
+      const value = Number(e.target.value);
+      store.savePrefs({ readRate: value }).then(() => {
+        speech.speak('Sam has a big black cat. The cat is Max.', { rate: value });
+      }).catch(fail);
+    } });
+  const readRateTry = h('button', { class: 'btn small', type: 'button', onclick: () =>
+    speech.speak('Sam has a big black cat. The cat is Max. Max naps on the mat.', { rate: Number(readRate.value) }) }, 'Try it');
+  // The built-in iPad voice sounds robotic; a downloaded Enhanced or Premium voice is a big step up.
+  const quality = speech.voiceQuality();
+  const voiceNotice = quality === 'basic'
+    ? h('p', { class: 'notice' }, h('strong', null, 'This tablet is using its basic voice, which sounds robotic. '),
+      'For a natural one, on the iPad open Settings › Accessibility › Spoken Content › Voices › English, download ',
+      h('strong', null, 'Ava (Premium)'), ' or ', h('strong', null, 'Samantha (Enhanced)'),
+      ' (about 150 MB, Wi-Fi), then come back here: the app picks the best downloaded voice by itself, or choose it below.')
+    : null;
 
   const children = state.profiles.map((p) => h('div', { class: 'child-row' },
     h('span', null, `${p.avatar} ${p.name || `Child ${p.id}`}`),
@@ -128,6 +147,7 @@ export function draw(body, scope, arg, redraw) {
         'The rest of the round is cards already seen, so most answers feel like wins.')),
 
     h('div', { class: 'panel' }, h('h2', null, 'Sound and voice'),
+      voiceNotice,
       row('Sound effects', toggle('sound', prefs)),
       row('When the voice speaks',
         h('select', { class: 'input', onchange: (e) => store.savePrefs({ voiceMode: e.target.value, speech: e.target.value !== 'off' }).catch(fail) },
@@ -139,8 +159,10 @@ export function draw(body, scope, arg, redraw) {
         'Only in "Read everything": reads the choices for science, social studies and other question decks. Reading decks never read their choices.'),
       row('Voice on this tablet', h('div', { class: 'form-actions' }, voicePick,
         h('button', { class: 'btn small', type: 'button', onclick: () => speech.speak('Hi! The cat sat on the mat. Three plus four is seven.') }, 'Try it')),
-        'Saved on this device only. For a much more natural voice on the iPad: Settings › Accessibility › Spoken Content › Voices › English › download Samantha (Enhanced) or Ava (Premium), then pick it here.'),
-      row('Voice speed', rate, 'Slower is clearer for new readers.')),
+        'Saved on this device only. Voices marked Enhanced or Premium are the natural ones; the plain ones are the robotic built-ins. On the iPad: Settings › Accessibility › Spoken Content › Voices › English › download Ava (Premium) or Samantha (Enhanced), then pick it here.'),
+      row('Story reading speed', h('div', { class: 'form-actions' }, readRate, readRateTry),
+        'Used by Read to me, tapping a word, sounding out, the Word Card and My words. Slow is right for a first grader: start around 0.7 and move it up as reading gets smoother. The 🐢 Slower button on a story slows it a bit more for the moment.'),
+      row('Voice speed everywhere else', rate, 'Questions, answers and the games. Slower is clearer for new readers.')),
 
     h('div', { class: 'panel' }, h('h2', null, 'Help button (local AI helper)'),
       row('Show the 🙋 button', toggle('helper', prefs),

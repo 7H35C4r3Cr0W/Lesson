@@ -33,7 +33,7 @@ const seenUids = new Map();  // profile id -> Set of attempt uids (not persisted
 // ---- storage ---------------------------------------------------------------
 
 function emptyData() {
-  return { stats: {}, attempts: [], rounds: [], reads: [], tests: [], flags: [], stars: 0 };
+  return { stats: {}, attempts: [], rounds: [], reads: [], tests: [], flags: [], books: {}, stars: 0 };
 }
 
 function fresh() {
@@ -50,7 +50,8 @@ function load() {
     db = null;
   }
   if (!db || !Array.isArray(db.profiles) || !db.profiles.length) db = fresh();
-  // A visitor's saved data may predate a list (reads came after rounds): fill in whatever is missing.
+  // A visitor's saved data may predate a list (reads came after rounds, the book ticks after reads):
+  // fill in whatever is missing.
   for (const p of db.profiles) db.data[p.id] = Object.assign(emptyData(), db.data[p.id] || {});
 }
 
@@ -235,6 +236,16 @@ function readSummary(d, deckId = null) {
   return out;
 }
 
+// Per book a grown-up ticked as read for this child: that it was, and when (the first tick's time).
+// Same shape as books_of() in server.py, in the same order (first tick first, then by deck id).
+function booksOf(d) {
+  const out = {};
+  const ticks = Object.entries(d.books)
+    .sort((a, b) => a[1].at - b[1].at || (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0));
+  for (const [deck, b] of ticks) out[deck] = { read: true, at: b.at };
+  return out;
+}
+
 function flagsOf(pid) {
   const d = dataOf(pid);
   return d.flags.concat(db.issueFlags).slice().sort((a, b) => b.at - a.at)
@@ -278,7 +289,7 @@ function stateOf(pid) {
     tests: d.tests.filter((t) => t.status === 'assigned')
       .map((t) => ({ id: t.id, title: t.title, config: t.config, cards: t.cards, created: t.created })),
     days, stars: d.stars, pinSet: !!db.pin, today: dayString(new Date()), rounds: roundSummary(d),
-    reads: readSummary(d),
+    reads: readSummary(d), books: booksOf(d),
   };
 }
 
@@ -354,7 +365,7 @@ function readingReport(pid) {
 function exportAll() {
   const out = { app: APP, version: VERSION, exported: now(), profiles: db.profiles.map(profileJson),
     card_stats: [], attempts: [], flags: db.issueFlags.map((f) => ({ ...f, profile_id: 0 })), tests: [], rounds: [],
-    reads: [] };
+    reads: [], books: [] };
   for (const p of db.profiles) {
     const d = dataOf(p.id);
     for (const [card, s] of Object.entries(d.stats)) out.card_stats.push({ profile_id: p.id, card_id: card, ...s });
@@ -363,6 +374,7 @@ function exportAll() {
     out.tests.push(...d.tests.map((t) => ({ profile_id: p.id, ...t })));
     out.rounds.push(...d.rounds.map((r) => ({ profile_id: p.id, ...r })));
     out.reads.push(...d.reads.map((r) => ({ profile_id: p.id, ...r })));
+    for (const [deck, b] of Object.entries(d.books)) out.books.push({ profile_id: p.id, deck_id: deck, read: 1, at: b.at });
   }
   return out;
 }
@@ -437,6 +449,25 @@ function postRead(body) {
     save();
   }
   return { reads: readSummary(d, deck.id), stars: d.stars };
+}
+
+// A grown-up ticks "we read this book" for one child, or unticks it (same checks as h_book_set in
+// server.py): any level that is a book (a `book` object) or carries a story (a `passage`) can be
+// ticked. Ticking again keeps the first date; unticking forgets it.
+function setBook(deckId, body) {
+  const pid = wantInt(body, 'profile', 1, 1e9);
+  const d = dataOf(pid);
+  const deck = content.decks.get(deckId);
+  const hasBook = !!deck && !!deck.book && typeof deck.book === 'object' && !Array.isArray(deck.book);
+  if (!deck || !(hasBook || deck.passage)) throw new StaticError(400, 'Not a book');
+  if (typeof body.read !== 'boolean') throw new StaticError(400, "'read' must be true or false");
+  if (body.read) {
+    if (!d.books[deckId]) d.books[deckId] = { read: true, at: now() };
+  } else {
+    delete d.books[deckId];
+  }
+  save();
+  return { books: booksOf(d) };
 }
 
 function finishTest(testId, body) {
@@ -574,10 +605,13 @@ function cleanPrefs(raw) {
     if (!['help', 'full', 'off'].includes(raw.voiceMode)) throw new StaticError(400, 'Bad voiceMode');
     out.voiceMode = raw.voiceMode;
   }
-  if ('speechRate' in raw) {
-    const r = raw.speechRate;
-    if (typeof r !== 'number' || !(r >= 0.5 && r <= 1.5)) throw new StaticError(400, 'Bad speechRate');
-    out.speechRate = Math.round(r * 100) / 100;
+  // The quiz voice and the story voice (Read to me, word taps, sounding out) have their own speeds.
+  for (const [key, lo, hi] of [['speechRate', 0.5, 1.5], ['readRate', 0.5, 1.2]]) {
+    if (key in raw) {
+      const r = raw[key];
+      if (typeof r !== 'number' || !(r >= lo && r <= hi)) throw new StaticError(400, `Bad ${key}`);
+      out[key] = Math.round(r * 100) / 100;
+    }
   }
   if ('hiddenDecks' in raw) {
     if (!Array.isArray(raw.hiddenDecks) || raw.hiddenDecks.length > 1000) throw new StaticError(400, 'Bad hiddenDecks');
@@ -630,6 +664,7 @@ function resetProfile(pid, body) {
     const kept = d.reads.filter((r) => r.deck !== deck.id);
     d.stars = Math.max(0, d.stars - (d.reads.length - kept.length));   // those reads' stars go with them
     d.reads = kept;
+    delete d.books[deck.id];
   } else {
     throw new StaticError(400, 'scope must be all or deck');
   }
@@ -705,6 +740,7 @@ export async function handle(method, path, body) {
     if (p === '/api/profiles') return createProfile(b);
   } else if (method === 'PUT') {
     if ((r = p.match(/^\/api\/profiles\/(\d+)$/))) return updateProfile(Number(r[1]), b);
+    if ((r = p.match(/^\/api\/books\/([\w.-]+)$/))) return setBook(r[1], b);
   } else if (method === 'DELETE') {
     if ((r = p.match(/^\/api\/tests\/(\d+)$/))) return deleteTest(Number(r[1]));
     if ((r = p.match(/^\/api\/flags\/(\d+)$/))) return deleteFlag(Number(r[1]));

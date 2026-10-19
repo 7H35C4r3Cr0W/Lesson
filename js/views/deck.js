@@ -1,11 +1,14 @@
 // One deck: choose to look through the cards or play the practice round.
-// A story level (deck.passage) adds 📖 Read, the Read screen, in front of those.
+// A story level (deck.passage) adds 📖 Read, the Read screen, in front of those, and the
+// bookmark row (three reads earn it). A deck that stands for a real book (deck.book) adds
+// "We read this book" to the grown-up note: a tick per child, saved on the Pi.
 
 import { h } from '../dom.js';
 import { canQuiz, deckProgress, levelPath, needToPass } from '../logic.js';
 import * as store from '../store.js';
 import * as speech from '../speech.js';
-import { go, starRow, tap, topBar } from '../ui.js';
+import { go, shortDate, starRow, tap, toast, topBar } from '../ui.js';
+import { readDots } from './reader.js';
 
 export function mount(root, scope, deckId) {
   const deck = store.state.deckById.get(deckId);
@@ -28,6 +31,34 @@ export function mount(root, scope, deckId) {
   else if (roundSize) goal = `${story ? (deck.kind === 'read' ? 'Read the words, then get' : 'Read the story, then get') : 'Get'} ${needToPass(roundSize)} of ${roundSize} right for 3 stars`;
   const byLine = book ? [book.author ? `By ${book.author}` : '', book.source || ''].filter(Boolean).join(' · ') : '';
 
+  // "We read this book": bound to state.books[deck.id] ({ read, at }); the tick goes to the Pi at
+  // once (store.setBookRead is optimistic) and comes back if the Pi refuses it.
+  function bookRow() {
+    if (!book) return null;
+    const canSet = typeof store.setBookRead === 'function';
+    const box = h('input', { type: 'checkbox', class: 'switch', disabled: !canSet, 'aria-label': 'We read this book' });
+    const date = h('span', { class: 'book-read-date' });
+    const paint = () => {
+      const entry = (store.state.books || {})[deck.id];
+      box.checked = !!(entry && entry.read !== false);
+      date.textContent = entry && entry.at ? `(read on ${shortDate(entry.at)})` : '';
+    };
+    box.addEventListener('change', () => {
+      if (!canSet) return;
+      store.setBookRead(deck.id, box.checked)
+        .catch((err) => {
+          toast((err && err.message) || 'Could not save that');
+          if (scope.alive) paint();
+        });
+      paint();
+    });
+    paint();
+    scope.add(store.subscribe((what) => {
+      if (what === 'books' && scope.alive) paint();
+    }));
+    return h('label', { class: 'book-read-row' }, box, h('span', null, 'We read this book'), date);
+  }
+
   root.append(h('section', { class: 'screen deck', style: { '--c': sub.color, '--t': sub.tint } },
     topBar(scope, { back: `/subject/${deck.subject}`, title: sub.title || '', emoji: sub.emoji || '' }),
     h('div', { class: 'deck-hero' },
@@ -36,6 +67,7 @@ export function mount(root, scope, deckId) {
       h('h2', { class: 'hero-title' }, deck.title),
       starRow(level ? level.stars : 0),
       goal ? h('div', { class: 'hero-goal' }, goal) : null,
+      story ? readDots(reads ? reads.count : 0) : null,
       h('div', { class: 'hero-actions' },
         story
           ? h('button', { class: 'btn primary big', type: 'button', onclick: tap(() => go(`/read/${deck.id}`)) },
@@ -53,6 +85,7 @@ export function mount(root, scope, deckId) {
         byLine ? h('p', { class: 'fine' }, byLine) : null,
         book && book.blurb ? h('p', { class: 'fine' }, book.blurb) : null,
         book && book.borrow ? h('p', { class: 'fine' }, h('a', { href: book.borrow, target: '_blank', rel: 'noopener' }, 'Borrow it from the library')) : null,
+        bookRow(),
         story && Array.isArray(deck.passage.focus) && deck.passage.focus.length
           ? h('p', { class: 'fine' }, `Sounds: ${deck.passage.focus.join(', ')}`) : null,
         story && Array.isArray(deck.passage.tricky) && deck.passage.tricky.length
