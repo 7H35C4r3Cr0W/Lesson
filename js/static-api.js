@@ -712,6 +712,10 @@ export async function handle(method, path, body) {
     if (p === '/api/ping') {
       return { ok: true, app: APP, version: VERSION, content: content.raw.version, help: false, static: true };
     }
+    // The natural voices come from Piper on the family's Pi; this copy has none, so the app
+    // keeps to the voices on the tablet (speech.js falls back by itself).
+    if (p === '/api/voices') return { voices: [], default: null };
+    if (p === '/api/tts') throw new StaticError(503, 'No voice on the Pi');
     if (p === '/api/profiles') return { profiles: db.profiles.map(profileJson), pinSet: !!db.pin };
     if (p === '/api/state') return stateOf(qInt(q, 'profile'));
     if (p === '/api/report') return report(qInt(q, 'profile'), qInt(q, 'days', 30, 1, 366));

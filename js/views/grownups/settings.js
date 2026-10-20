@@ -1,10 +1,18 @@
-// Settings: the child, the practice round, sound and voice, the PIN, and data.
+// Settings: the voice and sound, the child, the practice round, the PIN, and data.
 
 import { h } from '../../dom.js';
 import * as store from '../../store.js';
 import * as speech from '../../speech.js';
 import * as help from '../../help.js';
 import { confirmDialog, dialog, go, toast } from '../../ui.js';
+
+const STATIC = window.STARCARDS_STATIC === true;
+// What "Try it" says: the voice itself, a story line at the story speed, a question at the quiz speed.
+const SAMPLE_VOICE = 'Hi! The cat sat on the mat. Three plus four is seven.';
+const SAMPLE_STORY = 'Sam has a big black cat. The cat is Max. Max naps on the mat.';
+const SAMPLE_QUIZ = 'Which word rhymes with cat? Hat, dog, or sun?';
+const READ_PRESETS = [['🐢 Slow', 0.6], ['Normal', 0.75], ['Quick', 0.9]];
+const QUIZ_PRESETS = [['Slow', 0.7], ['Normal', 0.85], ['Quick', 1.0]];
 
 function fail(err) {
   toast(err.status === 401 ? 'Your PIN timed out. Tap Done and come back in.' : err.message);
@@ -61,48 +69,121 @@ function pinDialog(redraw) {
   });
 }
 
+const speedText = (v) => `${Number(v).toFixed(2)}×`;
+
+// Preset buttons and a slider for one of the two speeds. Saves prefs[key], lights the preset
+// that matches, and says the sample at the new speed (passed along, so it is right even before
+// the save lands). The Try it button goes into tryButtons so the voice-off state can grey it.
+function speedPicker(key, value, [min, max], presets, sample, label, tryButtons) {
+  const slider = h('input', { type: 'range', min: String(min), max: String(max), step: '0.05', value: String(value), 'aria-label': label });
+  const readout = h('span', { class: 'voice-speed-value' }, speedText(value));
+  const buttons = presets.map(([text, rate]) => h('button', { class: 'btn small', type: 'button', 'aria-pressed': 'false',
+    onclick: () => pick(rate) }, text));
+  const show = (v) => {
+    readout.textContent = speedText(v);
+    buttons.forEach((b, i) => b.setAttribute('aria-pressed', String(Math.abs(presets[i][1] - v) < 0.001)));
+  };
+  const save = (v) => store.savePrefs({ [key]: v }).then(() => speech.speak(sample, { rate: v })).catch(fail);
+  const pick = (v) => {
+    slider.value = String(v);
+    show(v);
+    save(v);
+  };
+  slider.addEventListener('input', () => show(Number(slider.value)));
+  slider.addEventListener('change', () => save(Number(slider.value)));
+  show(value);
+  const tryIt = h('button', { class: 'btn small', type: 'button', onclick: () => speech.speak(sample, { rate: Number(slider.value) }) }, 'Try it');
+  tryButtons.push(tryIt);
+  return h('div', null,
+    h('div', { class: 'voice-presets' }, buttons),
+    h('div', { class: 'voice-speed' }, slider, readout, tryIt));
+}
+
 export function draw(body, scope, arg, redraw) {
   const { state } = store;
   const prefs = store.prefs();
   const profile = state.profile;
+  const voiceOn = prefs.speech !== false && prefs.voiceMode !== 'off';
+  const tryButtons = [];
 
   const name = h('input', { class: 'input', type: 'text', maxLength: 24, value: profile.name, placeholder: 'First name',
     onchange: (e) => store.saveProfile({ name: e.target.value.trim() }).then(() => toast('Saved.')).catch(fail) });
 
-  const voices = speech.listVoices();
-  const voicePick = voices.length
-    ? h('select', { class: 'input', onchange: (e) => {
-      speech.setVoice(e.target.value);
-      speech.speak('This is how I sound. The cat sat on the mat.');
-    } }, voices.map((v) => h('option', { value: v.id, selected: v.id === speech.currentVoice() }, `${v.name} (${v.lang})`)))
-    : h('span', { class: 'muted' }, speech.available() ? 'No English voices found on this device' : 'This browser cannot speak');
+  // ---- the Voice panel -------------------------------------------------------
 
-  const rate = h('input', { type: 'range', min: '0.6', max: '1.2', step: '0.05', value: String(prefs.speechRate),
-    'aria-label': 'Voice speed', onchange: (e) => {
-      const value = Number(e.target.value);
-      store.savePrefs({ speechRate: value }).then(() => {
-        speech.speak('The cat sat on the mat.');
-      }).catch(fail);
-    } });
-  // The story screens (Read to me, tapping a word, sounding out) have their own, slower speed.
-  const readRateNow = Number(prefs.readRate) || 0.7;
-  const readRate = h('input', { type: 'range', min: '0.5', max: '1.1', step: '0.05', value: String(readRateNow),
-    'aria-label': 'Story reading speed', onchange: (e) => {
-      const value = Number(e.target.value);
-      store.savePrefs({ readRate: value }).then(() => {
-        speech.speak('Sam has a big black cat. The cat is Max.', { rate: value });
-      }).catch(fail);
-    } });
-  const readRateTry = h('button', { class: 'btn small', type: 'button', onclick: () =>
-    speech.speak('Sam has a big black cat. The cat is Max. Max naps on the mat.', { rate: Number(readRate.value) }) }, 'Try it');
-  // The built-in iPad voice sounds robotic; a downloaded Enhanced or Premium voice is a big step up.
-  const quality = speech.voiceQuality();
-  const voiceNotice = quality === 'basic'
-    ? h('p', { class: 'notice' }, h('strong', null, 'This tablet is using its basic voice, which sounds robotic. '),
+  const pickBox = h('div', { class: 'voice-pick' });
+  const noticeBox = h('div');
+  const tryVoice = h('button', { class: 'btn small', type: 'button', onclick: () => speech.speak(SAMPLE_VOICE) }, 'Try it');
+  tryButtons.push(tryVoice);
+
+  // The chosen voice is the basic one: how to get a natural one. With Pi voices on offer, that is
+  // a tap away; otherwise the iPad download steps, plus the Pi option when there is a Pi.
+  const fillNotice = () => {
+    noticeBox.textContent = '';
+    if (speech.voiceQuality() !== 'basic') return;
+    if (!STATIC && speech.listVoices().some((v) => v.server)) {
+      noticeBox.append(h('p', { class: 'notice' }, h('strong', null, 'Tip: '), 'pick a natural voice from the Pi above.'));
+      return;
+    }
+    noticeBox.append(h('p', { class: 'notice' }, h('strong', null, 'This tablet is using its basic voice, which sounds robotic. '),
       'For a natural one, on the iPad open Settings › Accessibility › Spoken Content › Voices › English, download ',
       h('strong', null, 'Ava (Premium)'), ' or ', h('strong', null, 'Samantha (Enhanced)'),
-      ' (about 150 MB, Wi-Fi), then come back here: the app picks the best downloaded voice by itself, or choose it below.')
-    : null;
+      ' (about 150 MB, Wi-Fi), then come back here: the app picks the best downloaded voice by itself, or choose it above.',
+      STATIC ? null : ' Or install the natural voice on the Pi: see README › Natural voice from the Pi.'));
+  };
+
+  // The voice list, grouped: the Pi's natural voices (when it has any), then this tablet's.
+  let listedPi = '';
+  const fillVoices = () => {
+    const voices = speech.listVoices();
+    listedPi = voices.filter((v) => v.server).map((v) => v.id).join('|');
+    const now = speech.currentVoice();
+    const group = (label, list, text) => (list.length
+      ? h('optgroup', { label }, list.map((v) => h('option', { value: v.id, selected: v.id === now }, text(v)))) : null);
+    pickBox.textContent = '';
+    if (!voices.length) {
+      pickBox.append(h('span', { class: 'muted' }, speech.available() ? 'No English voices found on this device' : 'This browser cannot speak'));
+      return;
+    }
+    pickBox.append(h('select', { class: 'input', 'aria-label': 'Which voice', onchange: (e) => {
+      speech.setVoice(e.target.value);
+      speech.speak('This is how I sound. The cat sat on the mat.');
+      fillNotice();
+    } },
+    group('Natural voices from the Pi', voices.filter((v) => v.server), (v) => v.name),
+    group('Voices on this tablet', voices.filter((v) => !v.server), (v) => `${v.name} (${v.lang}, ${v.quality})`)),
+    tryVoice);
+  };
+  fillVoices();
+  fillNotice();
+  // Ask the Pi again for its voices (it was asked at start-up, but Piper may have been installed
+  // since) and list them when the answer lands.
+  speech.loadServerVoices({ refresh: true }).then((piVoices) => {
+    if (!scope.alive || !pickBox.isConnected || piVoices.map((v) => v.id).join('|') === listedPi) return;
+    fillVoices();
+    fillNotice();
+  });
+
+  const offNote = h('p', { class: 'notice', hidden: voiceOn }, h('strong', null, 'The voice is off. '),
+    'Turn it on under Sound › When the voice speaks to hear the samples; the choices here are saved either way.');
+  const setVoiceOn = (on) => {
+    offNote.hidden = on;
+    tryButtons.forEach((b) => { b.disabled = !on; });
+  };
+
+  const voicePanel = h('div', { class: 'panel' }, h('h2', null, 'Voice'),
+    offNote,
+    row('Which voice', pickBox,
+      STATIC ? 'Saved in this browser only. A voice marked Enhanced or Premium is a natural one; the plain ones are the robotic built-ins.'
+        : 'Saved on this tablet only. The Pi makes its natural voices itself once Piper is installed on it (README › Natural voice from the Pi). On the tablet, a voice marked Enhanced or Premium is natural; the plain ones are the robotic built-ins.'),
+    row('Story reading speed', speedPicker('readRate', Number(prefs.readRate) || 0.7, [0.5, 1.1], READ_PRESETS, SAMPLE_STORY, 'Story reading speed', tryButtons),
+      'Used by Read to me, tapping a word, sounding out, the Word Card and My words. Slow is right for a first grader; move it up as reading gets smoother. The 🐢 Slower button on a story slows it a bit more for the moment.'),
+    row('Speed everywhere else', speedPicker('speechRate', Number(prefs.speechRate) || 0.85, [0.6, 1.2], QUIZ_PRESETS, SAMPLE_QUIZ, 'Voice speed', tryButtons),
+      'Questions, answers and the games. Slower is clearer for new readers.'),
+    noticeBox);
+  setVoiceOn(voiceOn);
+
+  // ---- the rest ---------------------------------------------------------------
 
   const children = state.profiles.map((p) => h('div', { class: 'child-row' },
     h('span', null, `${p.avatar} ${p.name || `Child ${p.id}`}`),
@@ -121,6 +202,22 @@ export function draw(body, scope, arg, redraw) {
 
   body.append(
     h('div', { class: 'page-head' }, h('h1', null, 'Settings')),
+
+    voicePanel,
+
+    h('div', { class: 'panel' }, h('h2', null, 'Sound'),
+      row('When the voice speaks',
+        h('select', { class: 'input', onchange: (e) => {
+          const mode = e.target.value;
+          store.savePrefs({ voiceMode: mode, speech: mode !== 'off' }).then(() => setVoiceOn(mode !== 'off')).catch(fail);
+        } },
+        h('option', { value: 'help', selected: prefs.voiceMode === 'help' }, 'Only when needed'),
+        h('option', { value: 'full', selected: prefs.voiceMode === 'full' }, 'Read everything'),
+        h('option', { value: 'off', selected: prefs.voiceMode === 'off' }, 'Never')),
+        '"Only when needed" = the word in a listen-and-find question, a replay after a miss, the answer after two misses, and the 🔊 and 🙋 buttons. "Read everything" also reads titles, questions and answer choices (useful before your child can read the questions alone).'),
+      row('Read the answer choices aloud', toggle('readChoices', prefs),
+        'Only in "Read everything": reads the choices for science, social studies and other question decks. Reading decks never read their choices.'),
+      row('Sound effects', toggle('sound', prefs))),
 
     h('div', { class: 'panel' }, h('h2', null, 'Child'),
       row('Name', name, 'Shown on the home screen: “Hi, Sam!”'),
@@ -145,24 +242,6 @@ export function draw(body, scope, arg, redraw) {
         'Short rounds work best at this age. 8 to 10 takes about three minutes.'),
       row('New cards in a round', numberPick('newPerSession', prefs, [1, 2, 3, 4, 5, 6, 8, 10]),
         'The rest of the round is cards already seen, so most answers feel like wins.')),
-
-    h('div', { class: 'panel' }, h('h2', null, 'Sound and voice'),
-      voiceNotice,
-      row('Sound effects', toggle('sound', prefs)),
-      row('When the voice speaks',
-        h('select', { class: 'input', onchange: (e) => store.savePrefs({ voiceMode: e.target.value, speech: e.target.value !== 'off' }).catch(fail) },
-          h('option', { value: 'help', selected: prefs.voiceMode === 'help' }, 'Only when needed'),
-          h('option', { value: 'full', selected: prefs.voiceMode === 'full' }, 'Read everything'),
-          h('option', { value: 'off', selected: prefs.voiceMode === 'off' }, 'Never')),
-        '"Only when needed" = the word in a listen-and-find question, a replay after a miss, the answer after two misses, and the 🔊 and 🙋 buttons. "Read everything" also reads titles, questions and answer choices (useful before your child can read the questions alone).'),
-      row('Read the answer choices aloud', toggle('readChoices', prefs),
-        'Only in "Read everything": reads the choices for science, social studies and other question decks. Reading decks never read their choices.'),
-      row('Voice on this tablet', h('div', { class: 'form-actions' }, voicePick,
-        h('button', { class: 'btn small', type: 'button', onclick: () => speech.speak('Hi! The cat sat on the mat. Three plus four is seven.') }, 'Try it')),
-        'Saved on this device only. Voices marked Enhanced or Premium are the natural ones; the plain ones are the robotic built-ins. On the iPad: Settings › Accessibility › Spoken Content › Voices › English › download Ava (Premium) or Samantha (Enhanced), then pick it here.'),
-      row('Story reading speed', h('div', { class: 'form-actions' }, readRate, readRateTry),
-        'Used by Read to me, tapping a word, sounding out, the Word Card and My words. Slow is right for a first grader: start around 0.7 and move it up as reading gets smoother. The 🐢 Slower button on a story slows it a bit more for the moment.'),
-      row('Voice speed everywhere else', rate, 'Questions, answers and the games. Slower is clearer for new readers.')),
 
     h('div', { class: 'panel' }, h('h2', null, 'Help button (local AI helper)'),
       row('Show the 🙋 button', toggle('helper', prefs),
