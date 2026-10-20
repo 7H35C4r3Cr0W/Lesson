@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-llama-llama",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 880,
+  "title": "Llama Llama words",
+  "emoji": "🦙",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Baby Llama is tucked into bed, but when Mama Llama goes downstairs he starts to worry, and his small fuss grows into a big one before she comes back up to calm him. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together at bedtime, with him reading the words he practised.",
+  "book": {
+    "author": "Anna Dewdney",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Llama+Llama+Red+Pajama&searchType=title",
+    "blurb": "A worried little llama learns that Mama always comes back, even when she is busy downstairs."
+  },
+  "passage": {
+    "text": "Llama Mama baby bed\nbook kiss pajama light\nred down stairs phone\nwait cry shout hug\nlove alone",
+    "level": "open",
+    "focus": ["ou", "ow", "o_e"],
+    "tricky": ["Llama", "Mama", "baby", "pajama", "cry", "love", "alone"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-llama-llama.llama", "text": "Llama", "parts": ["Ll", "a", "m", "a"], "tricky": [1, 3], "emoji": "🦙", "note": "capital L, it is his name; ll is one l; the first a says ah and the last a says uh: Lah-muh" },
+    { "id": "storytime.shelf-llama-llama.mama", "text": "Mama", "parts": ["M", "a", "m", "a"], "tricky": [1, 3], "note": "capital M, it is her name; the first a says ah and the last a says uh: Mah-muh" },
+    { "id": "storytime.shelf-llama-llama.baby", "text": "baby", "parts": ["b", "a", "b", "y"], "tricky": [1, 3], "emoji": "👶", "note": "the a says its name and y at the end says ee: bay-bee" },
+    { "id": "storytime.shelf-llama-llama.bed", "text": "bed", "parts": ["b", "e", "d"], "emoji": "🛏️", "note": "all regular: b-e-d" },
+    { "id": "storytime.shelf-llama-llama.book", "text": "book", "parts": ["b", "oo", "k"], "emoji": "📖", "note": "oo says the short oo, like in look" },
+    { "id": "storytime.shelf-llama-llama.kiss", "text": "kiss", "parts": ["k", "i", "ss"], "emoji": "😘", "note": "ss is two letters, one sound: s" },
+    { "id": "storytime.shelf-llama-llama.pajama", "text": "pajama", "parts": ["p", "a", "j", "a", "m", "a"], "tricky": [1, 3, 5], "note": "three parts: pa-ja-ma; the first and last a say uh, the middle a says ah: puh-jah-muh" },
+    { "id": "storytime.shelf-llama-llama.light", "text": "light", "parts": ["l", "igh", "t"], "emoji": "💡", "note": "igh says long i, like in night" },
+    { "id": "storytime.shelf-llama-llama.red", "text": "red", "parts": ["r", "e", "d"], "emoji": "🔴", "note": "all regular: r-e-d" },
+    { "id": "storytime.shelf-llama-llama.down", "text": "down", "parts": ["d", "ow", "n"], "emoji": "⬇️", "note": "ow says ow, like in cow" },
+    { "id": "storytime.shelf-llama-llama.stairs", "text": "stairs", "parts": ["s", "t", "air", "s"], "note": "s-t blend; air says air, like in hair; the s says z" },
+    { "id": "storytime.shelf-llama-llama.phone", "text": "phone", "parts": ["ph", "o", "n", "e"], "emoji": "📞", "note": "ph says f; magic e makes o say its name" },
+    { "id": "storytime.shelf-llama-llama.wait", "text": "wait", "parts": ["w", "ai", "t"], "emoji": "⏳", "note": "ai says long a, like in rain" },
+    { "id": "storytime.shelf-llama-llama.cry", "text": "cry", "parts": ["c", "r", "y"], "tricky": [2], "emoji": "😢", "note": "c-r blend; y says long i here: krye" },
+    { "id": "storytime.shelf-llama-llama.shout", "text": "shout", "parts": ["sh", "ou", "t"], "emoji": "📣", "note": "sh is one part; ou says ow, like in out" },
+    { "id": "storytime.shelf-llama-llama.hug", "text": "hug", "parts": ["h", "u", "g"], "emoji": "🤗", "note": "all regular: h-u-g" },
+    { "id": "storytime.shelf-llama-llama.love", "text": "love", "parts": ["l", "o", "ve"], "tricky": [1], "emoji": "💕", "note": "the o says u; ve at the end just says v: luv" },
+    { "id": "storytime.shelf-llama-llama.alone", "text": "alone", "parts": ["a", "l", "o", "n", "e"], "tricky": [0], "note": "the a at the front says uh; magic e makes o say its name: uh-lohn" }
+  ]
+}

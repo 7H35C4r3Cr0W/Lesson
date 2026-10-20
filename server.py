@@ -8,6 +8,9 @@ nothing to install. It does three jobs:
   * serves the flashcard content from ./content as one JSON bundle
   * keeps progress, tests and flags in a SQLite database
 
+and, when Piper is installed next to the data (deploy/install-voices.sh), says the cards
+and stories in a natural voice as audio clips the tablet plays (/api/tts).
+
 Run it:      python3 server.py --port 8080
 Then open:   http://<the-pi>.local:8080  on the tablet.
 
@@ -23,16 +26,20 @@ import hmac
 import http.client
 import ipaddress
 import json
+import math
 import os
 import re
 import secrets
+import shlex
 import signal
 import socket
 import sqlite3
+import subprocess
 import sys
 import threading
 import time
 import traceback
+import unicodedata
 import urllib.error
 import urllib.request
 from contextlib import contextmanager
@@ -329,6 +336,7 @@ class Content:
         self._sig = None
         self.cards: dict[str, tuple[str, str, dict]] = {}   # card id -> (deck id, deck kind, card)
         self.decks: dict[str, dict] = {}
+        self.order: list[str] = []                          # deck ids as the bundle lists them (the child's order)
         self.body = b"{}"
         self.gz = gzip.compress(self.body)
         self.etag = '"empty"'
@@ -386,6 +394,7 @@ class Content:
             self.etag = f'"{version}"'
             self.cards = cards
             self.decks = deck_map
+            self.order = [d["id"] for d in decks]
             self._sig = sig
             self.log(f"content: {len(decks)} decks, {len(cards)} cards (version {version})")
 
@@ -679,7 +688,441 @@ class Tutor:
         return text or "Let's try it together. Look at the card again."
 
 
+# ---------------------------------------------------------- voices (Piper TTS)
+
+MAX_TTS_CHARS = 300
+TTS_RATES = (0.5, 1.5)             # what /api/tts accepts: the span of the two speed sliders in Settings
+READ_RATE = 0.7                    # the story voice's default pace (readRate in web/js/store.js)
+QUIZ_RATE = 0.85                   # the quiz voice's default pace (speechRate)
+VOICE_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
+VOICE_NAMES = {"en_US-amy-medium": "Amy", "en_US-ryan-medium": "Ryan", "en_US-lessac-medium": "Lessac"}
+# What 🔤 Sound it out says for each sound (the values of SOUNDS in web/js/phonics.js), so the
+# pre-render has every sound ready before the first word is sounded out.
+SOUND_STRINGS = ("buh kuh duh fff guh huh juh lll mmm nnn puh kwuh rrr sss tuh vvv wuh ks yuh zzz "
+                 "shh chuh thh ng aa eh ih ah uh ay ee eye oh you ow oy aw oo ar or er air ear").split()
+# Pictographs outside the symbol blocks that EMOJI in web/js/logic.js also strips: ©, ®, ™, ‼, ⁉, ℹ, 〰,
+# the arrows ↔…↙ ↩ ↪ ⤴ ⤵, the emoji variation selector and the keycap mark, and the few emoji that
+# Unicode files as maths or punctuation rather than symbols (◻ ◼ ◽ ◾ ♯ 〽).
+_PICTO_EXTRA = frozenset({0x00A9, 0x00AE, 0x2122, 0x203C, 0x2049, 0x2139, 0x3030, 0xFE0F, 0x20E3,
+                          0x21A9, 0x21AA, 0x2934, 0x2935, *range(0x2194, 0x219A),
+                          *range(0x25FB, 0x25FF), 0x266F, 0x303D})
+
+
+def _spoken(ch: str) -> bool:
+    """May this character reach the voice? Emoji, pictographs and control characters may not.
+
+    The tablet strips emoji before it asks (EMOJI in logic.js, a \\p{Extended_Pictographic} class that
+    re cannot spell). This errs on the side of stripping more, which is the safe side: a clip the
+    pre-render made from the raw card text must land on the same cache key as the tablet's request.
+    """
+    cp = ord(ch)
+    if cp in _PICTO_EXTRA or 0x1F000 <= cp <= 0x1FAFF or 0x1FC00 <= cp <= 0x1FFFD:
+        return False
+    cat = unicodedata.category(ch)
+    if cat[0] == "C":                          # control, format (the zero-width joiner), surrogates, unassigned
+        return False
+    return not (cat == "So" and cp >= 0x2190)  # the symbol blocks (☀ ✅ ⭐ ...); ° and ¢ below them stay
+
+
+def normalize_speech(text) -> str:
+    """What the voice is asked to say: no emoji or control characters, one space between words, trimmed.
+
+    The tablet does the same before it asks (ttsUrl in web/js/speech.js), so both sides agree on the
+    cache key of a clip.
+    """
+    kept = [" " if ch.isspace() else ch for ch in str(text or "") if ch.isspace() or _spoken(ch)]
+    return re.sub(r" {2,}", " ", "".join(kept)).strip()
+
+
+def speakable(text) -> str:
+    """Card text as the tablet's voice says it: no emoji, maths symbols as words.
+
+    Mirrors speakable() in web/js/logic.js; change them together, since the pre-render relies on
+    saying exactly what the tablet will ask for.
+    """
+    s = normalize_speech(text)
+    s = re.sub(r"_{2,}", " blank ", s)
+    s = re.sub(r"\s*\+\s*", " plus ", s)
+    s = re.sub(r"\s*−\s*", " minus ", s)
+    s = re.sub(r"([0-9])\s*-\s*(?=[0-9])", r"\1 minus ", s)
+    s = re.sub(r"\s*=\s*\?", " equals what", s)
+    s = re.sub(r"\s*=\s*", " equals ", s)
+    s = re.sub(r"\s*>\s*", " is greater than ", s)
+    s = re.sub(r"\s*<\s*", " is less than ", s)
+    s = re.sub(r"\s*¢", " cents", s)
+    return re.sub(r"\s{2,}", " ", s).strip()
+
+
+def clamp_rate(rate) -> float:
+    """The pace the tablet asked for, held to 0.5-1.5 and rounded to the 0.05 steps of its sliders, so
+    1.0 and 1.01 share one cache folder."""
+    try:
+        rate = float(rate)
+    except (TypeError, ValueError):
+        raise ApiError(400, "Bad rate") from None
+    if not math.isfinite(rate):
+        raise ApiError(400, "Bad rate")
+    rate = min(TTS_RATES[1], max(TTS_RATES[0], rate))
+    # Half-way values round up, as Math.round does in ttsUrl on the tablet (0.725 -> 0.75), so both
+    # sides name the same cache folder; Python's own round() would send them to the even step.
+    return round(math.floor(rate * 20 + 0.5) / 20, 2)
+
+
+def tts_corpus(content: Content, what: str = "all", read_rate: float = READ_RATE,
+               quiz_rate: float = QUIZ_RATE) -> list[tuple[str, float]]:
+    """Everything the tablet will ask the voice for, in the order worth having ready: the stories first
+    (each line of each page as Read to me says it, every word as a tap says it, the sounds 🔤 Sound it
+    out uses), then every question (what == "all"). Distinct (text, rate) pairs, text as the voice gets it.
+    """
+    from tools.decodability import pages as passage_pages, word_tokens   # the word rule shared with logic.js
+    if what not in ("stories", "all"):
+        raise ValueError("what must be 'stories' or 'all'")
+    seen: set[tuple[str, float]] = set()
+    out: list[tuple[str, float]] = []
+
+    def add(text, rate: float) -> None:
+        text = normalize_speech(text)
+        if text and len(text) <= MAX_TTS_CHARS and (text, rate) not in seen:
+            seen.add((text, rate))
+            out.append((text, rate))
+
+    decks = [content.decks[d] for d in content.order if d in content.decks]
+    sounds_added = False
+    for deck in decks:
+        passage = deck.get("passage")
+        if not isinstance(passage, dict) or not isinstance(passage.get("text"), str):
+            continue
+        for page in passage_pages(passage["text"]):
+            for line in page.split("\n"):
+                if line.strip():
+                    add(re.sub(r'["“”]', "", line), read_rate)     # Read to me drops the quote marks (reader.js)
+        for token in word_tokens(passage["text"]):
+            add(token, read_rate)                                   # a tapped word, as written (Max's, Hi)
+        if not sounds_added:                                        # right after the first story, before more
+            for sound in SOUND_STRINGS:
+                add(sound, read_rate)
+            sounds_added = True
+    if what == "all":
+        for deck in decks:
+            if deck.get("kind") != "qa":
+                continue
+            for card in deck["cards"]:
+                add(card.get("sayQ") or speakable(card.get("q", "")), quiz_rate)   # sayPrompt() in logic.js
+    return out
+
+
+class Tts:
+    """Optional natural voice: Piper (rhasspy/piper) on the Pi turns text into WAV clips the tablet plays.
+
+    Like the Tutor, nothing leaves the house and the app works without it. Every clip is kept under
+    cache_dir, so a line is rendered once; the pre-render fills the cache ahead of the child. Off unless
+    a piper command is given (or found at <data_dir>/piper/piper/piper) and a voice sits in voices_dir.
+    """
+
+    TIMEOUT_S = 30
+    MAX_RENDERS = 2             # piper processes at once: a Pi has few cores and the service little memory
+    LOG_EVERY = 200             # pre-render progress lines
+    CHECK_EVERY = 50            # pre-render items between looks at whether the content changed
+    LOCK_STALE_S = 600          # a pre-render lock nobody has touched for this long belongs to a dead run
+
+    def __init__(self, cmd, voices_dir, cache_dir, log=print, default_voice: str = "en_US-amy-medium"):
+        self.cmd = [str(c) for c in cmd] if cmd else None
+        self.voices_dir = Path(voices_dir) if voices_dir else None
+        self.cache_dir = Path(cache_dir)
+        self.log = log
+        self.wanted = default_voice
+        # piper finds espeak-ng-data next to its binary; running from there keeps a relative --model happy too.
+        self.cwd = None
+        if self.cmd and os.path.isabs(self.cmd[0]) and Path(self.cmd[0]).parent.is_dir():
+            self.cwd = str(Path(self.cmd[0]).parent)
+        self._voices: dict[str, Path] = {}      # voice id -> its .onnx
+        self._scanned = False
+        self._stamp = None                      # the voices folder's mtime at the last scan
+        self._lock = threading.Lock()
+        self._cond = threading.Condition(self._lock)
+        self._busy: set[str] = set()            # clips being rendered right now
+        self._slots = threading.Semaphore(self.MAX_RENDERS)
+        self._lockfile: Path | None = None
+        self._scan()
+
+    # -- the voices
+
+    def _scan(self) -> None:
+        """(Re)read the voices folder when it changed, so a voice dropped in later needs no restart."""
+        if not self.cmd or not self.voices_dir:
+            return
+        try:
+            stamp = self.voices_dir.stat().st_mtime_ns
+        except OSError:
+            stamp = None
+        with self._lock:
+            if self._scanned and stamp == self._stamp:
+                return
+            found: dict[str, Path] = {}
+            if stamp is not None:
+                for onnx in sorted(self.voices_dir.glob("*.onnx")):
+                    voice_id = onnx.name[:-5]
+                    if not VOICE_ID_RE.match(voice_id):
+                        continue
+                    if not onnx.with_name(onnx.name + ".json").is_file():
+                        self.log(f"tts: {onnx.name} has no .onnx.json next to it, skipped")
+                        continue
+                    found[voice_id] = onnx
+            if found != self._voices or not self._scanned:
+                self.log(f"tts: {len(found)} voices in {self.voices_dir}: {', '.join(found) or 'none'}")
+            self._voices = found
+            self._stamp = stamp
+            self._scanned = True
+
+    @property
+    def enabled(self) -> bool:
+        self._scan()
+        return bool(self.cmd and self._voices)
+
+    @property
+    def default_voice(self) -> str | None:
+        """The voice the tablet gets unless it asks for another: the one asked for, else the first found."""
+        if not self.enabled:
+            return None
+        return self.wanted if self.wanted in self._voices else next(iter(self._voices))
+
+    def voices(self) -> list[dict]:
+        if not self.enabled:
+            return []
+        return [self.describe(voice_id) for voice_id in self._voices]
+
+    @staticmethod
+    def describe(voice_id: str) -> dict:
+        """en_US-amy-medium -> Amy, en-US. Unknown voices are named after the middle of their id."""
+        parts = voice_id.split("-")
+        name = VOICE_NAMES.get(voice_id) or (parts[1] if len(parts) >= 2 else voice_id).replace("_", " ").title()
+        lang = parts[0].replace("_", "-") if len(parts) >= 2 else "en"
+        return {"id": voice_id, "name": name, "lang": lang, "quality": "natural"}
+
+    # -- making clips
+
+    def clip_path(self, text, voice_id, rate) -> tuple[Path, str, float]:
+        """Where the clip for this text lives (made or not), with the text and pace as the voice gets them.
+        Raises ApiError for what the voice cannot do: no voice at all, nothing to say, too much, no such voice."""
+        if not self.enabled:
+            raise ApiError(503, "No voice on the Pi")
+        text = normalize_speech(text)
+        if not text:
+            raise ApiError(400, "Nothing to say")
+        if len(text) > MAX_TTS_CHARS:
+            raise ApiError(400, f"At most {MAX_TTS_CHARS} characters at a time")
+        if not isinstance(voice_id, str) or not VOICE_ID_RE.match(voice_id) or voice_id not in self._voices:
+            raise ApiError(404, "No such voice")
+        rate = clamp_rate(rate)
+        digest = hashlib.sha1(text.encode("utf-8")).hexdigest()
+        return self.cache_dir / voice_id / f"{rate:.2f}" / f"{digest}.wav", text, rate
+
+    def render(self, text, voice_id, rate) -> Path:
+        """The WAV clip for this text: from the cache, or made now by piper. At most MAX_RENDERS run at
+        once, and two requests for the same clip share one render."""
+        path, text, rate = self.clip_path(text, voice_id, rate)
+        if path.is_file():
+            return path
+        key = str(path)
+        with self._cond:
+            while key in self._busy:
+                self._cond.wait()
+            if path.is_file():
+                return path
+            self._busy.add(key)
+        try:
+            with self._slots:
+                onnx = self._voices.get(voice_id)
+                if onnx is None:                    # removed from the folder while we waited for a slot
+                    raise ApiError(404, "No such voice")
+                if not path.is_file():
+                    self._run(text, onnx, rate, path)
+        finally:
+            with self._cond:
+                self._busy.discard(key)
+                self._cond.notify_all()
+        return path
+
+    def _run(self, text: str, onnx: Path, rate: float, path: Path) -> None:
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+        except OSError as e:                    # a read-only or missing cache folder: a plain 500, not a traceback
+            self.log(f"tts: cannot write {path.parent}: {e}")
+            raise ApiError(500, "The voice could not start") from None
+        # Written next to its final name and renamed when whole, so a reader never sees half a clip.
+        tmp = path.with_name(f".{path.stem}.{os.getpid()}-{threading.get_ident()}.tmp")
+        args = [*self.cmd, "--model", str(onnx), "--output_file", str(tmp),
+                "--length_scale", f"{1 / rate:.3f}", "--sentence_silence", "0.2"]
+        try:
+            proc = subprocess.run(args, input=(text + "\n").encode("utf-8"), capture_output=True,
+                                  timeout=self.TIMEOUT_S, cwd=self.cwd)
+        except subprocess.TimeoutExpired:
+            self._discard(tmp)
+            self.log(f"tts: piper took more than {self.TIMEOUT_S}s on {text[:40]!r}")
+            raise ApiError(504, "The voice took too long") from None
+        except OSError as e:
+            self._discard(tmp)
+            self.log(f"tts: cannot run {self.cmd[0]}: {e}")
+            raise ApiError(500, "The voice could not start") from None
+        if proc.returncode != 0 or not tmp.is_file() or tmp.stat().st_size <= 44:
+            err = proc.stderr.decode("utf-8", "replace").strip().splitlines()
+            self.log(f"tts: piper failed (exit {proc.returncode}) on {text[:40]!r}: {err[-1] if err else 'no output'}")
+            self._discard(tmp)
+            raise ApiError(500, "The voice failed")
+        tmp.replace(path)
+
+    @staticmethod
+    def _discard(tmp: Path) -> None:
+        try:
+            tmp.unlink()
+        except OSError:
+            pass
+
+    # -- filling the cache ahead of time
+
+    def prerender(self, items, voice_id: str | None = None, pause: float = 0.25, stop=None, changed=None) -> dict:
+        """Make every (text, rate) in items that is not cached yet, one at a time and unhurried: a pause
+        after each render, a progress line every LOG_EVERY items. Ends early when stop (an Event) is set
+        or changed() says the content moved on. Returns the counts; "stopped" says why it ended early."""
+        items = list(items)
+        voice_id = voice_id or self.default_voice
+        counts = {"items": len(items), "made": 0, "cached": 0, "failed": 0, "stopped": None}
+        if not self.enabled or not voice_id:
+            counts["stopped"] = "off"
+            return counts
+        if not self._claim():
+            self.log("tts: pre-render: another run is at it (prerender.lock), leaving it to that one")
+            counts["stopped"] = "busy"
+            return counts
+        self.log(f"tts: pre-render: {len(items)} clips to check for {voice_id}")
+        touched = time.monotonic()
+        try:
+            for n, (text, rate) in enumerate(items, 1):
+                if stop is not None and stop.is_set():
+                    counts["stopped"] = "stop"
+                    break
+                if changed is not None and n % self.CHECK_EVERY == 0 and changed():
+                    counts["stopped"] = "changed"
+                    break
+                try:
+                    path, _, _ = self.clip_path(text, voice_id, rate)
+                    if path.is_file():
+                        counts["cached"] += 1
+                    else:
+                        self.render(text, voice_id, rate)
+                        counts["made"] += 1
+                        if pause:
+                            if stop is not None:
+                                stop.wait(pause)
+                            else:
+                                time.sleep(pause)
+                except ApiError as e:
+                    counts["failed"] += 1
+                    if counts["failed"] <= 5:
+                        self.log(f"tts: pre-render: {text[:40]!r}: {e.message}")
+                    if e.status == 503:                 # the voices went away: nothing more can be made
+                        counts["stopped"] = "off"
+                        break
+                if n % self.LOG_EVERY == 0:
+                    self.log(f"tts: pre-render: {n}/{len(items)}, {counts['made']} made, "
+                             f"{counts['cached']} were there, {counts['failed']} failed")
+                if time.monotonic() - touched > 30:
+                    self._touch()
+                    touched = time.monotonic()
+        finally:
+            self._release()
+        why = f"stopped ({counts['stopped']})" if counts["stopped"] else "done"
+        self.log(f"tts: pre-render {why}: {counts['made']} made, {counts['cached']} were there, "
+                 f"{counts['failed']} failed")
+        return counts
+
+    def _claim(self) -> bool:
+        """Take the pre-render lock file: one renderer at a time across processes (the service's thread
+        and tools/prerender_tts.py may both start after an install). A lock whose run is gone, or that
+        nobody has touched for LOCK_STALE_S, belongs to a dead run and is taken over."""
+        lock = self.cache_dir / "prerender.lock"
+        for _ in (1, 2):
+            try:
+                self.cache_dir.mkdir(parents=True, exist_ok=True)
+                fd = os.open(lock, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o644)
+            except FileExistsError:
+                if self._lock_is_live(lock):
+                    return False
+                try:
+                    lock.unlink()
+                except OSError:
+                    return False
+                continue
+            except OSError as e:
+                self.log(f"tts: pre-render: cannot write {lock}: {e}")
+                return False
+            with os.fdopen(fd, "w") as f:
+                f.write(f"{os.getpid()}\n")
+            self._lockfile = lock
+            return True
+        return False
+
+    def _lock_is_live(self, lock: Path) -> bool:
+        """Is the run that wrote this lock still going? Its pid is asked (not on Windows); a run that is
+        alive but stuck is given up on once the lock goes untouched for LOCK_STALE_S (a working run
+        touches it every half minute)."""
+        try:
+            age = time.time() - lock.stat().st_mtime
+        except OSError:
+            return False                                    # it vanished: the run is over
+        try:
+            pid = int(lock.read_text(encoding="utf-8").strip())
+        except (OSError, ValueError):
+            pid = 0
+        if pid and os.name != "nt":
+            try:
+                os.kill(pid, 0)
+            except ProcessLookupError:
+                return False                                # that run is gone (a restart mid-render)
+            except OSError:
+                pass                                        # there, but not ours to signal: alive
+        return age < self.LOCK_STALE_S
+
+    def _touch(self) -> None:
+        if self._lockfile:
+            try:
+                os.utime(self._lockfile)
+            except OSError:
+                pass
+
+    def _release(self) -> None:
+        if self._lockfile:
+            self._discard(self._lockfile)
+            self._lockfile = None
+
+
+def find_tts(data_dir: Path, cmd: str | None = None, voices=None, cache=None,
+             default_voice: str = "en_US-amy-medium", log=print) -> Tts:
+    """A Tts from the flags or environment, else from what deploy/install-voices.sh puts under data_dir:
+    piper/piper/piper, piper/voices/, and the clip cache in tts/."""
+    command = shlex.split(cmd, posix=os.name != "nt") if cmd else None
+    if command and os.name == "nt":
+        command = [c[1:-1] if len(c) > 1 and c[0] == c[-1] == '"' else c for c in command]   # "C:\Program Files\..."
+    if command is None:
+        found = Path(data_dir) / "piper" / "piper" / "piper"
+        if found.is_file():
+            command = [str(found)]
+    return Tts(command, Path(voices) if voices else Path(data_dir) / "piper" / "voices",
+               Path(cache) if cache else Path(data_dir) / "tts", log=log, default_voice=default_voice)
+
+
 # ------------------------------------------------------------------------ app
+
+class FileReply:
+    """What a handler returns to send a file instead of JSON (a voice clip): Handler._api streams it
+    with the ETag and cache rule given, and answers HEAD and If-None-Match for it."""
+
+    def __init__(self, path: Path, ctype: str, etag: str, cache: str):
+        self.path = path
+        self.ctype = ctype
+        self.etag = etag
+        self.cache = cache
+
 
 class Request:
     def __init__(self, method: str, path: str, query: dict, body: dict, token: str | None):
@@ -706,7 +1149,8 @@ class Request:
 
 
 class App:
-    def __init__(self, data_dir: Path, web_dir: Path, content_dir: Path, allow_hosts=(), log=print, tutor=None):
+    def __init__(self, data_dir: Path, web_dir: Path, content_dir: Path, allow_hosts=(), log=print, tutor=None,
+                 tts=None):
         self.log = log
         self.web_dir = web_dir.resolve()
         self.data_dir = data_dir
@@ -715,6 +1159,7 @@ class App:
         self.content = Content(content_dir, log=log)
         self.parent = ParentLock(self.db)
         self.tutor = tutor or Tutor(None, None)
+        self.tts = tts or Tts(None, None, data_dir / "tts", log=log)
         self.allow_hosts = {h.lower() for h in allow_hosts}
         try:
             self.allow_hosts.add(socket.gethostname().lower())
@@ -724,6 +1169,8 @@ class App:
         #        method  pattern                                  handler               grown-up only
         self.routes = [
             ("GET", r"/api/ping", self.h_ping, False),
+            ("GET", r"/api/voices", self.h_voices, False),
+            ("GET", r"/api/tts", self.h_tts, False),
             ("GET", r"/api/profiles", self.h_profiles, False),
             ("GET", r"/api/state", self.h_state, False),
             ("GET", r"/api/report", self.h_report, False),
@@ -1002,7 +1449,23 @@ class App:
 
     def h_ping(self, req: Request):
         return {"ok": True, "app": APP_NAME, "version": VERSION, "content": self.content.etag.strip('"'),
-                "help": self.tutor.enabled}
+                "help": self.tutor.enabled, "tts": self.tts.enabled}
+
+    def h_voices(self, req: Request):
+        """The natural voices the Pi can speak with, and the one it uses unless asked for another."""
+        return {"voices": self.tts.voices(), "default": self.tts.default_voice}
+
+    def h_tts(self, req: Request):
+        """One spoken clip for the tablet (?text=…&voice=…&rate=…) as WAV. The same text, voice and pace
+        always give the same clip, so it is cached for a year; the ETag is the clip's place in the cache."""
+        text = req.query.get("text", [""])[0]
+        voice = req.query.get("voice", [None])[0] or self.tts.default_voice
+        rate = req.query.get("rate", ["1"])[0]
+        path = self.tts.render(text, voice, rate)
+        where = path.relative_to(self.tts.cache_dir).as_posix()
+        etag = f'"{hashlib.sha1(where.encode("utf-8")).hexdigest()}"'
+        return FileReply(path, "audio/wav", etag, "public, max-age=31536000, immutable")
+    h_tts.sends_file = True       # so Handler._api answers HEAD for it, like a static file
 
     def h_help(self, req: Request):
         """The 🙋 button: a hint about the card the child is on, from the local model."""
@@ -1635,24 +2098,37 @@ class Handler(BaseHTTPRequestHandler):
 
     def _api(self, method: str, path: str, query: dict) -> None:
         if method == "HEAD":
-            raise ApiError(405, "Method not allowed")
-        if method != "GET":
-            origin = self.headers.get("Origin")
-            if origin and urlsplit(origin).netloc.lower() != self.headers.get("Host", "").lower():
-                raise ApiError(403, "Cross-site request refused")
-        handler, grownup, args = self.app.route(method, path)
+            # Only a handler that sends a file answers HEAD (the tablet sizes a clip that way); the JSON
+            # routes keep refusing it, as they always have.
+            handler, grownup, args = self.app.route("GET", path)
+            if not getattr(handler, "sends_file", False):
+                raise ApiError(405, "Method not allowed")
+        else:
+            if method != "GET":
+                origin = self.headers.get("Origin")
+                if origin and urlsplit(origin).netloc.lower() != self.headers.get("Host", "").lower():
+                    raise ApiError(403, "Cross-site request refused")
+            handler, grownup, args = self.app.route(method, path)
         body = self._read_body() if method in ("POST", "PUT") else {}
         token = self.headers.get("X-Parent-Token")
         if grownup and not self.app.parent.allows(token):
             raise ApiError(401, "Grown-up PIN needed")
         req = Request(method, path, query, body, token)
         req.args = args
-        self._send_json(handler(req), 200)
+        reply = handler(req)
+        if isinstance(reply, FileReply):
+            if not self._not_modified(reply.etag, reply.cache):
+                self._send(200, reply.ctype, reply.path.read_bytes(),
+                           {"ETag": reply.etag, "Cache-Control": reply.cache}, head=method == "HEAD")
+        else:
+            self._send_json(reply, 200)
 
     def _send_json(self, obj, status: int) -> None:
         raw = json.dumps(obj, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+        # An error to a HEAD request keeps its headers and drops the body, or the next reply on a
+        # kept-alive connection would be read out of step.
         self._send(status, "application/json; charset=utf-8", raw, {"Cache-Control": "no-store"},
-                   compress=len(raw) > 1024)
+                   compress=len(raw) > 1024, head=self.command == "HEAD")
 
     def _accepts_gzip(self) -> bool:
         return "gzip" in self.headers.get("Accept-Encoding", "").lower()
@@ -1674,12 +2150,12 @@ class Handler(BaseHTTPRequestHandler):
         if not head and status != 304:
             self.wfile.write(body)
 
-    def _not_modified(self, etag: str) -> bool:
+    def _not_modified(self, etag: str, cache: str = "no-cache") -> bool:
         if self.headers.get("If-None-Match") != etag:
             return False
         self.send_response(304)
         self.send_header("ETag", etag)
-        self.send_header("Cache-Control", "no-cache")
+        self.send_header("Cache-Control", cache)
         self.send_header("Content-Length", "0")
         self.end_headers()
         return True
@@ -1745,8 +2221,10 @@ class Server(ThreadingHTTPServer):
 
 
 def make_server(host: str, port: int, data_dir: Path, web_dir: Path | None = None,
-                content_dir: Path | None = None, allow_hosts=(), verbose=False, log=print, tutor=None) -> Server:
-    app = App(data_dir, web_dir or ROOT / "web", content_dir or ROOT / "content", allow_hosts, log=log, tutor=tutor)
+                content_dir: Path | None = None, allow_hosts=(), verbose=False, log=print, tutor=None,
+                tts=None) -> Server:
+    app = App(data_dir, web_dir or ROOT / "web", content_dir or ROOT / "content", allow_hosts, log=log, tutor=tutor,
+              tts=tts)
     handler = type("BoundHandler", (Handler,), {"app": app, "verbose": verbose})
     server = Server((host, port), handler)
     server.app = app
@@ -1785,6 +2263,19 @@ def main(argv=None) -> int:
                     help="model name to request from the local server (default: llama3.1:8b)")
     ap.add_argument("--llm-key", default=os.environ.get("STARCARDS_LLM_KEY"), metavar="KEY",
                     help="bearer token if the local server wants one")
+    ap.add_argument("--tts-cmd", default=os.environ.get("STARCARDS_TTS_CMD"), metavar="CMD",
+                    help="piper command for the natural voice (default: <data-dir>/piper/piper/piper when "
+                         "deploy/install-voices.sh has put it there). Off when neither is there.")
+    ap.add_argument("--tts-voices", type=Path, default=os.environ.get("STARCARDS_TTS_VOICES"), metavar="DIR",
+                    help="folder of piper voices, each an .onnx with its .onnx.json (default: <data-dir>/piper/voices)")
+    ap.add_argument("--tts-cache", type=Path, metavar="DIR",
+                    help="where the rendered clips are kept (default: <data-dir>/tts)")
+    ap.add_argument("--tts-default-voice", default=os.environ.get("STARCARDS_TTS_DEFAULT_VOICE", "en_US-amy-medium"),
+                    metavar="ID", help="the voice used unless the tablet asks for another (default: en_US-amy-medium, "
+                                       "else the first voice found)")
+    ap.add_argument("--tts-prerender", action=argparse.BooleanOptionalAction, default=True,
+                    help="after a start, render every story line, word and question in the background so "
+                         "playback is instant (default: on when a voice is there)")
     args = ap.parse_args(argv)
 
     def log(msg: str) -> None:
@@ -1801,8 +2292,9 @@ def main(argv=None) -> int:
         return 0
 
     tutor = Tutor(args.llm_url, args.llm_model, args.llm_key)
+    tts = find_tts(args.data_dir, args.tts_cmd, args.tts_voices, args.tts_cache, args.tts_default_voice, log=log)
     server = make_server(args.host, args.port, args.data_dir, content_dir=args.content_dir,
-                         allow_hosts=args.allow_host, verbose=args.verbose, log=log, tutor=tutor)
+                         allow_hosts=args.allow_host, verbose=args.verbose, log=log, tutor=tutor, tts=tts)
     app: App = server.app
     scheme = "http"
     if args.cert:
@@ -1816,6 +2308,11 @@ def main(argv=None) -> int:
         scheme = "https"
     if tutor.enabled:
         log(f"Help button: on, using {tutor.model} at {tutor.url}")
+    if tts.enabled:
+        log(f"Natural voice: on, {', '.join(v['id'] for v in tts.voices())} (default {tts.default_voice}), "
+            f"clips in {tts.cache_dir}")
+    elif tts.cmd:
+        log(f"Natural voice: piper is there but no voice is in {tts.voices_dir} (see deploy/install-voices.sh)")
     stop = threading.Event()
 
     def backup_loop() -> None:
@@ -1829,6 +2326,40 @@ def main(argv=None) -> int:
             stop.wait(6 * 3600)
 
     threading.Thread(target=backup_loop, name="backup", daemon=True).start()
+
+    def prerender_loop() -> None:
+        """Fill the voice cache once per content version, from the bottom of the priority list: on Linux
+        nice() is per thread, and piper inherits it, so a background clip never slows a tapped word."""
+        try:
+            os.nice(10)
+        except (AttributeError, OSError):
+            pass
+        done = None
+        while not stop.is_set():
+            app.content.refresh()
+            version = app.content.etag
+
+            def changed(v=version) -> bool:
+                app.content.refresh()
+                return app.content.etag != v
+
+            if version != done:
+                try:
+                    result = app.tts.prerender(tts_corpus(app.content), stop=stop, changed=changed)
+                except Exception:
+                    log(f"tts: pre-render crashed\n{traceback.format_exc()}")
+                    result = {"stopped": "off"}
+                if result["stopped"] in (None, "off"):
+                    done = version              # all there, or nothing can be made: wait for new content
+                elif result["stopped"] == "busy":
+                    stop.wait(600)              # another run has it; see where things stand later
+                    continue
+                elif result["stopped"] == "changed":
+                    continue                    # the content moved on: start over at the top, right away
+            stop.wait(60)
+
+    if tts.enabled and args.tts_prerender:
+        threading.Thread(target=prerender_loop, name="tts-prerender", daemon=True).start()
 
     def shutdown(signum, frame) -> None:
         stop.set()

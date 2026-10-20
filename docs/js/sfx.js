@@ -9,16 +9,31 @@ export function configure({ on }) {
   enabled = on !== false;
 }
 
-export function unlock() {
-  try {
-    if (!ctx) {
+// The one AudioContext on the page. The sound effects and the Pi's voice (speech.js plays its
+// clips through it) share it, so the first tap's unlock() wakes both. Null without Web Audio.
+export function context() {
+  if (!ctx) {
+    try {
       const Ctor = window.AudioContext || window.webkitAudioContext;
-      if (!Ctor) return;
+      if (!Ctor) return null;
       ctx = new Ctor();
+    } catch {
+      ctx = null;
     }
-    if (ctx.state !== 'running') ctx.resume();
+  }
+  return ctx;
+}
+
+export function unlock() {
+  const c = context();
+  if (!c) return;
+  try {
+    if (c.state !== 'running') {
+      const resumed = c.resume();
+      if (resumed && typeof resumed.catch === 'function') resumed.catch(() => {});
+    }
   } catch {
-    ctx = null;
+    /* the next tap tries again */
   }
 }
 

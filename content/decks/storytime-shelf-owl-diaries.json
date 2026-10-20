@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-owl-diaries",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 940,
+  "title": "Owl Diaries words",
+  "emoji": "🦉",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Eva is a young owl who keeps a diary, and when she plans a big spring festival for her school she takes on far more jobs than one owl can manage. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, a diary entry or two each night.",
+  "book": {
+    "author": "Rebecca Elliott",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Eva's+Treetop+Festival&searchType=title",
+    "blurb": "A busy little owl learns that a festival is more fun when friends share the work."
+  },
+  "passage": {
+    "text": "Eva owl diary class\ntreetop Lucy Sue teacher\nfestival bake cake cookies\nshow art wings fly\nbusy plan",
+    "level": "open",
+    "focus": ["ee", "a_e", "ng"],
+    "tricky": ["Eva", "diary", "Lucy", "festival", "cookies", "show", "fly", "busy"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-owl-diaries.eva", "text": "Eva", "parts": ["E", "v", "a"], "tricky": [0, 2], "emoji": "🦉", "note": "capital E, it is her name; the E says its name and the a says uh: Ee-vuh" },
+    { "id": "storytime.shelf-owl-diaries.owl", "text": "owl", "parts": ["ow", "l"], "note": "ow says ow, like in cow" },
+    { "id": "storytime.shelf-owl-diaries.diary", "text": "diary", "parts": ["d", "i", "ar", "y"], "tricky": [1, 2, 3], "emoji": "📔", "note": "three parts: di-ar-y; the i says its name, ar says er and y says ee: dye-er-ee" },
+    { "id": "storytime.shelf-owl-diaries.class", "text": "class", "parts": ["c", "l", "a", "ss"], "emoji": "🏫", "note": "c-l blend; ss is one sound" },
+    { "id": "storytime.shelf-owl-diaries.treetop", "text": "treetop", "parts": ["t", "r", "ee", "t", "o", "p"], "emoji": "🌳", "note": "two parts: tree-top; ee says long e" },
+    { "id": "storytime.shelf-owl-diaries.lucy", "text": "Lucy", "parts": ["L", "u", "c", "y"], "tricky": [1, 2, 3], "emoji": "👧", "note": "capital L, it is her name; the u says oo, the c says s and y says ee: Loo-see" },
+    { "id": "storytime.shelf-owl-diaries.sue", "text": "Sue", "parts": ["S", "ue"], "note": "capital S, it is her name; ue says oo, like in glue: Soo" },
+    { "id": "storytime.shelf-owl-diaries.teacher", "text": "teacher", "parts": ["t", "ea", "ch", "er"], "note": "ea says long e; ch is one part; er says er: teach-er" },
+    { "id": "storytime.shelf-owl-diaries.festival", "text": "festival", "parts": ["f", "e", "s", "t", "i", "v", "a", "l"], "tricky": [4, 6], "emoji": "🎉", "note": "three parts: fes-ti-val; the i and the a both say uh: fes-tuh-vul" },
+    { "id": "storytime.shelf-owl-diaries.bake", "text": "bake", "parts": ["b", "a", "k", "e"], "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-owl-diaries.cake", "text": "cake", "parts": ["c", "a", "k", "e"], "emoji": "🎂", "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-owl-diaries.cookies", "text": "cookies", "parts": ["c", "oo", "k", "ie", "s"], "tricky": [3], "emoji": "🍪", "note": "oo says the short oo, like in book; ie says ee; the s says z: kook-eez" },
+    { "id": "storytime.shelf-owl-diaries.show", "text": "show", "parts": ["sh", "ow"], "tricky": [1], "emoji": "🎭", "note": "sh is one part; ow says oh here, like in snow: shoh" },
+    { "id": "storytime.shelf-owl-diaries.art", "text": "art", "parts": ["ar", "t"], "emoji": "🎨", "note": "ar says ar, like in car" },
+    { "id": "storytime.shelf-owl-diaries.wings", "text": "wings", "parts": ["w", "i", "ng", "s"], "note": "ng is one part; the s says z" },
+    { "id": "storytime.shelf-owl-diaries.fly", "text": "fly", "parts": ["f", "l", "y"], "tricky": [2], "note": "f-l blend; y says long i here: flye" },
+    { "id": "storytime.shelf-owl-diaries.busy", "text": "busy", "parts": ["b", "u", "s", "y"], "tricky": [1, 2, 3], "note": "the u says short i, the s says z and y says ee: biz-ee" },
+    { "id": "storytime.shelf-owl-diaries.plan", "text": "plan", "parts": ["p", "l", "a", "n"], "emoji": "📝", "note": "p-l blend; all regular" }
+  ]
+}

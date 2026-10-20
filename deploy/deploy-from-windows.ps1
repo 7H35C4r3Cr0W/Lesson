@@ -3,6 +3,7 @@ Copy Star Cards to the Raspberry Pi and (re)install it there, in one go.
 
     .\deploy\deploy-from-windows.ps1                      # uses starcards.local and user pi
     .\deploy\deploy-from-windows.ps1 -PiHost 192.168.1.50 -User pi
+    .\deploy\deploy-from-windows.ps1 -InstallVoices       # also install the natural voice (Piper, ~200 MB, once)
 
 Needs: Windows OpenSSH (ssh, scp: built into Windows 11), and ssh login on the Pi.
 First time, you will be asked for the Pi password twice. To stop that, run once:
@@ -12,7 +13,8 @@ First time, you will be asked for the Pi password twice. To stop that, run once:
 param(
   [string]$PiHost = "starcards.local",
   [string]$User = "pi",
-  [switch]$SkipTests
+  [switch]$SkipTests,
+  [switch]$InstallVoices
 )
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
@@ -41,3 +43,9 @@ Write-Host "==> Installing on the Pi (sudo)" -ForegroundColor Cyan
 # Windows may have saved the script with CRLF line endings, which bash cannot run; fix that first.
 ssh -t $target "sed -i 's/\r`$//' ~/starcards-src/deploy/install.sh && sudo bash ~/starcards-src/deploy/install.sh"
 if ($LASTEXITCODE -ne 0) { throw "install.sh reported an error on the Pi (see above)." }
+
+if ($InstallVoices) {
+  Write-Host "==> Installing the natural voice on the Pi (Piper + 3 voices, ~200 MB download, sudo)" -ForegroundColor Cyan
+  ssh -t $target "sed -i 's/\r`$//' ~/starcards-src/deploy/install-voices.sh && sudo bash ~/starcards-src/deploy/install-voices.sh"
+  if ($LASTEXITCODE -ne 0) { throw "install-voices.sh reported an error on the Pi (see above)." }
+}

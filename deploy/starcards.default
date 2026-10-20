@@ -7,8 +7,16 @@
 #STARCARDS_LLM_MODEL=llama3.1:8b
 #STARCARDS_LLM_KEY=
 
+# The natural voice (Piper): deploy-from-windows.ps1 -InstallVoices puts it in /var/lib/starcards/piper,
+# where the server finds it by itself. Only set these to use another place or another default voice.
+#STARCARDS_TTS_CMD=/var/lib/starcards/piper/piper/piper
+#STARCARDS_TTS_VOICES=/var/lib/starcards/piper/voices
+#STARCARDS_TTS_DEFAULT_VOICE=en_US-amy-medium
+
 # Extra flags for server.py, for example:
 #   --allow-host cards.home     (another name the tablet uses for the Pi)
 #   --cert /etc/starcards/cert.pem --key /etc/starcards/key.pem --port 443   (https; see README)
 #   --content-dir /var/lib/starcards/content   (edit decks on the Pi instead of redeploying)
+#   --no-tts-prerender          (do not render the stories and questions in the background after a start)
+#   --tts-cache /var/lib/starcards/tts   (where the voice clips are kept; this is the default)
 STARCARDS_ARGS=

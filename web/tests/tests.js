@@ -484,6 +484,37 @@ test('longPress: two right-clicks in a row both hold, a hold on a button no long
   }
 });
 
+// ---- voices ---------------------------------------------------------------------
+
+group('Voices');
+const S = await import('/js/speech.js');
+test('ttsUrl: cleans the text like the server does, rounds the rate to 0.05 and clamps it', () => {
+  eq(S.ttsUrl('Hi 🐱  there,\nfriend!', 'pi:en_US-amy-medium', 0.7),
+    '/api/tts?text=Hi%20there%2C%20friend!&voice=en_US-amy-medium&rate=0.70');
+  eq(S.ttsUrl('cat', 'en_US-amy-medium', 0.87), '/api/tts?text=cat&voice=en_US-amy-medium&rate=0.85', 'rounded; the pi: prefix is optional');
+  ok(S.ttsUrl('cat', 'en_US-amy-medium', 0.725).endsWith('&rate=0.75'), 'half-way rounds up, as clamp_rate does on the Pi');
+  ok(S.ttsUrl('cat', 'en_US-amy-medium', 0.3).endsWith('&rate=0.50'), 'clamped up to 0.5');
+  ok(S.ttsUrl('cat', 'en_US-amy-medium', 2).endsWith('&rate=1.50'), 'clamped down to 1.5');
+  ok(S.ttsUrl('cat', 'en_US-amy-medium', 'nope').endsWith('&rate=1.00'), 'no usable rate means 1.0');
+  eq(S.ttsUrl('cat', null, 1), '/api/tts?text=cat&rate=1.00', 'no voice: the Pi picks its default');
+  const sent = new URL(S.ttsUrl('a'.repeat(400), 'v', 1), location.href).searchParams.get('text');
+  eq(sent.length, 300, 'capped at 300 characters');
+  const cut = new URL(S.ttsUrl('a'.repeat(299) + '\u{1D49C}b', 'v', 1), location.href).searchParams.get('text');
+  eq(cut, 'a'.repeat(299), 'a cut through a two-unit character drops the orphan half instead of throwing');
+  eq(S.ttsUrl('  \t\n ', 'v', 1), null, 'nothing to say');
+  eq(S.ttsUrl('🍎🍎', 'v', 1), null, 'only pictures: nothing to say');
+  eq(S.ttsUrl(null, 'v', 1), null);
+});
+test('isServerVoice: only ids with the pi: prefix and a name after it', () => {
+  ok(S.isServerVoice('pi:en_US-amy-medium'));
+  ok(!S.isServerVoice('pi:'));
+  ok(!S.isServerVoice('com.apple.voice.compact.en-US.Samantha'));
+  ok(!S.isServerVoice('en_US-amy-medium'));
+  ok(!S.isServerVoice(null));
+  ok(!S.isServerVoice(undefined));
+  ok(!S.isServerVoice(42));
+});
+
 // ---- DOM and drawings ---------------------------------------------------------
 
 group('Safety of the page builder');

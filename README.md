@@ -23,8 +23,8 @@ Raspberry Pi on your home Wi-Fi and is used on an iPad in Safari. No accounts, n
 
 Everything is plain Python (standard library) and plain JavaScript. No build step, nothing to `pip install`.
 
-**What's inside:** 366 levels and about 6,000 cards in all: 283 levels / ~4,900 cards across 9 subjects, plus two reading subjects (📚 Read by
-Myself, 12 stories, and 📕 Books, 71 levels, below), built from the North Carolina Grade 1 standards and
+**What's inside:** 382 levels and about 6,300 cards in all: 283 levels / ~4,900 cards across 9 subjects, plus two reading subjects (📚 Read by
+Myself, 12 stories, and 📕 Books, 87 levels, below), built from the North Carolina Grade 1 standards and
 sized to last the whole school year: 🔤 Sounds (26), 📖 Words (54, in CKLA reading order, incl. all five CKLA
 tricky-word sets, three sight-word sets, prefixes/suffixes, contractions and silent letters), 💬 Sentences (36, incl.
 grammar and reading-comprehension levels), 🔢 Math (50), 🔬 Science (22), 🌎 My World / social studies (24), 💪 Healthy
@@ -40,9 +40,9 @@ vegetables, grains/protein/dairy, drinks and water, everyday and sometimes foods
 on NC Healthful Living 1.NPA/1.PCH and Science LS.1.1.1; the inside-the-body levels are bridge topics).
 📚 Read by Myself (12 decodable stories in the CKLA Grade 1 Skills unit order, so each uses only the sound-spellings and
 tricky words taught so far and the child can sound it out alone; every story has a Read screen and 8–12 questions about
-it, NC RF.1.4 and RL.1.1–1.3) and 📕 Books (71 levels: 33 classics retold — Aesop's fables, folk and fairy tales from
+it, NC RF.1.4 and RL.1.1–1.3) and 📕 Books (87 levels: 37 classics retold — Aesop's fables, folk and fairy tales from
 around the world, Hans Christian Andersen, Beatrix Potter, Winnie-the-Pooh, The Velveteen Rabbit and The Little Engine
-That Could — at first-grade level to read together, page by page, plus a Books to borrow shelf of 38 famous library
+That Could — at first-grade level to read together, page by page, plus a Books to borrow shelf of 50 famous library
 books such as *If You Give a Mouse a Cookie*, *Frog and Toad* and *Elephant & Piggie*, where each level is the words you
 will meet in that book, with a link to borrow it). The app never copies a published book's text or pictures; it teaches
 the words and links to the library. Every level of 📕 Books is on the **Books** checklist in Grown-ups → Reading, to tick
@@ -68,7 +68,7 @@ Build the demo copy yourself with `python tools/build_static.py` (writes `docs/`
 ## For teachers
 
 - **What it is:** 283 short levels across nine subjects, plus 📚 Read by Myself (12 decodable stories) and 📕 Books
-  (71 levels), written to the NC Standard Course of Study for Grade 1, reading in the CKLA Grade 1 Skills order.
+  (87 levels), written to the NC Standard Course of Study for Grade 1, reading in the CKLA Grade 1 Skills order.
   Each level = talking flashcards (Look) + a tap-the-answer round (Play); a story level adds a Read screen first.
 - **Reading fluency:** on a story's Read screen the child reads from the tablet and taps any word he needs (the
   tablet says it and remembers it). A grown-up can score a read instead: *Grown-up: score this read* → *Start* →
@@ -239,6 +239,44 @@ sudo bash /opt/starcards/tools/make_cert.sh starcards.local 192.168.1.50   # you
 then follow the steps it prints (install the "Star Cards Home CA" profile on the iPad and trust it, set
 `STARCARDS_ARGS=--cert /etc/starcards/cert.pem --key /etc/starcards/key.pem --port 443`, restart, and re-add
 https://starcards.local/ to the Home Screen). The 🙋 button then listens for a question first.
+
+## Natural voice from the Pi
+
+The iPad's built-in voice is robotic. Downloading an Enhanced voice on the tablet helps (see *Set up the iPad*);
+the other way is to let the Pi speak: it runs [Piper](https://github.com/rhasspy/piper), an offline neural
+text-to-speech engine, and sends the tablet audio clips instead. Stories are fixed text, so the Pi renders every
+story line, word and sound once in the background (then every question), keeps the clips in `/var/lib/starcards/tts`,
+and after that playback is instant. Nothing leaves your network. The full set of clips for one voice is about
+1 GB on the Pi's card, and rendering it all takes a few hours on a Pi 4 (the stories come first, within the first hour).
+
+One-time install (about 200 MB downloaded on the Pi, from GitHub and HuggingFace):
+
+```powershell
+.\deploy\deploy-from-windows.ps1 -PiHost starcards.local -User pi -InstallVoices
+```
+
+That deploys as usual, then runs `deploy/install-voices.sh` with sudo: Piper and three voices (**Amy**, the
+default; **Ryan**, a male voice; **Lessac**, very clear) go into `/var/lib/starcards/piper`, which survives
+redeploys and which the server finds by itself. The service restarts and starts pre-rendering the stories, slowly
+and at low priority; `tools/prerender_tts.py` does the same from the command line. Then on each tablet open
+**Grown-ups → Settings → Voice** and pick a natural voice from the Pi (the tablet falls back to its own voice for any
+clip it cannot fetch, so the app never goes silent).
+
+Check it:
+
+```bash
+curl -s http://starcards.local/api/voices          # {"voices":[{"id":"en_US-amy-medium","name":"Amy",...}],"default":"en_US-amy-medium"}
+journalctl -u starcards -f                         # "Natural voice: on ..." and the pre-render's progress
+tail -f /var/lib/starcards/piper/prerender.log     # the installer's background pre-render
+```
+
+`/api/ping` says `"tts": true` once a voice is there. To add another voice, download its `.onnx` and `.onnx.json`
+from [rhasspy/piper-voices](https://huggingface.co/rhasspy/piper-voices/tree/v1.0.0/en/en_US) into
+`/var/lib/starcards/piper/voices/` (owned by `starcards`); it shows up in Settings on the next page load. To make
+another voice the default, set `STARCARDS_TTS_DEFAULT_VOICE=en_US-ryan-medium` in `/etc/default/starcards` and
+restart. Piper needs a 64-bit OS (Raspberry Pi OS 64-bit or Ubuntu arm64) and more memory than the service's
+usual cap, which the installer raises with a systemd drop-in. The public demo copy on GitHub Pages has no Pi
+behind it, so it cannot use this; it keeps the tablet's own voices.
 
 ## Editing the cards
 

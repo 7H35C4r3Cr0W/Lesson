@@ -1,0 +1,88 @@
+{
+  "id": "storytime.cinderella",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 270,
+  "title": "Cinderella",
+  "emoji": "👠",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "Charles Perrault's Cinderella, kept short and kind: a girl who does all the work for her unkind stepsisters, a fairy godmother who makes a dress and a golden coach from a pumpkin, a dance that must end by midnight, and a glass slipper that fits only her. First graders love the pumpkin coach and the clock striking twelve, and the ending shows Cinderella forgiving her stepsisters, with the lesson said plainly: be kind, even when others are not. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Count the bongs of the clock together, then ask why Cinderella hugged her stepsisters at the end.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Charles Perrault (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A pumpkin coach, a midnight dash, and one glass slipper."
+  },
+  "passage": {
+    "text": "Once there was a kind girl named Cinderella.\nShe lived with her stepmother and two stepsisters.\nThe stepsisters were not kind.\nThey made her do all the work.\nShe swept the floors.\nShe washed the pots.\nShe slept by the fire.\nBut she was always kind to them.\n***\nOne day, the prince had a grand ball.\nEveryone wanted to go and dance.\nThe stepsisters put on their best dresses.\n\"You cannot come,\" they said.\n\"You have nothing to wear.\"\nOff they went.\nCinderella sat by the fire and cried.\n***\nJust then, a fairy godmother appeared.\n\"You shall go to the ball,\" she said.\nShe waved her wand.\nA pumpkin turned into a golden coach.\nFour mice turned into four white horses.\nCinderella's rags turned into a lovely dress.\nOn her feet were two glass slippers.\n\"Be home by midnight,\" said the fairy godmother.\n\"At midnight, the magic ends.\"\n***\nAt the ball, the prince saw Cinderella.\n\"Will you dance with me?\" he asked.\nThey danced and danced.\nThen the clock began to strike twelve.\nBong! Bong! Bong!\n\"I must go!\" said Cinderella.\nShe ran down the steps.\nOne glass slipper fell off her foot.\nShe did not stop to get it.\nThe prince picked it up.\n***\nThe next day, the prince went from house to house.\n\"Who fits this slipper?\" he asked.\nThe stepsisters tried it on.\nIt did not fit.\nThen Cinderella tried it on.\nIt fit just right!\n\"We are sorry we were unkind,\" said the stepsisters.\n\"I forgive you,\" said Cinderella, and she hugged them.\nCinderella and the prince were married.\nBe kind, even when others are not.",
+    "level": "open",
+    "focus": ["st blend", "magic e", "-ed endings"],
+    "tricky": ["once", "there", "was", "a", "kind", "girl", "cinderella", "she", "stepmother", "two", "stepsisters", "the", "were", "they", "do", "all", "work", "floors", "washed", "by", "always", "to", "one", "prince", "everyone", "dance", "cannot", "nothing", "wear", "go", "their", "you", "said", "have", "fairy", "godmother", "appeared", "wand", "turned", "golden", "coach", "four", "mice", "horses", "lovely", "be", "midnight", "magic", "me", "he", "i", "down", "foot", "from", "house", "who", "right", "we", "are", "sorry", "unkind", "forgive", "married", "others", "when"]
+  },
+  "cards": [
+    { "id": "storytime.cinderella.who-work",
+      "q": "Who made Cinderella do all the work?",
+      "a": "her stepsisters",
+      "wrong": ["her fairy godmother", "the prince"],
+      "note": "The stepsisters were not kind: she swept, washed and slept by the fire, and stayed kind anyway." },
+
+    { "id": "storytime.cinderella.pumpkin-coach",
+      "q": "What did the fairy godmother turn into a coach?",
+      "a": "a pumpkin",
+      "wrong": ["a mouse", "a shoe"],
+      "emoji": "🎃",
+      "note": "One wave of the wand: a pumpkin became a golden coach and four mice became four white horses." },
+
+    { "id": "storytime.cinderella.lost-slipper",
+      "q": "What did Cinderella lose on the steps?",
+      "a": "a glass slipper",
+      "wrong": ["a golden crown", "a white horse"],
+      "emoji": "👠",
+      "note": "It fell off her foot as she ran, and the prince picked it up." },
+
+    { "id": "storytime.cinderella.when-midnight",
+      "q": "When did the magic end?",
+      "a": "at midnight",
+      "wrong": ["at breakfast", "at noon"],
+      "note": "The fairy godmother said to be home by midnight, and the clock striking twelve is midnight." },
+
+    { "id": "storytime.cinderella.first",
+      "q": "What happened first in the story?",
+      "a": "Cinderella did the work",
+      "wrong": ["the slipper fit", "the fairy came"],
+      "note": "Sweeping, washing and sleeping by the fire come first; the fairy godmother comes after the ball starts." },
+
+    { "id": "storytime.cinderella.end",
+      "q": "What happened at the end of the story?",
+      "a": "Cinderella married the prince",
+      "wrong": ["the clock struck twelve", "Cinderella swept the floors"],
+      "note": "The slipper fit, the stepsisters said sorry, and Cinderella and the prince were married." },
+
+    { "id": "storytime.cinderella.feel-sad",
+      "q": "How did Cinderella feel when she was left at home?",
+      "a": "sad",
+      "wrong": ["proud", "excited"],
+      "note": "The stepsisters went off to the ball and she sat by the fire and cried." },
+
+    { "id": "storytime.cinderella.lesson",
+      "q": "What does this story teach?",
+      "a": "keep being kind",
+      "wrong": ["be mean right back", "hide from everyone"],
+      "note": "Be kind, even when others are not: Cinderella stayed kind and even forgave her stepsisters." },
+
+    { "id": "storytime.cinderella.vocab-ball",
+      "q": "In the story, what is a 'ball'?",
+      "a": "a big dance party",
+      "wrong": ["a round toy", "a kind of hat"],
+      "note": "Not the round toy: in this story a ball is a grand party where everyone dances." },
+
+    { "id": "storytime.cinderella.word-coach",
+      "q": "Which word is in the story?",
+      "a": "coach",
+      "wrong": ["couch", "coat"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

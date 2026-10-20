@@ -4,8 +4,10 @@ Each test class starts a real server on a spare port with its own throwaway
 database and a tiny hand-made content folder, then talks to it over HTTP.
 """
 import gzip
+import hashlib
 import http.client
 import json
+import os
 import shutil
 import sys
 import tempfile
@@ -1148,6 +1150,382 @@ class HelpDisabled(ServerCase):
         self.assertFalse(ping["help"])
         resp, _ = self.call("POST", "/api/help", body={"profile": 1, "card": "w1.cat"})
         self.assertEqual(resp.status, 503)
+
+
+FAKE_PIPER = ROOT / "tests" / "fake_piper.py"
+# A story with quote marks, a possessive, a page break, an emoji in a question and a sayQ: what the
+# pre-render has to get right.
+DECK_QUOTES = {
+    "id": "s3", "subject": "reading", "group": "unit1", "title": "Hi Max", "emoji": "🎩", "kind": "qa", "order": 3,
+    "passage": {"text": "“Hi, Max!” said Sam.\nMax’s hat is red.\n***\nThe end.", "level": "unit1"},
+    "cards": [{"id": "s3.hats", "q": "How many hats? 🎩 2 + 1 = ?", "a": "3", "wrong": ["2", "4"]},
+              {"id": "s3.who", "q": "Who said hi?", "sayQ": "Who said hello?", "a": "Sam", "wrong": ["Max"]}],
+}
+
+
+class Voices(unittest.TestCase):
+    """The natural voice from the Pi: tests/fake_piper.py stands in for the piper binary."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = Path(tempfile.mkdtemp(prefix="starcards-voices-"))
+        write_content(cls.tmp / "content", decks=(DECK_WORDS, DECK_MATH, DECK_STORY, DECK_QUOTES))
+        (cls.tmp / "web").mkdir()
+        cls.voices_dir = cls.tmp / "voices"
+        cls.voices_dir.mkdir()
+        (cls.voices_dir / "en_US-test-medium.onnx").write_bytes(b"not a real model")
+        (cls.voices_dir / "en_US-test-medium.onnx.json").write_text("{}", encoding="utf-8")
+        (cls.voices_dir / "en_US-lonely-medium.onnx").write_bytes(b"no json next to it")     # unusable: skipped
+        cls.piper_log = cls.tmp / "piper-calls.jsonl"
+        os.environ["STARCARDS_FAKE_PIPER_LOG"] = str(cls.piper_log)
+        cls.logs = []
+        cls.tts = server.Tts([sys.executable, str(FAKE_PIPER)], cls.voices_dir, cls.tmp / "tts", log=cls.logs.append)
+        cls.server = server.make_server("127.0.0.1", 0, cls.tmp / "data", cls.tmp / "web", cls.tmp / "content",
+                                        log=lambda m: None, tts=cls.tts)
+        cls.port = cls.server.server_address[1]
+        threading.Thread(target=cls.server.serve_forever, kwargs={"poll_interval": 0.05}, daemon=True).start()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.server.shutdown()
+        cls.server.server_close()
+        cls.server.app.close()
+        os.environ.pop("STARCARDS_FAKE_PIPER_LOG", None)
+        shutil.rmtree(cls.tmp, ignore_errors=True)
+
+    call = ServerCase.call
+
+    def calls(self):
+        """What the fake piper was asked so far, oldest first."""
+        if not self.piper_log.exists():
+            return []
+        return [json.loads(line) for line in self.piper_log.read_text(encoding="utf-8").splitlines() if line]
+
+    def clip(self, text, rate):
+        return self.tts.clip_path(text, "en_US-test-medium", rate)[0]
+
+    def test_voices_are_listed(self):
+        resp, out = self.call("GET", "/api/voices")
+        self.assertEqual(resp.status, 200)
+        self.assertEqual(out, {"voices": [{"id": "en_US-test-medium", "name": "Test", "lang": "en-US",
+                                           "quality": "natural"}],
+                               "default": "en_US-test-medium"})          # amy is not here, so the first found
+        self.assertTrue(self.call("GET", "/api/ping")[1]["tts"])
+        self.assertTrue(any("en_US-lonely-medium.onnx has no .onnx.json" in m for m in self.logs))
+
+    def test_clip_is_wav_cached_and_etagged(self):
+        before = len(self.calls())
+        resp, body = self.call("GET", "/api/tts?text=Hi%20there&voice=en_US-test-medium&rate=0.7")
+        self.assertEqual(resp.status, 200, body)
+        self.assertEqual(resp.getheader("Content-Type"), "audio/wav")
+        self.assertEqual(resp.getheader("Cache-Control"), "public, max-age=31536000, immutable")
+        self.assertTrue(body.startswith(b"RIFF") and body[8:12] == b"WAVE")
+        self.assertEqual(int(resp.getheader("Content-Length")), len(body))
+        etag = resp.getheader("ETag")
+        self.assertRegex(etag, r'^"[0-9a-f]{40}"$')
+        asked = self.calls()
+        self.assertEqual(len(asked), before + 1)
+        self.assertEqual(asked[-1]["text"], "Hi there")
+        self.assertEqual(asked[-1]["length_scale"], "1.429")             # 1 / 0.7
+        self.assertEqual(asked[-1]["sentence_silence"], "0.2")
+        self.assertEqual(Path(asked[-1]["model"]), self.voices_dir / "en_US-test-medium.onnx")
+        # piper runs from its own folder (where espeak-ng-data lives); for the fake that is python's.
+        self.assertEqual(Path(asked[-1]["cwd"]).resolve(), Path(sys.executable).resolve().parent)
+        # Again: straight from the cache, piper is not asked; and a tablet that has it gets a 304.
+        resp2, body2 = self.call("GET", "/api/tts?text=Hi%20there&voice=en_US-test-medium&rate=0.7")
+        self.assertEqual((resp2.status, body2, resp2.getheader("ETag")), (200, body, etag))
+        self.assertEqual(len(self.calls()), before + 1)
+        resp3, body3 = self.call("GET", "/api/tts?text=Hi%20there&voice=en_US-test-medium&rate=0.7",
+                                 headers={"If-None-Match": etag})
+        self.assertEqual((resp3.status, body3), (304, b""))
+        self.assertEqual(resp3.getheader("ETag"), etag)
+        self.assertEqual(resp3.getheader("Cache-Control"), "public, max-age=31536000, immutable")
+        # The clip sits where the next start finds it: <cache>/<voice>/<pace>/<sha1 of the text>.wav
+        digest = hashlib.sha1(b"Hi there").hexdigest()
+        self.assertEqual(self.clip("Hi there", 0.7), self.tmp / "tts" / "en_US-test-medium" / "0.70" / f"{digest}.wav")
+        self.assertTrue(self.clip("Hi there", 0.7).is_file())
+        self.assertEqual(self.clip("Hi there", 0.7).read_bytes(), body)
+
+    def test_head_sizes_a_clip(self):
+        resp, body = self.call("HEAD", "/api/tts?text=Head%20only")
+        self.assertEqual((resp.status, body), (200, b""))
+        self.assertEqual(resp.getheader("Content-Type"), "audio/wav")
+        self.assertGreater(int(resp.getheader("Content-Length")), 44)
+        self.assertTrue(self.clip("Head only", 1.0).is_file())            # no rate: 1.0
+        # HEAD stays refused on the JSON routes, as it always was; unknown paths are still unknown.
+        self.assertEqual(self.call("HEAD", "/api/ping")[0].status, 405)
+        self.assertEqual(self.call("HEAD", "/api/attempts")[0].status, 405)
+        self.assertEqual(self.call("HEAD", "/api/nope")[0].status, 404)
+
+    def test_bad_requests(self):
+        resp, out = self.call("GET", "/api/tts?text=" + "a" * 301)
+        self.assertEqual((resp.status, out), (400, {"error": "At most 300 characters at a time"}))
+        self.assertEqual(self.call("GET", "/api/tts?text=" + "a" * 300)[0].status, 200)
+        for path in ("/api/tts", "/api/tts?text=", "/api/tts?text=%20%20", "/api/tts?text=%F0%9F%8D%8E%E2%AD%90"):
+            resp, out = self.call("GET", path)
+            self.assertEqual((resp.status, out), (400, {"error": "Nothing to say"}), path)
+        for voice in ("en_US-nope-medium", "..%2Fen_US-test-medium", "en_US-lonely-medium", "en_US-test-medium.onnx"):
+            resp, out = self.call("GET", f"/api/tts?text=hi&voice={voice}")
+            self.assertEqual((resp.status, out), (404, {"error": "No such voice"}), voice)
+        for rate in ("abc", "nan", "inf", "1e400"):
+            resp, out = self.call("GET", f"/api/tts?text=hi&rate={rate}")
+            self.assertEqual((resp.status, out), (400, {"error": "Bad rate"}), rate)
+        self.assertEqual(self.call("POST", "/api/tts", body={})[0].status, 405)
+        self.assertFalse(list(self.tmp.rglob("*.tmp")))                   # nothing half-made is left behind
+
+    def test_rate_is_clamped_and_rounded(self):
+        # The sliders step by 0.05, so 0.72 and 0.7 share a clip; anything outside 0.5-1.5 is pulled in.
+        for rate, folder, scale in (("0.3", "0.50", "2.000"), ("2", "1.50", "0.667"), ("0.84", "0.85", "1.176"),
+                                    ("1.01", "1.00", "1.000"), ("0.72", "0.70", "1.429")):
+            resp, _ = self.call("GET", f"/api/tts?text=Pace%20{folder}&rate={rate}")
+            self.assertEqual(resp.status, 200, rate)
+            self.assertTrue((self.tmp / "tts" / "en_US-test-medium" / folder / "").is_dir(), rate)
+            self.assertEqual(self.calls()[-1]["length_scale"], scale, rate)
+            self.assertEqual(self.clip(f"Pace {folder}", float(rate)).parent.name, folder)
+
+    def test_text_is_normalized_like_the_tablet_does(self):
+        # Emoji, a skin tone, a joiner, control characters and runs of whitespace go; the tablet strips
+        # the same before asking, so a clip made from the raw card text serves its request too.
+        resp, body = self.call(
+            "GET", "/api/tts?text=%20Hi%20%F0%9F%8D%8E%20%0A%0A%09there%E2%80%8D%EF%B8%8F%20%20friend!%20%F0%9F%91%8D%F0%9F%8F%BD")
+        self.assertEqual(resp.status, 200)
+        self.assertEqual(self.calls()[-1]["text"], "Hi there friend!")
+        n = len(self.calls())
+        resp2, body2 = self.call("GET", "/api/tts?text=Hi%20there%20friend!")
+        self.assertEqual((resp2.status, body2), (200, body))
+        self.assertEqual(resp2.getheader("ETag"), resp.getheader("ETag"))
+        self.assertEqual(len(self.calls()), n)                                  # the same clip, not made twice
+
+    def test_two_asks_for_a_new_clip_at_once_render_it_once(self):
+        results = []
+
+        def ask():
+            results.append(self.call("GET", "/api/tts?text=Both%20at%20once"))
+        threads = [threading.Thread(target=ask) for _ in range(2)]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+        self.assertEqual([r[0].status for r in results], [200, 200])
+        self.assertEqual(results[0][1], results[1][1])
+        self.assertEqual(sum(1 for c in self.calls() if c["text"] == "Both at once"), 1)
+
+    def test_piper_failures(self):
+        resp, out = self.call("GET", "/api/tts?text=please%20FAIL%20now")
+        self.assertEqual((resp.status, out), (500, {"error": "The voice failed"}))
+        self.assertTrue(any("piper failed (exit 1)" in m and "this voice is broken" in m for m in self.logs))
+        self.assertFalse(self.clip("please FAIL now", 1.0).exists())
+        self.assertFalse(list(self.tmp.rglob("*.tmp")))
+        self.tts.TIMEOUT_S = 0.5
+        try:
+            started = time.monotonic()
+            resp, out = self.call("GET", "/api/tts?text=so%20SLOW")
+            self.assertEqual((resp.status, out), (504, {"error": "The voice took too long"}))
+            self.assertLess(time.monotonic() - started, 2.5)
+        finally:
+            self.tts.TIMEOUT_S = server.Tts.TIMEOUT_S
+        # A clip that failed is not remembered as made: the next ask tries again.
+        self.assertEqual(self.call("GET", "/api/tts?text=please%20FAIL%20now")[0].status, 500)
+        self.assertEqual(sum(1 for c in self.calls() if c["text"] == "please FAIL now"), 2)
+
+    def test_an_unwritable_cache_is_a_plain_500(self):
+        # A cache folder that cannot be made (here: its path is taken by a file) is the voice's
+        # failure, not the server's: a 500 with a log line, no traceback, nothing left behind.
+        blocked = self.tmp / "blocked-cache"
+        blocked.write_text("in the way", encoding="utf-8")
+        logs = []
+        tts = server.Tts([sys.executable, str(FAKE_PIPER)], self.voices_dir, blocked, log=logs.append)
+        with self.assertRaises(server.ApiError) as caught:
+            tts.render("no room", "en_US-test-medium", 1.0)
+        self.assertEqual((caught.exception.status, caught.exception.message), (500, "The voice could not start"))
+        self.assertTrue(any("cannot write" in m for m in logs), logs)
+        self.assertEqual(blocked.read_text(encoding="utf-8"), "in the way")
+
+    def test_a_voice_dropped_in_later_needs_no_restart(self):
+        (self.voices_dir / "en_US-extra-low.onnx").write_bytes(b"x")
+        (self.voices_dir / "en_US-extra-low.onnx.json").write_text("{}", encoding="utf-8")
+        try:
+            _, out = self.call("GET", "/api/voices")
+            self.assertEqual([v["id"] for v in out["voices"]], ["en_US-extra-low", "en_US-test-medium"])
+            self.assertEqual(out["voices"][0]["name"], "Extra")
+            self.assertEqual(self.call("GET", "/api/tts?text=new%20voice&voice=en_US-extra-low")[0].status, 200)
+        finally:
+            (self.voices_dir / "en_US-extra-low.onnx").unlink()
+            (self.voices_dir / "en_US-extra-low.onnx.json").unlink()
+        _, out = self.call("GET", "/api/voices")
+        self.assertEqual([v["id"] for v in out["voices"]], ["en_US-test-medium"])
+
+    def test_prerender_fills_the_cache_then_has_nothing_to_do(self):
+        content = self.server.app.content
+        items = server.tts_corpus(content, "stories")
+        self.assertGreater(len(items), len(server.SOUND_STRINGS))
+        before = len(self.calls())
+        self.tts.LOG_EVERY = 3
+        try:
+            counts = self.tts.prerender(items, pause=0)
+        finally:
+            self.tts.LOG_EVERY = server.Tts.LOG_EVERY
+        self.assertIsNone(counts["stopped"])
+        self.assertEqual((counts["items"], counts["failed"]), (len(items), 0))
+        self.assertEqual(counts["made"] + counts["cached"], len(items))
+        self.assertEqual(len(self.calls()) - before, counts["made"])
+        for text, rate in items:
+            self.assertTrue(self.clip(text, rate).is_file(), text)
+        self.assertTrue(any("pre-render: 3/" in m for m in self.logs))
+        self.assertTrue(any("pre-render done" in m for m in self.logs))
+        again = self.tts.prerender(items, pause=0)
+        self.assertEqual((again["made"], again["cached"], again["stopped"]), (0, len(items), None))
+        self.assertFalse((self.tmp / "tts" / "prerender.lock").exists())
+        # A stop request ends it between clips; so does the content moving on (checked every few items).
+        stop = threading.Event()
+        stop.set()
+        self.assertEqual(self.tts.prerender([("never made", 0.7)], pause=0, stop=stop)["stopped"], "stop")
+        self.assertFalse(self.clip("never made", 0.7).exists())
+        self.tts.CHECK_EVERY = 2
+        try:
+            moved = self.tts.prerender([(f"moving {i}", 0.7) for i in range(5)], pause=0, changed=lambda: True)
+        finally:
+            self.tts.CHECK_EVERY = server.Tts.CHECK_EVERY
+        self.assertEqual((moved["stopped"], moved["made"]), ("changed", 1))
+        # An unknown voice cannot be made and says so, without taking the server down.
+        bad = self.tts.prerender([("no voice", 0.7)], voice_id="en_US-nope-medium", pause=0)
+        self.assertEqual((bad["failed"], bad["stopped"]), (1, None))
+
+    def test_prerender_runs_one_at_a_time_across_processes(self):
+        # A fresh prerender.lock from a live run (the service, or the installer's) means it is at it; a
+        # lock nobody has touched for a long while belongs to a stuck run and is taken over.
+        lock = self.tmp / "tts" / "prerender.lock"
+        lock.parent.mkdir(exist_ok=True)
+        lock.write_text(str(os.getpid()), encoding="utf-8")           # our own pid: certainly alive
+        self.assertEqual(self.tts.prerender([("locked out", 0.7)], pause=0)["stopped"], "busy")
+        self.assertFalse(self.clip("locked out", 0.7).exists())
+        self.assertTrue(lock.exists())
+        stale = time.time() - 3600
+        os.utime(lock, (stale, stale))
+        self.assertIsNone(self.tts.prerender([("locked out", 0.7)], pause=0)["stopped"])
+        self.assertTrue(self.clip("locked out", 0.7).is_file())
+        self.assertFalse(lock.exists())
+        if os.name != "nt":
+            # On the Pi a lock whose run has died (a restart mid-render) is taken over at once.
+            lock.write_text("2147483646", encoding="utf-8")
+            self.assertIsNone(self.tts.prerender([("after a restart", 0.7)], pause=0)["stopped"])
+            self.assertTrue(self.clip("after a restart", 0.7).is_file())
+
+
+class VoiceRules(unittest.TestCase):
+    """The pure parts: what the voice is asked to say, how a pace is held, how the corpus is ordered."""
+
+    def test_speakable_mirrors_logic_js(self):
+        cases = {
+            "7 + 3 = ?": "7 plus 3 equals what",
+            "10 − 4 = 6": "10 minus 4 equals 6",
+            "9 - 5": "9 minus 5",
+            "well-known": "well-known",
+            "5 > 3": "5 is greater than 3",
+            "2 < 4": "2 is less than 4",
+            "Fill in: ___": "Fill in: blank",
+            "25¢": "25 cents",
+            "🍎 How many apples? 🍎🍎": "How many apples?",
+            "  two   spaces ": "two spaces",
+        }
+        for raw, said in cases.items():
+            self.assertEqual(server.speakable(raw), said, raw)
+
+    def test_normalize_speech(self):
+        self.assertEqual(server.normalize_speech("Hi 🍎\n\n⭐ there"), "Hi there")
+        self.assertEqual(server.normalize_speech("👍🏽 ok ❤️ ©"), "ok")
+        self.assertEqual(server.normalize_speech("It is 70° and costs 5¢"), "It is 70° and costs 5¢")
+        self.assertEqual(server.normalize_speech("Max’s “hat”"), "Max’s “hat”")
+        # The emoji Unicode files as maths or punctuation go too, as EMOJI in logic.js strips them.
+        self.assertEqual(server.normalize_speech("◻ box ◾ ♯ 〽"), "box")
+        self.assertEqual(server.normalize_speech("a\x00b\x07c‍d"), "abcd")
+        self.assertEqual(server.normalize_speech(None), "")
+        self.assertEqual(server.normalize_speech("\t \n"), "")
+
+    def test_clamp_rate(self):
+        for raw, rate in (("0.3", 0.5), (2, 1.5), ("0.84", 0.85), (1, 1.0), (0.72, 0.7), ("1.5", 1.5)):
+            self.assertEqual(server.clamp_rate(raw), rate, raw)
+        # Half-way values go up, like Math.round in ttsUrl on the tablet (not to the even step).
+        for raw, rate in ((0.725, 0.75), (0.625, 0.65), ("1.025", 1.05), (0.525, 0.55)):
+            self.assertEqual(server.clamp_rate(raw), rate, raw)
+        for bad in ("x", "nan", "inf", None, ""):
+            with self.assertRaises(server.ApiError):
+                server.clamp_rate(bad)
+
+    def test_voice_names(self):
+        self.assertEqual(server.Tts.describe("en_US-amy-medium"),
+                         {"id": "en_US-amy-medium", "name": "Amy", "lang": "en-US", "quality": "natural"})
+        self.assertEqual(server.Tts.describe("en_GB-alan-low")["name"], "Alan")
+        self.assertEqual(server.Tts.describe("en_GB-alan-low")["lang"], "en-GB")
+        self.assertEqual(server.Tts.describe("en_US-libritts_r-medium")["name"], "Libritts R")
+        self.assertEqual(server.Tts.describe("solo")["name"], "Solo")
+        self.assertEqual(server.Tts.describe("solo")["lang"], "en")
+
+    def test_find_tts_autodetects_the_installer_layout(self):
+        tmp = Path(tempfile.mkdtemp(prefix="starcards-findtts-"))
+        try:
+            self.assertIsNone(server.find_tts(tmp, log=lambda m: None).cmd)
+            (tmp / "piper" / "piper").mkdir(parents=True)
+            (tmp / "piper" / "piper" / "piper").write_bytes(b"")
+            tts = server.find_tts(tmp, log=lambda m: None)
+            self.assertEqual(tts.cmd, [str(tmp / "piper" / "piper" / "piper")])
+            self.assertEqual((tts.voices_dir, tts.cache_dir), (tmp / "piper" / "voices", tmp / "tts"))
+            self.assertFalse(tts.enabled)                                   # a binary without voices is off
+            given = server.find_tts(tmp, "piper --debug", voices=tmp / "v", cache=tmp / "c", log=lambda m: None)
+            self.assertEqual(given.cmd, ["piper", "--debug"])
+            self.assertEqual((given.voices_dir, given.cache_dir), (tmp / "v", tmp / "c"))
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_corpus_says_the_stories_first_then_every_question(self):
+        tmp = Path(tempfile.mkdtemp(prefix="starcards-corpus-"))
+        try:
+            write_content(tmp, decks=(DECK_MATH, DECK_QUOTES, DECK_STORY2))
+            content = server.Content(tmp, log=lambda m: None)
+            items = server.tts_corpus(content)
+            story = [t for t, r in items if r == 0.7]
+            quiz = [t for t, r in items if r == 0.85]
+            self.assertEqual(len(story) + len(quiz), len(items))
+            sounds = len(server.SOUND_STRINGS)
+            # Big Pig comes first (level 2): its lines as Read to me says them, its words as a tap says
+            # them (as written, no repeats), then the sounds, then Hi Max with its quote marks gone.
+            self.assertEqual(story[:7], ["The pig is big.", "The pig digs.", "The", "pig", "is", "big", "digs"])
+            self.assertEqual(story[7:7 + sounds], list(server.SOUND_STRINGS))
+            self.assertEqual(story[7 + sounds:], ["Hi, Max! said Sam.", "Max’s hat is red.", "The end.",
+                                                  "Hi", "Max", "said", "Sam", "Max’s", "hat", "red", "end"])
+            # Every question comes after every story item, as the tablet's voice says it.
+            self.assertEqual(items, [(t, 0.7) for t in story] + [(t, 0.85) for t in quiz])
+            self.assertEqual(quiz, ["1 plus 1", "2 plus 2", "Who digs?", "The pig is...",
+                                    "How many hats? 2 plus 1 equals what", "Who said hello?"])
+            self.assertEqual(len(set(items)), len(items))
+            self.assertEqual(server.tts_corpus(content, "stories"), [(t, 0.7) for t in story])
+            self.assertEqual(server.tts_corpus(content, "stories", read_rate=0.6)[0], ("The pig is big.", 0.6))
+            with self.assertRaises(ValueError):
+                server.tts_corpus(content, "nope")
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+
+class VoicesOff(ServerCase):
+    def test_without_piper_the_tablet_keeps_its_own_voice(self):
+        _, ping = self.call("GET", "/api/ping")
+        self.assertFalse(ping["tts"])
+        resp, out = self.call("GET", "/api/voices")
+        self.assertEqual((resp.status, out), (200, {"voices": [], "default": None}))
+        resp, out = self.call("GET", "/api/tts?text=hi")
+        self.assertEqual((resp.status, out), (503, {"error": "No voice on the Pi"}))
+        self.assertFalse((self.tmp / "data" / "tts").exists())            # nothing on disk until a voice is there
+        # A HEAD that fails answers with headers only, so the kept-alive connection stays in step.
+        conn = http.client.HTTPConnection("127.0.0.1", self.port, timeout=10)
+        try:
+            conn.request("HEAD", "/api/tts?text=hi")
+            head = conn.getresponse()
+            self.assertEqual((head.status, head.read()), (503, b""))
+            self.assertGreater(int(head.getheader("Content-Length")), 0)
+            conn.request("GET", "/api/ping")
+            self.assertEqual(conn.getresponse().status, 200)
+        finally:
+            conn.close()
 
 
 class ContentLoading(unittest.TestCase):

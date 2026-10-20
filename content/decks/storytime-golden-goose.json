@@ -1,0 +1,88 @@
+{
+  "id": "storytime.golden-goose",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 250,
+  "title": "The Golden Goose",
+  "emoji": "🦢",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The Brothers Grimm's tale of a kind youngest son who shares his bread with a little gray man and is given a goose with golden feathers, and of the two sisters, the baker and the farmer who stick fast to it until a princess who never laughs sees the silly parade go by. First graders love the growing line of stuck people and the big laugh at the end, and the lesson is said plainly: kindness comes back to you. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Shout 'Stuck!' together each time someone grabs on, then count how many are in the parade.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "the Brothers Grimm (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A golden goose, a line of stuck people, and a princess who finally laughs."
+  },
+  "passage": {
+    "text": "Once there was a man with three sons.\nThe two big brothers never shared a thing.\nBut the youngest son was kind.\nOne day, he went to cut wood.\nHe had only a bit of bread.\nA little gray man sat under a tree.\n\"I am hungry,\" he said.\n\"Will you share your bread?\"\n\"Yes,\" said the son.\n\"Sit down with me.\"\nThey ate the bread together.\n***\n\"Thank you,\" said the little gray man.\n\"You shared, so I will share too.\"\n\"Cut down that old tree.\"\n\"You will find a gift in its roots.\"\nThe son cut down the tree.\nIn the roots sat a goose.\nIts feathers were made of gold!\n\"A golden goose!\" said the son.\nHe picked it up and set off down the road.\n***\nThat night, he stopped at an inn.\nTwo sisters saw the golden goose.\n\"I want just one gold feather,\" said the big sister.\nShe touched the goose.\nHer hand stuck fast!\nThe little sister tried to pull her off.\nNow she was stuck too!\nIn the morning, the son set off again.\nThe two sisters had to go with him.\n***\nA baker saw them go by.\n\"Let me help you,\" he said.\nHe grabbed the little sister.\nStuck!\nA farmer grabbed the baker.\nStuck!\nOff they all went down the road.\nTwo sisters, a baker and a farmer, all stuck fast!\nWhat a silly parade!\n***\nIn that land lived a princess.\nShe was always sad.\nShe never, ever laughed.\n\"Who can make her laugh?\" asked the king.\nThen the silly parade came by her window.\nThe princess looked.\nShe giggled.\nThen she laughed and laughed and laughed!\nPop! Everyone came unstuck.\nThe princess and the kind son became best friends.\nKindness comes back to you.",
+    "level": "open",
+    "focus": ["oo", "sh", "-ed endings"],
+    "tricky": ["once", "there", "was", "a", "three", "the", "two", "brothers", "youngest", "kind", "one", "he", "to", "only", "of", "bread", "little", "gray", "i", "hungry", "you", "your", "said", "down", "me", "they", "so", "find", "gold", "goose", "feathers", "were", "golden", "night", "touched", "feather", "she", "now", "again", "go", "by", "all", "what", "silly", "parade", "princess", "laughed", "who", "laugh", "window", "everyone", "became", "friends", "kindness"]
+  },
+  "cards": [
+    { "id": "storytime.golden-goose.share-bread",
+      "q": "What did the youngest son share with the little gray man?",
+      "a": "his bread",
+      "wrong": ["his hat", "his boots"],
+      "emoji": "🍞",
+      "note": "He had only a bit of bread, and he sat down and ate it together with the hungry little man." },
+
+    { "id": "storytime.golden-goose.where-roots",
+      "q": "Where did the son find the golden goose?",
+      "a": "in the tree roots",
+      "wrong": ["in a bird nest", "under his bed"],
+      "note": "The little gray man told him to cut down the old tree and look in its roots." },
+
+    { "id": "storytime.golden-goose.stuck-fast",
+      "q": "What happened when the big sister touched the goose?",
+      "a": "her hand stuck fast",
+      "wrong": ["she got a feather", "the goose flew off"],
+      "note": "She wanted one gold feather, and her hand would not come off; her sister stuck to her next." },
+
+    { "id": "storytime.golden-goose.who-laughed",
+      "q": "Who laughed at the silly parade?",
+      "a": "the princess",
+      "wrong": ["the baker", "the farmer"],
+      "emoji": "🦢",
+      "note": "She never, ever laughed, until two sisters, a baker and a farmer went by stuck to a goose." },
+
+    { "id": "storytime.golden-goose.first",
+      "q": "What happened first in the story?",
+      "a": "he shared his bread",
+      "wrong": ["the princess laughed", "the baker got stuck"],
+      "note": "The kind son shares his bread with the little gray man before anything else happens." },
+
+    { "id": "storytime.golden-goose.end",
+      "q": "What happened at the end of the story?",
+      "a": "they became best friends",
+      "wrong": ["he shared his bread", "he found the goose"],
+      "note": "After the big laugh, everyone came unstuck and the princess and the kind son became best friends." },
+
+    { "id": "storytime.golden-goose.feel-sad",
+      "q": "How did the princess feel before the parade came by?",
+      "a": "sad",
+      "wrong": ["proud", "excited"],
+      "note": "She was always sad and never, ever laughed, which is why the king wanted someone to make her laugh." },
+
+    { "id": "storytime.golden-goose.lesson",
+      "q": "What does this story teach?",
+      "a": "kindness comes back",
+      "wrong": ["keep all your bread", "never share with anyone"],
+      "note": "The son shared his bread, and the little gray man shared a golden goose right back." },
+
+    { "id": "storytime.golden-goose.vocab-stuck-fast",
+      "q": "In the story, what does 'stuck fast' mean?",
+      "a": "could not let go",
+      "wrong": ["ran very fast", "fell fast asleep"],
+      "note": "Here 'fast' means held tight, not quick: the sisters, the baker and the farmer could not let go." },
+
+    { "id": "storytime.golden-goose.word-goose",
+      "q": "Which word is in the story?",
+      "a": "goose",
+      "wrong": ["geese", "loose"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

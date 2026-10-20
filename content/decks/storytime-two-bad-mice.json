@@ -1,0 +1,88 @@
+{
+  "id": "storytime.two-bad-mice",
+  "subject": "storytime",
+  "group": "classics",
+  "order": 400,
+  "title": "The Tale of Two Bad Mice",
+  "emoji": "🐭",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.3", "RF.1.4"],
+  "about": "Beatrix Potter's 1904 tale of Tom Thumb and Hunca Munca, two mice who creep into a doll's house while the dolls are out, find that the lovely dinner is plaster, and make a glorious mess, then feel sorry and make it right with a crooked sixpence and a broom. First graders love the hard-as-a-rock ham and the chair going down the mouse hole. It is a public-domain book retold here in first-grade words, five pages long; the real one with Potter's pictures is at the library.",
+  "tip": "Ask him what he would do if his dinner turned out to be plaster, then find the two ways the mice said sorry.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "Beatrix Potter (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "Two mice, a doll's house, and a dinner made of plaster."
+  },
+  "passage": {
+    "text": "Once there was a lovely doll's house.\nIt had red brick walls and white windows.\nTwo dolls lived there, Lucinda and Jane.\nJane was the cook.\nBut she never cooked a thing.\nThe dinner came in a box, all ready made.\nThere was a ham, two fish, and a pudding.\nIt all looked so yummy.\n***\nOne morning, the dolls went out for a ride.\nThe house was very quiet.\nTwo little mice peeked out of a hole.\nThey were Tom Thumb and Hunca Munca.\nThey crept into the doll's house.\n\"Look at the dinner!\" said Tom Thumb.\n\"Yum!\" said Hunca Munca.\n***\nTom Thumb tried to cut the ham.\nHis knife bent.\nThe ham was hard as a rock.\nIt was not real food at all.\nIt was made of plaster!\nThe fish was plaster.\nThe pudding was plaster, too.\nTom Thumb was so cross.\nHe dropped the ham on the floor.\nCrack! It broke in two.\n***\nThen the two mice made a big mess.\nThey pulled the feathers out of the pillows.\nThey pulled the clothes out of the drawers.\nThey pushed a chair down their mouse hole.\nThey took the cradle, too.\nThen the dolls came home.\nLucinda and Jane just stared.\nWhat a mess!\n***\nThat night, the mice felt sorry.\nTom Thumb found a crooked sixpence under the rug.\nIt was a little bent coin.\nHe left it for the dolls.\n\"That will pay for the ham,\" he said.\nAnd Hunca Munca?\nEvery morning, very early, she comes with her broom.\nShe sweeps the doll's house clean.\nSweep, sweep, sweep!",
+    "level": "open",
+    "focus": ["short i", "th", "oo"],
+    "tricky": ["once", "there", "was", "a", "lovely", "doll", "house", "windows", "two", "lucinda", "jane", "the", "she", "all", "ready", "pudding", "so", "yummy", "one", "out", "very", "quiet", "little", "mice", "of", "they", "tom", "thumb", "hunca", "munca", "were", "look", "said", "to", "knife", "real", "plaster", "he", "floor", "feathers", "pillows", "clothes", "drawers", "pushed", "chair", "down", "their", "mouse", "cradle", "what", "night", "sorry", "crooked", "sixpence", "coin", "every", "early", "comes", "broom", "clean"]
+  },
+  "cards": [
+    { "id": "storytime.two-bad-mice.who-dolls",
+      "q": "Who lived in the doll's house?",
+      "a": "Lucinda and Jane",
+      "wrong": ["two little mice", "three little pigs"],
+      "emoji": "🏠",
+      "note": "The two dolls live there; the mice only crept in from their hole while the dolls were out." },
+
+    { "id": "storytime.two-bad-mice.plaster",
+      "q": "What was the dolls' dinner really made of?",
+      "a": "plaster",
+      "wrong": ["real food", "wood"],
+      "note": "The ham was hard as a rock and the knife bent: ham, fish and pudding were all plaster." },
+
+    { "id": "storytime.two-bad-mice.chair-hole",
+      "q": "What did the mice push down their mouse hole?",
+      "a": "a chair",
+      "wrong": ["a lamp", "a table"],
+      "note": "They also took the cradle and pulled the feathers out of the pillows and the clothes out of the drawers." },
+
+    { "id": "storytime.two-bad-mice.sixpence",
+      "q": "What did Tom Thumb leave to pay for the ham?",
+      "a": "a crooked sixpence",
+      "wrong": ["a shiny button", "a red apple"],
+      "emoji": "🐭",
+      "note": "A sixpence is an old coin; this one was bent, and he found it under the rug." },
+
+    { "id": "storytime.two-bad-mice.first",
+      "q": "What happened first in the story?",
+      "a": "the dolls went out",
+      "wrong": ["Tom broke the ham", "Hunca Munca swept up"],
+      "note": "The dolls go out for a ride, the house is quiet, and only then do the mice peek out of their hole." },
+
+    { "id": "storytime.two-bad-mice.end",
+      "q": "What happened at the end of the story?",
+      "a": "Hunca Munca sweeps up",
+      "wrong": ["the dolls went out", "the mice crept in"],
+      "note": "Every morning, very early, she comes with her broom and sweeps the doll's house clean." },
+
+    { "id": "storytime.two-bad-mice.feel-sorry",
+      "q": "How did the mice feel that night?",
+      "a": "sorry",
+      "wrong": ["proud", "sleepy"],
+      "note": "They felt sorry for the mess, so Tom Thumb paid for the ham and Hunca Munca sweeps the house." },
+
+    { "id": "storytime.two-bad-mice.setting",
+      "q": "Where did the two mice find the dinner?",
+      "a": "in a doll's house",
+      "wrong": ["in a big barn", "at a shop"],
+      "note": "The setting is where a story happens: a doll's house with red brick walls and white windows." },
+
+    { "id": "storytime.two-bad-mice.vocab-crooked",
+      "q": "In the story, what does 'crooked' mean?",
+      "a": "bent",
+      "wrong": ["shiny", "new"],
+      "note": "A crooked sixpence is a bent coin, not straight and flat like a new one." },
+
+    { "id": "storytime.two-bad-mice.word-mice",
+      "q": "Which word is in the story?",
+      "a": "mice",
+      "wrong": ["nice", "mile"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

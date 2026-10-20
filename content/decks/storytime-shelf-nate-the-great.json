@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-nate-the-great",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 950,
+  "title": "Nate the Great words",
+  "emoji": "🔍",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Nate is a boy detective who loves pancakes, and in his first case he hunts for his friend Annie's missing painting of her dog. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, pausing to guess the answer before Nate does.",
+  "book": {
+    "author": "Marjorie Weinman Sharmat",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Nate+the+Great&searchType=title",
+    "blurb": "A pancake-loving detective takes on the case of a missing picture."
+  },
+  "passage": {
+    "text": "Nate detective case clue\nAnnie dog Fang picture\nmissing yellow paint note\npancakes house look find\ntrash great",
+    "level": "open",
+    "focus": ["a_e", "o_e", "ai"],
+    "tricky": ["detective", "Annie", "picture", "yellow", "house", "find", "great"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-nate-the-great.nate", "text": "Nate", "parts": ["N", "a", "t", "e"], "emoji": "🕵️", "note": "capital N, it is his name; magic e makes a say its name" },
+    { "id": "storytime.shelf-nate-the-great.detective", "text": "detective", "parts": ["d", "e", "t", "e", "c", "t", "i", "v", "e"], "tricky": [1, 8], "note": "three parts: de-tec-tive; the first e says uh and the last e is quiet: duh-tek-tiv" },
+    { "id": "storytime.shelf-nate-the-great.case", "text": "case", "parts": ["c", "a", "s", "e"], "emoji": "📁", "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-nate-the-great.clue", "text": "clue", "parts": ["c", "l", "ue"], "emoji": "🔎", "note": "c-l blend; ue says oo, like in blue" },
+    { "id": "storytime.shelf-nate-the-great.annie", "text": "Annie", "parts": ["A", "nn", "ie"], "tricky": [2], "emoji": "👧", "note": "capital A, it is her name; nn is one n; ie says ee: An-ee" },
+    { "id": "storytime.shelf-nate-the-great.dog", "text": "dog", "parts": ["d", "o", "g"], "emoji": "🐕", "note": "all regular: d-o-g" },
+    { "id": "storytime.shelf-nate-the-great.fang", "text": "Fang", "parts": ["F", "a", "ng"], "emoji": "🐶", "note": "capital F, it is the dog's name; ng is one part" },
+    { "id": "storytime.shelf-nate-the-great.picture", "text": "picture", "parts": ["p", "i", "c", "ture"], "tricky": [3], "emoji": "🖼️", "note": "two parts: pic-ture; ture says cher: pik-cher" },
+    { "id": "storytime.shelf-nate-the-great.missing", "text": "missing", "parts": ["m", "i", "ss", "i", "ng"], "note": "ss is one sound; ng is one part; two parts: miss-ing" },
+    { "id": "storytime.shelf-nate-the-great.yellow", "text": "yellow", "parts": ["y", "e", "ll", "ow"], "tricky": [3], "emoji": "💛", "note": "ll is one l; ow says oh here, like in snow: yel-oh" },
+    { "id": "storytime.shelf-nate-the-great.paint", "text": "paint", "parts": ["p", "ai", "n", "t"], "emoji": "🎨", "note": "ai says long a, like in rain; n-t at the end" },
+    { "id": "storytime.shelf-nate-the-great.note", "text": "note", "parts": ["n", "o", "t", "e"], "emoji": "📝", "note": "magic e makes o say its name" },
+    { "id": "storytime.shelf-nate-the-great.pancakes", "text": "pancakes", "parts": ["p", "a", "n", "c", "a", "k", "e", "s"], "emoji": "🥞", "note": "two parts: pan-cakes; magic e makes the second a say its name" },
+    { "id": "storytime.shelf-nate-the-great.house", "text": "house", "parts": ["h", "ou", "se"], "tricky": [2], "emoji": "🏠", "note": "ou says ow; se at the end just says s: hows" },
+    { "id": "storytime.shelf-nate-the-great.look", "text": "look", "parts": ["l", "oo", "k"], "emoji": "👀", "note": "oo says the short oo, like in book" },
+    { "id": "storytime.shelf-nate-the-great.find", "text": "find", "parts": ["f", "i", "n", "d"], "tricky": [1], "note": "the i says its name before nd, like in kind: fined" },
+    { "id": "storytime.shelf-nate-the-great.trash", "text": "trash", "parts": ["t", "r", "a", "sh"], "emoji": "🗑️", "note": "t-r blend; sh is one part" },
+    { "id": "storytime.shelf-nate-the-great.great", "text": "great", "parts": ["g", "r", "ea", "t"], "tricky": [2], "note": "g-r blend; ea says long a here, like in break: grait" }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-princess-in-black",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 960,
+  "title": "Princess in Black words",
+  "emoji": "👸",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Princess Magnolia looks like a perfectly proper princess, but when her monster alarm rings she slips away in a black mask and cape to keep the goats safe. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, a chapter a night.",
+  "book": {
+    "author": "Shannon Hale and Dean Hale",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=The+Princess+in+Black&searchType=title",
+    "blurb": "A frilly princess with a secret: she is also a monster-chasing hero."
+  },
+  "passage": {
+    "text": "princess Magnolia pink castle\nblack mask cape monster\nalarm ring goats pony\nhero jump duchess closet\nbroom hide",
+    "level": "open",
+    "focus": ["ck", "a_e", "i_e"],
+    "tricky": ["princess", "Magnolia", "castle", "alarm", "pony", "hero"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-princess-in-black.princess", "text": "princess", "parts": ["p", "r", "i", "n", "c", "e", "ss"], "tricky": [4], "emoji": "👸", "note": "p-r blend; two parts: prin-cess; the c says s; ss is one sound" },
+    { "id": "storytime.shelf-princess-in-black.magnolia", "text": "Magnolia", "parts": ["M", "a", "g", "n", "o", "l", "i", "a"], "tricky": [4, 6, 7], "note": "capital M, it is her name; four parts: Mag-no-li-a; the o says its name, the i says ee and the last a says uh: Mag-noh-lee-uh" },
+    { "id": "storytime.shelf-princess-in-black.pink", "text": "pink", "parts": ["p", "i", "n", "k"], "emoji": "🌸", "note": "all regular; n-k at the end" },
+    { "id": "storytime.shelf-princess-in-black.castle", "text": "castle", "parts": ["c", "a", "s", "t", "le"], "tricky": [3, 4], "emoji": "🏰", "note": "the t is quiet and le says ul: kas-ul" },
+    { "id": "storytime.shelf-princess-in-black.black", "text": "black", "parts": ["b", "l", "a", "ck"], "emoji": "⚫", "note": "b-l blend; ck is one sound" },
+    { "id": "storytime.shelf-princess-in-black.mask", "text": "mask", "parts": ["m", "a", "s", "k"], "emoji": "🎭", "note": "all regular; s-k at the end" },
+    { "id": "storytime.shelf-princess-in-black.cape", "text": "cape", "parts": ["c", "a", "p", "e"], "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-princess-in-black.monster", "text": "monster", "parts": ["m", "o", "n", "s", "t", "er"], "emoji": "👾", "note": "two parts: mon-ster; er says er" },
+    { "id": "storytime.shelf-princess-in-black.alarm", "text": "alarm", "parts": ["a", "l", "ar", "m"], "tricky": [0], "emoji": "🚨", "note": "the a at the front says uh; ar says ar: uh-larm" },
+    { "id": "storytime.shelf-princess-in-black.ring", "text": "ring", "parts": ["r", "i", "ng"], "emoji": "🔔", "note": "ng is one part" },
+    { "id": "storytime.shelf-princess-in-black.goats", "text": "goats", "parts": ["g", "oa", "t", "s"], "emoji": "🐐", "note": "oa says long o, like in boat" },
+    { "id": "storytime.shelf-princess-in-black.pony", "text": "pony", "parts": ["p", "o", "n", "y"], "tricky": [1, 3], "emoji": "🐴", "note": "the o says its name and y at the end says ee: poh-nee" },
+    { "id": "storytime.shelf-princess-in-black.hero", "text": "hero", "parts": ["h", "er", "o"], "tricky": [1, 2], "note": "two parts: he-ro; er says eer here and the o says its name: heer-oh" },
+    { "id": "storytime.shelf-princess-in-black.jump", "text": "jump", "parts": ["j", "u", "m", "p"], "note": "all regular; m-p at the end" },
+    { "id": "storytime.shelf-princess-in-black.duchess", "text": "duchess", "parts": ["d", "u", "ch", "e", "ss"], "emoji": "👑", "note": "ch is one part; ss is one sound; two parts: duch-ess" },
+    { "id": "storytime.shelf-princess-in-black.closet", "text": "closet", "parts": ["c", "l", "o", "s", "e", "t"], "note": "c-l blend; two parts: clos-et; the s says z" },
+    { "id": "storytime.shelf-princess-in-black.broom", "text": "broom", "parts": ["b", "r", "oo", "m"], "emoji": "🧹", "note": "b-r blend; oo says long oo, like in moon" },
+    { "id": "storytime.shelf-princess-in-black.hide", "text": "hide", "parts": ["h", "i", "d", "e"], "emoji": "🙈", "note": "magic e makes i say its name" }
+  ]
+}

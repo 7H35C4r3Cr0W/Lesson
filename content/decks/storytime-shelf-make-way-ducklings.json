@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-make-way-ducklings",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 930,
+  "title": "Make Way for Ducklings words",
+  "emoji": "🦆",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Mr. and Mrs. Mallard search for a safe home to raise their family, and once the ducklings hatch, Mrs. Mallard leads them through busy city streets with help from a kind policeman. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, counting the ducklings on every page.",
+  "book": {
+    "author": "Robert McCloskey",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Make+Way+for+Ducklings&searchType=title",
+    "blurb": "A duck family waddles across a busy city to reach its new home in the park."
+  },
+  "passage": {
+    "text": "Mallard ducklings nest eggs\nhatch pond island river\nswim peanuts police water\nquack line bridge boat\nswan garden",
+    "level": "open",
+    "focus": ["ck", "oa", "i_e"],
+    "tricky": ["Mallard", "island", "police", "water", "swan"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-make-way-ducklings.mallard", "text": "Mallard", "parts": ["M", "a", "ll", "ar", "d"], "tricky": [3], "emoji": "🦆", "note": "capital M, it is their name; ll is one l; two parts: Mal-lard; the ar says er here: Mal-erd" },
+    { "id": "storytime.shelf-make-way-ducklings.ducklings", "text": "ducklings", "parts": ["d", "u", "ck", "l", "i", "ng", "s"], "emoji": "🐥", "note": "ck is one sound; ng is one part; two parts: duck-lings" },
+    { "id": "storytime.shelf-make-way-ducklings.nest", "text": "nest", "parts": ["n", "e", "s", "t"], "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-make-way-ducklings.eggs", "text": "eggs", "parts": ["e", "gg", "s"], "emoji": "🥚", "note": "gg is two letters, one sound; the s says z" },
+    { "id": "storytime.shelf-make-way-ducklings.hatch", "text": "hatch", "parts": ["h", "a", "tch"], "emoji": "🐣", "note": "tch is one sound, like ch" },
+    { "id": "storytime.shelf-make-way-ducklings.pond", "text": "pond", "parts": ["p", "o", "n", "d"], "note": "all regular; n-d at the end" },
+    { "id": "storytime.shelf-make-way-ducklings.island", "text": "island", "parts": ["i", "s", "l", "a", "n", "d"], "tricky": [0, 1], "emoji": "🏝️", "note": "the i says its name and the s is quiet: eye-land" },
+    { "id": "storytime.shelf-make-way-ducklings.river", "text": "river", "parts": ["r", "i", "v", "er"], "note": "two parts: riv-er; er says er" },
+    { "id": "storytime.shelf-make-way-ducklings.swim", "text": "swim", "parts": ["s", "w", "i", "m"], "emoji": "🏊", "note": "s-w blend; all regular" },
+    { "id": "storytime.shelf-make-way-ducklings.peanuts", "text": "peanuts", "parts": ["p", "ea", "n", "u", "t", "s"], "emoji": "🥜", "note": "ea says long e; two parts: pea-nuts" },
+    { "id": "storytime.shelf-make-way-ducklings.police", "text": "police", "parts": ["p", "o", "l", "i", "c", "e"], "tricky": [1, 3, 4], "emoji": "👮", "note": "two parts: po-lice; the o says uh, the i says ee, the c says s and the e is quiet: puh-lees" },
+    { "id": "storytime.shelf-make-way-ducklings.water", "text": "water", "parts": ["w", "a", "t", "er"], "tricky": [1], "emoji": "💧", "note": "a says aw after w; er says er: waw-ter" },
+    { "id": "storytime.shelf-make-way-ducklings.quack", "text": "quack", "parts": ["qu", "a", "ck"], "note": "qu says kw; ck is one sound" },
+    { "id": "storytime.shelf-make-way-ducklings.line", "text": "line", "parts": ["l", "i", "n", "e"], "note": "magic e makes i say its name" },
+    { "id": "storytime.shelf-make-way-ducklings.bridge", "text": "bridge", "parts": ["b", "r", "i", "dge"], "emoji": "🌉", "note": "b-r blend; dge says j, like in edge" },
+    { "id": "storytime.shelf-make-way-ducklings.boat", "text": "boat", "parts": ["b", "oa", "t"], "emoji": "⛵", "note": "oa says long o" },
+    { "id": "storytime.shelf-make-way-ducklings.swan", "text": "swan", "parts": ["s", "w", "a", "n"], "tricky": [2], "emoji": "🦢", "note": "s-w blend; a says o after w: swon" },
+    { "id": "storytime.shelf-make-way-ducklings.garden", "text": "garden", "parts": ["g", "ar", "d", "e", "n"], "emoji": "🌷", "note": "ar says ar; two parts: gar-den" }
+  ]
+}

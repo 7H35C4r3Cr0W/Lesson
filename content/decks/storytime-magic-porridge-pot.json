@@ -1,0 +1,88 @@
+{
+  "id": "storytime.magic-porridge-pot",
+  "subject": "storytime",
+  "group": "tales",
+  "order": 260,
+  "title": "The Magic Porridge Pot",
+  "emoji": "🥣",
+  "kind": "qa",
+  "standards": ["RL.1.1", "RL.1.2", "RL.1.3", "RF.1.4"],
+  "about": "The Brothers Grimm's 'Sweet Porridge': a poor girl is given a pot that cooks on 'Cook, little pot, cook!' and stops on 'Stop, little pot, stop!', and one day her mother forgets the stopping words and porridge fills the whole town. First graders love chanting the two magic rhymes and the idea of eating a path back home, and the lesson is said plainly: listen carefully and remember what you are told. It is a public-domain story retold here in first-grade words, five pages long.",
+  "tip": "Chant the cooking words and the stopping words together, then ask why the pot would not stop for the mother.",
+  "readAloud": true,
+  "readChoices": false,
+  "book": {
+    "author": "the Brothers Grimm (retold)",
+    "source": "public domain, retold in first-grade words",
+    "blurb": "A magic pot, two little rhymes, and a town full of porridge."
+  },
+  "passage": {
+    "text": "Once there was a poor girl.\nShe lived with her mother in a town.\nThey had no food to eat.\nOne day, the girl went into the woods.\nShe met an old woman there.\nThe old woman gave her a little pot.\n\"This is a magic pot,\" she said.\n\"Say, Cook, little pot, cook!\"\n\"Then it will cook sweet porridge.\"\n\"Say, Stop, little pot, stop!\"\n\"Then it will stop.\"\n***\nThe girl ran home with the pot.\n\"Cook, little pot, cook!\" she said.\nThe pot began to bubble.\nIt filled up with sweet porridge.\nThe girl and her mother ate and ate.\n\"Stop, little pot, stop!\" said the girl.\nAnd the pot stopped.\nNow they always had food to eat.\nThey were never hungry again.\n***\nOne day, the girl went out to play.\nHer mother was hungry.\n\"Cook, little pot, cook!\" she said.\nThe pot cooked and cooked.\nShe ate until she was full.\n\"That is enough, pot!\" she said.\nBut the pot did not stop.\nOh no!\nShe forgot the magic words!\n***\nThe porridge ran over the top.\nIt filled the kitchen.\nIt ran out the door.\nIt ran down the street.\nSoon the whole town was full of porridge!\n\"Help! Help!\" called the mother.\nJust then, the girl came home.\n\"Stop, little pot, stop!\" she called.\nAnd the pot stopped.\n***\nBut the town was still full of porridge.\nWhat could they do?\nThey ate it!\nEveryone had to eat their way back home.\nYum, yum, yum!\nThe girl was glad to be home.\nListen carefully and remember what you are told.",
+    "level": "open",
+    "focus": ["short o", "oo", "-ed endings"],
+    "tricky": ["once", "there", "was", "a", "poor", "girl", "she", "mother", "town", "they", "no", "to", "eat", "one", "woods", "woman", "the", "little", "magic", "is", "said", "porridge", "bubble", "now", "always", "were", "hungry", "again", "out", "full", "enough", "oh", "words", "over", "door", "down", "whole", "of", "what", "could", "do", "everyone", "their", "be", "listen", "carefully", "you", "are", "told"]
+  },
+  "cards": [
+    { "id": "storytime.magic-porridge-pot.who-gave-pot",
+      "q": "Who gave the girl the magic pot?",
+      "a": "an old woman",
+      "wrong": ["an old man", "a little boy"],
+      "emoji": "🥣",
+      "note": "The girl met her in the woods, and the old woman gave her the pot and taught her both rhymes." },
+
+    { "id": "storytime.magic-porridge-pot.what-cooks",
+      "q": "What did the magic pot cook?",
+      "a": "sweet porridge",
+      "wrong": ["hot soup", "apple pie"],
+      "note": "Say the cooking words and the pot bubbles and fills up with sweet porridge." },
+
+    { "id": "storytime.magic-porridge-pot.stop-words",
+      "q": "What words made the pot stop?",
+      "a": "Stop, little pot, stop!",
+      "wrong": ["Cook, little pot, cook!", "Go, little pot, go!"],
+      "note": "The cooking words start it and the stopping words end it; the mother only remembered the first rhyme." },
+
+    { "id": "storytime.magic-porridge-pot.where-ran",
+      "q": "Where did the porridge run when the pot kept cooking?",
+      "a": "down the street",
+      "wrong": ["up a tree", "into a lake"],
+      "emoji": "🏠",
+      "note": "It ran over the top, filled the kitchen, ran out the door and down the street until the whole town was full." },
+
+    { "id": "storytime.magic-porridge-pot.first",
+      "q": "What happened first in the story?",
+      "a": "she got the pot",
+      "wrong": ["the town filled up", "everyone ate porridge"],
+      "note": "The old woman in the woods gives the girl the pot before any porridge is cooked." },
+
+    { "id": "storytime.magic-porridge-pot.end",
+      "q": "What happened at the end of the story?",
+      "a": "everyone ate the porridge",
+      "wrong": ["she got the pot", "the mother said cook"],
+      "note": "The town was still full of porridge, so everyone had to eat their way back home." },
+
+    { "id": "storytime.magic-porridge-pot.feel-worried",
+      "q": "How did the mother feel when the pot kept cooking?",
+      "a": "worried",
+      "wrong": ["sleepy", "proud"],
+      "note": "Oh no, and then Help, Help: the story shows her worry without saying the word." },
+
+    { "id": "storytime.magic-porridge-pot.lesson",
+      "q": "What does this story teach?",
+      "a": "listen carefully",
+      "wrong": ["cook all day long", "forget what you hear"],
+      "note": "The mother heard the magic words but did not remember them; listen carefully and remember what you are told." },
+
+    { "id": "storytime.magic-porridge-pot.vocab-porridge",
+      "q": "In the story, what is 'porridge'?",
+      "a": "like warm oatmeal",
+      "wrong": ["like cold ice cream", "like a hard rock"],
+      "note": "Porridge is oats cooked soft in milk or water, a warm breakfast like oatmeal." },
+
+    { "id": "storytime.magic-porridge-pot.word-cook",
+      "q": "Which word is in the story?",
+      "a": "cook",
+      "wrong": ["cool", "book"],
+      "note": "He reads the three words himself; only one of them is in the story." }
+  ]
+}

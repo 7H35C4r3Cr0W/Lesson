@@ -1624,3 +1624,14 @@ body[data-theme="day"] .grownup-note a { color: var(--blue-edge); }
   .word-card-actions .btn.big { min-height: 72px; font-size: 22px; padding: 0 18px; }
   .word-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ---- Voice panel ---- */
+/* Grown-ups › Settings › Voice: the voice picker and the two speed rows (presets + slider + Try it). */
+.voice-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.voice-pick .input { max-width: 100%; }
+.voice-presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.voice-presets .btn[aria-pressed="true"] { background: var(--blue); border-color: var(--blue-edge); color: #fff; box-shadow: 0 3px 0 var(--blue-edge); }
+.voice-presets .btn[aria-pressed="true"]:active:not(:disabled) { box-shadow: 0 1px 0 var(--blue-edge); }
+.voice-speed { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 8px; }
+.voice-speed input[type="range"] { flex: 1 1 160px; min-width: 150px; }
+.voice-speed-value { min-width: 3.4em; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--muted); }

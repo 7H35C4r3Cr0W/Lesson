@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-caps-for-sale",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 920,
+  "title": "Caps for Sale words",
+  "emoji": "🐒",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "A peddler walks about with a tall stack of caps balanced on his head, and when he naps under a tree a troop of monkeys makes off with every cap but his own. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him acting out what the monkeys do.",
+  "book": {
+    "author": "Esphyr Slobodkina",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Caps+for+Sale&searchType=title",
+    "blurb": "A tired peddler, a tree full of monkeys and a clever way to get the caps back."
+  },
+  "passage": {
+    "text": "peddler caps monkeys tree\nhead nap gray brown\nblue checked fist stamp\nshake town country hungry\nsale sell",
+    "level": "open",
+    "focus": ["ay", "ow", "a_e"],
+    "tricky": ["monkeys", "head", "country", "hungry"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-caps-for-sale.peddler", "text": "peddler", "parts": ["p", "e", "dd", "l", "er"], "emoji": "👨", "note": "dd is one d; two parts: ped-dler; er says er" },
+    { "id": "storytime.shelf-caps-for-sale.caps", "text": "caps", "parts": ["c", "a", "p", "s"], "emoji": "🧢", "note": "all regular: c-a-p-s" },
+    { "id": "storytime.shelf-caps-for-sale.monkeys", "text": "monkeys", "parts": ["m", "o", "n", "k", "ey", "s"], "tricky": [1, 4], "emoji": "🐒", "note": "the o says u and ey says ee; the s says z: mun-keez" },
+    { "id": "storytime.shelf-caps-for-sale.tree", "text": "tree", "parts": ["t", "r", "ee"], "emoji": "🌳", "note": "t-r blend; ee says long e" },
+    { "id": "storytime.shelf-caps-for-sale.head", "text": "head", "parts": ["h", "ea", "d"], "tricky": [1], "note": "ea says short e here, like in bread: hed" },
+    { "id": "storytime.shelf-caps-for-sale.nap", "text": "nap", "parts": ["n", "a", "p"], "emoji": "😴", "note": "all regular: n-a-p" },
+    { "id": "storytime.shelf-caps-for-sale.gray", "text": "gray", "parts": ["g", "r", "ay"], "note": "g-r blend; ay says long a, like in day" },
+    { "id": "storytime.shelf-caps-for-sale.brown", "text": "brown", "parts": ["b", "r", "ow", "n"], "note": "b-r blend; ow says ow, like in cow" },
+    { "id": "storytime.shelf-caps-for-sale.blue", "text": "blue", "parts": ["b", "l", "ue"], "emoji": "🔵", "note": "b-l blend; ue says oo, like in glue" },
+    { "id": "storytime.shelf-caps-for-sale.checked", "text": "checked", "parts": ["ch", "e", "ck", "ed"], "note": "ch is one part; ck is one sound; ed says t here: chekt" },
+    { "id": "storytime.shelf-caps-for-sale.fist", "text": "fist", "parts": ["f", "i", "s", "t"], "emoji": "✊", "note": "all regular; s-t at the end" },
+    { "id": "storytime.shelf-caps-for-sale.stamp", "text": "stamp", "parts": ["s", "t", "a", "m", "p"], "note": "s-t blend; m-p at the end" },
+    { "id": "storytime.shelf-caps-for-sale.shake", "text": "shake", "parts": ["sh", "a", "k", "e"], "note": "sh is one part; magic e makes a say its name" },
+    { "id": "storytime.shelf-caps-for-sale.town", "text": "town", "parts": ["t", "ow", "n"], "emoji": "🏘️", "note": "ow says ow, like in cow" },
+    { "id": "storytime.shelf-caps-for-sale.country", "text": "country", "parts": ["c", "ou", "n", "t", "r", "y"], "tricky": [1, 5], "note": "ou says u here; y at the end says ee: kun-tree" },
+    { "id": "storytime.shelf-caps-for-sale.hungry", "text": "hungry", "parts": ["h", "u", "ng", "r", "y"], "tricky": [4], "note": "ng is one part; y at the end says ee: hung-gree" },
+    { "id": "storytime.shelf-caps-for-sale.sale", "text": "sale", "parts": ["s", "a", "l", "e"], "emoji": "🏷️", "note": "magic e makes a say its name" },
+    { "id": "storytime.shelf-caps-for-sale.sell", "text": "sell", "parts": ["s", "e", "ll"], "emoji": "💰", "note": "ll is two letters, one sound: l" }
+  ]
+}

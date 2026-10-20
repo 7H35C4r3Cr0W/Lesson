@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-dog-man",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 970,
+  "title": "Dog Man words",
+  "emoji": "🐶",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Dog Man has the head of a police dog and the body of a police officer, and he chases a sneaky cat named Petey around the city in comic-book pictures. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, with him reading the speech bubbles.",
+  "book": {
+    "author": "Dav Pilkey",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Dog+Man&searchType=title",
+    "blurb": "Part dog, part cop, all hero, drawn like a comic book."
+  },
+  "passage": {
+    "text": "dog cat man cop\nPetey chief head body\ngood bad jail robot\ncomic draw bone chase\nfetch city",
+    "level": "open",
+    "focus": ["ch", "a_e", "aw"],
+    "tricky": ["Petey", "chief", "head", "body", "robot", "city"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-dog-man.dog", "text": "dog", "parts": ["d", "o", "g"], "emoji": "🐕", "note": "all regular: d-o-g" },
+    { "id": "storytime.shelf-dog-man.cat", "text": "cat", "parts": ["c", "a", "t"], "emoji": "🐈", "note": "all regular: c-a-t" },
+    { "id": "storytime.shelf-dog-man.man", "text": "man", "parts": ["m", "a", "n"], "emoji": "👨", "note": "all regular: m-a-n" },
+    { "id": "storytime.shelf-dog-man.cop", "text": "cop", "parts": ["c", "o", "p"], "emoji": "👮", "note": "all regular: c-o-p" },
+    { "id": "storytime.shelf-dog-man.petey", "text": "Petey", "parts": ["P", "e", "t", "ey"], "tricky": [1, 3], "emoji": "🐱", "note": "capital P, it is the cat's name; the e says its name and ey says ee: Pee-tee" },
+    { "id": "storytime.shelf-dog-man.chief", "text": "chief", "parts": ["ch", "ie", "f"], "tricky": [1], "note": "ch is one part; ie says ee: cheef" },
+    { "id": "storytime.shelf-dog-man.head", "text": "head", "parts": ["h", "ea", "d"], "tricky": [1], "note": "ea says short e here, like in bread: hed" },
+    { "id": "storytime.shelf-dog-man.body", "text": "body", "parts": ["b", "o", "d", "y"], "tricky": [3], "note": "y at the end says ee: bod-ee" },
+    { "id": "storytime.shelf-dog-man.good", "text": "good", "parts": ["g", "oo", "d"], "note": "oo says the short oo, like in book" },
+    { "id": "storytime.shelf-dog-man.bad", "text": "bad", "parts": ["b", "a", "d"], "note": "all regular: b-a-d" },
+    { "id": "storytime.shelf-dog-man.jail", "text": "jail", "parts": ["j", "ai", "l"], "note": "ai says long a, like in rain" },
+    { "id": "storytime.shelf-dog-man.robot", "text": "robot", "parts": ["r", "o", "b", "o", "t"], "tricky": [1], "emoji": "🤖", "note": "two parts: ro-bot; the first o says its name: roh-bot" },
+    { "id": "storytime.shelf-dog-man.comic", "text": "comic", "parts": ["c", "o", "m", "i", "c"], "emoji": "📚", "note": "two parts: com-ic; all regular" },
+    { "id": "storytime.shelf-dog-man.draw", "text": "draw", "parts": ["d", "r", "aw"], "emoji": "✏️", "note": "d-r blend; aw says aw, like in saw" },
+    { "id": "storytime.shelf-dog-man.bone", "text": "bone", "parts": ["b", "o", "n", "e"], "emoji": "🦴", "note": "magic e makes o say its name" },
+    { "id": "storytime.shelf-dog-man.chase", "text": "chase", "parts": ["ch", "a", "s", "e"], "note": "ch is one part; magic e makes a say its name" },
+    { "id": "storytime.shelf-dog-man.fetch", "text": "fetch", "parts": ["f", "e", "tch"], "emoji": "🎾", "note": "tch is one sound, like ch" },
+    { "id": "storytime.shelf-dog-man.city", "text": "city", "parts": ["c", "i", "t", "y"], "tricky": [0, 3], "emoji": "🏙️", "note": "the c says s and y at the end says ee: sit-ee" }
+  ]
+}

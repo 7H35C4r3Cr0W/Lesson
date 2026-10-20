@@ -1,0 +1,44 @@
+{
+  "id": "storytime.shelf-giraffes-cant-dance",
+  "subject": "storytime",
+  "group": "shelf",
+  "order": 890,
+  "title": "Giraffes Can't Dance words",
+  "emoji": "🦒",
+  "kind": "read",
+  "standards": ["RF.1.3", "RF.1.4", "L.1.6"],
+  "about": "Gerald the giraffe has long, wobbly legs and gets laughed at when he tries to join the big jungle dance, until a friendly cricket helps him hear music of his own. This level teaches the words the child will meet in the book, so the library copy is easier to read on his own.",
+  "tip": "Borrow the book from the library after the level and read it together, then make up a dance of your own at the end.",
+  "book": {
+    "author": "Giles Andreae",
+    "source": "a library favorite; this level teaches its words, the app does not contain the book",
+    "borrow": "https://dbrl.bibliocommons.com/v2/search?query=Giraffes+Can't+Dance&searchType=title",
+    "blurb": "A clumsy giraffe finds his own song and shows the whole jungle how to dance."
+  },
+  "passage": {
+    "text": "Gerald giraffe jungle lion\ncricket moon music song\nneck knees laugh sad\ndance twirl leap clap\nswing grass",
+    "level": "open",
+    "focus": ["ck", "ng", "ea"],
+    "tricky": ["Gerald", "giraffe", "jungle", "lion", "music", "knees", "laugh", "dance"]
+  },
+  "cards": [
+    { "id": "storytime.shelf-giraffes-cant-dance.gerald", "text": "Gerald", "parts": ["G", "er", "a", "l", "d"], "tricky": [2], "emoji": "🦒", "note": "capital G, it is his name; the g says j before e; the a says u: Jer-uld" },
+    { "id": "storytime.shelf-giraffes-cant-dance.giraffe", "text": "giraffe", "parts": ["g", "ir", "a", "ff", "e"], "tricky": [1, 4], "note": "the g says j; ir says a short, quick er; ff is one f; the e at the end is quiet: jer-af" },
+    { "id": "storytime.shelf-giraffes-cant-dance.jungle", "text": "jungle", "parts": ["j", "u", "ng", "le"], "tricky": [3], "emoji": "🌴", "note": "ng is one part; le says ul: jung-gul" },
+    { "id": "storytime.shelf-giraffes-cant-dance.lion", "text": "lion", "parts": ["l", "i", "o", "n"], "tricky": [1, 2], "emoji": "🦁", "note": "the i says its name and the o says u: lye-un" },
+    { "id": "storytime.shelf-giraffes-cant-dance.cricket", "text": "cricket", "parts": ["c", "r", "i", "ck", "e", "t"], "emoji": "🦗", "note": "c-r blend; ck is one sound; two parts: crick-et" },
+    { "id": "storytime.shelf-giraffes-cant-dance.moon", "text": "moon", "parts": ["m", "oo", "n"], "emoji": "🌙", "note": "oo says long oo, like in zoom" },
+    { "id": "storytime.shelf-giraffes-cant-dance.music", "text": "music", "parts": ["m", "u", "s", "i", "c"], "tricky": [1, 2], "emoji": "🎵", "note": "two parts: mu-sic; the u says its name, like you, and the s says z: myoo-zik" },
+    { "id": "storytime.shelf-giraffes-cant-dance.song", "text": "song", "parts": ["s", "o", "ng"], "emoji": "🎶", "note": "ng is one part" },
+    { "id": "storytime.shelf-giraffes-cant-dance.neck", "text": "neck", "parts": ["n", "e", "ck"], "note": "ck is one sound" },
+    { "id": "storytime.shelf-giraffes-cant-dance.knees", "text": "knees", "parts": ["kn", "ee", "s"], "tricky": [0], "note": "kn says n, the k is quiet; ee says long e; the s says z: neez" },
+    { "id": "storytime.shelf-giraffes-cant-dance.laugh", "text": "laugh", "parts": ["l", "au", "gh"], "tricky": [1, 2], "emoji": "😂", "note": "au says short a here and gh says f: laf" },
+    { "id": "storytime.shelf-giraffes-cant-dance.sad", "text": "sad", "parts": ["s", "a", "d"], "emoji": "😢", "note": "all regular: s-a-d" },
+    { "id": "storytime.shelf-giraffes-cant-dance.dance", "text": "dance", "parts": ["d", "a", "n", "ce"], "tricky": [3], "emoji": "💃", "note": "ce at the end says s: dans" },
+    { "id": "storytime.shelf-giraffes-cant-dance.twirl", "text": "twirl", "parts": ["t", "w", "ir", "l"], "note": "t-w blend; ir says er, like in bird" },
+    { "id": "storytime.shelf-giraffes-cant-dance.leap", "text": "leap", "parts": ["l", "ea", "p"], "note": "ea says long e, like in eat" },
+    { "id": "storytime.shelf-giraffes-cant-dance.clap", "text": "clap", "parts": ["c", "l", "a", "p"], "emoji": "👏", "note": "c-l blend; all regular" },
+    { "id": "storytime.shelf-giraffes-cant-dance.swing", "text": "swing", "parts": ["s", "w", "i", "ng"], "note": "s-w blend; ng is one part" },
+    { "id": "storytime.shelf-giraffes-cant-dance.grass", "text": "grass", "parts": ["g", "r", "a", "ss"], "emoji": "🌱", "note": "g-r blend; ss is one sound" }
+  ]
+}
