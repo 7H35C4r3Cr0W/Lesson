@@ -33,6 +33,36 @@ export const SOUNDS = {
   ar: 'ar', or: 'or', ore: 'or', er: 'er', ir: 'er', ur: 'er', air: 'air', are: 'air', ear: 'ear',
 };
 
+// The same sounds for the natural voice on the Pi (Piper, whose text rules are espeak-ng's).
+// espeak spells a vowel-less string letter by letter ("fff" became "ef ef ef" and "aa" became
+// "A A"), so every entry here is either a word in its dictionary (ah, eh, uh, oh, ow, oy, aw,
+// er, shh, mmm, zzz, ooh) or a consonant with a short "uh" after it. Long vowels are the
+// letter names, which is exactly their sound. Tuned against the Pi's own audio; keep the keys
+// identical to SOUNDS.
+export const SOUNDS_PI = {
+  b: 'buh', c: 'kuh', d: 'duh', f: 'fuh', g: 'guh', h: 'huh', j: 'juh', k: 'kuh', l: 'luh', m: 'mmm',
+  n: 'nuh', p: 'puh', qu: 'kwuh', r: 'ruh', s: 'suh', t: 'tuh', v: 'vuh', w: 'wuh', x: 'uks', y: 'yuh', z: 'zzz',
+  'c-soft': 'suh', 'g-soft': 'juh',
+  sh: 'shh', ch: 'chuh', th: 'thuh', ng: 'ung', ck: 'kuh', ph: 'fuh', wh: 'wuh', kn: 'nuh', wr: 'ruh',
+  tch: 'chuh', dge: 'juh', ll: 'luh', ss: 'suh', ff: 'fuh', zz: 'zzz',
+  tt: 'tuh', pp: 'puh', dd: 'duh', bb: 'buh', gg: 'guh', mm: 'mmm', nn: 'nuh', rr: 'ruh',
+  a: 'ah', e: 'eh', i: 'ih', o: 'ah', u: 'uh',
+  'a-long': 'A', 'e-long': 'E', 'i-long': 'I', 'o-long': 'O', 'u-long': 'U',
+  ee: 'E', ea: 'E', ai: 'A', ay: 'A', eigh: 'A', igh: 'I', ie: 'I',
+  'y-ee': 'E', 'y-eye': 'I',
+  oa: 'O', oe: 'O', ou: 'ow', ow: 'ow', oi: 'oy', oy: 'oy', aw: 'aw', au: 'aw', oo: 'ooh', ue: 'U', ew: 'U',
+  ar: 'ar', or: 'or', ore: 'or', er: 'er', ir: 'er', ur: 'er', air: 'air', are: 'air', ear: 'ear',
+};
+
+// Which table applies right now: the Pi's when a server voice is speaking, else the tablet's.
+function soundTable() {
+  try {
+    return typeof speech.usingServerVoice === 'function' && speech.usingServerVoice() ? SOUNDS_PI : SOUNDS;
+  } catch (err) {
+    return SOUNDS;
+  }
+}
+
 // Letter teams, longest first so "tch" wins over "ch" and "eigh" over "ei".
 const TEAMS = ['eigh', 'tch', 'dge', 'igh', 'air', 'are', 'ear', 'ore',
   'sh', 'ch', 'th', 'ng', 'ck', 'ph', 'wh', 'kn', 'wr', 'qu',
@@ -144,7 +174,8 @@ export function splitSounds(word) {
     const heard = parts[n - 1].key === 's' ? HISS.has(before) : ['t', 'd', 'tt', 'dd'].includes(before);
     if (!heard) parts[e].key = null;
   }
-  return parts.map((p) => ({ text: p.text, sound: p.key ? SOUNDS[p.key] || '' : '' }));
+  const table = soundTable();
+  return parts.map((p) => ({ text: p.text, sound: p.key ? table[p.key] || '' : '' }));
 }
 
 // A story word as the Word Card and 🎨 Show sounds draw it: the letters as written (the
@@ -179,5 +210,5 @@ export function soundOut(word) {
 //   opts.rate   the voice's pace (the screens pass the readRate setting)
 //   opts.gapMs  the pause between sounds; longer than a sentence's so the sounds do not blur
 export function sayItOut(word, onPart, opts = {}) {
-  return speech.speakEach(soundOut(word), onPart, { gapMs: 320, ...opts });
+  return speech.speakEach(soundOut(word), onPart, { gapMs: 320, kind: 'sound', ...opts });
 }
