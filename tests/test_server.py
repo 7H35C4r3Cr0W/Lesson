@@ -16,6 +16,7 @@ import time
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -1161,6 +1162,21 @@ DECK_QUOTES = {
     "cards": [{"id": "s3.hats", "q": "How many hats? 🎩 2 + 1 = ?", "a": "3", "wrong": ["2", "4"]},
               {"id": "s3.who", "q": "Who said hi?", "sayQ": "Who said hello?", "a": "Sam", "wrong": ["Max"]}],
 }
+# The sound tables of web/js/phonics.js as the voice tests see them: both tables, both quote styles, a
+# quoted key, comments, a spread, trailing commas; a long sound and one with a space in the Pi table.
+PHONICS_JS = """\
+// What the voice says for each sound.
+export const SOUNDS = {
+  b: 'buh', c: "kuh", 'c-soft': 'sss',   // soft c
+  sh: 'shh', "qu": 'kwuh', ng: 'ng',
+};
+export const SOUNDS_PI = {
+  ...SOUNDS,
+  sh: 'shhhh', th: 'thuh thuh',
+};
+export function splitSounds(word) { return word.replace(/[^a-z]/g, ''); }
+"""
+PHONICS_SOUNDS = ("buh", "kuh", "sss", "shh", "kwuh", "ng", "shhhh", "thuh thuh")
 
 
 class Voices(unittest.TestCase):
@@ -1170,7 +1186,9 @@ class Voices(unittest.TestCase):
     def setUpClass(cls):
         cls.tmp = Path(tempfile.mkdtemp(prefix="starcards-voices-"))
         write_content(cls.tmp / "content", decks=(DECK_WORDS, DECK_MATH, DECK_STORY, DECK_QUOTES))
-        (cls.tmp / "web").mkdir()
+        (cls.tmp / "web" / "js").mkdir(parents=True)
+        cls.phonics = cls.tmp / "web" / "js" / "phonics.js"
+        cls.phonics.write_text(PHONICS_JS, encoding="utf-8")
         cls.voices_dir = cls.tmp / "voices"
         cls.voices_dir.mkdir()
         (cls.voices_dir / "en_US-test-medium.onnx").write_bytes(b"not a real model")
@@ -1201,8 +1219,8 @@ class Voices(unittest.TestCase):
             return []
         return [json.loads(line) for line in self.piper_log.read_text(encoding="utf-8").splitlines() if line]
 
-    def clip(self, text, rate):
-        return self.tts.clip_path(text, "en_US-test-medium", rate)[0]
+    def clip(self, text, rate, sound=None):
+        return self.tts.clip_path(text, "en_US-test-medium", rate, sound)[0]
 
     def test_voices_are_listed(self):
         resp, out = self.call("GET", "/api/voices")
@@ -1245,6 +1263,86 @@ class Voices(unittest.TestCase):
         self.assertEqual(self.clip("Hi there", 0.7), self.tmp / "tts" / "en_US-test-medium" / "0.70" / f"{digest}.wav")
         self.assertTrue(self.clip("Hi there", 0.7).is_file())
         self.assertEqual(self.clip("Hi there", 0.7).read_bytes(), body)
+
+    def test_a_sound_is_cut_without_a_pause_and_cached_apart(self):
+        # kind=sound: piper leaves no pause after the clip (--sentence_silence 0, so the sounds of a
+        # word do not drag), and the clip has its own cache folder, <pace>-snd.
+        resp, body = self.call("GET", "/api/tts?text=Sound%20it%20out&rate=0.7&kind=sound")
+        self.assertEqual(resp.status, 200, body)
+        self.assertEqual((self.calls()[-1]["text"], self.calls()[-1]["sentence_silence"]), ("Sound it out", "0"))
+        digest = hashlib.sha1(b"Sound it out").hexdigest()
+        as_sound = self.tmp / "tts" / "en_US-test-medium" / "0.70-snd" / f"{digest}.wav"
+        self.assertTrue(as_sound.is_file())
+        self.assertEqual(self.clip("Sound it out", 0.7, sound=True), as_sound)
+        self.assertTrue(self.tts.clip_path("Sound it out", "en_US-test-medium", 0.7, True)[3])
+        etag = resp.getheader("ETag")
+        # The same text without the flag is a line: its own render, with the pause, in the plain folder.
+        n = len(self.calls())
+        resp2, _ = self.call("GET", "/api/tts?text=Sound%20it%20out&rate=0.7")
+        self.assertEqual(resp2.status, 200)
+        self.assertEqual(len(self.calls()), n + 1)
+        self.assertEqual(self.calls()[-1]["sentence_silence"], "0.2")
+        self.assertNotEqual(resp2.getheader("ETag"), etag)
+        as_line = self.tmp / "tts" / "en_US-test-medium" / "0.70" / f"{digest}.wav"
+        self.assertEqual(self.clip("Sound it out", 0.7), as_line)
+        self.assertTrue(as_line.is_file())
+        self.assertFalse(self.tts.clip_path("Sound it out", "en_US-test-medium", 0.7)[3])
+        # Asked again with the flag: the sound clip, straight from the cache.
+        resp3, _ = self.call("GET", "/api/tts?text=Sound%20it%20out&rate=0.7&kind=sound")
+        self.assertEqual((resp3.status, resp3.getheader("ETag")), (200, etag))
+        self.assertEqual(len(self.calls()), n + 1)
+        # Without the flag the server decides: a sound string from phonics.js (however long, even with a
+        # space) or anything as short as one is a sound; a longer word or a line is not.
+        etags = {}
+        for text, folder, silence in (("shhhh", "0.70-snd", "0"), ("thuh thuh", "0.70-snd", "0"),
+                                      ("cats", "0.70-snd", "0"), ("catch", "0.70", "0.2"), ("a cat", "0.70", "0.2")):
+            resp, _ = self.call("GET", f"/api/tts?text={quote(text)}&rate=0.7")
+            self.assertEqual(resp.status, 200, text)
+            self.assertEqual(self.calls()[-1]["sentence_silence"], silence, text)
+            self.assertEqual(self.clip(text, 0.7).parent.name, folder, text)
+            etags[text] = resp.getheader("ETag")
+        # Any other kind is ignored: the server decides, and finds the clip it made above.
+        n = len(self.calls())
+        resp, _ = self.call("GET", "/api/tts?text=catch&rate=0.7&kind=word")
+        self.assertEqual((resp.status, resp.getheader("ETag"), len(self.calls())), (200, etags["catch"], n))
+        # A sound asked for as a sound is the same clip the rule made, not a second one.
+        resp, _ = self.call("GET", "/api/tts?text=shhhh&rate=0.7&kind=sound")
+        self.assertEqual((resp.status, resp.getheader("ETag"), len(self.calls())), (200, etags["shhhh"], n))
+
+    def test_sounds_come_from_phonics_js_and_follow_its_edits(self):
+        sounds = self.server.app.sounds
+        self.assertIs(self.tts.sounds, sounds)                          # the App wired its list into the voice
+        self.assertEqual(sounds.strings, PHONICS_SOUNDS)
+        self.assertIn("thuh thuh", sounds)
+        self.assertNotIn("duh", sounds)                                 # the built-in list is not in use
+        texts = [t for t, _ in server.tts_corpus(self.server.app.content, "stories", sounds=sounds.strings)]
+        self.assertTrue(all(s in texts for s in PHONICS_SOUNDS))
+        self.assertNotIn("duh", texts)
+        original = self.phonics.read_text(encoding="utf-8")
+        etag = sounds.etag
+        try:
+            # The lead retunes a sound: the next look re-reads the file, and a tap on the new spelling
+            # (no flag from the tablet) is cut as a sound.
+            time.sleep(0.02)
+            self.phonics.write_text(original.replace("th: 'thuh thuh',", "th: 'thuh thuh', d: 'duhhh',"),
+                                    encoding="utf-8")
+            self.assertIn("duhhh", sounds)
+            self.assertEqual(sounds.strings, PHONICS_SOUNDS + ("duhhh",))
+            self.assertNotEqual(sounds.etag, etag)
+            resp, _ = self.call("GET", "/api/tts?text=duhhh&rate=0.7")
+            self.assertEqual(resp.status, 200)
+            self.assertEqual(self.calls()[-1]["sentence_silence"], "0")
+            self.assertEqual(self.clip("duhhh", 0.7).parent.name, "0.70-snd")
+            # The file gone: the built-in list stands in, and "duhhh" is a plain word again.
+            self.phonics.unlink()
+            self.assertIn("duh", sounds)
+            self.assertEqual(sounds.strings, tuple(server.SOUND_STRINGS))
+            self.assertNotIn("duhhh", sounds)
+            self.assertEqual(self.clip("duhhh", 0.7).parent.name, "0.70")
+        finally:
+            self.phonics.write_text(original, encoding="utf-8")
+            sounds.refresh()
+        self.assertEqual(sounds.strings, PHONICS_SOUNDS)
 
     def test_head_sizes_a_clip(self):
         resp, body = self.call("HEAD", "/api/tts?text=Head%20only")
@@ -1357,8 +1455,9 @@ class Voices(unittest.TestCase):
 
     def test_prerender_fills_the_cache_then_has_nothing_to_do(self):
         content = self.server.app.content
-        items = server.tts_corpus(content, "stories")
-        self.assertGreater(len(items), len(server.SOUND_STRINGS))
+        sounds = self.server.app.sounds
+        items = server.tts_corpus(content, "stories", sounds=sounds.strings)
+        self.assertGreater(len(items), len(sounds.strings))
         before = len(self.calls())
         self.tts.LOG_EVERY = 3
         try:
@@ -1371,6 +1470,13 @@ class Voices(unittest.TestCase):
         self.assertEqual(len(self.calls()) - before, counts["made"])
         for text, rate in items:
             self.assertTrue(self.clip(text, rate).is_file(), text)
+        # The sounds were cut as sounds (no pause, their own folder), the lines as lines.
+        for text in sounds.strings:
+            self.assertEqual(self.clip(text, 0.7).parent.name, "0.70-snd", text)
+        silence: dict = {}
+        for c in self.calls():
+            silence.setdefault(c["text"], set()).add(c["sentence_silence"])
+        self.assertEqual((silence["thuh thuh"], silence["Sam has a cat."]), ({"0"}, {"0.2"}))
         self.assertTrue(any("pre-render: 3/" in m for m in self.logs))
         self.assertTrue(any("pre-render done" in m for m in self.logs))
         again = self.tts.prerender(items, pause=0)
@@ -1500,8 +1606,71 @@ class VoiceRules(unittest.TestCase):
             self.assertEqual(len(set(items)), len(items))
             self.assertEqual(server.tts_corpus(content, "stories"), [(t, 0.7) for t in story])
             self.assertEqual(server.tts_corpus(content, "stories", read_rate=0.6)[0], ("The pig is big.", 0.6))
+            # The sounds given (the live list from phonics.js) are the ones said; None is the built-in list.
+            custom = [t for t, _ in server.tts_corpus(content, "stories", sounds=("zzz", "thuh thuh"))]
+            self.assertEqual(custom[7:9], ["zzz", "thuh thuh"])
+            self.assertNotIn("buh", custom)
             with self.assertRaises(ValueError):
                 server.tts_corpus(content, "nope")
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_parse_sound_strings(self):
+        # The values of SOUNDS and SOUNDS_PI, in order, each once: single and double quotes, bare and quoted
+        # keys, line and block comments (a } inside one must not end the table, a // inside a value is not
+        # one), an escaped quote, nesting, a list (not a key: value string, so not taken), trailing commas.
+        src = """
+        // the tables }  (a brace in a comment)
+        export const SOUNDS = {
+          b: 'buh', c: "kuh",                   // single and double quotes
+          'c-soft': 'sss', "g-soft": "juh",     /* quoted keys, a block comment } */
+          site: 'see // not a comment', apos: 'it\\'s',
+          nested: { deep: "deep" }, list: ['not', 'these'],
+          twice: 'buh',
+          last: 'zzz',                          // a trailing comma above
+        };
+        const other = { x: 'nope' };
+        export const SOUNDS_PI = { b: 'buhh', th: "thuh  thuh", };
+        """
+        self.assertEqual(server.parse_sound_strings(src),
+                         ["buh", "kuh", "sss", "juh", "see // not a comment", "it's", "deep", "zzz", "buhh", "thuh thuh"])
+        self.assertEqual(server.parse_sound_strings("const SOUNDS_PI = {\n  'sh': 'shhh'\n};"), ["shhh"])
+        self.assertEqual(server.parse_sound_strings("export const SOUNDS = {};"), [])
+        self.assertEqual(server.parse_sound_strings("export const SOUNDS_EXTRA = { b: 'buh' };"), [])
+        self.assertEqual(server.parse_sound_strings("const x = { b: 'buh' };"), [])
+        self.assertEqual(server.parse_sound_strings(""), [])
+
+    def test_sound_strings_come_from_phonics_js_or_the_built_in_list(self):
+        tmp = Path(tempfile.mkdtemp(prefix="starcards-sounds-"))
+        try:
+            logs = []
+            built_in = list(server.SOUND_STRINGS)
+            self.assertEqual(server.tts_sound_strings(tmp, log=logs.append), built_in)      # no file
+            self.assertIn(f"using the built-in {len(built_in)} sounds", logs[-1])
+            (tmp / "js").mkdir()
+            (tmp / "js" / "phonics.js").write_text("export const NOISES = { b: 'buh' };", encoding="utf-8")
+            self.assertEqual(server.tts_sound_strings(tmp, log=logs.append), built_in)      # no table
+            self.assertIn("no SOUNDS table", logs[-1])
+            (tmp / "js" / "phonics.js").write_text(PHONICS_JS, encoding="utf-8")
+            self.assertEqual(server.tts_sound_strings(tmp, log=logs.append), list(PHONICS_SOUNDS))
+            self.assertIn(f"{len(PHONICS_SOUNDS)} sounds from phonics.js", logs[-1])
+            # The project's own file parses (the lead tunes it; the built-in list is only the fallback).
+            found = server.tts_sound_strings(ROOT / "web", log=logs.append)
+            self.assertGreaterEqual(len(found), 20)
+            self.assertIn("sounds from phonics.js", logs[-1])
+            self.assertTrue(all(0 < len(s) <= server.MAX_TTS_CHARS for s in found))
+            # The watcher holds the list and the rule a voice cuts a sound by.
+            sounds = server.SoundStrings(tmp, log=logs.append)
+            self.assertEqual(sounds.strings, PHONICS_SOUNDS)
+            self.assertIn("thuh thuh", sounds)
+            self.assertNotIn("nope", sounds)
+            tts = server.Tts(None, None, tmp / "c", sounds=sounds)
+            for text, yes in (("buh", True), ("cats", True), ("shhhh", True), ("thuh thuh", True),
+                              ("catch", False), ("a cat", False), ("buh buh", False)):
+                self.assertEqual(tts.is_sound(text), yes, text)
+            bare = server.Tts(None, None, tmp / "c")                    # no list wired: the length rule alone
+            self.assertTrue(bare.is_sound("cats"))
+            self.assertFalse(bare.is_sound("shhhh"))
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
 

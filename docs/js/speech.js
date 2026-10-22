@@ -9,6 +9,12 @@
 //   * utterances can be garbage-collected mid-sentence, so we hold a reference
 //   * an AudioContext only plays once a tap has resumed it, so the Pi's clips go through the
 //     one sfx.js wakes on the first touch instead of a second one of their own
+//
+// Word by word: speak(text, { onWord }) reports the word the voice has reached, so the Read
+// screen can light one word at a time. The Pi's clips have a known length, so the words are
+// spread over it by their letters (wordSchedule). The tablet's voice reports word boundaries
+// on some devices only, so the same spread runs on a timer from an estimate that is tuned to
+// the voice after every sentence it finishes; a real boundary event, when one comes, wins.
 
 import { get as apiGet, storage } from './api.js';
 import * as sfx from './sfx.js';
@@ -19,6 +25,18 @@ const PI = 'pi:';                   // a saved voice id starting with this is on
 const TTS_MAX_CHARS = 300;          // the server's cap; the pre-rendered cache uses the same rule
 const TTS_TIMEOUT_MS = 10000;       // a clip the Pi cannot serve in this time is said by the tablet instead
 const TTS_RETRY_MS = 30000;         // after a failed clip, leave the Pi alone for this long
+// Word timing. A Piper clip starts with about 0.1 s of lead-in and ends with --sentence_silence
+// 0.2 (see server.py), so its words are spread over [LEAD_S, duration - TAIL_S].
+const LEAD_S = 0.08;
+const TAIL_S = 0.25;
+const SERVER_LEAD_MS = 0;           // light a word this much before the clip reaches it (raise if it feels late)
+// The tablet's voice: seconds per weight unit (see wordWeights) at rate 1 before a voice has
+// been measured. A ten-word sentence of fifty letters weighs 63, so it takes about 4 s at 0.7.
+const PACE_START = 0.045;
+const PACE_MIN = 0.015;             // a measurement outside this band is noise (an instant 'end', a stall)
+const PACE_MAX = 0.4;
+const PACE_MIN_WEIGHT = 12;         // learn the pace from sentences only: a lone word is mostly start-up
+const START_FALLBACK_MS = 600;      // no 'start' event by then: run the word timers anyway
 const synth = 'speechSynthesis' in window ? window.speechSynthesis : null;
 
 // Clear, natural voices first. The list also keeps us off the joke voices iOS ships under en-US.
@@ -39,6 +57,7 @@ let serverDownUntil = 0;    // after a clip fails: the tablet speaks until this 
 let unlocked = false;
 let current = null;         // { finish } of what is being said: a tablet utterance or a Pi clip
 let epoch = 0;              // bumped by stop(); lets speakEach bail when something else cancels speech
+const pace = new Map();     // tablet voice URI -> measured seconds per weight unit at rate 1
 // mode 'help' = speak only when needed (the word in a listening question, after a miss,
 // the answer after two misses, 🔊 and Help taps); 'full' = also read titles, questions, choices.
 let settings = { enabled: true, rate: 0.95, mode: 'help' };
@@ -241,8 +260,9 @@ export function stop() {
 // The /api/tts address for a sentence, with the same clean-up the server (and its pre-render)
 // applies: emoji and control characters out, whitespace collapsed, at most 300 characters; the
 // rate on the 0.05 grid between 0.5 and 1.5. The voice may carry its 'pi:' prefix or not, and
-// without one the Pi uses its default voice. Null when nothing is left to say.
-export function ttsUrl(text, voiceId, rate) {
+// without one the Pi uses its default voice. kind 'sound' (a letter sound, not a sentence) asks
+// for a clip without the trailing pause. Null when nothing is left to say.
+export function ttsUrl(text, voiceId, rate, kind = null) {
   // The cut may land between the two halves of a rare non-emoji astral character (𝒜): drop the
   // orphaned half, or encodeURIComponent throws.
   const clean = stripEmoji(String(text == null ? '' : text).replace(/[\u0000-\u001f\u007f]/g, ' '))
@@ -251,20 +271,178 @@ export function ttsUrl(text, voiceId, rate) {
   const wanted = Number(rate);
   const speed = Math.min(1.5, Math.max(0.5, Math.round((Number.isFinite(wanted) && wanted > 0 ? wanted : 1) * 20) / 20));
   const voice = typeof voiceId === 'string' ? voiceId.replace(/^pi:/, '') : '';
-  return `/api/tts?text=${encodeURIComponent(clean)}${voice ? `&voice=${encodeURIComponent(voice)}` : ''}&rate=${speed.toFixed(2)}`;
+  return `/api/tts?text=${encodeURIComponent(clean)}${voice ? `&voice=${encodeURIComponent(voice)}` : ''}&rate=${speed.toFixed(2)}${kind === 'sound' ? '&kind=sound' : ''}`;
 }
 
 function serverReady() {
   return !!serverChosen && Date.now() >= serverDownUntil;
 }
 
+// Is the voice speaking right now one of the Pi's? False when the tablet's own voice stands
+// in: no Pi voice chosen (the demo copy, Piper not installed) or the Pi's last clip failed.
+export function usingServerVoice() {
+  return serverReady();
+}
+
+// ---- word timing -------------------------------------------------------------
+
+// The words of a text as the voice counts them: whitespace-separated, punctuation attached.
+export function wordsOf(text) {
+  return String(text == null ? '' : text).trim().split(/\s+/).filter(Boolean);
+}
+
+// Where each word starts in the text (character offsets, for the tablet's boundary events).
+export function wordStarts(text) {
+  const out = [];
+  const re = /\S+/g;
+  let m;
+  while ((m = re.exec(String(text == null ? '' : text)))) out.push(m.index);
+  return out;
+}
+
+// How long a word takes relative to the others: its letters plus one, at least 2, plus a
+// pause of 2 after a comma, semicolon or colon and 3 after a full stop, ! or ? (a closing
+// quote or bracket after the stop does not hide it).
+export function wordWeights(words) {
+  return words.map((word) => {
+    const letters = (String(word).match(/[\p{L}\p{N}]/gu) || []).length;
+    const tail = String(word).replace(/["'”’)\]]+$/u, '');
+    let weight = Math.max(2, letters + 1);
+    if (/[.!?]$/.test(tail)) weight += 3;
+    else if (/[,;:]$/.test(tail)) weight += 2;
+    return weight;
+  });
+}
+
+// Start times (seconds) that spread the weights over [from, to], in order.
+function spread(weights, from, to) {
+  const total = weights.reduce((a, b) => a + b, 0);
+  const span = Math.max(0, to - from);
+  let before = 0;
+  return weights.map((w) => {
+    const t = from + (total ? (span * before) / total : 0);
+    before += w;
+    return t;
+  });
+}
+
+// When each word of a Pi clip starts, given the clip's length: the words spread by weight over
+// the clip minus Piper's lead-in and the sentence silence at its end (both shortened for a clip
+// too short to hold them). One entry per word, never decreasing.
+export function wordSchedule(text, seconds) {
+  const total = Number(seconds) > 0 ? Number(seconds) : 0;
+  const lead = Math.min(LEAD_S, total * 0.1);
+  const tail = Math.min(TAIL_S, total * 0.3);
+  return spread(wordWeights(wordsOf(text)), lead, Math.max(lead, total - tail));
+}
+
+// Fire light(i) for each word at its start time, counted from t0 (a performance.now() value).
+// Returns a function that cancels what has not fired yet.
+function runSchedule(times, t0, light) {
+  const elapsed = performance.now() - t0;
+  const timers = times.map((t, i) => setTimeout(() => light(i), Math.max(0, t * 1000 - elapsed)));
+  return () => timers.forEach(clearTimeout);
+}
+
+// The tablet voice's measured pace, seconds per weight unit at rate 1.
+function paceOf(voiceKey) {
+  return pace.has(voiceKey) ? pace.get(voiceKey) : PACE_START;
+}
+
+// Tune a voice's pace toward a finished sentence's measured length (an exponential average).
+function learnPace(voiceKey, seconds, rate, weight) {
+  if (!(weight >= PACE_MIN_WEIGHT) || !(seconds > 0) || !(rate > 0)) return;
+  const observed = (seconds * rate) / weight;
+  if (observed < PACE_MIN || observed > PACE_MAX) return;
+  pace.set(voiceKey, paceOf(voiceKey) * 0.6 + observed * 0.4);
+}
+
+// Follows the tablet's voice through a text, word by word, for speak(text, { onWord }).
+//   start()       the voice began (the 'start' event, or the fallback timer): the estimated
+//                 schedule starts ticking
+//   boundary(e)   a 'boundary' event: when it names a word, the schedule is dropped and the
+//                 events lead from here on
+//   finish(ok)    the utterance ended (ok: on its own, so its length tunes the voice's pace)
+//                 or was cut: pending timers are cleared and onWord(-1) is sent
+// Boundary quirks tolerated: charIndex pointing at the space before the word (off by one),
+// an engine reporting the END of each word (seen from the first event, which then lands at
+// the end of the first word), and an engine that reports the same index every time (back to
+// the timers, which then catch up).
+function wordFollower(text, rate, voiceKey, onWord) {
+  const words = wordsOf(text);
+  const starts = wordStarts(text);
+  const weights = wordWeights(words);
+  const total = weights.reduce((a, b) => a + b, 0);
+  const n = words.length;
+  let t0 = null;
+  let cancelTimers = null;
+  let byEvents = false;
+  let endMode = false;
+  let events = 0;
+  let lastChar = -1;
+  let last = -1;
+  let over = false;
+  const light = (i) => {
+    if (over || !onWord || i <= last || i >= n) return;
+    last = i;
+    onWord(i, n);
+  };
+  const startTimers = () => {
+    if (cancelTimers) cancelTimers();
+    cancelTimers = onWord ? runSchedule(spread(weights, 0, (total * paceOf(voiceKey)) / rate), t0, light) : null;
+  };
+  // The word that holds character c, else the next one (c on the space before it), else the last.
+  const wordAt = (c) => {
+    for (let i = 0; i < n; i++) if (c < starts[i] + words[i].length) return i;
+    return n - 1;
+  };
+  return {
+    start() {
+      if (t0 != null || over) return;
+      t0 = performance.now();
+      if (!byEvents) startTimers();
+    },
+    boundary(e) {
+      if (over || !onWord || !n || !e || e.name !== 'word') return;
+      if (t0 == null) t0 = performance.now();
+      const c = Math.max(0, Math.floor(Number(e.charIndex)) || 0);
+      events += 1;
+      if (events === 1 && c >= words[0].length && c <= words[0].length + 1) endMode = true;
+      if (events > 1 && c === lastChar) {            // the engine is not really counting: back to the clock
+        lastChar = -1;
+        byEvents = false;
+        startTimers();
+        return;
+      }
+      lastChar = c;
+      if (!byEvents) {
+        byEvents = true;
+        if (cancelTimers) cancelTimers();
+        cancelTimers = null;
+      }
+      light(wordAt(endMode ? Math.max(0, c - 1) : c));
+    },
+    finish(ok) {
+      if (over) return;
+      over = true;
+      if (cancelTimers) cancelTimers();
+      if (ok && t0 != null) learnPace(voiceKey, (performance.now() - t0) / 1000, rate, total);
+      if (onWord) onWord(-1, n);
+    },
+  };
+}
+
 // Say something. Resolves true when it finished, false if it was cut off or speech is off.
 // Starting a new sentence always cuts off the one before it.
+//   opts.rate    the voice's pace
+//   opts.kind    'sound' for a letter sound (the Pi renders it without the trailing pause)
+//   opts.onWord  onWord(index, count): the voice reached word `index` (0-based, of `count`
+//                whitespace-separated words of the text); onWord(-1, count) when it ended or was cut
 export function speak(text, opts = {}) {
   const words = String(text || '').trim();
   cancelCurrent();
   if (!settings.enabled || !words) return Promise.resolve(false);
-  const url = serverReady() ? ttsUrl(words, serverChosen.id, opts.rate || settings.rate) : null;
+  const url = serverReady() ? ttsUrl(words, serverChosen.id, opts.rate || settings.rate, opts.kind) : null;
   return url ? speakServer(url, words, opts) : speakDevice(words, opts);
 }
 
@@ -275,12 +453,18 @@ function speakDevice(words, opts) {
   return new Promise((resolve) => {
     let settled = false;
     let guard = null;
+    let startFallback = null;
+    let ended = false;                               // the engine's own 'end', not the guard timer
     const utterance = new SpeechSynthesisUtterance(words);
+    const rate = opts.rate || settings.rate;
+    const follow = wordFollower(words, rate, chosen ? chosen.voiceURI : 'default', typeof opts.onWord === 'function' ? opts.onWord : null);
     const finish = (ok) => {
       if (settled) return;
       settled = true;
       clearTimeout(guard);
+      clearTimeout(startFallback);
       if (current && current.utterance === utterance) current = null;
+      follow.finish(ok && ended);
       resolve(ok);
     };
     if (chosen) {
@@ -289,9 +473,11 @@ function speakDevice(words, opts) {
     } else {
       utterance.lang = 'en-US';
     }
-    utterance.rate = opts.rate || settings.rate;
+    utterance.rate = rate;
     utterance.pitch = 1;
-    utterance.onend = () => finish(true);
+    utterance.onstart = () => follow.start();
+    utterance.onboundary = (e) => { if (!settled) follow.boundary(e); };
+    utterance.onend = () => { ended = true; finish(true); };
     utterance.onerror = () => finish(false);
     current = { utterance, finish };
     // A beat after cancel(), or iOS drops the new sentence.
@@ -305,6 +491,7 @@ function speakDevice(words, opts) {
         return;
       }
       guard = setTimeout(() => finish(true), 2500 + words.length * 140);
+      startFallback = setTimeout(() => follow.start(), START_FALLBACK_MS);   // some engines never say 'start'
     }, 70);
   });
 }
@@ -318,11 +505,15 @@ function speakServer(url, words, opts) {
     let settled = false;
     let guard = null;
     let source = null;
+    let cancelWords = null;
+    const onWord = typeof opts.onWord === 'function' ? opts.onWord : null;
+    const count = wordsOf(words).length;
     const me = {};
     const finish = (ok) => {
       if (settled) return;
       settled = true;
       clearTimeout(guard);
+      if (cancelWords) cancelWords();
       if (current === me) current = null;
       if (source) {
         try {
@@ -332,6 +523,7 @@ function speakServer(url, words, opts) {
           /* already finished */
         }
       }
+      if (onWord) onWord(-1, count);
       resolve(ok);
     };
     me.finish = finish;
@@ -348,7 +540,16 @@ function speakServer(url, words, opts) {
         if (resumed && typeof resumed.catch === 'function') resumed.catch(() => {});
       }
       source.start(0);
+      const t0 = performance.now();
       guard = setTimeout(() => finish(true), Math.ceil(clip.duration * 1000) + 1000);
+      if (onWord) {                              // the clip's length is known: the words spread over it
+        let last = -1;
+        cancelWords = runSchedule(wordSchedule(words, clip.duration), t0 - SERVER_LEAD_MS, (i) => {
+          if (settled || i <= last) return;
+          last = i;
+          onWord(i, count);
+        });
+      }
     }).catch((err) => {
       if (settled) return;
       serverDownUntil = Date.now() + TTS_RETRY_MS;
@@ -395,7 +596,7 @@ function decode(ctx, bytes) {
 // Nothing is played, and a failure here is ignored: the real request will tell.
 function prefetch(text, opts) {
   if (!serverReady()) return;
-  const url = ttsUrl(String(text || '').trim(), serverChosen.id, opts.rate || settings.rate);
+  const url = ttsUrl(String(text || '').trim(), serverChosen.id, opts.rate || settings.rate, opts.kind);
   if (!url) return;
   try {
     fetch(url).then((res) => (res.ok ? res.arrayBuffer() : null)).catch(() => {});
@@ -406,14 +607,18 @@ function prefetch(text, opts) {
 
 // Say several things in order, telling the caller which one is being spoken so it
 // can light up the matching button. Stops early if anything else starts speaking.
-//   opts.rate   a speed for this run (the story screens read slower than the quiz)
-//   opts.gapMs  the pause between items (default 180 ms)
+//   opts.rate    a speed for this run (the story screens read slower than the quiz)
+//   opts.gapMs   the pause between items (default 180 ms)
+//   opts.kind    passed to speak() (the sounds of a word are 'sound' clips)
+//   opts.onWord  onWord(itemIndex, wordIndex, wordCount): the voice reached a word of an item
+//                (wordIndex -1 when that item ended or was cut), see speak()
 export async function speakEach(items, onItem, opts = {}) {
   const mine = epoch;              // if stop() is called from elsewhere, epoch changes and we bail
+  const onWord = typeof opts.onWord === 'function' ? opts.onWord : null;
   for (let i = 0; i < items.length; i++) {
     if (mine !== epoch) break;
     if (onItem) onItem(i);
-    const saying = speak(items[i], opts);
+    const saying = speak(items[i], onWord ? { ...opts, onWord: (w, n) => onWord(i, w, n) } : opts);
     if (i + 1 < items.length) prefetch(items[i + 1], opts);     // the next clip is on its way meanwhile
     const ok = await saying;
     if (!ok || mine !== epoch) {

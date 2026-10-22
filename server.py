@@ -696,10 +696,12 @@ READ_RATE = 0.7                    # the story voice's default pace (readRate in
 QUIZ_RATE = 0.85                   # the quiz voice's default pace (speechRate)
 VOICE_ID_RE = re.compile(r"^[A-Za-z0-9_.-]+$")
 VOICE_NAMES = {"en_US-amy-medium": "Amy", "en_US-ryan-medium": "Ryan", "en_US-lessac-medium": "Lessac"}
-# What 🔤 Sound it out says for each sound (the values of SOUNDS in web/js/phonics.js), so the
-# pre-render has every sound ready before the first word is sounded out.
+# What 🔤 Sound it out said for each sound when this was written (the values of SOUNDS in
+# web/js/phonics.js). Only the fallback: the live list is parsed out of that file by tts_sound_strings(),
+# since those spellings get tuned, and the pre-render must have the sounds the tablet asks for.
 SOUND_STRINGS = ("buh kuh duh fff guh huh juh lll mmm nnn puh kwuh rrr sss tuh vvv wuh ks yuh zzz "
                  "shh chuh thh ng aa eh ih ah uh ay ee eye oh you ow oy aw oo ar or er air ear").split()
+MAX_SOUND_CHARS = 4                # a text no longer than this (and without a space) is cut as a sound
 # Pictographs outside the symbol blocks that EMOJI in web/js/logic.js also strips: ©, ®, ™, ‼, ⁉, ℹ, 〰,
 # the arrows ↔…↙ ↩ ↪ ⤴ ⤵, the emoji variation selector and the keycap mark, and the few emoji that
 # Unicode files as maths or punctuation rather than symbols (◻ ◼ ◽ ◾ ♯ 〽).
@@ -768,11 +770,127 @@ def clamp_rate(rate) -> float:
     return round(math.floor(rate * 20 + 0.5) / 20, 2)
 
 
+# Just enough JavaScript to read the sound tables out of web/js/phonics.js: string literals (kept whole,
+# so a // or a } inside one cannot mislead), comments (blanked), and `key: 'value'` pairs with the key
+# bare or quoted.
+_JS_QUOTED = r"'(?:[^'\\\n]|\\.)*'|\"(?:[^\"\\\n]|\\.)*\""
+_JS_STRING = re.compile(_JS_QUOTED + r"|`(?:[^`\\]|\\.)*`", re.S)
+_JS_COMMENT_OR_STRING = re.compile(r"//[^\n]*|/\*.*?\*/|" + _JS_STRING.pattern, re.S)
+_JS_PAIR = re.compile(r"(?<![\w$'\"`])(?:[A-Za-z_$][\w$]*|" + _JS_QUOTED + r")\s*:\s*(" + _JS_QUOTED + r")")
+_JS_TABLE = re.compile(r"\b(?:export\s+)?(?:const|let|var)\s+(SOUNDS|SOUNDS_PI)\s*=\s*\{")
+_JS_ESCAPES = {"n": "\n", "t": "\t", "r": "\r", "0": "\0"}
+
+
+def _js_string(token: str) -> str:
+    """The text of a quoted JavaScript literal: 'it\\'s' -> it's (the common escapes only)."""
+    return re.sub(r"\\(.)", lambda m: _JS_ESCAPES.get(m.group(1), m.group(1)), token[1:-1], flags=re.S)
+
+
+def _js_object_body(src: str, start: int) -> str:
+    """src[start] is a '{': the text up to its matching '}' (braces inside strings do not count)."""
+    depth, i = 0, start
+    while i < len(src):
+        ch = src[i]
+        if ch in "'\"`":
+            m = _JS_STRING.match(src, i)
+            i = m.end() if m else i + 1
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return src[start + 1:i]
+        i += 1
+    return src[start + 1:]                              # never closed: take what is there
+
+
+def parse_sound_strings(source: str) -> list[str]:
+    """The values of the SOUNDS and SOUNDS_PI tables in the source of web/js/phonics.js, in order and
+    each once, as the voice gets them: every quoted string on the right of a key inside
+    `export const SOUNDS = { ... };` (keys bare or quoted; comments, nesting and trailing commas do not
+    matter; either table may be missing). An empty list when neither table is there."""
+    src = _JS_COMMENT_OR_STRING.sub(lambda m: " " if m.group(0)[0] == "/" else m.group(0), source)
+    out: list[str] = []
+    for table in _JS_TABLE.finditer(src):
+        for pair in _JS_PAIR.finditer(_js_object_body(src, table.end() - 1)):
+            text = normalize_speech(_js_string(pair.group(1)))
+            if text and text not in out:
+                out.append(text)
+    return out
+
+
+def tts_sound_strings(web_dir, log=print) -> list[str]:
+    """What 🔤 Sound it out can ask the voice for: the SOUNDS (and SOUNDS_PI) values parsed out of
+    <web_dir>/js/phonics.js. The built-in SOUND_STRINGS when the file cannot be read or holds no table,
+    so the pre-render still has sounds ready; either way the count is logged."""
+    path = Path(web_dir) / "js" / "phonics.js"
+    try:
+        found = parse_sound_strings(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        log(f"tts: cannot read {path} ({e}): using the built-in {len(SOUND_STRINGS)} sounds")
+        return list(SOUND_STRINGS)
+    if not found:
+        log(f"tts: no SOUNDS table in {path}: using the built-in {len(SOUND_STRINGS)} sounds")
+        return list(SOUND_STRINGS)
+    log(f"tts: {len(found)} sounds from {path.name}")
+    return found
+
+
+class SoundStrings:
+    """The sounds 🔤 Sound it out says, from web/js/phonics.js, re-read when that file changes (as Content
+    re-reads the decks): a sound's clip is cut differently from a word's, and the pre-render wants every
+    sound ready, so the server must know the tablet's current spellings, not a copy of its own.
+
+    strings is the list in the file's order; `text in sounds` asks whether a (normalized) text is one of
+    them; etag changes when the list does.
+    """
+
+    def __init__(self, web_dir, log=print):
+        self.web_dir = Path(web_dir)
+        self.path = self.web_dir / "js" / "phonics.js"
+        self.log = log
+        self._lock = threading.Lock()
+        self._sig = None
+        self._loaded = False
+        self.strings: tuple[str, ...] = ()
+        self._set: frozenset[str] = frozenset()
+        self.etag = ""
+        self.refresh()
+
+    def _signature(self):
+        try:
+            st = self.path.stat()
+            return (st.st_mtime_ns, st.st_size)
+        except OSError:
+            return None
+
+    def refresh(self) -> None:
+        sig = self._signature()
+        with self._lock:
+            if self._loaded and sig == self._sig:
+                return
+            strings = tuple(tts_sound_strings(self.web_dir, log=self.log))
+            self.strings = strings
+            self._set = frozenset(strings)
+            self.etag = hashlib.sha1("\n".join(strings).encode("utf-8")).hexdigest()[:12]
+            self._sig = sig
+            self._loaded = True
+
+    def __contains__(self, text) -> bool:
+        self.refresh()
+        return text in self._set
+
+
 def tts_corpus(content: Content, what: str = "all", read_rate: float = READ_RATE,
-               quiz_rate: float = QUIZ_RATE) -> list[tuple[str, float]]:
+               quiz_rate: float = QUIZ_RATE, sounds=None) -> list[tuple[str, float]]:
     """Everything the tablet will ask the voice for, in the order worth having ready: the stories first
     (each line of each page as Read to me says it, every word as a tap says it, the sounds 🔤 Sound it
     out uses), then every question (what == "all"). Distinct (text, rate) pairs, text as the voice gets it.
+
+    sounds is what 🔤 Sound it out says (SoundStrings.strings, parsed from web/js/phonics.js); None means
+    the built-in SOUND_STRINGS. The Tts that renders the list must hold the same SoundStrings, so it cuts
+    those as sounds (Tts.is_sound) and the tablet's request lands on the clip.
     """
     from tools.decodability import pages as passage_pages, word_tokens   # the word rule shared with logic.js
     if what not in ("stories", "all"):
@@ -787,6 +905,7 @@ def tts_corpus(content: Content, what: str = "all", read_rate: float = READ_RATE
             out.append((text, rate))
 
     decks = [content.decks[d] for d in content.order if d in content.decks]
+    sound_strings = SOUND_STRINGS if sounds is None else tuple(sounds)
     sounds_added = False
     for deck in decks:
         passage = deck.get("passage")
@@ -799,7 +918,7 @@ def tts_corpus(content: Content, what: str = "all", read_rate: float = READ_RATE
         for token in word_tokens(passage["text"]):
             add(token, read_rate)                                   # a tapped word, as written (Max's, Hi)
         if not sounds_added:                                        # right after the first story, before more
-            for sound in SOUND_STRINGS:
+            for sound in sound_strings:
                 add(sound, read_rate)
             sounds_added = True
     if what == "all":
@@ -825,12 +944,14 @@ class Tts:
     CHECK_EVERY = 50            # pre-render items between looks at whether the content changed
     LOCK_STALE_S = 600          # a pre-render lock nobody has touched for this long belongs to a dead run
 
-    def __init__(self, cmd, voices_dir, cache_dir, log=print, default_voice: str = "en_US-amy-medium"):
+    def __init__(self, cmd, voices_dir, cache_dir, log=print, default_voice: str = "en_US-amy-medium",
+                 sounds=None):
         self.cmd = [str(c) for c in cmd] if cmd else None
         self.voices_dir = Path(voices_dir) if voices_dir else None
         self.cache_dir = Path(cache_dir)
         self.log = log
         self.wanted = default_voice
+        self.sounds = sounds                    # a SoundStrings: what 🔤 Sound it out says (App wires its own)
         # piper finds espeak-ng-data next to its binary; running from there keeps a relative --model happy too.
         self.cwd = None
         if self.cmd and os.path.isabs(self.cmd[0]) and Path(self.cmd[0]).parent.is_dir():
@@ -901,9 +1022,20 @@ class Tts:
 
     # -- making clips
 
-    def clip_path(self, text, voice_id, rate) -> tuple[Path, str, float]:
-        """Where the clip for this text lives (made or not), with the text and pace as the voice gets them.
-        Raises ApiError for what the voice cannot do: no voice at all, nothing to say, too much, no such voice."""
+    def is_sound(self, text: str) -> bool:
+        """Is this (normalized) text a sound from 🔤 Sound it out rather than a word or a line? Yes for one
+        of the tablet's sound strings, and for anything as short as one (at most MAX_SOUND_CHARS, no
+        space): a sound is cut without the pause piper leaves after a sentence, so it does not drag."""
+        if len(text) <= MAX_SOUND_CHARS and " " not in text:
+            return True
+        return self.sounds is not None and text in self.sounds
+
+    def clip_path(self, text, voice_id, rate, sound=None) -> tuple[Path, str, float, bool]:
+        """Where the clip for this text lives (made or not), with the text and pace as the voice gets them
+        and whether it is cut as a sound (sound=True says so; None leaves it to is_sound()). A sound's clip
+        has its own folder, <pace>-snd, so it is never served for the same text asked for as a word, nor
+        the other way round. Raises ApiError for what the voice cannot do: no voice at all, nothing to say,
+        too much, no such voice."""
         if not self.enabled:
             raise ApiError(503, "No voice on the Pi")
         text = normalize_speech(text)
@@ -914,13 +1046,15 @@ class Tts:
         if not isinstance(voice_id, str) or not VOICE_ID_RE.match(voice_id) or voice_id not in self._voices:
             raise ApiError(404, "No such voice")
         rate = clamp_rate(rate)
+        sound = self.is_sound(text) if sound is None else bool(sound)
         digest = hashlib.sha1(text.encode("utf-8")).hexdigest()
-        return self.cache_dir / voice_id / f"{rate:.2f}" / f"{digest}.wav", text, rate
+        folder = f"{rate:.2f}-snd" if sound else f"{rate:.2f}"
+        return self.cache_dir / voice_id / folder / f"{digest}.wav", text, rate, sound
 
-    def render(self, text, voice_id, rate) -> Path:
+    def render(self, text, voice_id, rate, sound=None) -> Path:
         """The WAV clip for this text: from the cache, or made now by piper. At most MAX_RENDERS run at
-        once, and two requests for the same clip share one render."""
-        path, text, rate = self.clip_path(text, voice_id, rate)
+        once, and two requests for the same clip share one render. sound as in clip_path()."""
+        path, text, rate, sound = self.clip_path(text, voice_id, rate, sound)
         if path.is_file():
             return path
         key = str(path)
@@ -936,14 +1070,14 @@ class Tts:
                 if onnx is None:                    # removed from the folder while we waited for a slot
                     raise ApiError(404, "No such voice")
                 if not path.is_file():
-                    self._run(text, onnx, rate, path)
+                    self._run(text, onnx, rate, path, sound)
         finally:
             with self._cond:
                 self._busy.discard(key)
                 self._cond.notify_all()
         return path
 
-    def _run(self, text: str, onnx: Path, rate: float, path: Path) -> None:
+    def _run(self, text: str, onnx: Path, rate: float, path: Path, sound: bool = False) -> None:
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
         except OSError as e:                    # a read-only or missing cache folder: a plain 500, not a traceback
@@ -951,8 +1085,9 @@ class Tts:
             raise ApiError(500, "The voice could not start") from None
         # Written next to its final name and renamed when whole, so a reader never sees half a clip.
         tmp = path.with_name(f".{path.stem}.{os.getpid()}-{threading.get_ident()}.tmp")
+        # A sound gets no pause after it (0.2 s makes "buh ... kuh ... duh" drag); a line keeps one.
         args = [*self.cmd, "--model", str(onnx), "--output_file", str(tmp),
-                "--length_scale", f"{1 / rate:.3f}", "--sentence_silence", "0.2"]
+                "--length_scale", f"{1 / rate:.3f}", "--sentence_silence", "0" if sound else "0.2"]
         try:
             proc = subprocess.run(args, input=(text + "\n").encode("utf-8"), capture_output=True,
                                   timeout=self.TIMEOUT_S, cwd=self.cwd)
@@ -1005,7 +1140,7 @@ class Tts:
                     counts["stopped"] = "changed"
                     break
                 try:
-                    path, _, _ = self.clip_path(text, voice_id, rate)
+                    path, _, _, _ = self.clip_path(text, voice_id, rate)
                     if path.is_file():
                         counts["cached"] += 1
                     else:
@@ -1097,9 +1232,10 @@ class Tts:
 
 
 def find_tts(data_dir: Path, cmd: str | None = None, voices=None, cache=None,
-             default_voice: str = "en_US-amy-medium", log=print) -> Tts:
+             default_voice: str = "en_US-amy-medium", log=print, sounds=None) -> Tts:
     """A Tts from the flags or environment, else from what deploy/install-voices.sh puts under data_dir:
-    piper/piper/piper, piper/voices/, and the clip cache in tts/."""
+    piper/piper/piper, piper/voices/, and the clip cache in tts/. sounds is its SoundStrings (the App
+    gives it one when None)."""
     command = shlex.split(cmd, posix=os.name != "nt") if cmd else None
     if command and os.name == "nt":
         command = [c[1:-1] if len(c) > 1 and c[0] == c[-1] == '"' else c for c in command]   # "C:\Program Files\..."
@@ -1108,7 +1244,8 @@ def find_tts(data_dir: Path, cmd: str | None = None, voices=None, cache=None,
         if found.is_file():
             command = [str(found)]
     return Tts(command, Path(voices) if voices else Path(data_dir) / "piper" / "voices",
-               Path(cache) if cache else Path(data_dir) / "tts", log=log, default_voice=default_voice)
+               Path(cache) if cache else Path(data_dir) / "tts", log=log, default_voice=default_voice,
+               sounds=sounds)
 
 
 # ------------------------------------------------------------------------ app
@@ -1159,7 +1296,10 @@ class App:
         self.content = Content(content_dir, log=log)
         self.parent = ParentLock(self.db)
         self.tutor = tutor or Tutor(None, None)
+        self.sounds = SoundStrings(self.web_dir, log=log)      # what 🔤 Sound it out says (web/js/phonics.js)
         self.tts = tts or Tts(None, None, data_dir / "tts", log=log)
+        if self.tts.sounds is None:
+            self.tts.sounds = self.sounds
         self.allow_hosts = {h.lower() for h in allow_hosts}
         try:
             self.allow_hosts.add(socket.gethostname().lower())
@@ -1457,11 +1597,18 @@ class App:
 
     def h_tts(self, req: Request):
         """One spoken clip for the tablet (?text=…&voice=…&rate=…) as WAV. The same text, voice and pace
-        always give the same clip, so it is cached for a year; the ETag is the clip's place in the cache."""
+        always give the same clip, so it is cached for a year; the ETag is the clip's place in the cache.
+
+        &kind=sound asks for a 🔤 Sound it out clip: cut without the pause piper leaves after a sentence
+        (--sentence_silence 0, so "buh kuh duh" does not drag) and kept apart from a word's clip (the
+        <pace>-snd cache folder). Without it the server decides (Tts.is_sound): a text that is one of the
+        tablet's sound strings (SOUNDS / SOUNDS_PI in web/js/phonics.js), or as short as one (at most 4
+        characters, no space), is a sound; anything else is a word or a line. Any other kind is ignored."""
         text = req.query.get("text", [""])[0]
         voice = req.query.get("voice", [None])[0] or self.tts.default_voice
         rate = req.query.get("rate", ["1"])[0]
-        path = self.tts.render(text, voice, rate)
+        sound = True if req.query.get("kind", [None])[0] == "sound" else None
+        path = self.tts.render(text, voice, rate, sound=sound)
         where = path.relative_to(self.tts.cache_dir).as_posix()
         etag = f'"{hashlib.sha1(where.encode("utf-8")).hexdigest()}"'
         return FileReply(path, "audio/wav", etag, "public, max-age=31536000, immutable")
@@ -2337,15 +2484,18 @@ def main(argv=None) -> int:
         done = None
         while not stop.is_set():
             app.content.refresh()
-            version = app.content.etag
+            app.sounds.refresh()
+            version = (app.content.etag, app.sounds.etag)      # the decks, and the sound spellings
 
             def changed(v=version) -> bool:
                 app.content.refresh()
-                return app.content.etag != v
+                app.sounds.refresh()
+                return (app.content.etag, app.sounds.etag) != v
 
             if version != done:
                 try:
-                    result = app.tts.prerender(tts_corpus(app.content), stop=stop, changed=changed)
+                    result = app.tts.prerender(tts_corpus(app.content, sounds=app.sounds.strings),
+                                               stop=stop, changed=changed)
                 except Exception:
                     log(f"tts: pre-render crashed\n{traceback.format_exc()}")
                     result = {"stopped": "off"}

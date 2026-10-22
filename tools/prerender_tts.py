@@ -6,9 +6,10 @@
 
 The server does the same by itself in the background after every start (--tts-prerender in server.py);
 deploy/install-voices.sh runs this once right after installing the voices, so the stories are ready
-before the first bedtime. It uses server.py's own Tts and corpus, so a clip made here is exactly the
-clip the tablet gets, and one run at a time holds the cache's prerender.lock: when the service is
-already at it, this says so and leaves it to the service.
+before the first bedtime. It uses server.py's own Tts and corpus (the sounds as web/js/phonics.js spells
+them, cut without a pause), so a clip made here is exactly the clip the tablet gets, and one run at a
+time holds the cache's prerender.lock: when the service is already at it, this says so and leaves it
+to the service.
 
 Exit 0 when every clip is there (or another run is making them), 1 when some could not be made,
 2 when no voice is set up.
@@ -52,7 +53,8 @@ def main(argv=None) -> int:
     def log(msg: str) -> None:
         print(msg, flush=True)
 
-    tts = server.find_tts(args.data_dir, args.piper, args.voices, args.cache, args.voice, log=log)
+    sounds = server.SoundStrings(ROOT / "web", log=log)      # what 🔤 Sound it out says, from web/js/phonics.js
+    tts = server.find_tts(args.data_dir, args.piper, args.voices, args.cache, args.voice, log=log, sounds=sounds)
     if not tts.enabled:
         log("No voice is set up: run deploy/install-voices.sh on the Pi first "
             f"(looked for piper at {args.piper or args.data_dir / 'piper' / 'piper' / 'piper'} "
@@ -63,7 +65,7 @@ def main(argv=None) -> int:
         log(f"Voice {args.voice} is not installed; using {voice}.")
     content = server.Content(args.content_dir, log=log)
     items = server.tts_corpus(content, args.what, read_rate=server.clamp_rate(args.rate),
-                              quiz_rate=server.clamp_rate(args.quiz_rate))
+                              quiz_rate=server.clamp_rate(args.quiz_rate), sounds=sounds.strings)
     counts = tts.prerender(items, voice_id=voice, pause=args.pause)
     if counts["stopped"] == "busy":
         return 0

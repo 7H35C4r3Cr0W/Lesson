@@ -331,6 +331,10 @@ test('splitSounds: letter teams, magic e, soft c, y at the end, silent letters',
   eq(P.soundOut('Cat'), ['kuh', 'aa', 'tuh', 'Cat']);
   eq(P.soundOut('I'), ['eye', 'I']);
 });
+test('SOUNDS_PI (the Pi voice) covers exactly the same sounds as SOUNDS, with no vowel-less strings', () => {
+  eq(Object.keys(P.SOUNDS_PI).sort(), Object.keys(P.SOUNDS).sort());
+  for (const [k, v] of Object.entries(P.SOUNDS_PI)) ok(/[aeiouAEIOU]/.test(v) || v === 'mmm' || v === 'zzz' || v === 'shh', );
+});
 test('splitSounds: g stays hard in get, give, girl and tiger, soft in gem and cage', () => {
   const first = (w) => P.splitSounds(w)[0].sound;
   for (const w of ['get', 'gets', 'getting', 'give', 'giving', 'gives', 'gift', 'girl', 'girls', 'giggled']) eq(first(w), 'guh', w);
@@ -497,6 +501,8 @@ test('ttsUrl: cleans the text like the server does, rounds the rate to 0.05 and 
   ok(S.ttsUrl('cat', 'en_US-amy-medium', 2).endsWith('&rate=1.50'), 'clamped down to 1.5');
   ok(S.ttsUrl('cat', 'en_US-amy-medium', 'nope').endsWith('&rate=1.00'), 'no usable rate means 1.0');
   eq(S.ttsUrl('cat', null, 1), '/api/tts?text=cat&rate=1.00', 'no voice: the Pi picks its default');
+  eq(S.ttsUrl('k', 'pi:v', 0.7, 'sound'), '/api/tts?text=k&voice=v&rate=0.70&kind=sound', 'a letter sound asks for a clip without the trailing pause');
+  eq(S.ttsUrl('k', 'pi:v', 0.7, 'word'), '/api/tts?text=k&voice=v&rate=0.70', 'any other kind is the plain clip');
   const sent = new URL(S.ttsUrl('a'.repeat(400), 'v', 1), location.href).searchParams.get('text');
   eq(sent.length, 300, 'capped at 300 characters');
   const cut = new URL(S.ttsUrl('a'.repeat(299) + '\u{1D49C}b', 'v', 1), location.href).searchParams.get('text');
@@ -513,6 +519,64 @@ test('isServerVoice: only ids with the pi: prefix and a name after it', () => {
   ok(!S.isServerVoice(null));
   ok(!S.isServerVoice(undefined));
   ok(!S.isServerVoice(42));
+});
+test('usingServerVoice: false on this copy (no Pi voice chosen) and a plain boolean', () => {
+  eq(typeof S.usingServerVoice(), 'boolean');
+  ok(S.usingServerVoice() === S.isServerVoice(S.currentVoice()), 'agrees with the voice in use');
+});
+
+// ---- word by word -------------------------------------------------------------
+
+const near = (got, want, msg = '') => eq(got.map((t) => Number(t.toFixed(4))), want, msg);
+
+test('wordsOf: whitespace-separated words, trimmed, punctuation stays on its word', () => {
+  eq(S.wordsOf('  Sam  has\ta big\ncat. '), ['Sam', 'has', 'a', 'big', 'cat.']);
+  eq(S.wordsOf('Get up, Max!'), ['Get', 'up,', 'Max!']);
+  eq(S.wordsOf(''), []);
+  eq(S.wordsOf('   '), []);
+  eq(S.wordsOf(null), []);
+});
+test('wordStarts: the character offset of each word, as the tablet\'s boundary events count', () => {
+  eq(S.wordStarts('Sam has a cat.'), [0, 4, 8, 10]);
+  eq(S.wordStarts('  two  spaces'), [2, 7]);
+  eq(S.wordStarts(''), []);
+});
+test('wordWeights: letters + 1 (at least 2); a comma adds 2, a full stop 3, through a closing quote', () => {
+  eq(S.wordWeights(['a', 'cat', 'black', 'Max,', 'cat.', 'up!”', 'What?', 'Sam:', '—', '...']), [2, 4, 6, 6, 7, 6, 8, 6, 2, 5]);
+  eq(S.wordWeights(["Sam's"]), [5], 'an apostrophe is not a letter');
+  eq(S.wordWeights([]), []);
+});
+test('wordSchedule: one start per word, spread by weight over the clip minus the lead-in and the tail', () => {
+  // weights 4, 4, 7 (total 15) over [0.08, 2 - 0.25]: a span of 1.67
+  near(S.wordSchedule('The cat sat.', 2), [0.08, 0.5253, 0.9707]);
+  eq(S.wordSchedule('The cat sat.', 2).length, 3);
+  eq(S.wordSchedule('', 2), [], 'nothing to say, nothing to light');
+  eq(S.wordSchedule('cat', 2), [0.08], 'a lone word starts after the lead-in');
+});
+test('wordSchedule: never decreasing, first word at the lead-in, last word before the tail', () => {
+  const text = 'Then Max naps on Sam\'s lap. "What a lot of naps!" Sam naps with Max.';
+  const times = S.wordSchedule(text, 6.5);
+  eq(times.length, S.wordsOf(text).length);
+  for (let i = 1; i < times.length; i++) ok(times[i] >= times[i - 1], `word ${i} starts after word ${i - 1}`);
+  ok(Math.abs(times[0] - 0.08) < 1e-9, 'the first word waits for the lead-in');
+  ok(times[times.length - 1] < 6.5 - 0.25, 'the last word starts before the sentence silence');
+});
+test('wordSchedule: a pause after punctuation pushes the next word later', () => {
+  const plain = S.wordSchedule('a b c', 3);
+  const comma = S.wordSchedule('a, b c', 3);
+  const stop = S.wordSchedule('a. b c', 3);
+  near(plain, [0.08, 0.97, 1.86]);
+  near(comma, [0.08, 1.415, 2.0825]);
+  near(stop, [0.08, 1.5633, 2.1567]);
+  ok(comma[1] > plain[1] && stop[1] > comma[1], 'a full stop pauses longer than a comma');
+});
+test('wordSchedule: a clip too short for the lead-in and tail shrinks them; a bad length is all zeros', () => {
+  near(S.wordSchedule('cat', 0.4), [0.04], 'lead-in a tenth of the clip');
+  const tiny = S.wordSchedule('a b', 0.4);
+  near(tiny, [0.04, 0.16], 'the two words share [0.04, 0.28]');
+  eq(S.wordSchedule('a b c', 0), [0, 0, 0]);
+  eq(S.wordSchedule('a b c', NaN), [0, 0, 0]);
+  eq(S.wordSchedule('a b c', -1), [0, 0, 0]);
 });
 
 // ---- DOM and drawings ---------------------------------------------------------

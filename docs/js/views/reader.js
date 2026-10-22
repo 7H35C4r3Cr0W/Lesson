@@ -512,7 +512,10 @@ export function mount(root, scope, deckId) {
     setTimeout(() => el.classList.remove('shake'), SHAKE_MS);
   }
 
-  // 🔊 Read to me: the page line by line, each line lit up as it is read. Tapping again stops.
+  // 🔊 Read to me: the page line by line, one word lit at a time as the voice reaches it. A
+  // line whose spoken words do not match its buttons one for one (they should: the quotes are
+  // stripped before speaking, and punctuation stays on its word) is lit whole instead. Tapping
+  // again stops.
   async function readToMe() {
     if (speaking) {
       speech.stop();                                   // speakEach bails out and the button turns back
@@ -523,9 +526,21 @@ export function mount(root, scope, deckId) {
     speaking = true;
     drawFoot();
     const rows = lineWords[mine];
-    await speech.speakEach(lineTexts[mine].map((line) => line.replace(/["“”]/g, '')), (i) => {
-      rows.forEach((ws, n) => ws.forEach((w) => w.classList.toggle('reading', n === i)));
-    }, { rate: rate() });
+    const lines = lineTexts[mine].map((line) => line.replace(/["“”]/g, ''));
+    const whole = lines.map((line, i) => !rows[i] || passageTokens(line).length !== rows[i].length);
+    // One word of line i (w), the whole line (w null), or nothing on the page (i -1, or w -1).
+    const light = (i, w) => rows.forEach((ws, n) => ws.forEach((btn, k) => btn.classList.toggle('reading', n === i && (w == null || k === w))));
+    await speech.speakEach(lines, (i) => light(i, i >= 0 && whole[i] ? null : -1), {
+      rate: rate(),
+      onWord: (i, w, count) => {
+        if (whole[i]) return;                          // lit whole when the line started
+        if (count !== rows[i].length) {                // the voice counts the words differently: light the whole line
+          whole[i] = true;
+          return light(i, null);
+        }
+        light(i, w);                                   // w of -1: the line is done, nothing lit
+      },
+    });
     if (!scope.alive || run !== readRun) return;
     speaking = false;
     if (!done && page === mine) drawFoot();
