@@ -4,6 +4,7 @@
 // glows. Reading cards only, single words (sentences are skipped).
 
 import { h, clear, once, reducedMotion } from '../dom.js';
+import { promptFace } from './engine.js';
 
 export const meta = { id: 'builder', title: 'Word Builder', emoji: '🧱' };
 
@@ -100,9 +101,9 @@ export function start(game) {
       btn.addEventListener('click', () => game.hear(q, false));
       // The word is shown as well as said: a tablet that stays silent (mute switch, no voice)
       // must never leave the child guessing what to build.
-      prompt.append(btn, h('span', { class: 'game-prompt-text' }, q.prompt));
+      prompt.append(btn, ...promptFace(q));
     } else {
-      prompt.append(h('span', { class: 'game-prompt-text' }, q.prompt),
+      prompt.append(...promptFace(q),            // the drawing or picture clue, then the question
         h('button', { class: 'round speaker', type: 'button', 'aria-label': 'Hear it again', onclick: () => game.hear(q) }, '🔊'));
     }
 

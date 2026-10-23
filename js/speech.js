@@ -439,11 +439,21 @@ function wordFollower(text, rate, voiceKey, onWord) {
 //   opts.onWord  onWord(index, count): the voice reached word `index` (0-based, of `count`
 //                whitespace-separated words of the text); onWord(-1, count) when it ended or was cut
 export function speak(text, opts = {}) {
-  const words = String(text || '').trim();
+  let words = String(text || '').trim();
+  let keep = 1;
+  // A letter sound written "ap|0.65" is the clip of "ap" with only its first 65% played: the
+  // Pi's voice has no spelling for a bare short vowel, so a carrier word is cut short instead.
+  if (opts.kind === 'sound') {
+    const m = /^(.*\S)\|(\d*\.?\d+)$/.exec(words);
+    if (m) {
+      words = m[1];
+      keep = Math.min(1, Math.max(0.2, Number(m[2]) || 1));
+    }
+  }
   cancelCurrent();
   if (!settings.enabled || !words) return Promise.resolve(false);
   const url = serverReady() ? ttsUrl(words, serverChosen.id, opts.rate || settings.rate, opts.kind) : null;
-  return url ? speakServer(url, words, opts) : speakDevice(words, opts);
+  return url ? speakServer(url, words, { ...opts, keep }) : speakDevice(words, opts);
 }
 
 // The tablet's own voice.
@@ -533,15 +543,29 @@ function speakServer(url, words, opts) {
       const ctx = sfx.context();
       source = ctx.createBufferSource();
       source.buffer = clip;
-      source.connect(ctx.destination);           // not chained: older Safari's connect() returns nothing
+      const keep = opts.keep > 0 && opts.keep < 1 ? opts.keep : 1;
+      const played = clip.duration * keep;
+      if (keep < 1) {
+        // Fade the last 20 ms out before the cut so the carrier consonant never clicks.
+        const gain = ctx.createGain();
+        source.connect(gain);
+        gain.connect(ctx.destination);
+        const at = ctx.currentTime;
+        gain.gain.setValueAtTime(1, at);
+        gain.gain.setValueAtTime(1, at + Math.max(0, played - 0.02));
+        gain.gain.linearRampToValueAtTime(0, at + played);
+      } else {
+        source.connect(ctx.destination);         // not chained: older Safari's connect() returns nothing
+      }
       source.onended = () => finish(true);
       if (ctx.state !== 'running') {
         const resumed = ctx.resume();
         if (resumed && typeof resumed.catch === 'function') resumed.catch(() => {});
       }
       source.start(0);
+      if (keep < 1) source.stop(ctx.currentTime + played);
       const t0 = performance.now();
-      guard = setTimeout(() => finish(true), Math.ceil(clip.duration * 1000) + 1000);
+      guard = setTimeout(() => finish(true), Math.ceil(played * 1000) + 1000);
       if (onWord) {                              // the clip's length is known: the words spread over it
         let last = -1;
         cancelWords = runSchedule(wordSchedule(words, clip.duration), t0 - SERVER_LEAD_MS, (i) => {
