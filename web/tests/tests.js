@@ -331,9 +331,13 @@ test('splitSounds: letter teams, magic e, soft c, y at the end, silent letters',
   eq(P.soundOut('Cat'), ['kuh', 'aa', 'tuh', 'Cat']);
   eq(P.soundOut('I'), ['eye', 'I']);
 });
-test('SOUNDS_PI (the Pi voice) covers exactly the same sounds as SOUNDS, with no vowel-less strings', () => {
+test('SOUNDS_PI (the Pi voice) covers exactly the same sounds as SOUNDS; a trim suffix is a fraction', () => {
   eq(Object.keys(P.SOUNDS_PI).sort(), Object.keys(P.SOUNDS).sort());
-  for (const [k, v] of Object.entries(P.SOUNDS_PI)) ok(/[aeiouAEIOU]/.test(v) || v === 'mmm' || v === 'zzz' || v === 'shh', );
+  for (const [k, v] of Object.entries(P.SOUNDS_PI)) {
+    ok(typeof v === 'string' && v.length > 0, `${k} has no sound`);
+    const m = /\|(.*)$/.exec(v);
+    if (m) ok(Number(m[1]) > 0.2 && Number(m[1]) < 1, `${k}: bad trim ${v}`);
+  }
 });
 test('splitSounds: g stays hard in get, give, girl and tiger, soft in gem and cage', () => {
   const first = (w) => P.splitSounds(w)[0].sound;
@@ -631,6 +635,20 @@ for (const game of GAMES) {
     eq(typeof mod.start, 'function', 'start()');
   });
 }
+test('promptFace: a drawing above the words, else the picture clue beside them, text only for a reading card', async () => {
+  const { promptFace } = await import('/js/games/engine.js');
+  const kinds = (q, opts) => promptFace(q, opts).map((el) => el.className);
+  const count = { visual: { type: 'count', emoji: '🐱', n: 3 }, emoji: '🐱' };
+  const drawn = promptFace({ listen: false, prompt: 'How many cats?', card: count });
+  eq(drawn.map((el) => el.className), ['game-visual', 'game-prompt-text'], 'drawing wins over the emoji');
+  ok(drawn[0].querySelector('.visual.count'), 'the drawing is inside .game-visual');
+  eq(drawn[1].textContent, 'How many cats?', 'the words are always shown');
+  eq(kinds({ listen: false, prompt: 'Which one says moo?', card: { emoji: '🐄' } }), ['game-prompt-emoji', 'game-prompt-text']);
+  eq(kinds({ listen: false, prompt: 'Which one says moo?', card: { emoji: '🐄' } }, { emoji: false }), ['game-prompt-text'], '{ emoji: false } when the game shows it elsewhere');
+  eq(kinds({ listen: false, prompt: '2 + 2 = ?', card: {} }), ['game-prompt-text']);
+  eq(kinds({ listen: true, prompt: 'cat', card: count }), ['game-prompt-text'], 'a reading card never shows a picture');
+  eq(kinds({ listen: false, prompt: '?', card: { visual: { type: 'hologram' }, emoji: '🛸' } }), ['game-prompt-emoji', 'game-prompt-text'], 'an unknown drawing falls back to the clue');
+});
 
 // ---- the live content ---------------------------------------------------------
 

@@ -13,6 +13,7 @@ import * as store from '../store.js';
 import * as speech from '../speech.js';
 import * as sfx from '../sfx.js';
 import { go, icon, starCounter, tap } from '../ui.js';
+import { renderVisual } from '../visuals.js';
 import { showDone } from '../views/practice.js';
 
 export const ROUND = 8;              // questions per game round: short on purpose
@@ -168,6 +169,24 @@ export function createGame(root, scope, { meta, pool, exit = '/games', count = R
 
   scope.add(() => speech.stop());
   return game;
+}
+
+// What goes in a game's prompt box for one question, as elements to append: the
+// thing the question is about, then the words. A card with a drawing ("How many
+// cats?" over a row of cats, a clock, a ten-frame) gets that drawing, in a
+// div.game-visual, above the text; a question card with only a picture clue gets
+// the emoji beside the text (pass { emoji: false } when the game already shows
+// it somewhere else). Reading cards are text only: the word is the whole point.
+// The word is shown AND said: a silent tablet must never hide it.
+export function promptFace(q, { emoji = true } = {}) {
+  const out = [];
+  if (!q.listen) {
+    const visual = renderVisual(q.card.visual);
+    if (visual) out.push(h('div', { class: 'game-visual' }, visual));
+    else if (emoji && q.card.emoji) out.push(h('span', { class: 'game-prompt-emoji', 'aria-hidden': 'true' }, q.card.emoji));
+  }
+  out.push(h('span', { class: 'game-prompt-text' }, q.prompt));
+  return out;
 }
 
 // A reusable "tap the right one" strip of big buttons, used by the simpler games.

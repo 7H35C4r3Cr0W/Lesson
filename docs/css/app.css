@@ -1635,3 +1635,36 @@ body[data-theme="day"] .grownup-note a { color: var(--blue-edge); }
 .voice-speed { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 8px; }
 .voice-speed input[type="range"] { flex: 1 1 160px; min-width: 150px; }
 .voice-speed-value { min-width: 3.4em; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--muted); }
+
+/* ---- Game prompts with drawings ---- */
+/* A question card's drawing (count, clock, ten-frame…) sits on its own row above the
+   words, with the 🔊 still beside the words; a card with only a picture clue gets the
+   emoji inline before the words. The drawing is capped at about a fifth of the screen
+   (22vh / 220px at most) so the play area keeps its room; games whose scene is already
+   tight for height (slingshot's canvas, the rocket pad, the frog pond) get a smaller one. */
+.game-prompt { flex-wrap: wrap; row-gap: 4px; }
+.game-visual { flex: 0 0 100%; display: flex; justify-content: center; align-items: center; min-width: 0; max-height: min(22vh, 220px); }
+.game-visual .visual { max-width: 100%; }
+.game-visual svg.visual { height: clamp(64px, 20vh, 200px); width: auto; }
+.game-visual .visual.count { font-size: clamp(22px, 4.4vh, 44px); line-height: 1.12; letter-spacing: 0.06em; }
+.game-visual .visual.graph { gap: 4px; }
+.game-visual .graph-label { font-size: 24px; }
+.game-visual .graph-cell { width: 22px; height: 24px; }
+.game-prompt-emoji { flex: none; font-size: clamp(34px, 6vmin, 56px); line-height: 1; }
+.game-slingshot .game-visual, .game-rocket .game-visual, .game-frog .game-visual { max-height: min(16vh, 160px); }
+.game-slingshot .game-visual svg.visual, .game-rocket .game-visual svg.visual, .game-frog .game-visual svg.visual { height: clamp(56px, 15vh, 150px); }
+.game-slingshot .game-visual .visual.count, .game-rocket .game-visual .visual.count, .game-frog .game-visual .visual.count { font-size: clamp(18px, 3.4vh, 34px); line-height: 1.08; }
+/* the monster shrinks a little to make room for a drawing above its question */
+.monster-scene.has-visual .monster { font-size: clamp(70px, 14vmin, 130px); }
+/* Memory Match: a question pair's prompt face shows its drawing or picture clue, small, over the words */
+.mem-qa { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; max-width: 100%; max-height: 100%; min-height: 0; }
+.mem-visual { display: flex; justify-content: center; max-width: 100%; }
+.mem-visual svg.visual { height: clamp(48px, 10vmin, 92px); width: auto; max-width: 100%; }
+.mem-visual .visual.count { font-size: clamp(16px, 3vmin, 26px); line-height: 1.1; letter-spacing: 0.03em; }
+.mem-visual .visual.graph { gap: 2px; }
+.mem-visual .graph-label { font-size: 16px; width: 1.4em; }
+.mem-visual .graph-bar { border-left-width: 2px; }
+.mem-visual .graph-cell { width: 12px; height: 14px; }
+.mem-emoji { font-size: clamp(28px, 5vmin, 48px); line-height: 1; }
+.mem-qa .mem-text.len-s { font-size: clamp(26px, 5vmin, 44px); }
+.mem-qa .mem-text.len-m { font-size: clamp(18px, 3vmin, 30px); }

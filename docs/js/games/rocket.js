@@ -5,7 +5,7 @@
 // Pure DOM and CSS, no canvas, tap only.
 
 import { h, clear } from '../dom.js';
-import { choiceButtons, missLadder } from './engine.js';
+import { choiceButtons, missLadder, promptFace } from './engine.js';
 
 export const meta = { id: 'rocket', title: 'Rocket Launch', emoji: '🚀' };
 
@@ -104,9 +104,9 @@ export function start(game) {
     if (q.listen) {
       const btn = h('button', { class: 'listen listen-big small', type: 'button', 'aria-label': 'Hear the word' }, '🔊');
       btn.addEventListener('click', () => game.hear(q, false));
-      prompt.append(btn, h('span', { class: 'game-prompt-text' }, q.prompt));      // the word is shown AND said: a silent tablet must never hide it
+      prompt.append(btn, ...promptFace(q));      // the word is shown AND said: a silent tablet must never hide it
     } else {
-      prompt.append(h('span', { class: 'game-prompt-text' }, q.prompt),
+      prompt.append(...promptFace(q),            // the drawing or picture clue, then the question
         h('button', { class: 'round speaker', type: 'button', 'aria-label': 'Hear it again', onclick: () => game.hear(q) }, '🔊'));
     }
     const built = choiceButtons(q, pick, { sizeClass: sizeFor(q.choices) });

@@ -4,7 +4,7 @@
 // one rAF loop with delta time, no assets.
 
 import { h, reducedMotion } from '../dom.js';
-import { choiceButtons, missLadder } from './engine.js';
+import { choiceButtons, missLadder, promptFace } from './engine.js';
 
 export const meta = { id: 'bubbles', title: 'Bubble Pop', emoji: '🔵' };
 
@@ -105,9 +105,9 @@ export function start(game) {
     if (q.listen) {
       const btn = h('button', { class: 'listen listen-big small', type: 'button', 'aria-label': 'Hear the word' }, '🔊');
       btn.addEventListener('click', () => game.hear(q, false));
-      promptBox.append(btn, h('span', { class: 'game-prompt-text' }, q.prompt));      // the word is shown AND said: a silent tablet must never hide it
+      promptBox.append(btn, ...promptFace(q));      // the word is shown AND said: a silent tablet must never hide it
     } else {
-      promptBox.append(h('span', { class: 'game-prompt-text' }, q.prompt),
+      promptBox.append(...promptFace(q),            // the drawing or picture clue, then the question
         h('button', { class: 'round speaker', type: 'button', 'aria-label': 'Hear it again', onclick: () => game.hear(q) }, '🔊'));
     }
     const made = choiceButtons(q, (choice) => choose(choice), { sizeClass: 'size-sm' });

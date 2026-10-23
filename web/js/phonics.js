@@ -33,24 +33,28 @@ export const SOUNDS = {
   ar: 'ar', or: 'or', ore: 'or', er: 'er', ir: 'er', ur: 'er', air: 'air', are: 'air', ear: 'ear',
 };
 
-// The same sounds for the natural voice on the Pi (Piper, whose text rules are espeak-ng's).
-// espeak spells a vowel-less string letter by letter ("fff" became "ef ef ef" and "aa" became
-// "A A"), so every entry here is either a word in its dictionary (ah, eh, uh, oh, ow, oy, aw,
-// er, shh, mmm, zzz, ooh) or a consonant with a short "uh" after it. Long vowels are the
-// letter names, which is exactly their sound. Tuned against the Pi's own audio; keep the keys
-// identical to SOUNDS.
+// The same sounds for the natural voice on the Pi (Piper, whose text rules are espeak-ng's),
+// chosen by rendering candidates on the Pi and matching the audio against reference words
+// (scratchpad tune_sounds.py): "aa"/"ah" both came out as the o in hot, "eh" as a long a,
+// "ih" as a long i and "ow" as oh, while held consonants (fff, sss) were fine. Keep the keys
+// identical to SOUNDS. A value "text|0.6" means: say text, but play only the first 60% of the
+// clip (speech.js), which isolates a short vowel from its carrier consonant.
 export const SOUNDS_PI = {
-  b: 'buh', c: 'kuh', d: 'duh', f: 'fuh', g: 'guh', h: 'huh', j: 'juh', k: 'kuh', l: 'luh', m: 'mmm',
-  n: 'nuh', p: 'puh', qu: 'kwuh', r: 'ruh', s: 'suh', t: 'tuh', v: 'vuh', w: 'wuh', x: 'uks', y: 'yuh', z: 'zzz',
-  'c-soft': 'suh', 'g-soft': 'juh',
-  sh: 'shh', ch: 'chuh', th: 'thuh', ng: 'ung', ck: 'kuh', ph: 'fuh', wh: 'wuh', kn: 'nuh', wr: 'ruh',
-  tch: 'chuh', dge: 'juh', ll: 'luh', ss: 'suh', ff: 'fuh', zz: 'zzz',
-  tt: 'tuh', pp: 'puh', dd: 'duh', bb: 'buh', gg: 'guh', mm: 'mmm', nn: 'nuh', rr: 'ruh',
-  a: 'ah', e: 'eh', i: 'ih', o: 'ah', u: 'uh',
-  'a-long': 'A', 'e-long': 'E', 'i-long': 'I', 'o-long': 'O', 'u-long': 'U',
-  ee: 'E', ea: 'E', ai: 'A', ay: 'A', eigh: 'A', igh: 'I', ie: 'I',
-  'y-ee': 'E', 'y-eye': 'I',
-  oa: 'O', oe: 'O', ou: 'ow', ow: 'ow', oi: 'oy', oy: 'oy', aw: 'aw', au: 'aw', oo: 'ooh', ue: 'U', ew: 'U',
+  // consonants: a held sound where the voice can hold one (fff, sss, mmm), else the sound plus a short uh
+  b: 'buh', c: 'kuh', d: 'duh', f: 'fff', g: 'guh', h: 'huh', j: 'juh', k: 'kuh', l: 'lll', m: 'mmm',
+  n: 'nnn', p: 'puh', qu: 'kwuh', r: 'rrr', s: 'sss', t: 'tuh', v: 'vvv', w: 'wuh', x: 'ks', y: 'yuh', z: 'zzz',
+  'c-soft': 'sss', 'g-soft': 'juh',
+  sh: 'shh', ch: 'chuh', th: 'thh', ng: 'ung', ck: 'kuh', ph: 'fff', wh: 'wuh', kn: 'nnn', wr: 'rrr',
+  tch: 'chuh', dge: 'juh', ll: 'lll', ss: 'sss', ff: 'fff', zz: 'zzz',
+  tt: 'tuh', pp: 'puh', dd: 'duh', bb: 'buh', gg: 'guh', mm: 'mmm', nn: 'nnn', rr: 'rrr',
+  // short vowels: the voice has no spelling for a bare short a, e, i or u, so a tiny carrier word is
+  // rendered and only its first part is played ("text|keep" = play that fraction of the clip)
+  a: 'ap|0.65', e: 'ech|0.65', i: 'iss|0.55', o: 'ah', u: 'up|0.65',
+  // long vowels are the letter names, which is exactly their sound
+  'a-long': 'A', 'e-long': 'ee', 'i-long': 'I', 'o-long': 'O', 'u-long': 'U',
+  ee: 'ee', ea: 'ee', ai: 'A', ay: 'A', eigh: 'A', igh: 'I', ie: 'I',
+  'y-ee': 'ee', 'y-eye': 'I',
+  oa: 'O', oe: 'O', ou: 'ouw', ow: 'ouw', oi: 'oy', oy: 'oy', aw: 'aw', au: 'aw', oo: 'ooo', ue: 'U', ew: 'U',
   ar: 'ar', or: 'or', ore: 'or', er: 'er', ir: 'er', ur: 'er', air: 'air', are: 'air', ear: 'ear',
 };
 

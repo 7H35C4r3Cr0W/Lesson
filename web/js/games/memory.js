@@ -11,6 +11,7 @@
 
 import { h, reducedMotion } from '../dom.js';
 import { answerOf, promptOf, sayAnswer, sayPrompt } from '../logic.js';
+import { renderVisual } from '../visuals.js';
 
 export const meta = { id: 'memory', title: 'Memory Match', emoji: '🃏' };
 
@@ -88,8 +89,15 @@ export function start(game) {
     const { pair, side } = card;
     const text = side === 'prompt' ? pair.prompt : pair.answer;
     // A listening pair's prompt side shows the word too (with its 🔊), so a silent tablet still works.
-    return h('span', { class: `mem-text ${sizeClass(text)}` },
+    const label = h('span', { class: `mem-text ${sizeClass(text)}` },
       side === 'prompt' && pair.listen ? h('span', { class: 'mem-ear', 'aria-hidden': 'true' }, '🔊 ') : null, text);
+    if (side !== 'prompt' || pair.listen) return label;
+    // A question card's prompt side shows what the question is about, small, above the
+    // words: its drawing ("How many cats?" needs its cats) or else its picture clue.
+    const visual = renderVisual(pair.card.visual);
+    const pic = visual ? h('div', { class: 'mem-visual' }, visual)
+      : pair.card.emoji ? h('span', { class: 'mem-emoji', 'aria-hidden': 'true' }, pair.card.emoji) : null;
+    return pic ? h('div', { class: 'mem-qa' }, pic, label) : label;
   }
 
   function labelOf(card) {

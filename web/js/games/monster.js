@@ -2,7 +2,7 @@
 // and it flies into its mouth. Wrong snacks get spat back out, no harm done.
 
 import { h } from '../dom.js';
-import { missLadder } from './engine.js';
+import { missLadder, promptFace } from './engine.js';
 
 export const meta = { id: 'monster', title: 'Feed the Monster', emoji: '👾' };
 
@@ -34,11 +34,13 @@ export function start(game) {
     if (q.listen) {
       const btn = h('button', { class: 'listen listen-big small', type: 'button', 'aria-label': 'Hear the word' }, '🔊');
       btn.addEventListener('click', () => game.hear(q, false));
-      prompt.append(btn, h('span', { class: 'game-prompt-text' }, q.prompt));   // shown and said
+      prompt.append(btn, ...promptFace(q));   // the word is shown AND said: a silent tablet must never hide it
     } else {
-      prompt.append(h('span', { class: 'game-prompt-text' }, q.prompt),
+      prompt.append(...promptFace(q),         // the drawing or picture clue, then the question
         h('button', { class: 'round speaker', type: 'button', 'aria-label': 'Hear it again', onclick: () => game.hear(q) }, '🔊'));
     }
+    // A drawing in the prompt takes height the monster can spare (see .monster-scene.has-visual).
+    scene.classList.toggle('has-visual', Boolean(prompt.querySelector('.game-visual')));
     buttons = q.choices.map((choice, i) => {
       const btn = h('button', { class: 'plate', type: 'button' },
         h('span', { class: 'plate-snack', 'aria-hidden': 'true' }, SNACKS[(i + q.index) % SNACKS.length]),

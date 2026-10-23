@@ -814,7 +814,8 @@ def parse_sound_strings(source: str) -> list[str]:
     out: list[str] = []
     for table in _JS_TABLE.finditer(src):
         for pair in _JS_PAIR.finditer(_js_object_body(src, table.end() - 1)):
-            text = normalize_speech(_js_string(pair.group(1)))
+            # "ap|0.65" = say "ap", play only the first 65% (a trim the tablet applies; the Pi renders "ap")
+            text = normalize_speech(re.sub(r"\|\d*\.?\d+$", "", _js_string(pair.group(1))))
             if text and text not in out:
                 out.append(text)
     return out
